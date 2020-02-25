@@ -1,12 +1,7 @@
-;;; tools/flycheck/config.el -*- lexical-binding: t; -*-
-
-(defvar +flycheck-lazy-idle-delay 3.0
-  "The delay before flycheck checks the buffer, after a check that produces no
-errors.")
-
+;;; checkers/syntax/config.el -*- lexical-binding: t; -*-
 
 ;;
-;;; Packages
+;;; Flycheck
 
 (use-package! flycheck
   :commands flycheck-list-errors flycheck-buffer
@@ -24,11 +19,10 @@ errors.")
 
   ;; Don't commandeer input focus if the error message pops up (happens when
   ;; tooltips and childframes are disabled).
-  (after! flycheck
-    (set-popup-rule! flycheck-error-message-buffer :select nil))
+  (set-popup-rule! "^\\*Flycheck error messages\\*" :select nil)
 
   (add-hook! 'doom-escape-hook :append
-    (defun +flycheck-buffer-h ()
+    (defun +syntax-check-buffer-h ()
       "Flycheck buffer on ESC in normal mode."
       (when flycheck-mode
         (ignore-errors (flycheck-buffer))
@@ -47,7 +41,7 @@ errors.")
 
 (use-package! flycheck-popup-tip
   :commands flycheck-popup-tip-show-popup flycheck-popup-tip-delete-popup
-  :init (add-hook 'flycheck-mode-hook #'+flycheck-init-popups-h)
+  :init (add-hook 'flycheck-mode-hook #'+syntax-init-popups-h)
   :config
   (setq flycheck-popup-tip-error-prefix "✕ ")
   (after! evil
@@ -55,7 +49,7 @@ errors.")
     ;; the cursor's position or cause disruptive input delays.
     (add-hook! '(evil-insert-state-entry-hook evil-replace-state-entry-hook)
                #'flycheck-popup-tip-delete-popup)
-    (defadvice! +flycheck--disable-popup-tip-maybe-a (&rest _)
+    (defadvice! +syntax--disable-flycheck-popup-tip-maybe-a (&rest _)
       :before-while #'flycheck-popup-tip-show-popup
       (if evil-local-mode
           (eq evil-state 'normal)
@@ -65,7 +59,7 @@ errors.")
 (use-package! flycheck-posframe
   :when (featurep! +childframe)
   :defer t
-  :init (add-hook 'flycheck-mode-hook #'+flycheck-init-popups-h)
+  :init (add-hook 'flycheck-mode-hook #'+syntax-init-popups-h)
   :config
   (setq flycheck-posframe-warning-prefix "⚠ "
         flycheck-posframe-info-prefix "··· "
@@ -79,3 +73,7 @@ errors.")
     (add-hook! 'flycheck-posframe-inhibit-functions
                #'evil-insert-state-p
                #'evil-replace-state-p)))
+
+
+;;
+;;; TODO Flymake
