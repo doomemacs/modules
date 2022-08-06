@@ -1,0 +1,9 @@
+#+title:    Doom Emacs - Official Modules
+#+subtitle: The repository for Doom Emacs' official modules
+
+In the future, this repository will hold Doom's official module library (Doom's
+starter kit). Modules here are carefully curated for support with Doom core (and
+each other) by Doom's author and core maintainers. Users will be able to pull it
+in from their ~doom!~ blocks.
+
+For now, it is simply a placeholder.
