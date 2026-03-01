@@ -380,13 +380,13 @@ orderless."
       (setq cand (funcall fun cand)))
     (cl-call-next-method cand prefix suffix index start))
 
-  (defun +vertico-highlight-directory (file)
+  (defun +vertico-highlight-directory-fn (file)
     "If FILE ends with a slash, highlight it as a directory."
     (when (string-suffix-p "/" file)
       (add-face-text-property 0 (length file) 'marginalia-file-priv-dir 'append file))
     file)
 
-  (defun +vertico-highlight-enabled-mode (cmd)
+  (defun +vertico-highlight-enabled-mode-fn (cmd)
     "If MODE is enabled, highlight it as font-lock-constant-face."
     (let ((sym (intern cmd)))
       (with-current-buffer (nth 1 (buffer-list))
@@ -400,7 +400,7 @@ orderless."
 
   (add-to-list 'vertico-multiform-categories
                '(file
-                 (+vertico-transform-functions . +vertico-highlight-directory)))
+                 (+vertico-transform-functions . +vertico-highlight-directory-fn)))
   (add-to-list 'vertico-multiform-commands
                '(execute-extended-command
-                 (+vertico-transform-functions . +vertico-highlight-enabled-mode))))
+                 (+vertico-transform-functions . +vertico-highlight-enabled-mode-fn))))
