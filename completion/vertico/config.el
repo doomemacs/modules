@@ -324,7 +324,24 @@ orderless."
   :config
   (when (modulep! +icons)
     (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-  (advice-add #'marginalia--project-root :override #'doom-project-root)
+
+  ;; Use `doom-project-root' (insert of `project-root') without circumventing
+  ;; marginalia's project root cache.
+  (defadvice! +vertico--marginalia-project-root-a (&rest _)
+    :override #'marginalia--project-root
+    (marginalia--in-minibuffer
+      (when (eq marginalia--project-root 'unset)
+        (setq marginalia--project-root
+              (or (let ((prompt (minibuffer-prompt))
+                        case-fold-search)
+                    (and (string-match
+                          "\\`\\(?:Dired\\|Find file\\) in \\(.*\\): \\'"
+                          prompt)
+                         (match-string 1 prompt)))
+                  (and (doom-project-p)
+                       (doom-project-root)))))
+      marginalia--project-root))
+
   (pushnew! marginalia-command-categories
             '(+default/find-file-under-here . file)
             '(doom/find-file-in-emacsd . project-file)
