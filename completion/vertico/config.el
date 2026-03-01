@@ -299,14 +299,14 @@ orderless."
         cons
         '+vertico-embark-target-package-fn
         (nthcdr pos embark-target-finders)))
-  (defvar-keymap +vertico/embark-doom-package-map
+  (defvar-keymap +vertico-embark-doom-package-map
     :doc "Keymap for Embark package actions for packages installed by Doom."
     :parent embark-general-map
     "h" #'doom/help-packages
     "b" #'doom/bump-package
     "c" #'doom/help-package-config
     "u" #'doom/help-package-homepage)
-  (setf (alist-get 'package embark-keymap-alist) #'+vertico/embark-doom-package-map)
+  (setf (alist-get 'package embark-keymap-alist) #'+vertico-embark-doom-package-map)
   (map! (:map embark-file-map
          :desc "Open target with sudo"        "s"   #'doom/sudo-find-file
          (:when (modulep! :tools magit)
