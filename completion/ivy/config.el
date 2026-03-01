@@ -357,9 +357,7 @@ workable results ripgrep produces, despite the error."
   ;; posframe.
   (dolist (fn '(swiper counsel-rg counsel-grep counsel-git-grep))
     (setf (alist-get fn ivy-posframe-display-functions-alist)
-          #'ivy-display-function-fallback))
-
-  (add-hook 'doom-after-reload-hook #'posframe-delete-all))
+          #'ivy-display-function-fallback)))
 
 
 (use-package! flx

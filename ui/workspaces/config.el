@@ -214,11 +214,8 @@ stored in `persp-save-dir'.")
   ;; Fix #1973: visual selection surviving workspace changes
   (add-hook 'persp-before-deactivate-functions #'deactivate-mark)
 
-  ;; Fix #1017: stop session persistence from restoring a broken posframe
-  (after! posframe
-    (add-hook! 'persp-after-load-state-functions
-      (defun +workspaces-delete-all-posframes-h (&rest _)
-        (posframe-delete-all))))
+  ;; Fix #1017: stop session persistence from restoring broken childframes.
+  (add-hook 'persp-after-load-state-functions #'doom-kill-childframes-h)
 
   ;; Don't try to persist dead/remote buffers. They cause errors.
   (add-hook! 'persp-filter-save-buffers-functions

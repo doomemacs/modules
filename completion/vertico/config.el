@@ -363,9 +363,8 @@ orderless."
 
 (use-package! vertico-posframe
   :when (modulep! +childframe)
-  :hook (vertico-mode . vertico-posframe-mode)
-  :config
-  (add-hook 'doom-after-reload-hook #'posframe-delete-all))
+  :hook (vertico-mode . vertico-posframe-mode))
+
 
 ;; From https://github.com/minad/vertico/wiki#candidate-display-transformations-custom-candidate-highlighting
 ;;
