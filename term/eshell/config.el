@@ -146,7 +146,8 @@ You should use `set-eshell-alias!' to change this.")
   ;; Visual commands require a proper terminal. Eshell can't handle that, so
   ;; it delegates these commands to a term buffer.
   (after! em-term
-    (pushnew! eshell-visual-commands "tmux" "htop" "vim" "nvim" "ncmpcpp"))
+    (dolist (cmd '("tmux" "htop" "vim" "nvim" "ncmpcpp"))
+      (add-to-list 'eshell-visual-commands cmd)))
 
   (after! em-alias
     (setq +eshell--default-aliases eshell-command-aliases-list

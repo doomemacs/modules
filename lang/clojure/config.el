@@ -1,7 +1,9 @@
 ;;; lang/clojure/config.el -*- lexical-binding: t; -*-
 
 (after! projectile
-  (pushnew! projectile-project-root-files "project.clj" "build.boot" "deps.edn"))
+  (add-to-list 'projectile-project-root-files "deps.edn")
+  (add-to-list 'projectile-project-root-files "build.boot")
+  (add-to-list 'projectile-project-root-files "project.clj"))
 
 ;; Large clojure buffers tend to be slower than large buffers of other modes, so
 ;; it should have a lower threshold too.

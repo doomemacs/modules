@@ -19,7 +19,6 @@
   :init
   (setq ido-save-directory-list-file (file-name-concat doom-profile-cache-dir "ido.last"))
   :config
-  (pushnew! ido-ignore-files "\\`.DS_Store$" "Icon\\?$")
   (setq ido-ignore-buffers
         '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*[Hh]elp" "^\\*Buffer"
           "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-" "_region_"
@@ -30,6 +29,9 @@
         ido-create-new-buffer 'always
         ido-enable-flex-matching t
         ido-everywhere t)
+
+  (add-to-list 'ido-ignore-files "\\`.DS_Store$")
+  (add-to-list 'ido-ignore-files "Icon\\?$")
 
   (map! :map (ido-common-completion-map ido-file-completion-map)
         "C-w"  #'ido-delete-backward-word-updir

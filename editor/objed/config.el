@@ -4,7 +4,8 @@
   :after-call pre-command-hook
   :config
   ;; Prevent undo actions from exiting edit state
-  (pushnew! objed-keeper-commands 'undo-fu-only-undo 'undo-fu-only-redo)
+  (add-to-list 'objed-keeper-commands 'undo-fu-only-undo)
+  (add-to-list 'objed-keeper-commands 'undo-fu-only-redo)
 
   (defvar +objed--extra-face-remaps nil)
 

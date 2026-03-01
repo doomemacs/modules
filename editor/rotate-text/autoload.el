@@ -2,9 +2,8 @@
 
 ;;;###autoload
 (with-eval-after-load 'rotate-text
-  (pushnew! rotate-text-words
-            '("true" "false")
-            '("enable" "disable")))
+  (add-to-list 'rotate-text-words '("true" "false"))
+  (add-to-list 'rotate-text-words '("enable" "disable")))
 
 ;;;###autodef
 (cl-defun set-rotate-patterns! (modes &key symbols words patterns)

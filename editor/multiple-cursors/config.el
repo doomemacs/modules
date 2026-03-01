@@ -132,12 +132,11 @@
   ;; our multiple cursors
   (add-hook 'evil-insert-state-entry-hook #'evil-mc-resume-cursors)
 
-  (pushnew! evil-mc-incompatible-minor-modes
-            ;; evil-escape's escape key leaves behind extraneous characters
-            'evil-escape-mode
-            ;; Lispy commands don't register on more than 1 cursor. Lispyville
-            ;; is fine though.
-            'lispy-mode)
+  ;; evil-escape's escape key leaves behind extraneous characters
+  (add-to-list 'evil-mc-incompatible-minor-modes 'evil-escape-mode)
+  ;; Lispy commands don't register on more than 1 cursor. Lispyville is fine
+  ;; though.
+  (add-to-list 'evil-mc-incompatible-minor-modes 'lispy-mode)
 
   (add-hook! 'doom-escape-hook
     (defun +multiple-cursors-escape-multiple-cursors-h ()

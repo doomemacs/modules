@@ -11,10 +11,9 @@
 
 (after! ispell
   ;; Don't spellcheck org blocks
-  (pushnew! ispell-skip-region-alist
-            '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:")
-            '("#\\+BEGIN_SRC" . "#\\+END_SRC")
-            '("#\\+BEGIN_EXAMPLE" . "#\\+END_EXAMPLE"))
+  (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_EXAMPLE" . "#\\+END_EXAMPLE"))
 
   ;; Enable either aspell, hunspell or enchant.
   ;;   If no module flags are given, enable either aspell, hunspell or enchant

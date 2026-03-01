@@ -142,9 +142,9 @@ or if the current buffer is read-only or not file-visiting."
   :when (modulep! +trim)
   :hook (doom-first-buffer . ws-butler-global-mode)
   :config
-  (pushnew! ws-butler-global-exempt-modes
-            'special-mode
-            'comint-mode
-            'term-mode
-            'eshell-mode
-            'diff-mode))
+  (dolist (mode '(special-mode
+                  comint-mode
+                  term-mode
+                  eshell-mode
+                  diff-mode))
+    (add-to-list 'ws-butler-global-exempt-modes mode)))

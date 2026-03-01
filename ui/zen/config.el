@@ -57,20 +57,20 @@
     (when (apply #'derived-mode-p +zen-mixed-pitch-modes)
       (mixed-pitch-mode (if writeroom-mode +1 -1))))
 
-  (pushnew! mixed-pitch-fixed-pitch-faces
-            'solaire-line-number-face
-            'org-date
-            'org-footnote
-            'org-special-keyword
-            'org-property-value
-            'org-ref-cite-face
-            'org-tag
-            'org-todo-keyword-todo
-            'org-todo-keyword-habt
-            'org-todo-keyword-done
-            'org-todo-keyword-wait
-            'org-todo-keyword-kill
-            'org-todo-keyword-outd
-            'org-todo
-            'org-done
-            'font-lock-comment-face))
+  (dolist (face '(solaire-line-number-face
+                  org-date
+                  org-footnote
+                  org-special-keyword
+                  org-property-value
+                  org-ref-cite-face
+                  org-tag
+                  org-todo-keyword-todo
+                  org-todo-keyword-habt
+                  org-todo-keyword-done
+                  org-todo-keyword-wait
+                  org-todo-keyword-kill
+                  org-todo-keyword-outd
+                  org-todo
+                  org-done
+                  font-lock-comment-face))
+    (add-to-list 'mixed-pitch-fixed-pitch-faces face)))

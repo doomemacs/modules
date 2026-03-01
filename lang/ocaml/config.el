@@ -1,7 +1,8 @@
 ;;; lang/ocaml/config.el -*- lexical-binding: t; -*-
 
 (after! projectile
-  (pushnew! projectile-project-root-files "dune-project"))
+  (add-to-list 'projectile-project-root-files "dune-project"))
+
 
 ;;
 ;;; Packages

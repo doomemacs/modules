@@ -11,57 +11,56 @@
         evil-goggles-enable-delete nil
         evil-goggles-enable-change nil)
   :config
-  (pushnew! evil-goggles--commands
-            '(evil-magit-yank-whole-line
-              :face evil-goggles-yank-face
-              :switch evil-goggles-enable-yank
-              :advice evil-goggles--generic-async-advice)
-            '(+evil:yank-unindented
-              :face evil-goggles-yank-face
-              :switch evil-goggles-enable-yank
-              :advice evil-goggles--generic-async-advice)
-            '(+eval:region
-              :face evil-goggles-yank-face
-              :switch evil-goggles-enable-yank
-              :advice evil-goggles--generic-async-advice))
-  (when (modulep! :editor lispy)
-    (pushnew! evil-goggles--commands
-              '(lispyville-delete
-                :face evil-goggles-delete-face
-                :switch evil-goggles-enable-delete
-                :advice evil-goggles--generic-blocking-advice)
-              '(lispyville-delete-line
-                :face evil-goggles-delete-face
-                :switch evil-goggles-enable-delete
-                :advice evil-goggles--delete-line-advice)
-              '(lispyville-yank
-                :face evil-goggles-yank-face
-                :switch evil-goggles-enable-yank
-                :advice evil-goggles--generic-async-advice)
-              '(lispyville-yank-line
-                :face evil-goggles-yank-face
-                :switch evil-goggles-enable-yank
-                :advice evil-goggles--generic-async-advice)
-              '(lispyville-change
-                :face evil-goggles-change-face
-                :switch evil-goggles-enable-change
-                :advice evil-goggles--generic-blocking-advice)
-              '(lispyville-change-line
-                :face evil-goggles-change-face
-                :switch evil-goggles-enable-change
-                :advice evil-goggles--generic-blocking-advice)
-              '(lispyville-change-whole-line
-                :face evil-goggles-change-face
-                :switch evil-goggles-enable-change
-                :advice evil-goggles--generic-blocking-advice)
-              '(lispyville-indent
-                :face evil-goggles-indent-face
-                :switch evil-goggles-enable-indent
-                :advice evil-goggles--generic-async-advice)
-              '(lispyville-join
-                :face evil-goggles-join-face
-                :switch evil-goggles-enable-join
-                :advice evil-goggles--join-advice))))
+  (dolist (cmd `((evil-magit-yank-whole-line
+                  :face evil-goggles-yank-face
+                  :switch evil-goggles-enable-yank
+                  :advice evil-goggles--generic-async-advice)
+                 (+evil:yank-unindented
+                  :face evil-goggles-yank-face
+                  :switch evil-goggles-enable-yank
+                  :advice evil-goggles--generic-async-advice)
+                 (+eval:region
+                  :face evil-goggles-yank-face
+                  :switch evil-goggles-enable-yank
+                  :advice evil-goggles--generic-async-advice)
+                 ,@(when (modulep! :editor lispy)
+                     '((lispyville-delete
+                        :face evil-goggles-delete-face
+                        :switch evil-goggles-enable-delete
+                        :advice evil-goggles--generic-blocking-advice)
+                       (lispyville-delete-line
+                        :face evil-goggles-delete-face
+                        :switch evil-goggles-enable-delete
+                        :advice evil-goggles--delete-line-advice)
+                       (lispyville-yank
+                        :face evil-goggles-yank-face
+                        :switch evil-goggles-enable-yank
+                        :advice evil-goggles--generic-async-advice)
+                       (lispyville-yank-line
+                        :face evil-goggles-yank-face
+                        :switch evil-goggles-enable-yank
+                        :advice evil-goggles--generic-async-advice)
+                       (lispyville-change
+                        :face evil-goggles-change-face
+                        :switch evil-goggles-enable-change
+                        :advice evil-goggles--generic-blocking-advice)
+                       (lispyville-change-line
+                        :face evil-goggles-change-face
+                        :switch evil-goggles-enable-change
+                        :advice evil-goggles--generic-blocking-advice)
+                       (lispyville-change-whole-line
+                        :face evil-goggles-change-face
+                        :switch evil-goggles-enable-change
+                        :advice evil-goggles--generic-blocking-advice)
+                       (lispyville-indent
+                        :face evil-goggles-indent-face
+                        :switch evil-goggles-enable-indent
+                        :advice evil-goggles--generic-async-advice)
+                       (lispyville-join
+                        :face evil-goggles-join-face
+                        :switch evil-goggles-enable-join
+                        :advice evil-goggles--join-advice)))))
+    (add-to-list 'evil-goggles--commands cmd)))
 
 (use-package! goggles
   :unless (modulep! :editor evil)

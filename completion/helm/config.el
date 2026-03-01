@@ -158,9 +158,8 @@ Can be negative.")
   :defer t
   :init
   (after! helm-mode
-    (pushnew! helm-completing-read-handlers-alist
-              '(org-capture . helm-org-completing-read-tags)
-              '(org-set-tags . helm-org-completing-read-tags))))
+    (add-to-list 'helm-completing-read-handlers-alist '(org-capture . helm-org-completing-read-tags))
+    (add-to-list 'helm-completing-read-handlers-alist '(org-set-tags . helm-org-completing-read-tags))))
 
 
 ;; DEPRECATED: Remove when projectile is replaced with project.el

@@ -110,6 +110,6 @@
     ;; `evil-emacs-state-modes', and `wl-summary-mode' won't start in
     ;; `evil-emacs-state' through `wl-summary-mode-hook'.
     (add-hook 'wl-folder-mode-hook #'evil-emacs-state)
-    (pushnew! evil-emacs-state-modes 'wl-summary-mode))
+    (add-to-list 'evil-emacs-state-modes 'wl-summary-mode))
 
   (add-hook 'mime-edit-mode-hook #'auto-fill-mode))

@@ -441,10 +441,10 @@ don't offer any/enough real value to users.")
 (use-package! evil-traces
   :after evil-ex
   :config
-  (pushnew! evil-traces-argument-type-alist
-            '(+evil:align . evil-traces-global)
-            '(+evil:align-right . evil-traces-global)
-            '(+multiple-cursors:evil-mc . evil-traces-substitute))
+  (dolist (argtype '((+evil:align . evil-traces-global)
+                     (+evil:align-right . evil-traces-global)
+                     (+multiple-cursors:evil-mc . evil-traces-substitute)))
+    (add-to-list 'evil-traces-argument-type-alist argtype))
   (evil-traces-mode))
 
 

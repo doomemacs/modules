@@ -18,7 +18,8 @@ If the depth is 1, the first directory in src/java/net/lissner/game/MyClass.java
 If the depth is 2, the first two directories are removed: net.lissner.game.")
 
 (after! projectile
-  (pushnew! projectile-project-root-files "gradlew" "build.gradle"))
+  (add-to-list 'projectile-project-root-files "gradlew")
+  (add-to-list 'projectile-project-root-files "build.gradle"))
 
 
 ;;
