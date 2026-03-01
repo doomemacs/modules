@@ -12,6 +12,10 @@ line with a linewise comment.")
 `+evil/previous-preproc-directive' on ]# and [#, to jump between preprocessor
 directives. By default, this only recognizes C directives.")
 
+
+;;
+;;; Packages
+
 ;; Set these defaults before `evil'; use `defvar' so they can be changed prior
 ;; to loading.
 (defvar evil-want-keybinding (not (modulep! +everywhere)))
@@ -31,9 +35,9 @@ directives. By default, this only recognizes C directives.")
   (setq evil-ex-search-vim-style-regexp t
         evil-ex-visual-char-range t  ; column range for ex commands
         evil-mode-line-format 'nil
-        ;; more vim-like behavior
+        ;; More vim-like behavior
         evil-symbol-word-search t
-        ;; if the current state is obvious from the cursor's color/shape, then
+        ;; If the current state is obvious from the cursor's color/shape, then
         ;; we won't need superfluous indicators to do it instead.
         evil-default-cursor '+evil-default-cursor-fn
         evil-normal-state-cursor 'box
@@ -69,20 +73,20 @@ directives. By default, this only recognizes C directives.")
 
   ;; HACK: `evil-ex-search' (used by `n'/`N') calls `isearch-range-invisible'
   ;;   which temporarily opens fold overlays, but never calls
-  ;;   `isearch-clean-overlays' to restore them. This corrupts org-fold
-  ;;   overlay state, making subtrees permanently unfoldable with TAB.
-  ;;   See emacs-evil/evil#1630, doomemacs/doomemacs#8625.
+  ;;   `isearch-clean-overlays' to restore them. This corrupts org-fold overlay
+  ;;   state, making subtrees permanently unfoldable with TAB. See
+  ;;   emacs-evil/evil#1630, #8625.
   ;; REVIEW: Remove when emacs-evil/evil#1630 is resolved.
   (defadvice! +evil--clean-isearch-overlays-a (&rest _)
     :after #'evil-ex-search
     (isearch-clean-overlays))
 
   ;; PERF: Stop copying the selection to the clipboard each time the cursor
-  ;; moves in visual mode. Why? Because on most non-X systems (and in terminals
-  ;; with clipboard plugins like xclip.el active), Emacs will spin up a new
-  ;; process to communicate with the clipboard for each movement. On Windows,
-  ;; older versions of macOS (pre-vfork), and Waylang (without pgtk), this is
-  ;; super expensive and can lead to freezing and/or zombie processes.
+  ;;   moves in visual mode. Why? Because on most non-X systems (and in
+  ;;   terminals with clipboard plugins like xclip.el active), Emacs will spin
+  ;;   up a new process to communicate with the clipboard for each movement. On
+  ;;   Windows, older versions of macOS (pre-vfork), and Waylang (without pgtk),
+  ;;   this is super expensive and can lead to freezing and/or zombie processes.
   ;;
   ;; UX: It also clobbers clipboard managers (see emacs-evil/evil#336).
   (setq evil-visual-update-x-selection-p nil)
@@ -97,8 +101,8 @@ directives. By default, this only recognizes C directives.")
         '(("^\\*evil-registers" :size 0.3)
           ("^\\*Command Line"   :size 8)))))
 
-  ;; Change the cursor color in emacs state. We do it this roundabout way
-  ;; to ensure changes in theme doesn't break these colors.
+  ;; Change the cursor color in emacs state. We do it this roundabout way to
+  ;; ensure changes in theme doesn't break these colors.
   (add-hook! '(doom-load-theme-hook doom-after-modules-config-hook)
     (defun +evil-update-cursor-color-h ()
       (put 'cursor 'evil-emacs-color  (face-foreground 'warning))
@@ -109,9 +113,10 @@ directives. By default, this only recognizes C directives.")
   (defun +evil-emacs-cursor-fn ()
     (evil-set-cursor-color (get 'cursor 'evil-emacs-color)))
 
-  ;; Ensure `evil-shift-width' always matches `tab-width'; evil does not police
-  ;; this itself, so we must. Except in org-mode, where `tab-width' *must*
-  ;; default to 8, which isn't a sensible default for `evil-shift-width'.
+  ;; HACK: Ensure `evil-shift-width' always matches `tab-width'; evil does not
+  ;;   police this itself, so we must. Except in org-mode, where `tab-width'
+  ;;   *must* default to 8, which isn't a sensible default for
+  ;;   `evil-shift-width'.
   (add-hook! 'after-change-major-mode-hook
     (defun +evil-adjust-shift-width-h ()
       (unless (derived-mode-p 'org-mode)
@@ -284,9 +289,6 @@ don't offer any/enough real value to users.")
       (funcall-interactively fn))))
 
 
-;;
-;;; Packages
-
 (use-package! evil-easymotion
   :after-call doom-first-input-hook
   :commands evilem-create evilem-default-keybindings
@@ -347,8 +349,8 @@ don't offer any/enough real value to users.")
     (dolist (pair '((?\' . ("`" . "\'"))
                     (?\" . ("``" . "\'\'"))))
       (delete (car pair) evil-embrace-evil-surround-keys)
-      ;; Avoid `embrace-add-pair' because it would overwrite the default
-      ;; rules, which we want for other modes
+      ;; Avoid `embrace-add-pair' because it would overwrite the default rules,
+      ;; which we want for other modes
       (push (cons (car pair) (make-embrace-pair-struct
                               :key (car pair)
                               :left (cadr pair)
