@@ -23,14 +23,6 @@
           (remove-hook 'after-change-major-mode-hook fn)
           (add-hook 'change-major-mode-after-body-hook fn 100)))))
 
-  ;; HACK: Now that Doom doesn't eagerly load `info' anymore, envrc--apply can't
-  ;;   get away with referencing `Info-directory-list' without guards or
-  ;;   deferral. See purcell/envrc#117.
-  ;; REVIEW: Address this upstream.
-  (defadvice! +direnv--load-info-a (&rest _)
-    :before #'envrc--apply
-    (require 'info))
-
   ;; HACK: Reloading direnv doesn't restart the associated LSP/eglot clients, so
   ;;   this restarts them for you.
   (when (modulep! :tools lsp)
