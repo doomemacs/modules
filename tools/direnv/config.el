@@ -31,6 +31,27 @@
     :before #'envrc--apply
     (require 'info))
 
+  ;; HACK: Reloading direnv doesn't restart the associated LSP/eglot clients, so
+  ;;   this restarts them for you.
+  (when (modulep! :tools lsp)
+    (defadvice! +direnv--restart-lsp-servers-a (env-dir)
+      :after #'envrc--update-env
+      (let (eglot-servers lsp-servers)
+        (dolist (buf (envrc--mode-buffers))
+          (with-current-buffer buf
+            (when (string= (envrc--find-env-dir) env-dir)
+              (when (bound-and-true-p lsp-mode)
+                (dolist (ws (lsp-workspaces))
+                  (cl-pushnew ws lsp-servers :test #'equal)))
+              (when (bound-and-true-p eglot--managed-mode)
+                (cl-pushnew (eglot-current-server) eglot-servers :test #'equal)))))
+        (when (or eglot-servers lsp-servers)
+          (mapc #'eglot-reconnect eglot-servers)
+          (mapc #'lsp-workspace-restart lsp-servers)
+          (message "Restarted %d lsp/eglot servers associated with direnv"
+                   (+ (length eglot-servers)
+                      (length lsp-servers)))))))
+
   ;; ...However, the above hack causes envrc to trigger in its own, internal
   ;; buffers, causing extra direnv errors.
   (defadvice! +direnv--debounce-update-a (&rest _)
