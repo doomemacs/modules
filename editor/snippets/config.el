@@ -57,6 +57,17 @@
   ;; Exit snippets on ESC from normal mode
   (add-hook 'doom-escape-hook #'yas-abort-snippet)
 
+  ;; HACK: Suppress prompting when snippets are expended for completion or
+  ;;   documentation popups (from corfu, company, etc).
+  ;; REVIEW: Handle this upstream.
+  (defvar yas-prompt-functions)
+  (defadvice! +corfu--suppress-prompts-during-completion-a (fn &rest args)
+    :around #'yasnippet-capf--doc-buffer
+    :around #'company-yasnippet--doc
+    (let ((yas-prompt-functions '(yas-no-prompt))
+          (non-essential t))
+      (apply fn args)))
+
   (after! smartparens
     ;; tell smartparens overlays not to interfere with yasnippet keybinds
     (advice-add #'yas-expand :before #'sp-remove-active-pair-overlay))
