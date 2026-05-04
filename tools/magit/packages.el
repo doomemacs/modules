@@ -8,18 +8,18 @@
 ;;   of only pinning primary packages, but an exception is made because the
 ;;   Magit ecosystem seems prone to breakage.
 
-(package! transient :pin "cd97319a851db9b2ed3faecdb735c6d089edf4e1") ; 0.13.0
-(package! cond-let :pin "8bf87d45e169ebc091103b2aae325aece3aa804d") ; 0.2.2
+(package! transient :pin "43cbef8539e3c7398d0280958b42f94dac7ea7b4") ; 0.13.2
+(package! cond-let :pin "28d3b039a9c1f27ecfea36a7df4c37a3b90e4687") ; 1.0.0
 
 (package! magit :pin "c800f79c2061621fde847f6a53129eca0e8da728") ; 4.5.0
 (when (modulep! +forge)
   (package! closql :pin "947426d0c93e5ad5374c464b2f121c36cdaf2132") ; 2.4.0
   (package! forge
-    :pin "69801d0da19d62b4b68b1f1756900e47ce7e8769" ; 0.6.4
+    :pin "d4eb8d1be55398e350c8a68b0c355f5166418843" ; 0.6.5
     ;; forge depends on ghub, which requires Emacs 29.1+
     :disable (version< emacs-version "29.1"))
   (package! ghub
-    :pin "1fb0fba075cb8b80f9819c874be584dffce50b51" ; 5.1.0
+    :pin "c438abc865964554d0ee0b2d1a7def60de47a224" ; 5.2.0
     ;; ghub requires Emacs 29.1+
     :disable (version< emacs-version "29.1"))
   (package! code-review
