@@ -87,7 +87,7 @@ Won't forward the buffer to chained formatters if successful."
                           (:range ,(list :start (eglot--pos-to-lsp-position (or beg (point-min)))
                                          :end   (eglot--pos-to-lsp-position (or end (point-max)))))))
                        ;; try next chained formatter(s)
-                       ((cl-return (ignore (funcall callback)))))))
+                       ((cl-return-from +format--with-eglot (funcall callback))))))
              (eglot--request
               (eglot--current-server-or-lose)
               method
