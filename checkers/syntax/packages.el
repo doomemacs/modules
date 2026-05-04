@@ -2,10 +2,10 @@
 ;;; checkers/syntax/packages.el
 
 (unless (modulep! +flymake)
-  (package! flycheck :pin "5c24d1b732e86433f34ebf5ec7ca3c985edbc744")
+  (package! flycheck :pin "0e5eb8300d32fd562724216c19eaf199ee1451ab")
   (package! flycheck-popup-tip :pin "ef86aad907f27ca076859d8d9416f4f7727619c6")
   (when (modulep! +childframe)
-    (package! flycheck-posframe :pin "19896b922c76a0f460bf3fe8d8ebc2f9ac9028d8")))
+    (package! flycheck-posframe :pin "aeccb14e90ba25f45e1919b776777fc6ec95e251")))
 
 (when (modulep! +flymake)
   (package! flymake-popon
