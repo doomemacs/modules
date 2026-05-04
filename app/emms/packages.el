@@ -1,4 +1,6 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; app/emms/packages.el
 
-(package! emms :pin "002a8db0913c1780149eb4a9306e6f582efe8974")
+(package! emms
+  :recipe (:host github :repo "emacs-straight/emms")
+  :pin "d4ca43959f76bf8afc1261cdd06b2a419fe058a0")

@@ -6,9 +6,9 @@
 (package! ace-pinyin :pin "47662c0b05775ba353464b44c0f1a037c85e746e")
 (package! pangu-spacing :pin "6509df9c90bbdb9321a756f7ea15bb2b60ed2530")
 (when (modulep! +rime)
-  (package! liberime :pin "23c0caa1bf73f4e9ab58d52dc46cf21088dc6c54"))
+  (package! liberime :pin "2130baba8e5e15922650bc01de95a1d6c6a1c1f7"))
 (when (modulep! +childframe)
-  (package! posframe :pin "3a80911b2f45ce6926196930bb7d5cc662c7b3c8"))
+  (package! posframe :pin "fcf1757baee481f617fbf2dc39f8c561207df263"))
 (when (modulep! :editor evil +everywhere)
   (package! evil-pinyin
     :recipe (:build (:not autoloads))
