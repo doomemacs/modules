@@ -35,21 +35,3 @@
 ;; Delete files to trash on macOS, as an extra layer of precaution against
 ;; accidentally deleting wanted files.
 (setq delete-by-moving-to-trash (not noninteractive))
-
-
-;;
-;;; Packages
-
-(use-package! osx-trash
-  ;; DEPRECATED: Not needed on Emacs 29+. Remove when dropping 28 support.
-  ;;   Fixed by https://debbugs.gnu.org/cgi/bugreport.cgi?bug=21340.
-  :when (< emacs-major-version 29)
-  :commands osx-trash-move-file-to-trash
-  :init
-  ;; Lazy load `osx-trash'
-  (when (not (fboundp 'system-move-file-to-trash))
-    (defun system-move-file-to-trash (file)
-      "Move FILE to trash."
-      (when (and (not (featurep :system 'linux))
-                 (not (file-remote-p default-directory)))
-        (osx-trash-move-file-to-trash file)))))

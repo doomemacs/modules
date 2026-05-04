@@ -14,7 +14,6 @@ This module provides extra functionality for macOS.
 
 ** Packages
 - [[doom-package:ns-auto-titlebar]]
-- [[doom-package:osx-trash]]
 
 ** Hacks
 /No hacks documented for this module./

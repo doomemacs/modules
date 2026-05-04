@@ -150,10 +150,6 @@ if it's callable, `apropos' otherwise."
               #'helpful-at-point
             #'describe-symbol)))))
 
-;; DEPRECATED: Remove when 28 support is dropped.
-(unless (fboundp 'lisp--local-defform-body-p)
-  (fset 'lisp--local-defform-body-p #'ignore))
-
 
 ;;
 ;;; Commands
