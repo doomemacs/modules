@@ -3,7 +3,7 @@
 
 (package! ultra-scroll
   :recipe (:host github :repo "jdtsmith/ultra-scroll")
-  :pin "0a9a26071ec33305cbc7a0f1dc7202702319d51f")
+  :pin "c6decf7754edda0aa7c5a775b7d6147490a8f464")
 
 (when (modulep! +interpolate)
   (package! good-scroll :pin "a7ffd5c0e5935cebd545a0570f64949077f71ee3"))
