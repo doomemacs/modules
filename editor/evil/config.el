@@ -268,7 +268,6 @@ directives. By default, this only recognizes C directives."
 
 The defaults disable modules that we have our own keybinds for or that (IMO)
 don't offer any/enough real value to users.")
-  :init
   (defvar evil-collection-repl-submit-state 'insert)
   (defvar evil-collection-company-use-tng (modulep! :completion company +tng))
   (defvar evil-collection-setup-minibuffer nil)
