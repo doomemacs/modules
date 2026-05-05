@@ -1,7 +1,7 @@
 ;;; term/term/config.el -*- lexical-binding: t; -*-
 
 ;;;###package term
-(add-hook 'term-mode-hook #'hide-mode-line-mode)
+(add-hook 'term-mode-hook #'mode-line-invisible-mode)
 
 
 ;;;###package multi-term

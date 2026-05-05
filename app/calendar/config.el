@@ -67,7 +67,7 @@
            :m "C-j" #'calfw-details-navi-next-item-command)))
 
   (add-hook 'calfw-calendar-mode-hook #'doom-mark-buffer-as-real-h)
-  (add-hook 'calfw-calendar-mode-hook #'hide-mode-line-mode)
+  (add-hook 'calfw-calendar-mode-hook #'mode-line-invisible-mode)
 
   (advice-add #'calfw-render-button :override #'+calendar-calfw-render-button-a))
 

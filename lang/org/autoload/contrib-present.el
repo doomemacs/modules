@@ -66,7 +66,7 @@
       (setq-local cwm-left-fringe-ratio -10)
       (setq-local cwm-centered-window-width 300)
       (centered-window-mode arg))
-    (hide-mode-line-mode arg)
+    (mode-line-invisible-mode arg)
     (+org-pretty-mode arg)
     (cond (org-tree-slide-mode
            (set-window-fringes nil 0 0)

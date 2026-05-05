@@ -40,13 +40,8 @@ powered by the [[doom-package:doom-modeline]] package (where you can find screen
 #+end_quote
 
 ** Hiding the modeline
-- You can use ~M-x hide-mode-line-mode RET~ to hide modeline for the current
+- You can use ~M-x mode-line-invisible-mode RET~ to hide modeline for the current
   buffer.
-- Also, there is ~global-hide-mode-line-mode~ for globally hiding modeline. You
-  can just add =(global-hide-mode-line-mode)= into =~/.doom.d/config.el~.
-- ~hide-mode-line-excluded-modes~ can be set for preventing
-  ~global-hide-mode-line-mode~ hiding modeline for buffers with the
-  corresponding major modes.
 
 ** TODO Switching the modeline and header line
 

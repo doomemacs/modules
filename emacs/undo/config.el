@@ -116,7 +116,7 @@
           (display-buffer-mark-dedicated 'soft)
           (win (split-window (get-buffer-window undo-tree-visualizer-parent-buffer))))
       (with-current-buffer buff
-        (hide-mode-line-mode +1))
+        (mode-line-invisible-mode +1))
       (set-window-buffer win buff)
       (shrink-window-if-larger-than-buffer win)))
 

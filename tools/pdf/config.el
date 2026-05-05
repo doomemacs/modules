@@ -57,7 +57,7 @@
       ("\\(?:^\\*Contents\\|'s annots\\*$\\)" :ignore t)))
 
   ;; The mode-line does serve any useful purpose is annotation windows
-  (add-hook 'pdf-annot-list-mode-hook #'hide-mode-line-mode)
+  (add-hook 'pdf-annot-list-mode-hook #'mode-line-invisible-mode)
 
   ;; HACK: Fix #1107: flickering pdfs when evil-mode is enabled
   (setq-hook! 'pdf-view-mode-hook evil-normal-state-cursor (list nil))

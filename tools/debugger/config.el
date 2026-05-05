@@ -20,7 +20,7 @@
         (dape--default-cwd)))
 
   ;; Mode-line serves no purpose in REPL window.
-  (add-hook 'dape-repl-mode-hook #'hide-mode-line-mode)
+  (add-hook 'dape-repl-mode-hook #'mode-line-invisible-mode)
 
   ;; Persist breakpoints after closing DAPE.
   (dape-breakpoint-global-mode +1)

@@ -270,7 +270,6 @@ restoring it if `+popup-buffer-mode' is disabled."
       (let ((m (if (bound-and-true-p +popup-buffer-mode) +popup-margin-width)))
         (set-window-margins nil m m)))))
 
-(defvar hide-mode-line-format)
 ;;;###autoload
 (defun +popup-set-modeline-on-enable-h ()
   "Don't show modeline in popup windows without a `modeline' window-parameter.
@@ -286,22 +285,19 @@ Any non-nil value besides the above will be used as the raw value for
     (let ((modeline (+popup-parameter 'modeline)))
       (cond ((eq modeline 't))
             ((null modeline)
-             ;; TODO use `mode-line-format' window parameter instead (emacs 26+)
-             (hide-mode-line-mode +1))
-            ((let ((hide-mode-line-format
-                    (if (functionp modeline)
-                        (funcall modeline)
-                      modeline)))
-               (hide-mode-line-mode +1)))))))
+             (mode-line-invisible-mode +1))
+            ((setq-local mode-line-format
+                         (if (functionp modeline)
+                             (funcall modeline)
+                           modeline)))))))
 (put '+popup-set-modeline-on-enable-h 'permanent-local-hook t)
 
 ;;;###autoload
 (defun +popup-unset-modeline-on-disable-h ()
   "Restore the modeline when `+popup-buffer-mode' is deactivated."
   (when (and (not (bound-and-true-p +popup-buffer-mode))
-             (bound-and-true-p hide-mode-line-mode)
-             (not (bound-and-true-p global-hide-mode-line-mode)))
-    (hide-mode-line-mode -1)))
+             (bound-and-true-p mode-line-invisible-mode))
+    (mode-line-invisible-mode -1)))
 
 ;;;###autoload
 (defun +popup-close-on-escape-h ()

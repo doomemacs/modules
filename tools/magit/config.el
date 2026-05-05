@@ -141,7 +141,7 @@ FUNCTION
 
   ;; The mode-line isn't useful in these popups and take up valuable screen
   ;; estate, so free it up.
-  (add-hook 'magit-popup-mode-hook #'hide-mode-line-mode)
+  (add-hook 'magit-popup-mode-hook #'mode-line-invisible-mode)
 
   ;; Add additional switches that seem common enough
   (transient-append-suffix 'magit-fetch "-p"

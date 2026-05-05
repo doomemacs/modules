@@ -125,7 +125,7 @@ You should use `set-eshell-alias!' to change this.")
       (visual-line-mode +1)
       (set-display-table-slot standard-display-table 0 ?\ )))
 
-  (add-hook 'eshell-mode-hook #'hide-mode-line-mode)
+  (add-hook 'eshell-mode-hook #'mode-line-invisible-mode)
 
   ;; Remove hscroll-margin in shells, otherwise you get jumpiness when the
   ;; cursor comes close to the left/right edges of the window.

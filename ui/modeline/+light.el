@@ -579,7 +579,7 @@ lines are selected, or the NxM dimensions of a block selection.")
   (defun +modeline-init-project-or-hide-h ()
     (if (eq major-mode 'magit-status-mode)
         (set-modeline! 'project)
-      (hide-mode-line-mode +1))))
+      (mode-line-invisible-mode +1))))
 
 
 ;;

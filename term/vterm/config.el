@@ -3,7 +3,7 @@
 (use-package! vterm
   :when (bound-and-true-p module-file-suffix)  ; requires dynamic-modules support
   :commands vterm-mode
-  :hook (vterm-mode . hide-mode-line-mode) ; modeline serves no purpose in vterm
+  :hook (vterm-mode . mode-line-invisible-mode) ; modeline serves no purpose in vterm
   :preface
   ;; HACK: Because vterm clusmily forces vterm-module.so's compilation on us
   ;;   when the package is loaded, this is necessary to prevent it when
