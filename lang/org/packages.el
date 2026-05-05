@@ -42,7 +42,7 @@
                (insert-file-contents "org-loaddefs.el")
                (save-excursion (insert "\n"))
                (insert-file-contents afile))))
-  :pin "2ef390bfaf7f8e9206b4c923ea0a849ad427be41"  ; release_9.8.2
+  :pin "2f6959386141ea0f02e84b7b5903c8866caf2636"  ; release_9.8.4
   :env `((org--inhibit-version-check . t)))
 (package! org-contrib
   :recipe (:host github
@@ -66,7 +66,7 @@
 (when (modulep! +dragndrop)
   (package! org-download :pin "c8be2611786d1d8d666b7b4f73582de1093f25ac"))
 (when (modulep! +gnuplot)
-  (package! gnuplot :pin "1a1481109b53a21429f3b919721464dbf3a0b814")
+  (package! gnuplot :pin "ef08de51912c188bdcec3040575749973f4764b6")
   (package! gnuplot-mode :pin "601f6392986f0cba332c87678d31ae0d0a496ce7"))
 (when (modulep! +jupyter)
   (package! jupyter :pin "242fdc709ce0faa3b9ee81dcc48cfd791898e6b8" :freeze t))
@@ -75,7 +75,7 @@
 (when (modulep! +noter)
   (package! org-noter :pin "ab9628e449d76af8b2e5a9d5fead4e03ca76a03d"))
 (when (modulep! +pretty)
-  (package! org-modern :pin "713beb72aed4db43f8a10feed72136e931eb674a")
+  (package! org-modern :pin "df2e0a54f6397391518f817038f9c11dba2851c2")
   (package! org-appear :pin "32ee50f8fdfa449bbc235617549c1bccb503cb09"))
 (when (modulep! +present)
   (package! centered-window
@@ -86,10 +86,10 @@
   (package! revealjs
     :recipe (:host github :repo "hakimel/reveal.js"
              :files ("css" "dist" "js" "plugin"))
-    :pin "b5b37a5fa8af4291ab6780f39514ed6508f9b073"))
+    :pin "76dc90065968d4ead13692489c2c4e506c50e382"))
 (when (or (modulep! +roam)
           (modulep! +roam2))
-  (package! org-roam :pin "7cd906b6f8b18a21766228f074aff24586770934"))
+  (package! org-roam :pin "903bd4ec56d29247990d005ed9052c201e18b812"))
 
 ;;; Babel
 (package! ob-async :pin "9aac486073f5c356ada20e716571be33a350a982")

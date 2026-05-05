@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/ledger/packages.el
 
-(package! ledger-mode :pin "9ab399186fad220f59f3c1bbbcaddabf49ed9de8")
+(package! ledger-mode :pin "ecea91279ce1249cd079b60865436c6ad7806f14")
 
 (when (modulep! :editor evil)
   (package! evil-ledger :pin "7a9f9f5d39c42fffdba8004f8982642351f2b233"))

@@ -12,11 +12,11 @@
 (package! overseer :pin "7fdcf1a6fba6b1569a09c1666b4e51bcde266ed9")
 (package! elisp-def :pin "2451ed6594807448a24a63c51c917727713ed19d")
 (package! elisp-demos :pin "1a108d1c5011f9ced58be2ca98bea1fbd4130a2f")
-(package! let-completion :pin "001f10de44c66d998c2bd90f62192eca3ca0247a")
+(package! let-completion :pin "460cdd5a73d857d6d91469e28f84f02465db8dac")
 (when (modulep! :checkers syntax -flymake)
   (package! flycheck-package :pin "a52e4e95f3151898b36739dfdb4a98b368626fc0"))
 (when (modulep! :checkers syntax +flymake)
-  (package! package-lint-flymake :pin "1c37329703a507fa357302cf6fc29d4f2fe631a8"))
+  (package! package-lint-flymake :pin "7e2dfcf99011fa82d92baba973841db717657964"))
 
 ;; Libraries
-(package! buttercup :pin "cc5a2ab7c7f18aaaf525fac61fe59bae5ad018dd")
+(package! buttercup :pin "2b1537af18498532f7dd58cfee9ac34f7f8a9d4b")

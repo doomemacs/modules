@@ -19,11 +19,11 @@
            (treesit-available-p)
            (> emacs-major-version 29))  ; requires 30+
   (package! clojure-ts-mode :pin "ba6de87b0acb5aa5483f6012611b30f6bf0414f3"))
-(package! clj-refactor :pin "30a9d2716097b825e0cc00cd298dcb9547bcc78d")
-(package! cider :pin "5d003b579c7a7b55321c6e4e672f0f57b4021930")
+(package! clj-refactor :pin "39c9688c79e1d00965621d04c04fe1ddde4b571f")
+(package! cider :pin "e71110778a002e10a7c9763e0e6618a958d0ddb4")
 (when (modulep! :checkers syntax -flymake)
   (package! flycheck-clj-kondo :pin "e38c67ba9db1ea1cbe1b61ab39b506c05efdcdbf"))
 (package! jet :pin "c9a92675efd802f37df5e3eab7858dbbeced6ea4")
 (package! neil
   :recipe (:host github :repo "babashka/neil" :files ("*.el"))
-  :pin "74cc79e4b936487635f964b4619a60fba46714d9")
+  :pin "f2b74b61c94fa668ab4517d4be3930cf64ebb446")
