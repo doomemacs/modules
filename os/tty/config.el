@@ -11,7 +11,8 @@
 (setq visible-cursor nil)
 
 ;; Enable the mouse in terminal Emacs
-(add-hook 'tty-setup-hook #'xterm-mouse-mode)
+(when (< emacs-major-version 31)
+  (add-hook 'tty-setup-hook #'xterm-mouse-mode))
 
 ;; Support for child frames in terminal frames was added in 31. Enable it, if it
 ;; is available.
