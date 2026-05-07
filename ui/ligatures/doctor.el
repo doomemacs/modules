@@ -5,12 +5,9 @@
       (fboundp 'mac-auto-operator-composition-mode))
   (ignore))
 
- ((and (> emacs-major-version 27)
-       (or (featurep 'ns)
+ ((and (or (featurep 'ns)
            (string-match-p "HARFBUZZ" system-configuration-features))
        (featurep 'composite))           ; Emacs loads `composite' at startup
   (ignore))
 
- ((if (featurep :system 'macos)
-      (warn! "The (:ui ligatures) module does not support your version of Emacs. Install emacs-plus with at least Emacs 28, or emacs-mac.")
-    (warn! "The (:ui ligatures) module does not support your version of Emacs. Make sure to have at least Emacs 28 with Harfbuzz configured (should be the default)."))))
+ ((error! "Emacs was not built with Harfbuzz; ligatures won't work!")))

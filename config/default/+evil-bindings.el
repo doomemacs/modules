@@ -580,8 +580,7 @@
 
       ;;; <leader> i --- insert
       (:prefix-map ("i" . "insert")
-       (:when (> emacs-major-version 28)
-         :desc "Emoji"                       "e"   #'emoji-search)
+       :desc "Emoji"                         "e"   #'emoji-search
        (:when (modulep! :ui emoji)
          :desc "Emoji"                       "e"   #'emojify-insert-emoji)
        :desc "Current file name"             "f"   #'+default/insert-file-path

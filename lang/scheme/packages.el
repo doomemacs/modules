@@ -1,11 +1,6 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/scheme/packages.el
 
-(when (< emacs-major-version 29)
-  (package! scheme
-    :recipe (:host gitlab :repo "flatwhatson/scheme-mode")
-    :pin "a713b253d2ff5bbaeef400a7d495f7dfe918a641"))
-
 (when (package! geiser :pin "06c3db4a053331e3d1fb8642a49c7a9b810cf5cb")
   (package! macrostep-geiser :pin "f6a2d5bb96ade4f23df557649af87ebd0cc45125")
   (when (modulep! +chez)

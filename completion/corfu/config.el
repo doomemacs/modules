@@ -210,11 +210,6 @@ See `+corfu-want-minibuffer-completion'."
   (advice-add #'comint-completion-at-point :around #'cape-wrap-nonexclusive)
   (advice-add #'eglot-completion-at-point :around #'cape-wrap-nonexclusive)
   (advice-add #'pcomplete-completions-at-point :around #'cape-wrap-nonexclusive)
-  ;; From the `cape' readme. Without this, Eshell autocompletion is broken on
-  ;; Emacs28.
-  (when (< emacs-major-version 29)
-    (advice-add #'pcomplete-completions-at-point :around #'cape-wrap-silent)
-    (advice-add #'pcomplete-completions-at-point :around #'cape-wrap-purify))
 
   (when (modulep! :lang latex)
     ;; Allow file completion on latex directives.

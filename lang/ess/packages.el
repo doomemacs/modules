@@ -16,7 +16,3 @@
     (package! company-stan :pin "2bfd1484e1a99f9971b1a8aa1b587cdca411ab55"))
   (when (modulep! :checkers syntax -flymake)
     (package! flycheck-stan :pin "2bfd1484e1a99f9971b1a8aa1b587cdca411ab55")))
-
-(when (< emacs-major-version 29)
-  ;; See emacs-ess/ESS#1193
-  (package! xterm-color :pin "86fab1d247eb5ebe6b40fa5073a70dfa487cd465"))

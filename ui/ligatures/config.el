@@ -144,11 +144,7 @@ isn't disabled in `+ligatures-extras-in-modes'."
       (fboundp 'mac-auto-operator-composition-mode))
   (add-hook 'doom-init-ui-hook #'mac-auto-operator-composition-mode 'append))
 
- ;; This module does not support Emacs 27 and less, but if we still try to
- ;; enable ligatures, it will end up in catastrophic work-loss errors, so we
- ;; leave the check here for safety.
- ((and (> emacs-major-version 27)
-       (or (featurep 'ns)
+ ((and (or (featurep 'ns)
            (string-match-p "HARFBUZZ" system-configuration-features))
        (featurep 'composite))   ; Emacs loads `composite' at startup
 

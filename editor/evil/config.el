@@ -59,7 +59,7 @@ directives. By default, this only recognizes C directives."
         evil-undo-system
         (cond ((modulep! :emacs undo +tree) 'undo-tree)
               ((modulep! :emacs undo) 'undo-fu)
-              ((> emacs-major-version 27) 'undo-redo)))
+              ('undo-redo)))
 
   ;; Fix #7141
   (defadvice! +evil--persist-state-a (fn &rest args)
