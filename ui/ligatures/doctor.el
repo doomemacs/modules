@@ -1,5 +1,5 @@
-;; This cond expression mimics the activation conditional of ligatures,
-;; with a fallback that triggers a warning.
+;;; lang/ligatures/doctor.el -*- lexical-binding: t; -*-
+
 (cond
  ((if (featurep :system 'macos)
       (fboundp 'mac-auto-operator-composition-mode))
