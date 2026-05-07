@@ -1,5 +1,11 @@
 ;; editor/evil/autoload/evil.el -*- lexical-binding: t; -*-
 
+;; REVIEW: Remove once juliapath/evil-numbers#30 is addressed or
+;;   juliapath/evil-numbers#31 is merged.
+;;;###autoload
+(or (fboundp 'incf) (defalias 'incf 'cl-incf))
+
+
 ;;;###autodef
 (defun set-evil-initial-state! (modes state)
   "Set the initialize STATE of MODES using `evil-set-initial-state'."
