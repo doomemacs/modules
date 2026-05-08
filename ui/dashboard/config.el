@@ -37,7 +37,7 @@ relative to `+dashboard-banner-dir'. If nil, always use the ASCII banner."
   :type 'function
   :group '+dashboard)
 
-(defcustom +dashboard-banner-vertical-padding '(2 . 3)
+(defcustom +dashboard-banner-vertical-padding '(2 . 2)
   "Number of newlines to pad the banner with, above and below, respectively."
   :type '(cons integer integer)
   :group '+dashboard)
