@@ -57,7 +57,7 @@ Invoked via:
   selection is active, it will be sent to the REPL.
 - ~M-x +eval/open-repl-other-window~ ([[kbd:][SPC o r]])
 - ~M-x +eval/open-repl-same-window~ ([[kbd:][SPC o R]])
-- ~M-x +eval/send-region-to-repl~ ([[kbd:][SPC c s]]) while a selection (and REPL) is
+- ~M-x +eval/buffer-or-region-in-repl~ ([[kbd:][SPC c s]]) while a selection (and REPL) is
   active
 
 * TODO Configuration

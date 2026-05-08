@@ -36,7 +36,7 @@
        :desc "Format buffer/region"                  "f"   #'+format/region-or-buffer
        :desc "Find implementations"                  "i"   #'+lookup/implementations
        :desc "Jump to documentation"                 "k"   #'+lookup/documentation
-       :desc "Send to repl"                          "s"   #'+eval/send-region-to-repl
+       :desc "Send buffer/region to repl"            "s"   #'+eval/buffer-or-region-in-repl
        :desc "Find type definition"                  "t"   #'+lookup/type-definition
        :desc "Delete trailing whitespace"            "w"   #'delete-trailing-whitespace
        :desc "Delete trailing newlines"              "W"   #'doom/delete-trailing-newlines
