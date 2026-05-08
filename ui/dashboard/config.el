@@ -539,7 +539,7 @@ Applies line-prefix and indent-prefix text properties to respect
            (bot-pad (or (cdr-safe +dashboard-banner-vertical-padding) 0))
            (beg (point)))
       (when (> top-pad 0)
-        (insert "\n" (propertize " " 'display `(space :height ,top-pad))))
+        (insert (propertize "\n" 'display `(space :height ,top-pad))))
 
       (insert banner)
       (if-let* (((stringp fancy-splash-image))
@@ -560,8 +560,12 @@ Applies line-prefix and indent-prefix text properties to respect
         (add-text-properties
          beg (point) `(line-prefix ,text-prefix indent-prefix ,text-prefix)))
 
+      ;; If the user's ASCII banner doesn't end in a newline, the last line
+      ;; could be inflated by the following display property.
+      (unless (and (bolp) (eolp)) (insert "\n"))
+
       (when (> bot-pad 0)
-        (insert "\n" (propertize " " 'display `(space :height ,bot-pad)))))))
+        (insert (propertize "\n" 'display `(space :height ,bot-pad)))))))
 
 (defun +dashboard-widget-loaded ()
   "Draw number of modules and packages loaded, and the session's startup time."
