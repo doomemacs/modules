@@ -212,9 +212,9 @@ This module modifies the default keybindings used in
 Consult async commands (e.g. ~consult-ripgrep~) will have a preceding separator
 character (usually ~#~) before the search input. This is known as the =perl=
 splitting style. Input typed after the separator will be fed to the async
-command until you type a second seperator, afterwhich the candidate list will be
+command until you type a second separator, afterwhich the candidate list will be
 filtered with Emacs instead (and can be filtered using [[doom-package:orderless]], for example).
-The specific seperator character can be changed by editing it, and might be
+The specific separator character can be changed by editing it, and might be
 different if the initial input already contains =#=.
 
 Note that grep-like async commands translate the input (between the first and

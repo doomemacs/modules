@@ -53,7 +53,7 @@
                                              unless (string-match-p char query)
                                              return char)
                                     "%")
-                      :seperator ,separator
+                      :separator ,separator
                       :function ,function)
                     consult-async-split-style 'perlalt))
           ;; If the separator character is present *in* the query, escape them.
