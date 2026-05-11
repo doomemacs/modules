@@ -147,7 +147,7 @@ consider whole buffer."
 ;;;###autoload
 (defun +eww/open-in-other-window ()
   "Use `eww-open-in-new-buffer' in another window."
-  (interactive nil 'ewe-mode)
+  (interactive nil 'eww-mode)
   (other-window-prefix)
   (eww-open-in-new-buffer))
 
