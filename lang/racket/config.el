@@ -43,7 +43,8 @@
     (set-rotate-patterns! mode :symbols '(("#true" "#false")))
     (set-formatter! 'raco-fmt '("raco" "fmt") :modes (list mode))
 
-    (add-hook mode-hook #'highlight-quoted-mode)
+    (when (fboundp 'highlight-quoted-mode)
+      (add-hook mode-hook #'highlight-quoted-mode))
 
     (when (modulep! +lsp)
       (add-hook mode-local-vars-hook #'lsp! 'append))

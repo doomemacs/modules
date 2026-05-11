@@ -83,8 +83,6 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   (add-hook! '(emacs-lisp-mode-hook lisp-data-mode-local-vars-hook)
              ;; Allow folding of outlines in comments
              #'outline-minor-mode
-             ;; Make quoted symbols easier to distinguish from free variables
-             #'highlight-quoted-mode
              ;; Extend imenu support to Doom constructs
              #'+emacs-lisp-extend-imenu-h
              ;; Ensure straight sees modifications to installed packages
@@ -147,6 +145,12 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
           "f" #'find-function
           "v" #'find-variable
           "l" #'find-library)))
+
+
+;; Make quoted symbols easier to distinguish from free variables
+(use-package! highlight-quoted
+  :hook emacs-lisp-mode
+  :hook lisp-data-mode-local-vars)
 
 
 (use-package! ielm

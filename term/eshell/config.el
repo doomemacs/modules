@@ -264,7 +264,8 @@ when inhibited to show history matches."
           (add-hook 'pre-command-hook #'+eshell-syntax-highlight-maybe-h nil t)
         (remove-hook 'pre-command-hook #'+eshell-syntax-highlight-maybe-h t))))
 
-  (add-hook 'eshell-syntax-highlighting-elisp-buffer-setup-hook #'highlight-quoted-mode))
+  (when (fboundp 'highlight-quoted-mode)
+    (add-hook 'eshell-syntax-highlighting-elisp-buffer-setup-hook #'highlight-quoted-mode)))
 
 
 (use-package! pcmpl-args
