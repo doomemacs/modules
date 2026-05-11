@@ -76,17 +76,26 @@ Finds correctly active snippets from parent modes (based on Yas' logic)."
                                                         (cons major-mode yas--extra-modes)))
         (t (symbol-name major-mode))))
 
+(defun +snippets--load-from-buffer ()
+  (and (derived-mode-p 'snippet-mode)
+       (apply #'yas--define-snippets-2
+              (yas--table-get-create
+               (or (car (yas--compute-major-mode-and-parents buffer-file-name))
+                   (intern (file-name-sans-extension
+                            (file-name-nondirectory
+                             (directory-file-name default-directory))))))
+              (yas--parse-template buffer-file-name))))
+
 (defun +snippet--abort ()
   (interactive)
   (set-buffer-modified-p nil)
   (kill-current-buffer))
 
-(defvar +snippet--current-snippet-uuid nil)
 (defun +snippet--edit ()
   (interactive)
-  (when +snippet--current-snippet-uuid
+  (when yas--editing-template
     (let ((buf (current-buffer)))
-      (+snippets/edit +snippet--current-snippet-uuid)
+      (+snippets/edit (yas--template-uuid yas--editing-template))
       (kill-buffer buf))))
 
 
@@ -173,11 +182,7 @@ buggy behavior when <delete> is pressed in an empty field."
     (let ((template-path (completing-read "Find snippet: " (mapcar #'abbreviate-file-name files))))
       (unless (file-readable-p template-path)
         (user-error "Cannot read %S" template-path))
-      (find-file template-path)
-      (unless (file-in-directory-p template-path +snippets-dir)
-        (read-only-mode +1)
-        (setq header-line-format "This is a built-in snippet. Press C-c C-e to modify it"
-              +snippet--current-snippet-uuid template-uuid)))))
+      (find-file template-path))))
 
 ;;;###autoload
 (defun +snippets/find-private ()
@@ -196,11 +201,7 @@ buggy behavior when <delete> is pressed in an empty field."
       (progn
         (unless (file-readable-p template-path)
           (user-error "Cannot read %S" template-path))
-        (find-file template-path)
-        (unless (file-in-directory-p template-path +snippets-dir)
-          (read-only-mode +1)
-          (setq header-line-format "This is a built-in snippet. Press C-c C-e to modify it"
-                +snippet--current-snippet-uuid template-uuid)))
+        (find-file template-path))
     (user-error "Cannot find template with UUID %S" template-uuid)))
 
 ;;;###autoload
@@ -280,21 +281,13 @@ shadow the default snippet)."
           (find-file template-path)
         (let ((buf (get-buffer-create (format "*%s*" (file-name-nondirectory template-path)))))
           (with-current-buffer (switch-to-buffer buf)
-            (insert-file-contents template-path)
-            (snippet-mode)
             (setq default-directory
                   (expand-file-name (file-name-nondirectory template-path)
                                     (expand-file-name (symbol-name major-mode)
-                                                      +snippets-dir))))))
+                                                      +snippets-dir)))
+            (insert-file-contents template-path)
+            (snippet-mode))))
     (user-error "Couldn't find a snippet with uuid %S" template-uuid)))
-
-;;;###autoload
-(defun +snippets-show-hints-in-header-line-h ()
-  (setq header-line-format
-        (substitute-command-keys
-         (concat "\\[yas-load-snippet-buffer-and-close] to finish, "
-                 "\\[+snippet--abort] to abort, "
-                 "\\[yas-tryout-snippet] to test it"))))
 
 
 ;;
@@ -310,10 +303,25 @@ shadow the default snippet)."
 
 ;;;###autoload
 (defun +snippets-read-only-maybe-h ()
-  "Enable `read-only-mode' if snippet is built-in."
-  (when (file-in-directory-p default-directory doom-local-dir)
+  "Enable `read-only-mode' if snippet is built into Doom."
+  (when-let* ((template
+               (and (file-in-directory-p (or buffer-file-name default-directory)
+                                         doom-local-dir)
+                    (+snippets--load-from-buffer))))
+    (setq-local yas--editing-template template)
     (read-only-mode 1)
-    (message "This is a built-in snippet, enabling read only mode. Use `yas-new-snippet' to redefine snippets")))
+    (setq header-line-format
+          (substitute-command-keys
+           "Can't modify built-in snippet. Use \\[+snippet--edit] to copy & modify it"))))
+
+;;;###autoload
+(defun +snippets-show-hints-in-header-line-h ()
+  (unless header-line-format
+    (setq header-line-format
+          (substitute-command-keys
+           (concat "\\[yas-load-snippet-buffer-and-close] to finish, "
+                   "\\[+snippet--abort] to abort, "
+                   "\\[yas-tryout-snippet] to test it")))))
 
 
 ;;

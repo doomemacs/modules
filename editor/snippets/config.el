@@ -94,6 +94,7 @@
          [remap yas-new-snippet]        #'+snippets/new
          [remap yas-visit-snippet-file] #'+snippets/edit)
         (:map snippet-mode-map
+         "C-c C-e" #'+snippet--edit
          "C-c C-k" #'+snippet--abort))
 
   ;; REVIEW: Fix #2639: For some reason `yas--all-templates' returns duplicates
