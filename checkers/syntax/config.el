@@ -8,6 +8,10 @@
   :commands flycheck-list-errors flycheck-buffer
   :hook (doom-first-buffer . global-flycheck-mode)
   :config
+  ;; REVIEW: Remove when flycheck/flycheck#2161 is addressed or
+  ;;   flycheck/flycheck#2165 is merged.
+  (setq-default flycheck-disabled-checkers '(org-lint))
+
   (setq flycheck-emacs-lisp-load-path 'inherit)
 
   ;; Rerunning checks on every newline is a mote excessive.
