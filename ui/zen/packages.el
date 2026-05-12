@@ -6,4 +6,4 @@
 (when (modulep! +focus)
   (package! focus :pin "a58e29e70948512dbcdbb24745e3fb0a59984925")
   (when (modulep! :tools lsp -eglot)
-    (package! lsp-focus :pin "e3e666f447d16d3733dd35059411105ae22433c9")))
+    (package! lsp-focus :pin "675a20610c63577bb5363c2ed9b253705bbfee4f")))
