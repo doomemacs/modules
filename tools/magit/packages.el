@@ -8,8 +8,8 @@
 ;;   of only pinning primary packages, but an exception is made because the
 ;;   Magit ecosystem seems prone to breakage.
 
-(package! transient :pin "43cbef8539e3c7398d0280958b42f94dac7ea7b4") ; 0.13.2
-(package! cond-let :pin "28d3b039a9c1f27ecfea36a7df4c37a3b90e4687") ; 1.0.0
+(package! transient :pin "9e78954343613786cdb0659183b766099f051149") ; 0.13.3
+(package! cond-let :pin "7ec5ace3e6acc240179bf3cdeb6f9e6751530c38") ; 1.1.0
 
 (package! magit :pin "c800f79c2061621fde847f6a53129eca0e8da728") ; 4.5.0
 (when (modulep! +forge)

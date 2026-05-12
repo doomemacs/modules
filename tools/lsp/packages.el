@@ -19,12 +19,12 @@
   (eval-and-compile (defvar lsp-use-plists t))
 
   (package! lsp-mode
-    :pin "5d9e72816a36ec5b0fbf128c25f88e5daaae5b41"
+    :pin "e5cdc6c8f4ef7c0cfaa9b4210381b6230d010463"
     :env `(("LSP_USE_PLISTS" . ,(and lsp-use-plists "1"))))
-  (package! lsp-ui :pin "ff349658ed69086bd18c336c8a071ba15f7fd574")
+  (package! lsp-ui :pin "8d888a3ab1ba9e46bd4711398c57d39d0b709a45")
   (when (modulep! :completion ivy)
-    (package! lsp-ivy :pin "8e0b8fdec086375fd7560857a84cd78f5047ad9d"))
+    (package! lsp-ivy :pin "c0930544948dfdb7bf497fc9e58aa6b4b857e237"))
   (when (modulep! :completion helm)
-    (package! helm-lsp :pin "027897a957032e8752780600b21d2c0ea0cf3201"))
+    (package! helm-lsp :pin "056bb16b5f69137218613b7558b477f6b21f22be"))
   (when (modulep! :completion vertico)
     (package! consult-lsp :pin "d11102c9db33c4ca7817296a2edafc3e26a61117")))
