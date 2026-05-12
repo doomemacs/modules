@@ -155,11 +155,11 @@ if it's callable, `apropos' otherwise."
 ;;; Commands
 
 ;;;###autoload
-(defun +emacs-lisp/change-working-buffer (buffer &optional all-buffers)
+(defun +emacs-lisp/change-working-buffer (buffer)
   "Change what buffer `+emacs-lisp-eval-fn' executes code in.
 
-If ALL-BUFFERS? (the prefix arg), the prompted buffer list will include all
-buffers (if don't have the workspaces module enabled, there's no difference).
+If passed the prefix arg, the prompted buffer list will include all buffers (if
+don't have the workspaces module enabled, there's no difference).
 
 This only affects the buffer-local value of `+emacs-lisp-working-buffer'. If
 BUFFER is nil or the focused buffer, unsets `+emacs-lisp-working-buffer's local
@@ -167,11 +167,10 @@ value."
   (interactive
    (list (read-buffer
           "Set working buffer to: " (list (current-buffer))
-          nil (unless all-buffers
+          nil (when current-prefix-arg
                 (let ((buffers (mapcar #'buffer-name (doom-buffer-list))))
                   (lambda (b)
-                    (member (or (car-safe b) b) buffers)))))
-         current-prefix-arg))
+                    (member (or (car-safe b) b) buffers)))))))
   (let ((buffer (if buffer (get-buffer buffer))))
     (cond ((or (null buffer)
                (equal buffer (current-buffer)))
