@@ -11,7 +11,7 @@
 (package! evil-exchange :pin "5f0a2d41434c17c6fb02e4f744043775de1c63a2")
 (package! evil-indent-plus :pin "f392696e4813f1d3a92c7eeed333248914ba6dae")
 (package! evil-lion :pin "5a0bca151466960e090d1803c4c5ded88875f90a")
-(package! evil-nerd-commenter :pin "ae52c5070a48793e2c24474c9c8dbf20175d18a0")
+(package! evil-nerd-commenter :pin "db5ee61a6e75db074b7d20e9dcb68e0b94b4edc7")
 (package! evil-numbers
   ;; REVIEW: Don't byte-compile until juliapath/evil-numbers#30 is addressed.
   :recipe (:build (:not compile))
@@ -38,4 +38,4 @@
     (package! neotree)
     (autoload 'neotree-make-executor "neotree" nil nil 'macro))
 
-  (package! evil-collection :pin "5c79c9e09ca54b285706c38a8e94e29cc17ab00c"))
+  (package! evil-collection :pin "cf16b126feed89c06d86cde7a0276d71ac512857"))
