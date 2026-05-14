@@ -113,3 +113,12 @@ modes explicitly listed in `+word-wrap-disabled-modes'."
 (define-globalized-minor-mode +global-word-wrap-mode
   +word-wrap-mode
   +word-wrap--enable-global-mode)
+
+;;;###autoload
+(defun +word-wrap-adapt-to-line-numbers-h ()
+  (if (bound-and-true-p display-line-numbers)
+      (let ((width (line-number-display-width)))
+        (when (> width 0)
+          (setq-local visual-fill-column-extra-text-width (cons 0 (+ width 2)))))
+    (setq-local visual-fill-column-extra-text-width nil))
+  (visual-fill-column--adjust-window))
