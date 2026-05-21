@@ -25,6 +25,10 @@ capture, the end position, and the output buffer.")
   (sp-local-pair (cons mode extra-modes) "`" "`"
                  :unless '(:add sp-point-before-word-p sp-point-before-same-p))
 
+  (when (modulep! +lsp)
+    (dolist (m (cons mode extra-modes))
+      (add-hook (intern (format "%s-local-vars-hook" m)) #'lsp! 'append)))
+
   (map! :map ,(intern (format "%s-map" mode))
         :localleader
         "'" #'markdown-edit-code-block
