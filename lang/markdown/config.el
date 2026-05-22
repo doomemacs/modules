@@ -1,15 +1,21 @@
 ;;; lang/markdown/config.el -*- lexical-binding: t; -*-
 
-(defvar +markdown-compile-functions
+(defgroup +markddown nil
+  "Enhances support for Markdown in Emacs."
+  :group 'doom+)
+
+(defcustom +markdown-compile-functions
   '(+markdown-compile-marked
     +markdown-compile-pandoc
     +markdown-compile-markdown
     +markdown-compile-multimarkdown)
-  "A list of commands to try when attempting to build a markdown file with
-`markdown-open' or `markdown-preview', stopping at the first one to return non-nil.
+  "A list of functions for `markdown-open' or `markdown-preview' to execute.
 
-Each function takes three argument. The beginning position of the region to
-capture, the end position, and the output buffer.")
+Stops at the first one to return non-nil. Each function takes three argument.
+The beginning position of the region to capture, the end position, and the
+output buffer."
+  :type '(repeat function)
+  :group '+markdown)
 
 
 ;;

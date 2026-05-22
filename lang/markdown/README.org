@@ -47,7 +47,7 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
 - [[doom-package:edit-indirect]]
 - [[doom-package:evil-markdown]] if [[doom-module::editor evil +everywhere]]
 - [[doom-package:grip-mode]] if [[doom-module:+grip]]
-- [[doom-package:markdown-ts-mode]] if [[doom-module:+tree-sitter]]
+- [[doom-package:markdown-ts-mode]] if [[doom-module:+tree-sitter]] (and Emacs <31)
 - [[doom-package:markdown-mode]]
 - [[doom-package:markdown-toc]]
 
