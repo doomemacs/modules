@@ -1,6 +1,6 @@
 ;;; lang/markdown/config.el -*- lexical-binding: t; -*-
 
-(defgroup +markddown nil
+(defgroup +markdown nil
   "Enhances support for Markdown in Emacs."
   :group 'doom+)
 
