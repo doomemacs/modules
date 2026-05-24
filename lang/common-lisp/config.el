@@ -51,6 +51,15 @@
         ;; `sly-flex-completions' for fuzzy completion
         sly-complete-symbol-function 'sly-simple-completions)
 
+  ;; HACK: When there are no completion matches, all candidates are displayed.
+  ;;   Very disruptive for users with idle completion on.
+  ;; REVIEW: Remove when joaotavora/sly#705 is resolved.
+  (defadvice! +common-lisp--suppress-all-completions-on-empty-prefix-a (fn prefix)
+    :around #'sly-simple-completions
+    (if (equal prefix "")
+        (list nil "")
+      (funcall fn prefix)))
+
   (set-popup-rules!
     '(("^\\*sly-mrepl"       :vslot 2 :size 0.3 :quit nil :ttl nil)
       ("^\\*sly-compilation" :vslot 3 :ttl nil)
