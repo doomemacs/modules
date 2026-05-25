@@ -387,10 +387,8 @@ This should already be the case yet it does not always seem to be."
 (use-package! org-msg
   :when (modulep! +org)
   :defer t
-  :init
-  ;; Avoid using `:after' because it ties the :config below to when `mu4e'
-  ;; loads, rather than when `org-msg' loads.
-  (after! mu4e (require 'org-msg))
+  ;; HACK: See jwiegley/use-package#829
+  :init (after! mu4e (require 'org-msg))
   :config
   (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil tex:dvipng"
         org-msg-startup "hidestars indent inlineimages"

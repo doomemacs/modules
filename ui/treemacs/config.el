@@ -63,8 +63,9 @@ This must be set before `treemacs' has loaded."
   :when (modulep! :editor evil +everywhere)
   :defer t
   :init
-  (after! treemacs (require 'treemacs-evil))
   (add-to-list 'doom-evil-state-alist '(?T . treemacs))
+  ;; HACK: See jwiegley/use-package#829
+  (after! treemacs (require 'treemacs-evil))
   :config
   (define-key! evil-treemacs-state-map
     [return] #'treemacs-RET-action
