@@ -20,7 +20,9 @@ headings as titles, and you have more freedom to place them wherever you like.")
 ;;; Packages
 
 (use-package! org-re-reveal
-  :after ox
+  :defer t
+  ;; HACK: See jwiegley/use-package#829
+  :init (after! ox (require 'org-re-reveal nil t))
   :config
   (setq org-re-reveal-root (concat "file://" (expand-file-name "../../" (locate-library "dist/reveal.js" t)))
         org-re-reveal-revealjs-version "4"))
