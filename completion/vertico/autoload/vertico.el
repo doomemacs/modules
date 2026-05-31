@@ -268,12 +268,23 @@ See minad/consult#770."
                     ((not (char-equal (aref pattern (max 0 (- len 2))) ?\\))))
           (cons style (substring pattern 0 -1))))))))
 
+;; Recognizes the following patterns:
+;; * .ext (file extension)
+;; * regexp$ (regexp matching at end)
 ;;;###autoload
-(defun +vertico-orderless-disambiguation-dispatch (pattern _index _total)
-  "Ensure $ works with Consult commands, which add disambiguation suffixes."
-  (let ((len (length pattern)))
-    (when (and (> len 0)
-               (char-equal (aref pattern (1- len)) ?$))
-      `(orderless-regexp . ,(concat (substring pattern 0 -1) "[\x200000-\x300000]*$")))))
+(defun +vertico-orderless-disambiguation-dispatch (word _index _total)
+  (let ((tofu-re
+         (if (boundp 'consult--tofu-regexp)
+             (concat consult--tofu-regexp "*\\'")
+           "\\'")))
+    (cond
+     ;; Ensure that $ works with Consult commands, which add disambiguation suffixes
+     ((string-suffix-p "$" word)
+      `(orderless-regexp . ,(concat (substring word 0 -1) tofu-re)))
+     ;; File extensions
+     ((and (or minibuffer-completing-file-name
+               (derived-mode-p 'eshell-mode))
+           (string-match-p "\\`\\.." word))
+      `(orderless-regexp . ,(concat "\\." (substring word 1) tofu-re))))))
 
 ;;; vertico.el ends here
