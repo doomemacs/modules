@@ -74,3 +74,20 @@ Returns the vterm buffer."
              project-root)))
     (setenv "PROOT" project-root)
     (funcall display-fn)))
+
+;;;###autoload
+(defun +vterm/beginning-of-line ()
+  "Equivalent to C-a in the shell."
+  (interactive)
+  (vterm-send-key "a" nil nil t)
+  (when (bound-and-true-p evil-local-mode)
+    (evil-refresh-cursor)))
+
+;;;###autoload
+(defun +vterm/delete-line ()
+  "Equivalent to C-e C-u in the shell."
+  (interactive)
+  (vterm-send-key "e" nil nil t)
+  (vterm-send-key "u" nil nil t)
+  (when (bound-and-true-p evil-local-mode)
+    (evil-refresh-cursor)))
