@@ -85,14 +85,15 @@ FUNCTION
       ;; Only invalidate the hot cache and nothing else (everything else is
       ;; expensive busy work, and we don't want to slow down magit's
       ;; refreshing).
-      (let ((hash (buffer-hash))
-            projectile-require-project-root
-            projectile-enable-caching
-            projectile-verbose)
-        (unless (equal +magit--last-hash hash)
-          (letf! ((#'recentf-cleanup #'ignore))
-            (projectile-invalidate-cache nil))
-          (setq-local +magit--last-hash hash)))))
+      (when (bound-and-true-p projectile-mode)
+        (let ((hash (buffer-hash))
+              projectile-require-project-root
+              projectile-enable-caching
+              projectile-verbose)
+          (unless (equal +magit--last-hash hash)
+            (letf! ((#'recentf-cleanup #'ignore))
+              (projectile-invalidate-cache nil))
+            (setq-local +magit--last-hash hash))))))
   ;; Use a more efficient strategy to auto-revert buffers whose git state has
   ;; changed: refresh the visible buffers immediately...
   (add-hook 'magit-post-refresh-hook #'+magit-mark-stale-buffers-h)
