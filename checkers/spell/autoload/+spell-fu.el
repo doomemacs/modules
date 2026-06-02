@@ -110,7 +110,11 @@
                   (+spell--correct wrd poss word orig-pt start end))))))
           (ispell-pdict-save t)))))))
 
-;;;###autoload (defalias '+spell/add-word #'spell-fu-word-add)
-;;;###autoload (defalias '+spell/remove-word #'spell-fu-word-remove)
-;;;###autoload (defalias '+spell/next-error #'spell-fu-goto-next-error)
-;;;###autoload (defalias '+spell/previous-error #'spell-fu-goto-previous-error)
+;;;###autoload
+(defalias '+spell/add-word #'spell-fu-word-add)
+;;;###autoload
+(defalias '+spell/remove-word #'spell-fu-word-remove)
+;;;###autoload
+(defalias '+spell/next-error #'spell-fu-goto-next-error)
+;;;###autoload
+(defalias '+spell/previous-error #'spell-fu-goto-previous-error)
