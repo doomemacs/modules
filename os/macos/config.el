@@ -29,8 +29,8 @@
 
 ;; Integrate with Keychain
 (after! auth-source
-  (add-to-list 'auth-sources 'macos-keychain-internet)
-  (add-to-list 'auth-sources 'macos-keychain-generic))
+  (add-to-list 'auth-sources 'macos-keychain-generic t)
+  (add-to-list 'auth-sources 'macos-keychain-internet t))
 
 ;; Delete files to trash on macOS, as an extra layer of precaution against
 ;; accidentally deleting wanted files.
