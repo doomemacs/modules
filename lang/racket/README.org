@@ -61,15 +61,6 @@ Formatting is handled using the [[doom-module::editor format]] module via [[http
  󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** racket-smart-open-bracket-mode
-~racket-smart-open-bracket-mode~ gets turned off automatically if you use
-~parinfer~, ~lispy~. If you wish to enable it:
-#+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
-(with-eval-after-load 'racket-mode
-  (add-hook 'racket-mode-hook #'racket-smart-open-bracket-mode))
-#+end_src
-
 ** Unicode Input
 The optional ~racket-unicode~ input method lets you type unicode characters such
 as λ or π. To enable unicode input for a single buffer, run

@@ -58,10 +58,6 @@
           (defun +racket-disable-flycheck-h ()
             (cl-pushnew 'racket flycheck-disabled-checkers)))))
 
-    (unless (or (modulep! :editor parinfer)
-                (modulep! :editor lispy))
-      (add-hook mode-hook #'racket-smart-open-bracket-mode))
-
     (map! (:map racket-xp-mode-map
            [remap racket-doc]              #'racket-xp-documentation
            [remap racket-visit-definition] #'racket-xp-visit-definition
