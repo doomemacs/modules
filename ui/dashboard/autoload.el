@@ -14,6 +14,17 @@
     (+dashboard-reload t)))
 
 ;;;###autoload
+(defun +dashboard/push-button ()
+  "Push a button, but record window state before doing so.
+
+This way, the dashboard can restore the last selected button and the scroll
+position of the dashboard window when the user returns to it later."
+  (interactive)
+  (set-window-parameter nil '+dashboard-last-window-start (window-start))
+  (set-window-parameter nil '+dashboard-last-position (point))
+  (call-interactively #'push-button))
+
+;;;###autoload
 (defun +dashboard/forward-button (n)
   "Like `forward-button', but don't wrap."
   (interactive "p")
