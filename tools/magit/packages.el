@@ -8,18 +8,18 @@
 ;;   of only pinning primary packages, but an exception is made because the
 ;;   Magit ecosystem seems prone to breakage.
 
-(package! transient :pin "9e78954343613786cdb0659183b766099f051149") ; 0.13.3
-(package! cond-let :pin "7ec5ace3e6acc240179bf3cdeb6f9e6751530c38") ; 1.1.0
+(package! transient :pin "1856230dc181f23dd15026b0ad21d8b299b034d1") ; 0.13.4
+(package! cond-let :pin "21b9e9835756ff5cd1acb971cf9eb56fff671c8b") ; 1.1.2
 
 (package! magit :pin "c800f79c2061621fde847f6a53129eca0e8da728") ; 4.5.0
 (when (modulep! +forge)
-  (package! closql :pin "947426d0c93e5ad5374c464b2f121c36cdaf2132") ; 2.4.0
+  (package! closql :pin "d382e7427f5d375ffc872851b049e9f9c4a43dfc") ; 2.4.1
   (package! forge
-    :pin "d4eb8d1be55398e350c8a68b0c355f5166418843" ; 0.6.5
+    :pin "a8af709bc15e973804af776bba66b4205540bd73" ; 0.6.6
     ;; forge depends on ghub, which requires Emacs 29.1+
     :disable (version< emacs-version "29.1"))
   (package! ghub
-    :pin "c438abc865964554d0ee0b2d1a7def60de47a224" ; 5.2.0
+    :pin "62d3582f1e395de1cf410af1f125dae56fe1dc4d" ; 5.2.1
     ;; ghub requires Emacs 29.1+
     :disable (version< emacs-version "29.1"))
   (package! code-review
@@ -31,6 +31,6 @@
     :disable (version< emacs-version "29.1")))
 
 (when (modulep! :lang org)
-  (package! orgit :pin "4fb91faff3bf32dac5f6f932654c280cd1f190f7") ; v2.1.2
+  (package! orgit :pin "4a4c03ee40b0e2509b49303e151ee217edaf0da4") ; v2.1.3
   (when (modulep! :tools magit +forge)
     (package! orgit-forge :pin "8e4496d7f7f84fab3e36d10883386c02f43a67e7"))) ; v1.1.2

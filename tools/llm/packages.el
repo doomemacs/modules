@@ -3,7 +3,7 @@
 
 (package! gptel
   :recipe (:nonrecursive t)
-  :pin "df08c1a4d4c6e253870b8aa1634922b8f56224e7")
+  :pin "f342b3010f135ca4a38b02564b50b2d3e66554cf")
 
 (package! gptel-quick
   :recipe (:host github :repo "karthink/gptel-quick")
@@ -14,7 +14,7 @@
     ;; REVIEW: Revert to upstream if ragnard/gptel-magit#7 is merged.
     :recipe (:host github
              :repo "ArthurHeymans/gptel-magit")
-    :pin "93d05dabbc88a8be899015a9cc2ddf33135c1834"))
+    :pin "2af31e616f181ba6f2b2e6cb794ac09bb2dae219"))
 
 (when (modulep! :lang org)
   (package! ob-gptel

@@ -294,7 +294,6 @@ dashboard reloading is inhibited.")
     ;; Hide the cursor if there are no buttons
     (unless (button-at (point))
       (setq-local cursor-type nil
-                  ;; Workaround for emacs-evil/evil#2016.
                   evil-normal-state-cursor (list nil)))))
 
 (defun +dashboard-reload-maybe-h (&rest _)
