@@ -228,16 +228,11 @@ FUNCTION
   :init
   ;; HACK: See jwiegley/use-package#829
   (after! magit (require 'code-review))
-  (after! evil-collection-magit
-    (dolist (binding evil-collection-magit-mode-map-bindings)
-      (pcase-let* ((`(,states _ ,evil-binding ,fn) binding))
-        (dolist (state states)
-          (evil-collection-define-key state 'code-review-mode-map evil-binding fn))))
-    (evil-set-initial-state 'code-review-mode evil-default-state))
   (setq code-review-db-database-file (file-name-concat doom-profile-data-dir "code-review" "code-review-db-file.sqlite")
         code-review-log-file (file-name-concat doom-profile-data-dir "code-review" "code-review-error.log")
         code-review-download-dir (file-name-concat doom-profile-data-dir "code-review/"))
   :config
+  (set-evil-initial-state! 'code-review-mode evil-default-state)
   (transient-append-suffix 'magit-merge "d"
     '("y" "Review pull request" +magit/start-code-review))
   (after! forge
@@ -302,7 +297,11 @@ FUNCTION
         (setcar desc (cdr key))))
     (evil-define-key* evil-collection-magit-state git-rebase-mode-map
       "gj" #'git-rebase-move-line-down
-      "gk" #'git-rebase-move-line-up)))
+      "gk" #'git-rebase-move-line-up))
+
+  (after! code-review
+    (pcase-dolist (`(,states _ ,binding ,fn) evil-collection-magit-mode-map-bindings)
+      (evil-collection-define-key states 'code-review-mode-map evil-binding fn))))
 
 
 (use-package! evil-collection-magit-section
