@@ -232,7 +232,7 @@ FUNCTION
         code-review-log-file (file-name-concat doom-profile-data-dir "code-review" "code-review-error.log")
         code-review-download-dir (file-name-concat doom-profile-data-dir "code-review/"))
   :config
-  (set-evil-initial-state! 'code-review-mode evil-default-state)
+  (set-evil-initial-state! 'code-review-mode 'normal)
   (transient-append-suffix 'magit-merge "d"
     '("y" "Review pull request" +magit/start-code-review))
   (after! forge
