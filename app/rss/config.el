@@ -60,8 +60,8 @@ easier to scroll through."
       [remap previous-buffer] #'+rss/previous))
   (when (modulep! :editor evil +everywhere)
     (evil-define-key 'normal elfeed-search-mode-map
-      "q" #'elfeed-kill-buffer
-      "r" #'elfeed-search-update--force
+      "q" #'kill-current-buffer
+      "r" #'revert-buffer
       (kbd "M-RET") #'elfeed-search-browse-url)
     (map! :map elfeed-show-mode-map
           :n "gc" nil
