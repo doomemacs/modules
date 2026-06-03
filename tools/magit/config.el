@@ -224,8 +224,10 @@ FUNCTION
 
 (use-package! code-review
   :when (modulep! +forge)
-  :after magit
+  :defer t
   :init
+  ;; HACK: See jwiegley/use-package#829
+  (after! magit (require 'code-review))
   (after! evil-collection-magit
     (dolist (binding evil-collection-magit-mode-map-bindings)
       (pcase-let* ((`(,states _ ,evil-binding ,fn) binding))
