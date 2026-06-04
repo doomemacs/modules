@@ -326,23 +326,7 @@ orderless."
     (add-to-list 'marginalia-command-categories cat))
 
   (when (modulep! +icons)
-    (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-  ;; HACK: Use `doom-project-root' (insert of `project-root') without
-  ;;   circumventing marginalia's project root cache.
-  (defadvice! +vertico--marginalia-project-root-a (&rest _)
-    :override #'marginalia--project-root
-    (marginalia--in-minibuffer
-      (when (eq marginalia--project-root 'unset)
-        (setq marginalia--project-root
-              (or (let ((prompt (minibuffer-prompt))
-                        case-fold-search)
-                    (and (string-match
-                          "\\`\\(?:Dired\\|Find file\\) in \\(.*\\): \\'"
-                          prompt)
-                         (match-string 1 prompt)))
-                  (doom-project-root))))
-      marginalia--project-root)))
+    (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)))
 
 
 (use-package! wgrep
