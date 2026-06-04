@@ -278,7 +278,7 @@ dashboard reloading is inhibited.")
 
 (defun +dashboard-reposition-point-h ()
   "Trap the point in the buttons."
-  (when (get-buffer-window-list +dashboard-name)
+  (when (eq (current-buffer) (get-buffer +dashboard-name))
     (when (region-active-p)
       (setq deactivate-mark t)
       (when (bound-and-true-p evil-local-mode)
