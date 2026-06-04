@@ -301,7 +301,7 @@ FUNCTION
 
   (after! code-review
     (pcase-dolist (`(,states _ ,binding ,fn) evil-collection-magit-mode-map-bindings)
-      (evil-collection-define-key states 'code-review-mode-map evil-binding fn))))
+      (evil-collection-define-key states 'code-review-mode-map binding fn))))
 
 
 (use-package! evil-collection-magit-section
