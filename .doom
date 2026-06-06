@@ -1,6 +1,6 @@
 "2.2.0"
 ((name . doom+)
- (version . "26.07.0")
+ (version . "26.06.0")
  (homepage . "https://doomemacs.org")
 
  (make
