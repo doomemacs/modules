@@ -512,7 +512,7 @@ relative to `org-directory', unless it is an absolute path."
   (+org-define-basic-link "org" 'org-directory)
   (+org-define-basic-link "doom" 'doom-emacs-dir)
   (+org-define-basic-link "doom-docs" 'doom-docs-dir)
-  (+org-define-basic-link "doom-modules" 'doom-modules-dir)
+  ;; FIXME: (+org-define-basic-link "doom-modules" 'doom-modules-dir)
 
   ;; Add "lookup" links for packages and keystrings; useful for Emacs
   ;; documentation -- especially Doom's!
