@@ -78,7 +78,7 @@ exist, and `org-link' otherwise."
   keystr)
 
 (defun +org-link--read-module-spec (module-spec-str)
-  (if (string-prefix-p "+" (string-trim-left module-spec-str))
+  (if (string-match-p "[-+]" (string-trim-left module-spec-str))
       (let ((title (cadar (org-collect-keywords '("TITLE")))))
         (if (and title (string-match-p "\\`:[a-z]+ [A-Za-z0-9]+\\'" title))
             (+org-link--read-module-spec (concat title " " module-spec-str))
@@ -88,7 +88,7 @@ exist, and `org-link' otherwise."
                           (if (string-prefix-p ":" module-spec-str)
                               module-spec-str
                             (concat ":" module-spec-str))
-                          "[ \n]+" nil))
+                          "[ \n][-+]" nil))
       (list :category category
             :module module
             :flag flag))))
@@ -165,7 +165,7 @@ exist, and `org-link' otherwise."
     (when flag
       (goto-char (point-min))
       (when (and (re-search-forward "^\\*+ \\(?:TODO \\)?Module flags")
-                 (re-search-forward (format "^\\s-*- \\+%s ::[ \n]"
+                 (re-search-forward (format "^\\s-*- [-+]%s ::[ \n]"
                                             (substring (symbol-name flag) 1))
                                     (save-excursion (org-get-next-sibling)
                                                     (point))))
