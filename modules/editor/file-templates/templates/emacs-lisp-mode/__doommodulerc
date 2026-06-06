@@ -3,7 +3,7 @@ $0`doom-version`
  ;; (alias :group2 module2)
  (version . "0.0.1")
  ;; (depth 0)
- (since . "`doom-modules-version`")
+ (since . "`(format-time-string "%y.%m")`")
  (flags)
  (features)
  (packages)
