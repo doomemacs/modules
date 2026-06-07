@@ -31,7 +31,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.")
    ,(lambda (_)
       (cl-loop for path in (doom-glob (dir!) "modules/*/*/")
                if (string-match "/modules/\\([^/]+\\)/\\([^/]+\\)$" path)
-               do (insert (format "%-35s @doomemacs/%s-%s"
+               do (insert (format "%-35s @doomemacs/%s-%s\n"
                                   (substring (match-string 0 path) 1)
                                   (match-string 1 path)
                                   (match-string 2 path))))))))
