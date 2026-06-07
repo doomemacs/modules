@@ -33,4 +33,7 @@
   ((:ui pretty-code)          (:ui ligatures)           "2.0")
   ((:app email)               (:email mu4e)             "2.0")
   ((:app notmuch)             (:email notmuch)          "2.0")
-  ((:lang perl)               (:lang raku)              "2.0")))
+  ((:lang perl)               (:lang raku)              "2.0")
+
+  ;; Post-v2.2
+  ((:ui doom-dashboard)       (:ui dashboard)           "2.1")))
