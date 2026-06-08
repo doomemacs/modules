@@ -161,6 +161,8 @@ You should use `set-eshell-alias!' to change this.")
   (map! :map eshell-mode-map
         :n  "RET"    #'+eshell/goto-end-of-prompt
         :n  [return] #'+eshell/goto-end-of-prompt
+        :nv "[["     #'eshell-previous-prompt
+        :nv "]]"     #'eshell-next-prompt
         :ni "C-j"    #'eshell-next-matching-input-from-input
         :ni "C-k"    #'eshell-previous-matching-input-from-input
         :ig "C-d"    #'+eshell/quit-or-delete-char
