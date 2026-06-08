@@ -1,6 +1,7 @@
 ;; -*- mode: lisp-data -*-
-"2.2.0"
-((version . "26.06.0")
+"3.0.0"
+((name . doomemacs/modules)
+ (version . "26.06.0")
  (homepage . "https://doomemacs.org/modules")
  (make
   ("LICENSE"
@@ -34,4 +35,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.")
                do (insert (format "%-35s @doomemacs/%s-%s\n"
                                   (substring (match-string 0 path) 1)
                                   (match-string 1 path)
-                                  (match-string 2 path))))))))
+                                  (match-string 2 path)))))))
+ (profiles
+  (test
+   (root "test/")
+   (sources doom doom+)
+   (modules :doom (cli +ci +buttercup))
+   (packages))))
