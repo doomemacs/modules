@@ -289,7 +289,8 @@ don't offer any/enough real value to users.")
                 evil-collection-key-blacklist
                 (if (modulep! :tools lookup) '("gd" "gf" "K"))
                 (if (modulep! :tools eval) '("gr" "gR"))
-                '("[" "]" "gz" "<escape>")))
+                '("[" "]" "gz" "<escape>"))
+        evil-collection-key-whitelist '("[[" "]]"))
 
   (defadvice! +evil-collection-disable-blacklist-a (fn)
     :around #'evil-collection-vterm-toggle-send-escape  ; allow binding to ESC
