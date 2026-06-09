@@ -42,6 +42,8 @@ adjustment.")
 (defvar +popup-buffer-mode-map
   (let ((map (make-sparse-keymap)))
     (when (modulep! :editor evil)
+      ;; Make some commands behave more intuitively in popups.
+      (define-key map [remap doom/window-maximize-buffer] #'+popup/raise)
       ;; For maximum escape coverage in emacs state buffers; this only works in
       ;; GUI Emacs, in tty Emacs use C-g instead
       (define-key map [escape] #'doom/escape))
