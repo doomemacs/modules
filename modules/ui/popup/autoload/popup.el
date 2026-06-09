@@ -339,9 +339,12 @@ Any non-nil value besides the above will be used as the raw value for
   (interactive)
   (let ((+popup-default-display-buffer-actions
          '(+popup-display-buffer-stacked-side-window-fn))
-        (display-buffer-alist +popup--display-buffer-alist)
+        (display-buffer-alist (copy-sequence +popup--display-buffer-alist))
         (buffer (current-buffer)))
-    (push (+popup-make-rule "." +popup-defaults) display-buffer-alist)
+    (unless (display-buffer-assq-regexp (buffer-name)
+                                        display-buffer-alist
+                                        +popup-default-display-buffer-actions)
+      (push (+popup-make-rule "." +popup-defaults) display-buffer-alist))
     (bury-buffer)
     (pop-to-buffer buffer)))
 
