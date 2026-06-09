@@ -138,6 +138,12 @@
                    :unless '(sp-point-before-word-p sp-point-before-same-p)
                    :actions '(insert) :post-handlers '(("| " "SPC")))
 
+    ;; Block comment autopairs for Odin modes
+    (sp-local-pair '(odin-mode odin-ts-mode)
+                   "/*" "*/"
+                   :post-handlers '(("| " "SPC")
+                                    ("* ||\n[i]" "RET")))
+
     ;; Disable electric keys in C modes because it interferes with smartparens
     ;; and custom bindings. We'll do it ourselves (mostly).
     (after! cc-mode
