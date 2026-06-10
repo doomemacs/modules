@@ -1,6 +1,5 @@
 test/.local*/
 test/result
-/modules/user/
 .DS_Store
 \#*
 *~
