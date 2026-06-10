@@ -191,7 +191,8 @@
        php-mode php-ts-mode
        css-mode css-ts-mode
        scss-mode less-css-mode
-       stylus-mode scala-mode)
+       stylus-mode scala-mode
+       odin-mode odin-ts-mode)
      "/*" "*/"
      :actions '(insert)
      :post-handlers '(("| " "SPC")
