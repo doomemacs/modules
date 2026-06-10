@@ -223,8 +223,11 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   ;; Add Doom's core and module demo files, so additional demos can be specified
   ;; by end-users (in $DOOMDIR/demos.org), by modules (modules/X/Y/demos.org),
   ;; or Doom's core (lisp/demos.org).
-  (dolist (file (doom-module-locate-paths (doom-module-list) "demos.org"))
+  (dolist (file (doom-module-locate-paths (remove '(:user) (doom-module-list)) "demos.org"))
     (add-to-list 'elisp-demos-user-files file))
+  ;; The user's demos.org should be first in the list so that
+  ;; `elisp-demos-add-demo' will add new ones to that instead of some module's.
+  (add-to-list 'elisp-demos-user-files (expand-file-name "demos.org" doom-user-dir))
 
   ;; HACK: These functions open Org files non-interactively without any
   ;;   performance optimizations. Given how prone org-mode is to being tied to
