@@ -3,6 +3,10 @@
 ((name . doomemacs/modules)
  (version . "26.06.0")
  (homepage . "https://doomemacs.org/modules")
+
+ (commit
+  (preset (doom-conventional-commits +modules)))
+
  (make
   ("LICENSE"
    "The MIT License (MIT)\n"
