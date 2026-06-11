@@ -413,14 +413,6 @@ I like:
       (when (bound-and-true-p org-capture-is-refiling)
         (save-buffer))))
 
-  ;; HACK: Doom doesn't support `customize'. Best not to advertise it as an
-  ;;   option in `org-capture's menu.
-  (defadvice! +org--remove-customize-option-a (fn table title &optional prompt specials)
-    :around #'org-mks
-    (funcall fn table title prompt
-             (remove '("C" "Customize org-capture-templates")
-                     specials)))
-
   (defadvice! +org--capture-expand-variable-file-a (file)
     "If a variable is used for a file path in `org-capture-template', it is used
 as is, and expanded relative to `default-directory'. This changes it to be
