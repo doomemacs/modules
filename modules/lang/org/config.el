@@ -649,8 +649,7 @@ mutating hooks on exported output, like formatters."
              (let ((init-file ,old-async-init-file))
                (if init-file
                    (load init-file nil t)
-                 (load ,early-init-file nil t)
-                 (require 'doom-start)))
+                 (load ,early-init-file nil t)))
            (delete-file load-file-name))))
       (apply fn args))))
 
