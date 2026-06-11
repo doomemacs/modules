@@ -81,6 +81,7 @@
                            (erase-buffer)
                            (current-buffer))
                          "emacs" "--batch"
+                         "-L" doom-core-dir
                          "-L" (file-name-directory (locate-library "org"))
                          "--load" (doom-path doom-core-dir "doom")
                          "--load" (doom-path doom-core-dir "lib/print")
