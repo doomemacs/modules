@@ -277,6 +277,6 @@ when inhibited to show history matches."
   (dolist (cmd '("doom" "nix-shell"))
     (defalias (intern (concat "pcomplete/" cmd))
       #'pcmpl-args-pcomplete-on-help))
-  (dolist (cmd '("fd" "rg" "exa" "emacsclient"))
+  (dolist (cmd `(,doom-fd-executable ,doom-ripgrep-executable "exa" "emacsclient"))
     (defalias (intern (concat "pcomplete/" cmd))
       #'pcmpl-args-pcomplete-on-man)))
