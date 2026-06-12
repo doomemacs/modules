@@ -642,7 +642,7 @@ See `+dashboard-menu-sections' to change the contents of the menu."
      (insert (propertize " " 'display '(space . (:relative-height 2.0))) "\n")
      (insert-text-button (or (nerd-icons-codicon "nf-cod-octoface" :face '+dashboard-footer-icon :height 1.3 :v-adjust -0.15)
                              (propertize "github" 'face '+dashboard-footer))
-                         'action (lambda (_) (browse-url "https://github.com/doomemacs/doomemacs"))
+                         'action (lambda (_) (browse-url "https://github.com/doomemacs"))
                          'follow-link t
                          'help-echo "Open Doom Emacs github page")
      (insert "\n")

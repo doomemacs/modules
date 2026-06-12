@@ -496,7 +496,7 @@ relative to `org-directory', unless it is an absolute path."
                     ("duckduckgo"  . "https://duckduckgo.com/?q=%s")
                     ("wikipedia"   . "https://en.wikipedia.org/wiki/%s")
                     ("wolfram"     . "https://wolframalpha.com/input/?i=%s")
-                    ("doom-repo"   . "https://github.com/doomemacs/doomemacs/%s")
+                    ("doom-repo"   . "https://github.com/doomemacs/core/%s")
                     ("emacsdir"    . ,(doom-path doom-emacs-dir "%s"))
                     ("doomdir"     . ,(doom-path doom-user-dir "%s"))))
     (add-to-list 'org-link-abbrev-alist abbrev))
@@ -562,7 +562,7 @@ relative to `org-directory', unless it is an absolute path."
      :follow (lambda (link)
                (let ((link (+org-link-read-desc-at-point link))
                      (url "https://github.com")
-                     (doom-repo "doomemacs/doomemacs"))
+                     (doom-repo "doomemacs/core"))
                  (save-match-data
                    (browse-url
                     (cond ((string-match "^\\([^/]+\\(?:/[^/]+\\)?\\)?#\\([0-9]+\\(?:#.*\\)?\\)" link)
