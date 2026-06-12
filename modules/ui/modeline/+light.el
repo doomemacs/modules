@@ -24,7 +24,7 @@
 This is enforced by the xpm bitmap bar in `+modeline-bar'. Without it (and in
 the terminal), this variable does nothing.
 
-Use `setq!' to adjust this variable live, as it will trigger an refresh of the
+Use `setopt' to adjust this variable live, as it will trigger an refresh of the
 bars in the modeline. `setq' will not."
   :type 'integer
   :set #'+modeline--set-var-and-refresh-bars-fn)
@@ -35,7 +35,7 @@ bars in the modeline. `setq' will not."
 If nil, the bar will be made transparent and 1 pixel wide, as to be invisible,
 but without sacrificing its ability to enforce `+modeline-height'.
 
-Use `setq!' to adjust this variable live, as it will trigger an refresh of the
+Use `setopt' to adjust this variable live, as it will trigger an refresh of the
 bars in the modeline. `setq' will not."
   :type 'integer
   :set #'+modeline--set-var-and-refresh-bars-fn)

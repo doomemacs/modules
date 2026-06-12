@@ -105,23 +105,23 @@ You must set the path variable for either [[doom-package:citar]] (if using [[doo
 or [[doom-package:bibtex-completion]] (if using [[doom-module::completion ivy][ivy]] or [[doom-module::completion helm][helm]]); this module will in turn set the
 [[var:org-cite-global-bibliography]] variable to the same value:
 #+begin_src emacs-lisp
-(setq! bibtex-completion-bibliography '("/path/to/references.bib"))
+(setopt bibtex-completion-bibliography '("/path/to/references.bib"))
 #+end_src
 
 #+begin_src emacs-lisp
-(setq! citar-bibliography '("/path/to/references.bib"))
+(setopt citar-bibliography '("/path/to/references.bib"))
 #+end_src
 
 You may also set the respective note and library path variables as well for
 enhanced functionality:
 #+begin_src emacs-lisp
-(setq! bibtex-completion-library-path '("/path/to/library/path/")
-       bibtex-completion-notes-path "/path/to/your/notes/")
+(setopt bibtex-completion-library-path '("/path/to/library/path/")
+        bibtex-completion-notes-path "/path/to/your/notes/")
 #+end_src
 
 #+begin_src emacs-lisp
-(setq! citar-library-paths '("/path/to/library/files/")
-       citar-notes-paths '("/path/to/your/notes/"))
+(setopt citar-library-paths '("/path/to/library/files/")
+        citar-notes-paths '("/path/to/your/notes/"))
 #+end_src
 
 ** Templates

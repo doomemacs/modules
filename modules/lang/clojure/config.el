@@ -252,7 +252,7 @@
   ;; Ensure that CIDER is used for sessions in org buffers.
   (when (modulep! :lang org)
     (after! ob-clojure
-      (setq! org-babel-clojure-backend 'cider)))
+      (setopt org-babel-clojure-backend 'cider)))
 
   ;; The CIDER welcome message obscures error messages that the above code is
   ;; supposed to be make visible.

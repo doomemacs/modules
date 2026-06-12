@@ -152,13 +152,13 @@ Use the following syntax to configure the entries displayed in
 #+begin_src emacs-lisp
 ;;; add to $DOOMDIR/config.el
 (with-eval-after-load 'dirvish
-  (setq! dirvish-quick-access-entries
-         `(("h" "~/"                          "Home")
-           ("e" ,user-emacs-directory         "Emacs user directory")
-           ("c" "~/Code/"                     "Code")
-           ("d" "~/Downloads/"                "Downloads")
-           ("m" "/mnt/"                       "Mounted drives")
-           ("t" "~/.local/share/Trash/files/" "Trash"))))
+  (setopt dirvish-quick-access-entries
+          `(("h" "~/"                          "Home")
+            ("e" ,user-emacs-directory         "Emacs user directory")
+            ("c" "~/Code/"                     "Code")
+            ("d" "~/Downloads/"                "Downloads")
+            ("m" "/mnt/"                       "Mounted drives")
+            ("t" "~/.local/share/Trash/files/" "Trash"))))
 #+end_src
 
 * Troubleshooting

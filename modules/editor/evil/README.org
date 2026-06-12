@@ -174,8 +174,8 @@ both cases the universal argument has been moved to [[kbd:][<leader> u]].
 To undo this, use:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
-(setq! evil-want-C-u-scroll nil
-       evil-want-C-u-delete nil)
+(setopt evil-want-C-u-scroll nil
+        evil-want-C-u-delete nil)
 #+end_src
 
 ** The [[kbd:][s]]/[[kbd:][S]] keys behave differently from Vim
@@ -198,7 +198,7 @@ because it was redundant with [[kbd:][yy]], which is easier to type than [[kbd:]
 If you prefer the old behavior, it can be reversed with:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
-(setq! evil-want-Y-yank-to-eol nil)
+(setopt evil-want-Y-yank-to-eol nil)
 #+end_src
 
 * Frequently asked questions
