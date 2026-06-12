@@ -38,4 +38,4 @@
     (package! neotree)
     (autoload 'neotree-make-executor "neotree" nil nil 'macro))
 
-  (package! evil-collection :pin "673b38022b8bb36185b6d54aff3f444335a032fb"))
+  (package! evil-collection :pin "e2888aa77ed2cfc0a5467479909e9ae2f0ab6e3d"))
