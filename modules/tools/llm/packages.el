@@ -3,11 +3,11 @@
 
 (package! gptel
   :recipe (:nonrecursive t)
-  :pin "f342b3010f135ca4a38b02564b50b2d3e66554cf")
+  :pin "6589abf7c51143f9424f3e402b29dd7755408781")
 
 (package! gptel-quick
   :recipe (:host github :repo "karthink/gptel-quick")
-  :pin "018ff2be8f860a1e8fe3966eec418ad635620c38")
+  :pin "36fe296e016449433fa1213f4b89cb8dc7d4db5e")
 
 (when (modulep! :tools magit)
   (package! gptel-magit
