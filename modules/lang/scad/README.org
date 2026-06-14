@@ -1,0 +1,109 @@
+:PROPERTIES:
+:ID:       7e7cc89d-bd27-42a0-9b0e-df3ba03a2dee
+:END:
+#+title:     :lang scad
+#+subtitle:  Trust the preview, regret the render
+#+created:   June 13, 2026
+#+since:     26.06 (#4)
+
+* Description :unfold:
+This module adds [[https://openscad.org/][OpenSCAD]] support to Doom Emacs.
+
+- Syntax highlighting ([[doom-package:scad-mode]] or [[doom-package:scad-ts-mode]] with tree-sitter)
+- Preview rendered models (~scad-preview~)
+- Export to STL, SVG, PNG, etc. (~scad-export~)
+- Flymake integration for inline error/warning display
+- Code completion via LSP (requires ~openscad-lsp~)
+- Org-babel support for literate OpenSCAD
+- Tree-sitter integration for superior indentation and highlighting
+
+** Maintainers
+- [[doom-user:][@hlissner]]
+
+[[doom-contrib-maintainer:][Become a maintainer?]]
+
+** Module flags
+- +lsp ::
+  Enable LSP integration via ~openscad-lsp~. Works with both [[doom-package:lsp-mode]]
+  and [[doom-package:eglot]]. Requires [[doom-module::tools lsp]] and the ~openscad-lsp~
+  executable in your ~$PATH~.
+- +tree-sitter ::
+  Leverages tree-sitter for better syntax highlighting, indentation, and
+  structural text editing. Requires Emacs 29.1+ and [[doom-module::tools
+  tree-sitter]].
+
+** Packages
+- [[doom-package:scad-mode]]
+- [[doom-package:scad-ts-mode]] if [[doom-module:+tree-sitter]]
+
+** Hacks
+/No hacks documented for this module./
+
+** TODO Changelog
+# This section will be machine generated. Don't edit it by hand.
+/This module does not have a changelog yet./
+
+* Installation
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+
+This module requires OpenSCAD (~openscad~ CLI) for preview and export
+functionality. Pre-built binaries are available from
+[[https://openscad.org/downloads.html]].
+
+For LSP support, enable the [[doom-module:+lsp]] flag and the [[doom-module::tools lsp]]
+module, then install ~openscad-lsp~ (see [[https://github.com/Leathong/openscad-LSP]])
+and ensure it is in your ~$PATH~.
+
+* Usage
+#+begin_quote
+󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+end_quote
+
+When [[doom-module:+lsp]] is enabled, the preview buffer is set to Emacs state in
+evil to ensure camera controls work correctly.
+
+** Org-babel
+This module registers ~scad~ as an org-babel language. Use it in your org
+documents with ~#+begin_src scad~ ... ~#+end_src~. Results default to a file output
+(:results file) and code is exported (:exports code). When
+[[doom-module:+tree-sitter]] is active, source blocks are edited in ~scad-ts-mode~.
+
+** Keybinds
+*** Scad mode
+| Binding         | Description  |
+|-----------------+--------------|
+| [[kbd:][<localleader> e]] | ~scad-export~  |
+| [[kbd:][<localleader> o]] | ~scad-open~    |
+| [[kbd:][<localleader> p]] | ~scad-preview~ |
+| [[kbd:][C-c C-c]]         | ~scad-preview~ |
+| [[kbd:][C-c C-o]]         | ~scad-open~    |
+| [[kbd:][C-c C-e]]         | ~scad-export~  |
+
+*** Preview mode
+| Binding | Description       |
+|---------+-------------------|
+| [[kbd:][[]]       | Increase distance |
+| [[kbd:][]]]       | Decrease distance |
+| [[kbd:][p]]       | Toggle projection |
+| [[kbd:][h]] / [[kbd:][l]]   | Translate X axis  |
+| [[kbd:][j]] / [[kbd:][k]]   | Translate Y axis  |
+| [[kbd:][n]] / [[kbd:][m]]   | Translate Z axis  |
+| [[kbd:][H]] / [[kbd:][L]]   | Rotate X axis     |
+| [[kbd:][J]] / [[kbd:][K]]   | Rotate Y axis     |
+| [[kbd:][N]] / [[kbd:][M]]   | Rotate Z axis     |
+
+* TODO Configuration
+#+begin_quote
+󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+end_quote
+
+* Troubleshooting
+/There are no known problems with this module./ [[doom-report:][Report one?]]
+
+* Frequently asked questions
+/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+
+* TODO Appendix
+#+begin_quote
+󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+end_quote
