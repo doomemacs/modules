@@ -173,8 +173,10 @@ exist, and `org-link' otherwise."
         (recenter)))))
 
 ;;;###autoload
-(defun +org-link--doom-module-link-activate-fn (start end module-path _bracketed-p)
-  (when buffer-read-only
+(defun +org-link--doom-module-link-activate-fn (start end module-path bracketed-p)
+  (if (not buffer-read-only)
+      (unless (string-blank-p module-path)
+        (add-text-properties start end `(display ,module-path)))
     (cl-destructuring-bind (&key category module flag)
         (+org-link--read-module-spec module-path)
       (let ((overall-face
@@ -197,7 +199,9 @@ exist, and `org-link' otherwise."
 
 ;;;###autoload
 (defun +org-link--doom-package-link-activate-fn (start end package _bracketed-p)
-  (when buffer-read-only
+  (if (not buffer-read-only)
+      (unless (string-blank-p package)
+        (add-text-properties start end `(display ,package)))
     (let ((overall-face
            (if (locate-library package)
                '((:underline nil :weight regular) org-link org-block italic)
