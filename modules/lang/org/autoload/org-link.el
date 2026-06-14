@@ -78,9 +78,9 @@ exist, and `org-link' otherwise."
   keystr)
 
 (defun +org-link--read-module-spec (module-spec-str)
-  (if (string-match-p "[-+]" (string-trim-left module-spec-str))
+  (if (string-match-p "^[-+]" (string-trim-left module-spec-str))
       (let ((title (cadar (org-collect-keywords '("TITLE")))))
-        (if (and title (string-match-p "\\`:[a-z]+ [A-Za-z0-9]+\\'" title))
+        (if (and title (string-match-p "\\`:[a-z]+\\s-+[A-Za-z0-9]+\\'" title))
             (+org-link--read-module-spec (concat title " " module-spec-str))
           (list :category nil :module nil :flag (intern module-spec-str))))
     (cl-destructuring-bind (category &optional module flag)
