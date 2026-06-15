@@ -14,11 +14,26 @@
 ;;;###autoload (autoload 'apheleia--get-formatters "apheleia-formatters")
 
 ;;;###autoload
-(defvar +format--region-p nil)
+(defvar +format-region-range nil
+  "A cons cell of the form (BEG . END) set by
+`+format-region-in-original-buffer'.
+
+Custom Apheleia formatters may use this variable to obtain the region
+boundaries when called by `+format/region-or-buffer'.")
 
 ;;;###autoload
-(defun +format-region (start end &optional callback)
-  "Format from START to END with `apheleia'."
+(defvar-local +format-region-force-use-original-buffer nil
+  "When non-nil, force `+format/region' to use
+`+format-region-in-original-buffer' instead of
+`+format-region-via-temp-buffer'.")
+
+;;;###autoload
+(defun +format-region-via-temp-buffer (start end &optional callback)
+  "Format from START to END with `apheleia'.
+
+The region is copied into a temporary buffer and formatted as if it
+were the contents of a standalone file. The formatted result then
+replaces the original region."
   (when-let* ((command (apheleia--get-formatters
                         (if current-prefix-arg
                             'prompt
@@ -49,7 +64,8 @@
           (when (> indent 0)
             (indent-rigidly (point-min) (point-max) (- indent)))
           ;;
-          (let ((+format--region-p (cons start end)))
+          (let ((start start)
+                (end end))
             (apheleia-format-buffer
              command
              (lambda ()
@@ -67,6 +83,32 @@
       (when (doom-region-active-p)
         (setq deactivate-mark t)))))
 
+;;;###autoload
+(defalias '+format-region #'+format-region-via-temp-buffer)
+
+;;;###autoload
+(defun +format-region-in-original-buffer (start end &optional callback)
+  "Format the text between START and END with `apheleia'.
+
+The formatter is run on the current buffer. Formatters should use
+`+format--region-range' to obtain the boundaries of the region being
+formatted."
+  (when-let* ((command (apheleia--get-formatters
+                        (if current-prefix-arg
+                            'prompt
+                          'interactive)))
+              (cur-buffer (current-buffer))
+              (indent 0))
+    (unwind-protect
+        (with-current-buffer cur-buffer
+          (let ((+format-region-range (cons start end)))
+            (apheleia-format-buffer
+             command
+             (lambda ()
+               (with-current-buffer cur-buffer
+                 (when callback (funcall callback)))))))
+      (when (doom-region-active-p)
+        (setq deactivate-mark t)))))
 
 ;;
 ;;; Commands
@@ -85,11 +127,14 @@ may not always work. Keep your undo keybind handy!"
                      (doom-region-end)
                      current-prefix-arg
                      'interactive))
-  (+format-region
-   beg end
-   (lambda ()
-     (when interactive
-       (message "Region reformatted!")))))
+  (let ((format-fn (if (or (bound-and-true-p +format-with-lsp-mode)
+                           +format-region-force-use-original-buffer)
+                       #'+format-region-in-original-buffer
+                     #'+format-region-via-temp-buffer))
+        (callback (lambda ()
+                    (when interactive
+                      (message "Region reformatted!")))))
+    (funcall format-fn beg end callback)))
 
 ;;;###autoload
 (defun +format/region-or-buffer ()
