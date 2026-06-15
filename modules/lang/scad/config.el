@@ -55,6 +55,6 @@
     (add-to-list 'org-src-lang-modes '("scad" . scad-ts-mode)))
   (set-tree-sitter! 'scad-mode 'scad-ts-mode
     '((openscad :url "https://github.com/openscad/tree-sitter-openscad"
-                :rev "0.7.1")))
+                :rev "v0.7.1")))
   :config
   (+scad-common-config 'scad-ts-mode))
