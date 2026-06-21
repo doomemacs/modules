@@ -100,8 +100,8 @@ If ARG (universal argument), include all files, even hidden or compressed ones."
 (defun +vertico/embark-export-write ()
   "Export the current vertico results to a writable buffer if possible.
 
-Supports exporting consult-grep to wgrep, file to wdired, and consult-location
-to occur-edit"
+Supports exporting consult-grep to wgrep, file to wdired, consult-location to
+occur-edit, and consult-xref to xref-edit-mode (Emacs 31+)."
   (interactive)
   (require 'embark)
   (require 'wgrep)
@@ -112,6 +112,9 @@ to occur-edit"
               ('consult-grep #'wgrep-change-to-wgrep-mode)
               ('file #'wdired-change-to-wdired-mode)
               ('consult-location #'occur-edit-mode)
+              ('consult-xref (if (fboundp 'xref-change-to-xref-edit-mode)
+                                 #'xref-change-to-xref-edit-mode
+                               (user-error "Writable xref export requires Emacs 31+")))
               (x (user-error "embark category %S doesn't support writable export" x)))))
          (embark-after-export-hook `(,@embark-after-export-hook ,edit-command)))
     (embark-export)))
