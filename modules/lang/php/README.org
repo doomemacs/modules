@@ -137,8 +137,8 @@ executables are visible to Emacs:
 export PATH="~/.composer/vendor/bin:$PATH"
 #+end_src
 
-You may also need to regenerate your envvar file by running ~$ doom env~ on the
-command line.
+You may also need to regenerate your envvar file by running ~$ doom sync --env~ on
+the command line.
 
 *NOTE* phpactor doesn't have to be installed via =composer=, just has to exist in
 your =$PATH=.

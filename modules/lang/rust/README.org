@@ -59,8 +59,8 @@ To install and manage Rust on Windows, consult [[https://forge.rust-lang.org/inf
     installed through it -- can easily locate them (without any added
     configuration on your part).
 
-    Also, if you have used ~$ doom env~ in the past, changes to your ~$PATH~
-    won't be visible to Doom until you run it (or ~$ doom sync~) again.
+    Also, if you have used ~$ doom sync --env~ in the past, changes to your
+    ~$PATH~ won't be visible to Doom until you run ~$ doom sync~ again.
 #+end_quote
 
 ** Other Requirements
