@@ -113,7 +113,17 @@ See `+evil/next-preproc-directive' for details."
     (user-error "Must be called from a file-visiting buffer"))
   (let* ((directory (file-name-directory buffer-file-name))
          (filename (file-name-nondirectory buffer-file-name))
-         (files (cl-remove-if-not #'file-regular-p (doom-glob (file-name-directory buffer-file-name) "[!.]*")))
+         (files (cl-remove-if-not
+                 (lambda (file)
+                   (and (file-regular-p file)  ; no directories or device/special files
+                        (let ((filename (file-name-nondirectory file)))
+                          (save-match-data
+                            (not (and (bound-and-true-p flycheck-mode)
+                                      (string-match "^flycheck_\\(.+\\.el\\)$" filename)
+                                      ;; Make extra sure it's a generated file and not
+                                      ;; the actual flycheck library!
+                                      (file-exists-p (file-name-concat (file-name-directory file) (match-string 1)))))))))
+                 (doom-glob (file-name-directory buffer-file-name) "[!.]*")))
          (index (cl-position filename files :test #'file-equal-p)))
     (when (null index)
       (user-error "Couldn't find this file in current directory"))
