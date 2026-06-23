@@ -293,7 +293,7 @@ don't offer any/enough real value to users.")
                 (find-usages :enabled nil)
                 (lookup-doc :enabled nil)))
           ,@(when (modulep! :tools eval)
-              '((goto-repl :enabled nil)))))
+              '((goto-repl :enabled nil))))
         evil-collection-key-blacklist
         (append (list doom-leader-key
                       doom-localleader-key
