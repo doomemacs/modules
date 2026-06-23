@@ -12,8 +12,7 @@
           hy-mode
           dune-mode) . parinfer-rust-mode)
   :init
-  (setq parinfer-rust-auto-download (not (featurep :system 'bsd))
-        parinfer-rust-disable-troublesome-modes t)
+  (setq parinfer-rust-disable-troublesome-modes t)
   :config
   (map! :map parinfer-rust-mode-map
         :localleader
