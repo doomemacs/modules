@@ -1,4 +1,4 @@
-;;; config/literate/cli.el -*- lexical-binding: t; -*-
+;;; config/literate/cli.el -*- lexical-binding: t; no-byte-compile: t -*-
 
 (load! "autoload")
 

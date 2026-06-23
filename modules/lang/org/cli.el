@@ -1,4 +1,4 @@
-;;; lang/org/cli.el -*- lexical-binding: t; -*-
+;;; lang/org/cli.el -*- lexical-binding: t; no-byte-compile: t -*-
 
 (defcli! () ()
   "Commands to invoke Org's powerful capabilities."
