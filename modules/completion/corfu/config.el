@@ -261,4 +261,4 @@ See `+corfu-want-minibuffer-completion'."
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
         completion-category-overrides '((file (styles orderless partial-completion)))
-        orderless-component-separator #'orderless-escapable-split-on-space))
+        orderless-component-separator #'orderless-escapable-split))

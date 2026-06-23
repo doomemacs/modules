@@ -20,4 +20,4 @@
   (package! ivy-posframe :pin "ede7b2121f176ab543ce6b73fd96e3eafd6d1505"))
 
 (when (modulep! +icons)
-  (package! nerd-icons-ivy-rich :pin "7714b1194186cdd8353e2d80b40ae68c75aa3cd7"))
+  (package! nerd-icons-ivy-rich :pin "5e48ac70294b3f78bf966bb30448130396daa937"))

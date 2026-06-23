@@ -1,18 +1,18 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; completion/vertico/packages.el
 
-(package! vertico :pin "9e09fdddd6d3d995173cae0904347f46c2cdc55d")
+(package! vertico :pin "6028bd3d32c99c28e2b938e5e5393ec3508d2424")
 
-(package! orderless :pin "a5e960f5a9a080d982aba86378da1d12641cae5c")
+(package! orderless :pin "09c90d93efce4fdac52edfe8b22591b773f3e607")
 
-(package! consult :pin "8ffa37d7cb577fab68ab580889412b9363235a05")
+(package! consult :pin "540ad1e59ef80b1c8dd712cbbaae8957533ad02c")
 (package! consult-dir :pin "1497b46d6f48da2d884296a1297e5ace1e050eb5")
 (when (modulep! :checkers syntax -flymake)
-  (package! consult-flycheck :pin "16fa53d2cc31a2689dfb5d012575c81399f6669d"))
-(package! embark :pin "ec5dd1475595277ef908567d0a18d32f1c40bc91")
-(package! embark-consult :pin "ec5dd1475595277ef908567d0a18d32f1c40bc91")
+  (package! consult-flycheck :pin "9dd95361669f87e14230376f4f93c6b9a222c497"))
+(package! embark :pin "350ca86924c5027e80875943fba7b912a71e5791")
+(package! embark-consult :pin "350ca86924c5027e80875943fba7b912a71e5791")
 
-(package! marginalia :pin "8d87d2aedcefe0b157204f5c936dce3d0eacdf27")
+(package! marginalia :pin "feb66c02bbd88dba867cdd92b94fe24279ed578a")
 
 (package! wgrep :pin "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
 
@@ -25,4 +25,4 @@
     :pin "d6e06a4f1b34d24cc0ca6ec69d2d6c965191b23e"))
 
 (when (modulep! :editor snippets)
-  (package! consult-yasnippet :pin "a3482dfbdcbe487ba5ff934a1bb6047066ff2194"))
+  (package! consult-yasnippet :pin "89e39887c87e25d18861216a4d72e5d174f13751"))
