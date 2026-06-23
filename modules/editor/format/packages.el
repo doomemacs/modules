@@ -1,4 +1,4 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; editor/format/packages.el
 
-(package! apheleia :pin "68e23b34336dac48c15ca6dae2eeb7b1f1f56571")
+(package! apheleia :pin "14a0bb4454fb2cc3b5b377619288b742ce117da5")

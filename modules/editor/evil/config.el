@@ -268,7 +268,6 @@ directives. By default, this only recognizes C directives."
 
 The defaults disable modules that we have our own keybinds for or that (IMO)
 don't offer any/enough real value to users.")
-  (defvar evil-collection-repl-submit-state 'insert)
   (defvar evil-collection-company-use-tng (modulep! :completion company +tng))
   (defvar evil-collection-setup-minibuffer nil)
   (defvar evil-collection-want-unimpaired-p nil)  ; we have our own
@@ -283,14 +282,23 @@ don't offer any/enough real value to users.")
         (cl-callf2 delete elt evil-collection-mode-list)
       (cl-callf2 delq sym evil-collection-mode-list)))
 
-  (setq evil-collection-key-blacklist
-        (append (list doom-leader-key doom-localleader-key
+  (setq evil-collection-binding-overrides
+        `((repl-submit :enabled nil)
+          (repl-newline :enabled nil)
+          (pop-definition :enabled nil)
+          (find-file :enabled nil)
+          ,@(when (modulep! :tools lookup)
+              '((find-definition :enabled nil)
+                (find-usages :enabled nil)
+                (lookup-doc :enabled nil)))
+          ,@(when (modulep! :tools eval)
+              '((goto-repl :enabled nil)))))
+        evil-collection-key-blacklist
+        (append (list doom-leader-key
+                      doom-localleader-key
                       doom-leader-alt-key)
                 evil-collection-key-blacklist
-                (if (modulep! :tools lookup) '("gd" "gf" "K"))
-                (if (modulep! :tools eval) '("gr" "gR"))
-                '("[" "]" "gz" "<escape>"))
-        evil-collection-key-whitelist '("[[" "]]"))
+                '("gz" "<escape>")))
 
   (defadvice! +evil-collection-disable-blacklist-a (fn)
     :around #'evil-collection-vterm-toggle-send-escape  ; allow binding to ESC

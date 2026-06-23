@@ -17,7 +17,7 @@
   :recipe (:build (:not compile))
   :pin "616aff9e5cee012954756ed2715209fa90308cdf")
 (package! evil-snipe :pin "16317d7e54313490a0fe8642ed9a1a72498e7ad2")
-(package! evil-surround :pin "c0d2519424933b117b3b2331d07728295866b8e5")
+(package! evil-surround :pin "e6548372e8359ee55e67d73ca418314086011f1a")
 (package! evil-textobj-anyblock
   :recipe (:host github
            :repo "willghatch/evil-textobj-anyblock"
@@ -38,4 +38,4 @@
     (package! neotree)
     (autoload 'neotree-make-executor "neotree" nil nil 'macro))
 
-  (package! evil-collection :pin "e2888aa77ed2cfc0a5467479909e9ae2f0ab6e3d"))
+  (package! evil-collection :pin "e2a1989c79dafaf739a34f93fb2265a23d1c818e"))
