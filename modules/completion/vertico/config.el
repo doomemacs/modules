@@ -306,7 +306,7 @@ orderless."
     "u" #'doom/help-package-homepage)
   (setf (alist-get 'package embark-keymap-alist) #'+vertico-embark-doom-package-map)
   (map! (:map embark-file-map
-         :desc "Open target with sudo"         "s"   #'doom/sudo-find-file
+         :desc "Open target with sudo"         "S"   #'doom/sudo-find-file
          (:when (modulep! :tools magit)
            :desc "Open magit-status of target" "g"   #'+vertico/embark-magit-status)
          (:when (modulep! :ui workspaces)
