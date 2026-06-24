@@ -42,7 +42,7 @@
                (insert-file-contents "org-loaddefs.el")
                (save-excursion (insert "\n"))
                (insert-file-contents afile))))
-  :pin "2f6959386141ea0f02e84b7b5903c8866caf2636"  ; release_9.8.4
+  :pin "dcb8f00ec7605327dcd32562c2a51ad278f7af28"  ; release_9.8.6
   :env `((org--inhibit-version-check . t)))
 (package! org-contrib
   :recipe (:host github
@@ -52,7 +52,7 @@
 (package! avy)
 (package! htmlize :pin "fa644880699adea3770504f913e6dddbec90c076")
 (package! ox-clip :pin "a549cc8e1747beb6b7e567ffac27e31ba45cb8e8")
-(package! toc-org :pin "6d3ae0fc47ce79b1ea06cabe21a3c596395409cd")
+(package! toc-org :pin "69165018974a82b397d0869f0c7f0bf7d3b4ee07")
 (package! org-cliplink :pin "13e0940b65d22bec34e2de4bc8cba1412a7abfbc")
 
 (when (and (featurep :system 'macos)
@@ -66,7 +66,7 @@
 (when (modulep! +dragndrop)
   (package! org-download :pin "c8be2611786d1d8d666b7b4f73582de1093f25ac"))
 (when (modulep! +gnuplot)
-  (package! gnuplot :pin "ef08de51912c188bdcec3040575749973f4764b6")
+  (package! gnuplot :pin "81e3cb30297f0d12df41b865d2a76c8ba179089c")
   (package! gnuplot-mode :pin "601f6392986f0cba332c87678d31ae0d0a496ce7"))
 (when (modulep! +jupyter)
   (package! jupyter :pin "242fdc709ce0faa3b9ee81dcc48cfd791898e6b8" :freeze t))
@@ -75,7 +75,7 @@
 (when (modulep! +noter)
   (package! org-noter :pin "ab9628e449d76af8b2e5a9d5fead4e03ca76a03d"))
 (when (modulep! +pretty)
-  (package! org-modern :pin "df2e0a54f6397391518f817038f9c11dba2851c2")
+  (package! org-modern :pin "4855ade77ab17de7587c37bde12a0afeab342783")
   (package! org-appear :pin "32ee50f8fdfa449bbc235617549c1bccb503cb09"))
 (when (modulep! +present)
   (package! centered-window
@@ -86,7 +86,7 @@
   (package! revealjs
     :recipe (:host github :repo "hakimel/reveal.js"
              :files ("css" "dist" "js" "plugin"))
-    :pin "76dc90065968d4ead13692489c2c4e506c50e382"))
+    :pin "a3b940695648aa1c5b0680bc9a5b905cf43020e5"))
 (when (or (modulep! +roam)
           (modulep! +roam2))
   (package! org-roam :pin "903bd4ec56d29247990d005ed9052c201e18b812"))
