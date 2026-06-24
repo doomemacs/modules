@@ -35,7 +35,7 @@
   ;; By default, Emacs stores `authinfo' in $HOME and in plain-text. Let's not
   ;; do that, mkay? This file stores usernames, passwords, and other treasures
   ;; for the aspiring malicious third party. You'll need a GPG setup though.
-  (setq auth-sources (list (file-name-concat doom-profile-state-dir "authinfo.gpg")
+  (setq auth-sources (list (doom-profile-state-dir t "authinfo.gpg")
                            "~/.authinfo.gpg"))
 
   (after! epa

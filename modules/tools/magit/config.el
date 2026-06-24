@@ -44,9 +44,9 @@ FUNCTION
   :init
   (setq magit-auto-revert-mode nil)  ; we do this ourselves further down
   ;; Must be set early to prevent ~/.config/emacs/transient from being created
-  (setq transient-levels-file  (file-name-concat doom-profile-data-dir "transient" "levels")
-        transient-values-file  (file-name-concat doom-profile-data-dir "transient" "values")
-        transient-history-file (file-name-concat doom-profile-data-dir "transient" "history"))
+  (setq transient-levels-file  (doom-profile-data-dir t "transient" "levels")
+        transient-values-file  (doom-profile-data-dir t "transient" "values")
+        transient-history-file (doom-profile-data-dir t "transient" "history"))
   :config
   (set-debug-var! 'magit-refresh-verbose)
 
@@ -204,7 +204,7 @@ FUNCTION
   :after-call magit-status
   :commands forge-create-pullreq forge-create-issue
   :preface
-  (setq forge-database-file (file-name-concat doom-profile-data-dir "forge" "forge-database.sqlite"))
+  (setq forge-database-file (doom-profile-data-dir t "forge" "forge-database.sqlite"))
   (setq forge-add-default-bindings (not (modulep! :editor evil +everywhere)))
   :init
   (after! ghub-graphql
@@ -228,9 +228,9 @@ FUNCTION
   :init
   ;; HACK: See jwiegley/use-package#829
   (after! magit (require 'code-review))
-  (setq code-review-db-database-file (file-name-concat doom-profile-data-dir "code-review" "code-review-db-file.sqlite")
-        code-review-log-file (file-name-concat doom-profile-data-dir "code-review" "code-review-error.log")
-        code-review-download-dir (file-name-concat doom-profile-data-dir "code-review/"))
+  (setq code-review-db-database-file (doom-profile-data-dir t "code-review" "code-review-db-file.sqlite")
+        code-review-log-file (doom-profile-data-dir t "code-review" "code-review-error.log")
+        code-review-download-dir (doom-profile-data-dir t "code-review/"))
   :config
   (set-evil-initial-state! 'code-review-mode 'normal)
   (transient-append-suffix 'magit-merge "d"

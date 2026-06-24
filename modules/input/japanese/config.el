@@ -8,7 +8,7 @@
         migemo-user-dictionary nil
         migemo-regex-dictionary nil
         migemo-coding-system 'utf-8-unix
-        migemo-directory (file-name-concat doom-profile-data-dir "migemo/"))
+        migemo-directory (doom-profile-data-dir t "migemo/"))
 
   (when-let*
       ((dict (or (bound-and-true-p migemo-dictionary)

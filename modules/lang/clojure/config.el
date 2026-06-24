@@ -143,7 +143,7 @@
         cider-prompt-for-symbol nil
         cider-repl-history-display-duplicates nil
         cider-repl-history-display-style 'one-line
-        cider-repl-history-file (file-name-concat doom-profile-state-dir "cider-repl-history")
+        cider-repl-history-file (doom-profile-state-dir t "cider-repl-history")
         cider-repl-history-highlight-current-entry t
         cider-repl-history-quit-action 'delete-and-restore
         cider-repl-history-highlight-inserted-item t

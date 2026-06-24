@@ -12,7 +12,7 @@
   "Where to store eshell configuration files, as opposed to
 `eshell-directory-name', which is where Doom will store temporary/data files.")
 
-(defvar eshell-directory-name (file-name-concat doom-profile-data-dir "eshell")
+(defvar eshell-directory-name (doom-profile-data-dir t "eshell")
   "Where to store temporary/data files, as opposed to `eshell-config-dir',
 which is where Doom will store eshell configuration files.")
 

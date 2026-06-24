@@ -19,7 +19,7 @@
     :after #'ido-mode
     (run-hooks 'ido-mode-hook))
   :init
-  (setq ido-save-directory-list-file (file-name-concat doom-profile-cache-dir "ido.last"))
+  (setq ido-save-directory-list-file (doom-profile-cache-dir t "ido.last"))
   :config
   (setq ido-ignore-buffers
         '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*[Hh]elp" "^\\*Buffer"

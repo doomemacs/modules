@@ -28,8 +28,8 @@ This must be set before `treemacs' has loaded."
   (setq treemacs-follow-after-init t
         treemacs-is-never-other-window t
         treemacs-sorting 'alphabetic-case-insensitive-asc
-        treemacs-persist-file (file-name-concat doom-profile-cache-dir "treemacs-persist")
-        treemacs-last-error-persist-file (file-name-concat doom-profile-cache-dir "treemacs-last-error-persist"))
+        treemacs-persist-file (doom-profile-cache-dir t "treemacs-persist")
+        treemacs-last-error-persist-file (doom-profile-cache-dir t "treemacs-last-error-persist"))
   :config
   (set-popup-rule! "^ ?\\*Treemacs" :ignore t)
 

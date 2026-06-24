@@ -22,8 +22,8 @@ easier to scroll through."
 (use-package! elfeed
   :commands elfeed
   :init
-  (setq elfeed-db-directory (file-name-concat doom-profile-data-dir "elfeed" "db/")
-        elfeed-enclosure-default-dir (file-name-concat doom-profile-data-dir "elfeed" "enclosures/"))
+  (setq elfeed-db-directory (doom-profile-data-dir t "elfeed" "db/")
+        elfeed-enclosure-default-dir (doom-profile-data-dir t "elfeed" "enclosures/"))
   :config
   (setq elfeed-search-filter "@2-week-ago "
         elfeed-show-entry-switch #'pop-to-buffer

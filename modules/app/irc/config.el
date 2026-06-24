@@ -239,5 +239,5 @@ Courtesy of esh-mode.el"
 
 (use-package! lui-logging
   :after lui
-  :init (setq lui-logging-directory (file-name-concat doom-profile-state-dir "lui"))
+  :init (setq lui-logging-directory (doom-profile-state-dir t "lui"))
   :config (enable-lui-logging))

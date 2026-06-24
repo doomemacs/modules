@@ -199,7 +199,7 @@ Dictionary.app behind the scenes to get definitions.")
   (add-hook '+lookup-documentation-functions #'+lookup-dash-docsets-backend-fn)
   :config
   (setq dash-docs-enable-debugging init-file-debug
-        dash-docs-docsets-path (file-name-concat doom-profile-data-dir "docsets/")
+        dash-docs-docsets-path (doom-profile-data-dir t "docsets/")
         dash-docs-min-length 2
         dash-docs-browser-func #'eww)
 

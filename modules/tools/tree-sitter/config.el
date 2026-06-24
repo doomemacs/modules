@@ -101,7 +101,7 @@
   :config
   ;; HACK: Keep $EMACSDIR clean by installing grammars to central location (the
   ;;   active profile).
-  (let ((data-dir (file-name-concat doom-profile-data-dir "tree-sitter")))
+  (let ((data-dir (doom-profile-data-dir t "tree-sitter")))
     (add-to-list 'treesit-extra-load-path data-dir)
     ;; Treesit's API saw major changes in 30.x.
     (if (< emacs-major-version 30)

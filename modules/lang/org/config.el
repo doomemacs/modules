@@ -64,7 +64,7 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
 (defvar +org-habit-graph-window-ratio 0.3
   "The ratio of the consistency graphs relative to the window width.")
 
-(defvar +org-preview-dir (doom-path doom-profile-cache-dir "org/previews/")
+(defvar +org-preview-dir (doom-profile-cache-dir t "org/previews/")
   "Where link preview images are cached.")
 
 (defvar +org-startup-with-animated-gifs nil
@@ -1026,7 +1026,7 @@ between the two."
 (use-package! org-clock ; built-in
   :commands org-clock-save
   :init
-  (setq org-clock-persist-file (file-name-concat doom-profile-data-dir "org-clock-save.el"))
+  (setq org-clock-persist-file (doom-profile-data-dir t "org-clock-save.el"))
   (defadvice! +org--clock-load-a (&rest _)
     "Lazy load org-clock until its commands are used."
     :before '(org-clock-in
@@ -1179,9 +1179,9 @@ between the two."
   (defvar org-attach-id-dir nil)
   (defvar org-babel-python-command nil)
 
-  (setq org-persist-directory (file-name-concat doom-profile-cache-dir "org" "persist/")
-        org-publish-timestamp-directory (file-name-concat doom-profile-cache-dir "org" "timestamps/")
-        org-preview-latex-image-directory (file-name-concat doom-profile-cache-dir "org" "latex/")
+  (setq org-persist-directory (doom-profile-cache-dir t "org" "persist/")
+        org-publish-timestamp-directory (doom-profile-cache-dir t "org" "timestamps/")
+        org-preview-latex-image-directory (doom-profile-cache-dir t "org" "latex/")
         ;; Recognize a), A), a., A., etc -- must be set before org is loaded.
         org-list-allow-alphabetical t)
 
