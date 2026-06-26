@@ -324,7 +324,8 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                         "--batch"
                         ,@(mapcan (lambda (p) (list "-L" p)) elisp-flymake-byte-compile-load-path)
                         ;; this is what silences the byte compiler
-                        "--eval" ,(prin1-to-string `(setq doom-modules ',doom-modules
+                        "--eval" ,(prin1-to-string `(setq doom-profile ',doom-profile
+                                                          doom-modules ',doom-modules
                                                           doom-disabled-packages ',doom-disabled-packages
                                                           byte-compile-warnings ',+emacs-lisp-linter-warnings))
                         "-f" "elisp-flymake--batch-compile-for-flymake"
