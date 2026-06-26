@@ -81,9 +81,8 @@
                            (erase-buffer)
                            (current-buffer))
                          "emacs" "--batch"
+                         "--load" (doom-path doom-emacs-dir "early-init")
                          "-L" (file-name-directory (locate-library "org"))
-                         "--load" (doom-path doom-core-dir "doom")
-                         "--load" (doom-path doom-core-dir "lib/print")
                          "--eval"
                          (prin1-to-string
                           `(funcall #',(symbol-function #'+literate-tangle)
