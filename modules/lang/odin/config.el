@@ -19,7 +19,7 @@ Can be overridden per-project via .dir-locals.el."
 ;;; Packages
 
 (defun +odin-common-config (mode)
-  (set-formatter! 'odinfmt '("odinfmt") :modes (list mode))
+  (set-formatter! 'odinfmt '("odinfmt" "-stdin") :modes (list mode))
   (when (modulep! +lsp)
     (add-hook (intern (format "%s-local-vars-hook" mode)) #'lsp! 'append))
   (map! :map ,(intern (format "%s-map" mode))
