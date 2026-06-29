@@ -3,69 +3,38 @@
 ;;
 ;;; Helpers
 
-(defun +vc--remote-homepage ()
-  (require 'browse-at-remote)
-  (or (let ((url (browse-at-remote--remote-ref)))
-        (plist-get (browse-at-remote--get-url-from-remote (car url)) :url))
-      (user-error "Can't find homepage for current project")))
-
-;; TODO: PR these upstream?
-;;;###autoload
-(defun browse-at-remote--format-region-url-as-codeberg (repo-url location filename &optional linestart lineend)
-  "URL formatted for codeberg."
-  (cond
-   ((and linestart lineend)
-    (format "%s/src/%s/%s#L%d-L%d" repo-url location filename linestart lineend))
-   (linestart (format "%s/src/%s/%s#L%d" repo-url location filename linestart))
-   (t (format "%s/src/%s/%s" repo-url location filename))))
-
-;;;###autoload
-(defun browse-at-remote--format-commit-url-as-codeberg (repo-url commithash)
-  "Commit URL formatted for codeberg"
-  (format "%s/src/commit/%s" repo-url commithash))
-
 
 ;;
 ;;; Commands
 
-(defvar browse-at-remote-prefer-symbolic)
 ;;;###autoload
-(defun +vc/browse-at-remote (&optional arg)
-  "Open URL to current file (and line if selection is active) in browser.
-If prefix ARG, negate the default value of `browse-at-remote-prefer-symbolic'."
-  (interactive "P")
-  (require 'browse-at-remote)
-  (let ((vc-ignore-dir-regexp locate-dominating-stop-dir-regexp)
-        (browse-at-remote-prefer-symbolic
-         (if arg
-             (not browse-at-remote-prefer-symbolic)
-           browse-at-remote-prefer-symbolic)))
-    (browse-at-remote)))
+(defun +vc/git-link ()
+  "Open URL to current file (and line if selection is active) in browser."
+  (interactive)
+  (require 'magit)
+  (if (region-active-p)
+      (browse-url (git-link (magit-get-remote) (line-number-at-pos (region-beginning) ) (line-number-at-pos (region-end))))
+    (browse-url (git-link (magit-get-remote) nil nil))))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-kill (&optional arg interactive?)
-  "Copy URL to current file (and line if selection is active) to clipboard.
-If prefix ARG, negate the default value of `browse-at-remote-prefer-symbolic'."
-  (interactive (list current-prefix-arg 'interactive))
-  (require 'browse-at-remote)
-  (let ((vc-ignore-dir-regexp locate-dominating-stop-dir-regexp)
-        (browse-at-remote-prefer-symbolic
-         (if arg
-             (not browse-at-remote-prefer-symbolic)
-           browse-at-remote-prefer-symbolic)))
-    (browse-at-remote-kill)
-    (if interactive? (message "Copied to clipboard"))))
+(defun +vc/git-link-kill ()
+  "Open URL to current file (and line if selection is active) in browser."
+  (interactive)
+  (require 'magit)
+  (if (region-active-p)
+      (kill-new (git-link (magit-get-remote) (line-number-at-pos (region-beginning)) (line-number-at-pos (region-end))))
+    (kill-new (git-link (magit-get-remote) nil nil))))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-homepage ()
+(defun +vc/git-link-homepage ()
   "Open homepage for current project in browser."
   (interactive)
-  (browse-url (+vc--remote-homepage)))
+  (require 'magit)
+  (browse-url (git-link-homepage (magit-get-remote))))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-kill-homepage ()
+(defun +vc/git-link-kill-homepage ()
   "Copy homepage URL of current project to clipboard."
   (interactive)
-  (let ((url (+vc--remote-homepage)))
-    (kill-new url)
-    (message "Copied to clipboard: %S" url)))
+  (require 'magit)
+  (kill-new (git-link-homepage (magit-get-remote))))

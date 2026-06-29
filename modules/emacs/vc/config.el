@@ -89,34 +89,6 @@
   ;; `header-line-format', which has better visibility.
   (setq git-timemachine-show-minibuffer-details t)
 
-  ;; REVIEW: PR this to `git-timemachine'
-  (defadvice! +vc-support-git-timemachine-a (fn)
-    "Allow `browse-at-remote' commands in git-timemachine buffers to open that
-file in your browser at the visited revision."
-    :around #'browse-at-remote-get-url
-    (if git-timemachine-mode
-        (let* ((start-line (and (use-region-p) (line-number-at-pos
-                                                (min (region-beginning) (region-end)))))
-               (point-end (and (use-region-p) (max (region-beginning) (region-end))))
-               (end-line (and (use-region-p) (line-number-at-pos point-end)))
-               (remote-ref (browse-at-remote--remote-ref buffer-file-name))
-               (remote (car remote-ref))
-               (ref (car git-timemachine-revision))
-               (relname
-                (file-relative-name
-                 buffer-file-name (expand-file-name (vc-git-root buffer-file-name))))
-               (target-repo (browse-at-remote--get-url-from-remote remote))
-               (remote-type (browse-at-remote--get-remote-type (plist-get target-repo :unresolved-host)))
-               (repo-url (plist-get target-repo :url))
-               (url-formatter (browse-at-remote--get-formatter 'region-url remote-type)))
-          (unless url-formatter
-            (error (format "Origin repo parsing failed: %s" repo-url)))
-          (funcall url-formatter repo-url ref relname
-                   (if start-line start-line)
-                   (when (and end-line (not (equal start-line end-line)))
-                     (if (eq (char-before point-end) ?\n) (- end-line 1) end-line))))
-      (funcall fn)))
-
   (defadvice! +vc-update-header-line-a (revision)
     "Show revision details in the header-line, instead of the minibuffer.
 
@@ -149,27 +121,3 @@ info in the `header-line-format' is a more visible indicator."
         :n "C-n" #'git-timemachine-show-next-revision
         :n "gb"  #'git-timemachine-blame
         :n "gtc" #'git-timemachine-show-commit))
-
-
-(after! browse-at-remote
-  ;; It's more sensible that the user have more options. If they want line
-  ;; numbers, users can request them by making a selection first. Otherwise
-  ;; omitting them.
-  (setq browse-at-remote-add-line-number-if-no-region-selected nil)
-  ;; Opt to produce permanent links with `browse-at-remote' by default, using
-  ;; commit hashes rather than branch names.
-  (setq browse-at-remote-prefer-symbolic nil)
-
-  ;; Expand recognition for more forges (like self-hosted gitlab.* subdomains
-  ;; and codeberg).
-  ;; REVIEW: PR these upstream?
-  (add-to-list 'browse-at-remote-remote-type-regexps '(:host "^codeberg\\.org$" :type "codeberg"))
-  (add-to-list 'browse-at-remote-remote-type-regexps '(:host "^gitlab\\." :type "gitlab") 'append)
-
-  ;; HACK: `browse-at-remote' produces urls with `nil' in them, when the repo is
-  ;;   detached. This creates broken links. I think it is more sensible to fall
-  ;;   back to master in those cases.
-  (defadvice! +vc--fallback-to-master-branch-a ()
-    "Return 'master' in detached state."
-    :after-until #'browse-at-remote--get-local-branch
-    "master"))
