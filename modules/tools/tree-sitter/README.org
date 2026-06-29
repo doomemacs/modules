@@ -27,7 +27,8 @@ It includes:
 /This module has no flags./
 
 ** Packages
-/This module doesn't install any packages./
+- if [[doom-module::editor evil +everywhere]]
+  - [[doom-package:evil-textobj-tree-sitter]]
 
 ** Hacks
 - ~treesit-auto-install-grammar~, ~treesit-ensure-installed~, ~treesit-enabled-modes~,
@@ -88,7 +89,8 @@ Not all languages support all text objects (yet). [[https://github.com/nvim-tree
 object languages support]].
 
 #+begin_quote
-  Only languages with parsers in Emacs have text object support at the moment.
+  Text objects are only enabled in ~*-ts-mode~ buffers, via the
+ ~+tree-sitter-textobjs-mode~ minor mode, and require [[doom-module::editor evil +everywhere]].
 #+end_quote
 
 Currently text objects are bound to:
@@ -127,8 +129,8 @@ Currently keys are bound to:
 
 ** Rebind text objects
 Rebinding keys works the same as rebinding any other key, but text-object keys
-must be bound on one or both of the ~+tree-sitter-inner-text-object-map~ or
-~+tree-sitter-outer-text-object-map~ keymaps:
+must be bound on one or both of the ~+tree-sitter-inner-text-objects-map~ or
+~+tree-sitter-outer-text-objects-map~ keymaps:
 #+begin_src emacs-lisp
 (map! (:map +tree-sitter-outer-text-objects-map
        "f" (evil-textobj-tree-sitter-get-textobj "call.inner")
