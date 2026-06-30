@@ -323,7 +323,9 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                         "-Q"
                         "--batch"
                         ,@(mapcan (lambda (p) (list "-L" p)) elisp-flymake-byte-compile-load-path)
-                        ;; this is what silences the byte compiler
+                        ;; Appease the byte-compiler by loading Doom
+                        "-l" ,(doom-emacs-dir "early-init.el")
+                        "-f" "doom-startup"
                         "--eval" ,(prin1-to-string `(setq doom-profile ',doom-profile
                                                           doom-modules ',doom-modules
                                                           doom-disabled-packages ',doom-disabled-packages
@@ -373,25 +375,25 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
       flycheck-disabled-checkers)
     (setq-local flycheck-emacs-lisp-check-form
                 (prin1-to-string
-                 `(progn
-                    (setq doom-modules ',doom-modules
-                          doom-disabled-packages ',doom-disabled-packages
-                          byte-compile-warnings ',+emacs-lisp-linter-warnings)
-                    (condition-case e
-                        (progn
-                          (require 'doom)
-                          (require 'doom-cli)
-                          (doom-initialize t)
-                          (doom-startup))
-                      (error
-                       (princ
-                        (format "%s:%d:%d:Error:Failed to load Doom: %s\n"
-                                (or ,(ignore-errors
-                                       (file-name-nondirectory
-                                        (buffer-file-name (buffer-base-buffer))))
-                                    (car command-line-args-left))
-                                0 0 (error-message-string e)))))
-                    ,(read (default-toplevel-value 'flycheck-emacs-lisp-check-form))))
+                 `(condition-case e
+                      (progn
+                        (require 'doom)
+                        (require 'doom-cli)
+                        (doom-initialize ,(doom-profile->id doom-profile))
+                        (setq doom-profile ',doom-profile
+                              doom-modules ',doom-modules
+                              doom-disabled-packages ',doom-disabled-packages
+                              byte-compile-warnings ',+emacs-lisp-linter-warnings)
+                        (doom-startup))
+                    (error
+                     (princ
+                      (format "%s:%d:%d:Error:Failed to load Doom: %s\n"
+                              (or ,(ignore-errors
+                                     (file-name-nondirectory
+                                      (buffer-file-name (buffer-base-buffer))))
+                                  (car command-line-args-left))
+                              0 0 (error-message-string e)))))
+                    ,(read (default-toplevel-value 'flycheck-emacs-lisp-check-form)))
                 flycheck-disabled-checkers
                 (cons 'emacs-lisp-checkdoc
                       (remq 'emacs-lisp-checkdoc
