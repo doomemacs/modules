@@ -33,11 +33,11 @@
   (require 'git-link)
   (let ((git-link-use-commit
          (if arg (not git-link-use-commit) git-link-use-commit)))
-    (+vc--safe-git-call #'git-link-commit (git-link--select-remote))))
+    (+vc--safe-git-call #'git-link-commit (list (git-link--select-remote)))))
 
 (defun +vc--git-link-homepage ()
   (require 'git-link)
-  (+vc--safe-git-call #'git-link-homepage (git-link--remote)))
+  (+vc--safe-git-call #'git-link-homepage (list (git-link--remote))))
 
 
 ;;
