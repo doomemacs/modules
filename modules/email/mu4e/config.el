@@ -627,20 +627,7 @@ See `+mu4e-msg-gmail-p' and `mu4e-sent-messages-behavior'.")
 
     (defvar +mu4e--last-invalid-gmail-action 0)
 
-    (setf (alist-get 'delete mu4e-marks)
-          (list
-           :char '("D" . "✘")
-           :prompt "Delete"
-           :show-target (lambda (_target) "delete")
-           :action (lambda (docid msg target)
-                     (if (+mu4e-msg-gmail-p msg)
-                         (progn (message "The delete operation is invalid for Gmail accounts. Trashing instead.")
-                                (+mu4e--mark-seen docid msg target)
-                                (when (< 2 (- (float-time) +mu4e--last-invalid-gmail-action))
-                                  (sit-for 1))
-                                (setq +mu4e--last-invalid-gmail-action (float-time)))
-                       (mu4e--server-remove docid))))
-          (alist-get 'trash mu4e-marks)
+    (setf (alist-get 'trash mu4e-marks)
           (list :char '("d" . "▼")
                 :prompt "dtrash"
                 :dyn-target (lambda (_target msg) (mu4e-get-trash-folder msg))
