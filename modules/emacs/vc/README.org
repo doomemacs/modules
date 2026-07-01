@@ -16,18 +16,13 @@ integration with =git=.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:browse-at-remote]]
+- [[doom-package:git-link]]
 - [[doom-package:git-timemachine]]
-- [[doom-package:gitconfig-mode]]
-- [[doom-package:gitignore-mode]]
+- [[doom-package:git-modes]]
 
 ** Hacks
-- Allow [[doom-package:browse-at-remote]] commands in [[doom-package:git-timemachine]] buffers to open that file
-  in your browser at the visited revision.
 - [[doom-package:git-timemachine]] buffers will display revision details in the header-line,
   rather than the minibuffer (easier to see).
-- [[doom-package:browse-at-remote]] will fall back to the =master= branch if target is in a
-  detached state.
 
 ** TODO Changelog
 # This section will be machine generated. Don't edit it by hand.

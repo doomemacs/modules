@@ -1,71 +1,88 @@
 ;;; emacs/vc/autoload/vc.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
-;;
-;;; Helpers
-
-(defun +vc--remote-homepage ()
-  (require 'browse-at-remote)
-  (or (let ((url (browse-at-remote--remote-ref)))
-        (plist-get (browse-at-remote--get-url-from-remote (car url)) :url))
-      (user-error "Can't find homepage for current project")))
-
-;; TODO: PR these upstream?
-;;;###autoload
-(defun browse-at-remote--format-region-url-as-codeberg (repo-url location filename &optional linestart lineend)
-  "URL formatted for codeberg."
-  (cond
-   ((and linestart lineend)
-    (format "%s/src/%s/%s#L%d-L%d" repo-url location filename linestart lineend))
-   (linestart (format "%s/src/%s/%s#L%d" repo-url location filename linestart))
-   (t (format "%s/src/%s/%s" repo-url location filename))))
-
-;;;###autoload
-(defun browse-at-remote--format-commit-url-as-codeberg (repo-url commithash)
-  "Commit URL formatted for codeberg"
-  (format "%s/src/commit/%s" repo-url commithash))
+(defvar git-link-use-commit)
 
 
 ;;
-;;; Commands
+;;; * Helpers
 
-(defvar browse-at-remote-prefer-symbolic)
+;; HACK: all of `git-link's functions don't return nil if they fail; they return
+;;   the error message (???), so differentiating success (a link) from an error
+;;   requires this silliness.
+;; REVIEW: Fix this upstream! TODOs in `git-link' signal that they want it to
+;;   return nil on failure.
+(defun +vc--safe-git-call (fn args)
+  (when-let* ((url (apply fn args)))
+    (unless (string-match-p "^http" url)
+      (user-error url))
+    url))
+
+(defun +vc--git-link (&optional arg)
+  (require 'git-link)
+  (let ((git-link-use-commit
+         (if arg (not git-link-use-commit) git-link-use-commit)))
+    (+vc--safe-git-call
+     #'git-link (cons (git-link--remote)
+                      (or (and (doom-region-active-p)
+                               (git-link--get-region))
+                          (list nil nil))))))
+
+(defun +vc--git-link-commit (&optional arg)
+  (require 'git-link)
+  (let ((git-link-use-commit
+         (if arg (not git-link-use-commit) git-link-use-commit)))
+    (+vc--safe-git-call #'git-link-commit (git-link--select-remote))))
+
+(defun +vc--git-link-homepage ()
+  (require 'git-link)
+  (+vc--safe-git-call #'git-link-homepage (git-link--remote)))
+
+
+;;
+;;; * Commands
+
 ;;;###autoload
-(defun +vc/browse-at-remote (&optional arg)
+(defun +vc/git-link (&optional arg)
   "Open URL to current file (and line if selection is active) in browser.
-If prefix ARG, negate the default value of `browse-at-remote-prefer-symbolic'."
+
+Recognizes git-timemachine and various magit buffers.
+
+If prefix ARG is given, do the opposite of the default setting of
+`git-link-use-commit'."
   (interactive "P")
-  (require 'browse-at-remote)
-  (let ((vc-ignore-dir-regexp locate-dominating-stop-dir-regexp)
-        (browse-at-remote-prefer-symbolic
-         (if arg
-             (not browse-at-remote-prefer-symbolic)
-           browse-at-remote-prefer-symbolic)))
-    (browse-at-remote)))
+  (browse-url (or (if (derived-mode-p 'magit-mode)
+                      (+vc--git-link-commit arg))
+                  (+vc--git-link arg))))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-kill (&optional arg interactive?)
+(defun +vc/git-link-kill (&optional arg)
   "Copy URL to current file (and line if selection is active) to clipboard.
-If prefix ARG, negate the default value of `browse-at-remote-prefer-symbolic'."
-  (interactive (list current-prefix-arg 'interactive))
-  (require 'browse-at-remote)
-  (let ((vc-ignore-dir-regexp locate-dominating-stop-dir-regexp)
-        (browse-at-remote-prefer-symbolic
-         (if arg
-             (not browse-at-remote-prefer-symbolic)
-           browse-at-remote-prefer-symbolic)))
-    (browse-at-remote-kill)
-    (if interactive? (message "Copied to clipboard"))))
+
+Recognizes git-timemachine and various magit buffers.
+
+If prefix ARG is given, do the opposite of the default setting of
+`git-link-use-commit'."
+  (interactive "P")
+  (let ((link (or (if (derived-mode-p 'magit-mode)
+                      (+vc--git-link-commit arg))
+                  (+vc--git-link arg))))
+    (kill-new link)
+    (message "Copied to clipboard: %s" link)))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-homepage ()
+(defun +vc/git-link-homepage ()
   "Open homepage for current project in browser."
   (interactive)
-  (browse-url (+vc--remote-homepage)))
+  (browse-url (+vc--git-link-homepage)))
 
 ;;;###autoload
-(defun +vc/browse-at-remote-kill-homepage ()
+(defun +vc/git-link-kill-homepage ()
   "Copy homepage URL of current project to clipboard."
-  (interactive)
-  (let ((url (+vc--remote-homepage)))
-    (kill-new url)
-    (message "Copied to clipboard: %S" url)))
+  (interactive "P")
+  (let ((link (+vc--git-link-homepage)))
+    (kill-new link)
+    (message "Copied to clipboard: %S" link)))
+
+;;; vc.el ends here
