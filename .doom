@@ -1,7 +1,7 @@
 ;; -*- mode: lisp-data -*-
 "3.0.0"
 ((name . doomemacs/modules)
- (version . "26.06.0")
+ (version . "26.07.0")
  (homepage . "https://doomemacs.org/modules")
 
  (commit
