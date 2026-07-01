@@ -21,16 +21,18 @@ run."
   :type 'hook
   :group '+dashboard)
 
+(define-obsolete-variable-alias '+dashboard-banner-file 'fancy-splash-image "26.07")
 (defcustom +dashboard-banner-file "default.png"
   "The path to the image file to be used in on the dashboard. The path is
 relative to `+dashboard-banner-dir'. If nil, always use the ASCII banner."
   :type 'string
   :group '+dashboard)
 
-(defcustom +dashboard-banner-dir (concat (dir!) "/banners/")
+(defcustom +dashboard-banner-dir (dir! "banners/")
   "Where to look for `+dashboard-banner-file'."
   :type 'directory
   :group '+dashboard)
+(make-obsolete-variable '+dashboard-banner-dir "Set `fancy-splash-image' instead" "26.07")
 
 (defcustom +dashboard-ascii-banner-fn #'+dashboard-draw-ascii-banner-fn
   "The function used to generate the ASCII banner on Doom's dashboard."
@@ -237,12 +239,6 @@ dashboard reloading is inhibited.")
   (unless noninteractive
     (setq doom-fallback-buffer-name +dashboard-name
           initial-buffer-choice #'doom-fallback-buffer)
-    ;; Ensure the dashboard becomes Emacs' go-to buffer when there's nothing
-    ;; else to show.
-    (unless fancy-splash-image
-      (setq fancy-splash-image
-            (expand-file-name +dashboard-banner-file
-                              +dashboard-banner-dir)))
     (+dashboard-reload)
     (add-hook 'doom-load-theme-hook #'+dashboard-reload-on-theme-change-h)
     ;; Ensure the dashboard is up-to-date whenever it is switched to or resized.
