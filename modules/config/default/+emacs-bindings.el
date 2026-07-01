@@ -237,6 +237,9 @@
         :desc "Open directory in dirvish"     "/" #'dirvish
         :desc "Project sidebar"               "p" #'dirvish-side
         :desc "Find file in project sidebar"  "P" #'+dired/dirvish-side-and-follow)
+       (:when (modulep! :term ghostel)
+        :desc "Toggle ghostel popup"          "t" #'+ghostel/toggle
+        :desc "Open ghostel here"             "T" #'+ghostel/here)
        (:when (modulep! :term shell)
         :desc "Toggle shell popup"            "t" #'+shell/toggle
         :desc "Open shell here"               "T" #'+shell/here)

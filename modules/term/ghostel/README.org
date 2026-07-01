@@ -1,0 +1,83 @@
+#+title:    :term ghostel
+#+subtitle: The best terminal emulation in Emacs
+#+created:  June 24, 2026
+#+since:    26.07.0
+
+* Description :unfold:
+This module provides support for [[https://github.com/dakra/ghostel][ghostel]], an Emacs terminal emulator powered by
+=libghostty-vt=.
+
+#+begin_quote
+ 💡 [[doom-package:ghostel]] is a modern alternative to [[doom-module::term vterm][:term vterm]], with support for
+    synchronized output, the Kitty keyboard and graphics protocols, OSC 8
+    hyperlinks, and true color. Like vterm, it requires extra steps to set up.
+#+end_quote
+
+** Maintainers
+- [[doom-user:][@hlissner]]
+
+[[doom-contrib-maintainer:][Become a maintainer?]]
+
+** Module flags
+- +everywhere ::
+  Globally integrate ghostel into various parts of Emacs, like compilation
+  commands, comint, and eshell.
+
+** Packages
+- [[doom-package:ghostel]]
+- [[doom-package:evil-ghostel]] if [[doom-module::editor evil +everywhere]]
+
+** Hacks
+/No hacks documented for this module./
+
+** TODO Changelog
+# This section will be machine generated. Don't edit it by hand.
+/This module does not have a changelog yet./
+
+* Installation
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+
+This module requires:
+- Emacs with dynamic module support (i.e. compiled with the =--with-modules=
+  option).
+- MacOS, Linux, or FreeBSD on =aarch64= or =x86_64=.
+
+Optional prerequisites:
+- [[https://ziglang.org/][Zig]] 0.15 (to compile the native module yourself, instead of downloading a
+  pre-built binary).
+
+** Dynamic Module support
+To check if your build of Emacs has dynamic module support, run ~$ doom info~ in
+the shell and look for ~MODULES~ next to "features". If it isn't, you'll need to
+find another source to install Emacs from or recompile it with the appropriate
+build options.
+
+** Native module
+ghostel ships a native dynamic module written in Zig. The first time you run =M-x
+ghostel=, it offers to download a pre-built binary for your platform
+automatically. Pre-built binaries are available for =aarch64-macos=, =x86_64-macos=,
+=x86_64-linux=, =aarch64-linux=, and =x86_64-freebsd=.
+
+Auto-install behavior is controlled by [[var:][ghostel-module-auto-install]] (default
+=ask=); set it to ~'download~, ~'compile~, or ~nil~ to change the prompt:
+#+begin_src emacs-lisp :eval no
+;;; add to $DOOMDIR/config.el
+(with-eval-after-load 'ghostel
+  (setq ghostel-module-auto-install 'download))
+#+end_src
+
+* TODO Usage
+#+begin_quote
+󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+end_quote
+
+* TODO Configuration
+#+begin_quote
+󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+end_quote
+
+* Troubleshooting
+/There are no known problems with this module./ [[doom-report:][Report one?]]
+
+* Frequently asked questions
+/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]

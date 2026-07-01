@@ -1,5 +1,5 @@
 #+title:    :term vterm
-#+subtitle: As good as terminal emulation gets in Emacs
+#+subtitle: Almost the best terminal emulation in Emacs
 #+created:  January 16, 2019
 #+since:    21.12.0 (#1144)
 
