@@ -134,7 +134,6 @@ PLIST can have the following properties:
 dashboard reloading is inhibited.")
 
 (defvar +dashboard--last-cwd nil)
-(defvar +dashboard--last-position nil)
 (defvar +dashboard--reload-timer nil)
 
 
@@ -528,9 +527,8 @@ Applies line-prefix and indent-prefix text properties to respect
 
 (defun +dashboard-widget-banner ()
   "Draw text and image banner widget in the dashboard buffer."
-  (when-let*
-      ((banner (and (functionp +dashboard-ascii-banner-fn)
-                    (funcall +dashboard-ascii-banner-fn))))
+  (when-let* ((banner (and (functionp +dashboard-ascii-banner-fn)
+                           (funcall +dashboard-ascii-banner-fn))))
     (let* ((halign (cdr +dashboard-anchor))
            (width (+dashboard-maxlen banner))
            (text-prefix
@@ -595,10 +593,7 @@ See `+dashboard-menu-sections' to change the contents of the menu."
                    (with-temp-buffer
                      (insert-text-button
                       label
-                      'action
-                      `(lambda (_)
-                         (call-interactively (or (command-remapping #',action)
-                                                 #',action)))
+                      'action (cmd!! action)
                       'face (or face '+dashboard-menu-title)
                       'follow-link t
                       'help-echo
@@ -621,11 +616,9 @@ See `+dashboard-menu-sections' to change the contents of the menu."
                           (with-temp-buffer
                             (save-excursion (insert (key-description key)))
                             (while (re-search-forward "<\\([^>]+\\)>" nil t)
-                              (let ((str (match-string 1)))
-                                (replace-match
-                                 (upcase (if (< (length str) 3)
-                                             str
-                                           (substring str 0 3))))))
+                              (replace-match
+                               (let ((str (match-string 1)))
+                                 (upcase (substring str 0 (min (length str) 3))))))
                             (buffer-string)))
                         "")
                     'face '+dashboard-menu-desc)))
@@ -636,11 +629,15 @@ See `+dashboard-menu-sections' to change the contents of the menu."
   (+dashboard-insert
    (with-temp-buffer
      (insert (propertize " " 'display '(space . (:relative-height 2.0))) "\n")
-     (insert-text-button (or (nerd-icons-codicon "nf-cod-octoface" :face '+dashboard-footer-icon :height 1.3 :v-adjust -0.15)
-                             (propertize "github" 'face '+dashboard-footer))
-                         'action (lambda (_) (browse-url "https://github.com/doomemacs"))
-                         'follow-link t
-                         'help-echo "Open Doom Emacs github page")
+     (insert-text-button
+      (or (nerd-icons-codicon "nf-cod-octoface"
+                              :face '+dashboard-footer-icon
+                              :height 1.3
+                              :v-adjust -0.15)
+          (propertize "github" 'face '+dashboard-footer))
+      'action (lambda (_) (browse-url "https://github.com/doomemacs"))
+      'follow-link t
+      'help-echo "Open Doom Emacs github page")
      (insert "\n")
      (buffer-string))))
 
