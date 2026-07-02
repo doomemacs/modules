@@ -50,11 +50,6 @@
 (unless (executable-find "pipenv")
   (warn! "Couldn't find pipenv. pipenv support will not work."))
 
-(unless (executable-find "isort")
-  (warn! "Couldn't find isort. Import sorting will not work."))
-
 (when (modulep! :editor format)
-  (unless (executable-find "pyflakes")
-    (warn! "Couldn't find pyflakes. Import management will not work."))
   (unless (executable-find "black")
     (warn! "Couldn't find black. Code formatting will not work.")))
