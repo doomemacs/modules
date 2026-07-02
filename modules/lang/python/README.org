@@ -69,17 +69,48 @@ This module adds [[https://www.python.org/][Python]] support to Doom Emacs.
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module has no hard requirements, but softly depends on:
-- For this module's supported test runners:
-  - ~$ pip install pytest~
-  - ~$ pip install nose~
-- The [[doom-module::editor format]] module uses Black for python files: ~$ pip install black~
+
+- A supported syntax checker (some require Emacs packages that this module does
+  not install for you):
+  | Checker    | Flycheck support        | Flymake support |
+  |------------+-------------------------+-----------------|
+  | pylint     | built-in                | built-in [fn:1]     |
+  | pyflakes   | needs [[doom-package:flycheck-pyflakes][package]] | built-in [fn:1]     |
+  | ruff       | built-in                | built-in [fn:1]     |
+  | flake8     | built-in                | built-in [fn:1]     |
+  | pyright    | built-in                | no              |
+  | py_compile | built-in                | no              |
+  | mypy       | built-in                | no              |
+  | cython     | needs [[doom-module:+cython]]           | no              |
+
+  [fn:1] *Flymake users only:* The python-check-command variable sets what checker to
+  use for flymake. It will search for pyflakes, ruff, flake8, and epylint in
+  your ~$PATH~, before falling back to pyflake. You will have to change this
+  variable if it doesn't auto-pick the checker you want.
+
+  #+begin_src emacs-lisp :eval no
+  (with-eval-after-load 'python
+    (setq python-check-command "ruff"))
+  #+end_src
+
+  Flycheck users should use ~M-x flycheck-verify-setup~ to see what checkers are
+  available, what state they're in, and why.
+
+- The [[doom-module::editor format]] module uses [[https://github.com/psf/black][Black]] for
+  formatting python files.
+
 - Python virtual environments install instructions at:
   - [[https://github.com/pyenv/pyenv][pyenv]]
   - [[https://github.com/astral-sh/uv][uv]]
   - [[https://conda.io/en/latest/][Conda]]
   - [[https://python-poetry.org/][Poetry]]
   - [[https://pipenv.readthedocs.io/en/latest/][pipenv]]
-- ~cython~ requires [[https://cython.org/][Cython]]
+
+- ~cython~ requires [[https://cython.org/][Cython]].
+
+- This module supports the following test-runners:
+  - pytest :: ~$ pip install pytest~
+  - nose :: ~$ pip install nose~
 
 ** Language Server Protocol Support
 For LSP support the [[doom-module::tools lsp]] module must be enabled, along with
@@ -173,6 +204,11 @@ these two variables:
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]
+
+** =doom doctor= not as useful for this module
+Due to how localized Python development tends to be (using virtualenvs), =doom
+doctor='s global checks for executables is significantly less useful for
+detecting missing dependencies, so it will only report the bare minimum.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
