@@ -28,7 +28,18 @@
   ;; HACK: See dakra/ghostel#456. Persp-mode stores buffers by name, so if
   ;;   ghostel renames a buffer, persp-mode will lose track of it.
   (when (modulep! :ui workspaces)
-    (setq ghostel-buffer-name-function nil)))
+    (setq ghostel-buffer-name-function nil))
+
+  ;; HACK: direnv will silently no-op in ghostel shells if direnv.el/envrc.el
+  ;;   has already run, or if Emacs was launched from a direnv'ed environment,
+  ;;   so unset its init vars to allow it to run again as needed.
+  ;; REVIEW: PR this upstream?
+  (add-hook! 'ghostel-pre-spawn-hook
+    (defun +ghostel-strip-direnv-initvars-h (&rest _)
+      (when (getenv "DIRENV_FILE")
+        (setq-local process-environment
+                    (seq-filter (fn! (string-prefix-p "DIRENV_" %))
+                                process-environment))))))
 
 
 (use-package! ghostel-eshell
