@@ -40,7 +40,9 @@ Returns the ghostel buffer."
           (delete-window window))))
     (if-let* ((win (get-buffer-window ghostel-buffer-name)))
         (delete-window win)
-      (ghostel))))
+      (with-current-buffer (ghostel)
+        (set-window-dedicated-p (get-buffer-window) t)
+        (current-buffer)))))
 
 ;;;###autoload
 (defun +ghostel/here ()

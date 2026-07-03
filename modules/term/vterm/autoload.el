@@ -38,7 +38,9 @@ Returns the vterm buffer."
              (unless (eq major-mode 'vterm-mode)
                (vterm-mode))
              (setq-local +vterm--id buffer-name))
-           (pop-to-buffer buffer)))
+           (prog1 (pop-to-buffer buffer)
+             (when-let* ((win (get-buffer-window buffer)))
+               (set-window-dedicated-p win t)))))
        (get-buffer buffer-name)))))
 
 ;;;###autoload
