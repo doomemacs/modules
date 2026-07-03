@@ -25,6 +25,8 @@
           (dolist (fr (cons t (frame-list)))
             (set-face-attribute 'ghostel-default fr :inherit fc))))))
   :config
+  (add-to-list 'doom-real-buffer-modes 'ghostel-mode)
+
   ;; HACK: See dakra/ghostel#456. Persp-mode stores buffers by name, so if
   ;;   ghostel renames a buffer, persp-mode will lose track of it.
   (when (modulep! :ui workspaces)

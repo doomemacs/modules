@@ -17,6 +17,8 @@
   :config
   (set-popup-rule! "^\\*vterm" :size 0.25 :vslot -4 :select t :quit nil :ttl 0)
 
+  (add-to-list 'doom-real-buffer-modes 'vterm-mode)
+
   (map! :map vterm-mode-map
         "C-q"   #'vterm-send-next-key
         :n "0"  #'+vterm/beginning-of-line
