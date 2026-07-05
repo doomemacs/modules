@@ -241,6 +241,11 @@ directives. By default, this only recognizes C directives."
   (advice-add #'evil-window-split  :override #'+evil-window-split-a)
   (advice-add #'evil-window-vsplit :override #'+evil-window-vsplit-a)
 
+  ;; Shorten the redundant `evil-window-' prefix in which-key's popup
+  (after! which-key
+    (cl-pushnew `(("C-w" . "evil-window-\\(.*\\)") nil . "EW \\1")
+                which-key-replacement-alist))
+
   ;; Make o/O continue comments (see `+evil-want-o/O-to-continue-comments' to disable)
   (advice-add #'evil-open-above :around #'+evil--insert-newline-above-and-respect-comments-a)
   (advice-add #'evil-open-below :around #'+evil--insert-newline-below-and-respect-comments-a)
