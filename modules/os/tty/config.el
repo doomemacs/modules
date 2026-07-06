@@ -57,4 +57,8 @@
                             (keys (this-single-command-raw-keys))
                             ((> (length keys) 2))
                             ((equal (cl-subseq keys -3) [27 91 49])))
-                      [C-i] [?\C-i]))))
+                      [C-i] [?\C-i])))
+
+  ;; HACK: Allow C-g to abort envrc.
+  ;; See https://github.com/benotn/kkp#c-g-and-blocking-subprocesses
+  (advice-add #'envrc--export :around #'kkp-restore-legacy-keys))
