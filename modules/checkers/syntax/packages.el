@@ -8,7 +8,7 @@
     (package! flycheck-posframe :pin "aeccb14e90ba25f45e1919b776777fc6ec95e251")))
 
 (when (modulep! +flymake)
-  (package! flymake :pin "672e657179adb5da1fd2302cdbe14b07e05518eb")
+  (package! flymake :pin "e3939571a864bff84ed543bc267dff2619f331aa")
   (package! flymake-popon
     :recipe (:host github :repo "doomelpa/flymake-popon")
     :pin "99ea813346f3edef7220d8f4faeed2ec69af6060"))
