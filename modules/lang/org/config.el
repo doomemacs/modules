@@ -101,7 +101,7 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
    org-agenda-start-day "-3d"
    ;; Optimize `org-agenda' by inhibiting extra work while opening agenda
    ;; buffers in the background. They'll be "restarted" if the user switches to
-   ;; them anyway (see `+org-exclude-agenda-buffers-from-workspace-h')
+   ;; them anyway (see `+org--optimize-backgrounded-agenda-buffers-a')
    org-agenda-inhibit-startup t))
 
 
