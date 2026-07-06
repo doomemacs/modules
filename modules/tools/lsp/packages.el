@@ -3,8 +3,8 @@
 
 (if (modulep! +eglot)
     (progn
-      (package! eglot :pin "ccafb209bf81d9aee5702e500eecdcd47f2fa724")
-      (package! jsonrpc :pin "0135c781e636b97ff6c6173be236f43df67e6c06")
+      (package! eglot :pin "4048f9af988ece044db48ed1c9e00a353ff0993b")
+      (package! jsonrpc :pin "d8143c52679eaeebcca26dd41e015dc73d167b49")
       (when (modulep! :completion vertico)
         (package! consult-eglot :pin "3e4d9a40911b897c0a2c5d20199d0f7c30bfc1c2"))
       (when (modulep! :checkers syntax -flymake)
@@ -12,14 +12,14 @@
       (when (modulep! +booster)
         (package! eglot-booster
           :recipe (:host github :repo "jdtsmith/eglot-booster")
-          :pin "cab7803c4f0adc7fff9da6680f90110674bb7a22")))
+          :pin "510f579409627c333ef0e9157db713b1004da842")))
 
   ;; lsp-mode must be rebuilt if this variable is changed, so expose it here so
   ;; users can change it from $DOOMDIR/packages.el.
   (eval-and-compile (defvar lsp-use-plists t))
 
   (package! lsp-mode
-    :pin "2a6ab7cd41e31e4a74b1a6ea670ac4e4356f4be9"
+    :pin "90bc0430f670c4da44e31c4fad1d2fb4a71dc909"
     :env `(("LSP_USE_PLISTS" . ,(and lsp-use-plists "1"))))
   (package! lsp-ui :pin "176eca71d1c5498ed6258b5b27d73293ff7cd7ed")
   (when (modulep! :completion ivy)
