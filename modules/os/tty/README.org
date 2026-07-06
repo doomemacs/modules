@@ -71,7 +71,16 @@ Consult [[https://github.com/syl20bnr/spacemacs/wiki/Terminal][the spacemacs wik
 terminal Emacs.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+[[doom-report:][Report an issue?]]
+
+** Can't abort some processes with [[kbd:][C-g]]
+This module installs kkp.el, which adds Kitty Keyboard Protocol support to TTY
+Emacs, which, unfortunately, also captures [[kbd:][C-g]] keypresses, rendering it
+ineffective at aborting
+
+This is better explained [[https://github.com/benotn/kkp#c-g-and-blocking-subprocesses][in kkp's README]], along with  workarounds. Doom has
+employed a workaround for envrc, and will cover its own modules, but you must
+take care of any functionality beyond that.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
