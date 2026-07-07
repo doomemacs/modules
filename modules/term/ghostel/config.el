@@ -40,7 +40,7 @@
     (defun +ghostel-strip-direnv-initvars-h (&rest _)
       (when (getenv "DIRENV_FILE")
         (setq-local process-environment
-                    (seq-filter (fn! (string-prefix-p "DIRENV_" %))
+                    (seq-remove (fn! (string-prefix-p "DIRENV_" %))
                                 process-environment))))))
 
 
