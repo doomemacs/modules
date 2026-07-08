@@ -1,0 +1,71 @@
+#+title:    :lang prisma
+#+subtitle: Next-generation ORM for TypeScript & Node.js
+#+created:  July 08, 2026
+#+since:    26.04.0
+
+* Description :unfold:
+This module adds support for the [[https://www.prisma.io/][Prisma]] ORM schema language.
+
+- Syntax highlighting (via ~prisma-mode~ or tree-sitter)
+- LSP integration (via ~prisma-language-server~)
+
+** Maintainers
+/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+
+** Module flags
+- +lsp ::
+  Enable LSP support for ~prisma-mode~. Requires [[doom-module::tools lsp]]
+  and the npm package ~@prisma/language-server~.
+- +tree-sitter ::
+  Leverages tree-sitter for better syntax highlighting. Requires
+  [[doom-module::tools tree-sitter]].
+
+** Packages
+- [[doom-package:prisma-mode]]
+
+** Hacks
+/No hacks documented for this module./
+
+** TODO Changelog
+/This module does not have a changelog yet./
+
+* Installation
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+
+#+begin_src emacs-lisp
+(prisma +lsp)  ; or (prisma +lsp +tree-sitter)
+#+end_src
+
+This module requires the [[https://www.prisma.io/docs/getting-started/installation][Prisma CLI]] (~prisma~) for schema management.
+
+For LSP support, install ~@prisma/language-server~:
+
+#+begin_src sh
+npm install -g @prisma/language-server
+#+end_src
+
+* Usage
+#+begin_quote
+󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+end_quote
+
+** Keybindings
+| Binding         | Description               |
+|-----------------+---------------------------|
+| [[kbd:][<localleader> f]] | ~prisma-format-buffer~    |
+
+* TODO Configuration
+#+begin_quote
+󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+end_quote
+
+* Troubleshooting
+/There are no known problems with this module./ [[doom-report:][Report one?]]
+
+* Frequently asked questions
+/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+
+* TODO Appendix
+#+begin_quote
+󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+end_quote
