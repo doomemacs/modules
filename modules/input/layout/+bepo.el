@@ -36,28 +36,28 @@ In all cases, 'h' functions go to 'c' and 'l' ones go to 'r' so the navigation k
 
   (map! "C-é" 'evil-window-map)
   (map! :leader
-        :desc "Window"                     "é"  evil-window-map
+        "é"   '("Window" . evil-window-map)
         (:when (modulep! :ui popup)
-         :desc "Toggle last popup"         "#"  #'+popup/toggle)
+         "#"  '("Toggle last popup" . +popup/toggle))
         (:when (modulep! :ui workspaces)
-         :desc "Switch buffer"             "«"  #'switch-to-buffer)
-        :desc "Switch to last buffer"      "$"  #'evil-switch-to-windows-last-buffer
+         "«"  #'switch-to-buffer)
+         "$"  '("Switch to last buffer" . evil-switch-to-windows-last-buffer)
         (:when (modulep! :ui workspaces)
-         (:prefix-map ("TAB" . "workspace")
-          :desc "Switch to last workspace" "$"  #'+workspace/other
-          :desc "Next workspace"           ")"  #'+workspace/switch-right
-          :desc "Previous workspace"       "("  #'+workspace/switch-left))
-        (:prefix-map ("b" . "buffer")
-         :desc "Previous buffer"           "("  #'previous-buffer
-         :desc "Next buffer"               ")"  #'next-buffer)
-        (:prefix-map ("c" . "code")
-         :desc "Jump to documentation"     "S"  #'+lookup/documentation)
-        (:prefix-map ("g" . "git")
-         (:when (modulep! :ui vc-gutter)
-          :desc "Jump to next hunk"        ")"  #'+vc-gutter/next-hunk
-          :desc "Jump to previous hunk"    "("  #'+vc-gutter/previous-hunk))
-        (:prefix-map ("p" . "project")
-         :desc "Browse other project"      "»"  #'doom/browse-in-other-project)))
+         :prefix "TAB"
+         "$"  '("Last workspace" . +workspace/other)
+         ")"  '("Next workspace" . +workspace/switch-right)
+         "("  '("Previous workspace" . +workspace/switch-left)))
+        (:prefix "b"
+         "("  #'previous-buffer
+         ")"  #'next-buffer)
+        (:prefix "c"
+         "S"  #'+lookup/documentation)
+        (:prefix "g"
+         :when (modulep! :ui vc-gutter)
+         ")"  #'+vc-gutter/next-hunk
+         "("  #'+vc-gutter/previous-hunk)
+        (:prefix "p"
+         "»"  #'doom/browse-in-other-project)))
 
 (defun +layout-remap-evil-keys-for-bepo-h ()
   ;; "ts" would be a little too common for an evil escape sequence

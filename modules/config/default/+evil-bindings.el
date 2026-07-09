@@ -872,9 +872,3 @@
        (:when (modulep! :ui zen)
         :desc "Zen mode"                   "z" #'+zen/toggle
         :desc "Zen mode (fullscreen)"      "Z" #'+zen/toggle-fullscreen)))
-
-(after! which-key
-  (let ((prefix-re (regexp-opt (list doom-leader-key doom-leader-alt-key))))
-    (cl-pushnew `((,(format "\\`\\(?:C-w\\|%s w\\) m\\'" prefix-re))
-                  nil . "maximize")
-                which-key-replacement-alist)))

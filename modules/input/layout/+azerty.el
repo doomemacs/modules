@@ -10,24 +10,24 @@
       aw-keys '(?q ?s ?d ?f ?g ?h ?j ?k ?l ?m)
       lispy-avy-keys '(?q ?s ?d ?f ?g ?h ?j ?k ?l ?m ?ù ?a ?z ?e ?r ?t ?y ?u ?i ?o ?p))
 
-(map! "C-z" 'evil-window-map
+(map! "C-z" '("Window" . evil-window-map)
       :leader
-      :desc "Window" "z" 'evil-window-map
+      "z"  '("Window" . evil-window-map)
       (:when (modulep! :ui popup)
-       :desc "Toggle last popup"   "é" #'+popup/toggle)
-      :desc "Switch to last buffer" "²" #'evil-switch-to-windows-last-buffer
+       "é" '("Toggle last popup" . +popup/toggle))
+       "²" '("Switch to last buffer" . evil-switch-to-windows-last-buffer)
       (:when (modulep! :ui workspaces)
        :prefix "TAB"
-       :desc "Switch to last workspace" "²" #'+workspace/other
-       :desc "Previous workspace" "é" #'+workspace/switch-left
-       :desc "Next workspace" "è" #'+workspace/switch-right)
+       "²" '("Switch to last workspace" . +workspace/other)
+       "é" '("Previous workspace" . +workspace/switch-left)
+       "è" '("Next workspace" . +workspace/switch-right))
       (:prefix "b"
-       :desc "Previous buffer" "é" #'previous-buffer
-       :desc "Next buffer" "è" #'next-buffer)
-      (:prefix "g"
-       :when (modulep! :ui vc-gutter)
-       :desc "Jump to previous hunk" "é" #'+vc-gutter/previous-hunk
-       :desc "Jump to next hunk" "è" #'+vc-gutter/next-hunk))
+       "é" #'previous-buffer
+       "è" #'next-buffer)
+      (:when (modulep! :ui vc-gutter)
+       :prefix "g"
+       "é" #'+vc-gutter/previous-hunk
+       "è" #'+vc-gutter/next-hunk))
 
 (when (modulep! :editor evil)
   (map! :nv "à"     #'evil-execute-macro

@@ -206,7 +206,7 @@ Continues comments if executed from a commented line."
 
   ;; replacement keybinds
   ;; replaces `info-emacs-manual' b/c it's on C-m now
-  "r"    nil
+  "r"    `("reload" . ,(make-sparse-keymap))
   "rr"   #'doom/reload
   "rt"   #'doom/reload-theme
   "rp"   #'doom/reload-packages
@@ -215,7 +215,7 @@ Continues comments if executed from a commented line."
 
   ;; make `describe-bindings' available under the b prefix which it previously
   ;; occupied. Add more binding related commands under that prefix as well
-  "b"    nil
+  "b"    `("bindings" . ,(make-sparse-keymap))
   "bb"   #'describe-bindings
   "bi"   #'which-key-show-minor-mode-keymap
   "bm"   #'which-key-show-major-mode
@@ -224,7 +224,7 @@ Continues comments if executed from a commented line."
   "bk"   #'which-key-show-keymap
 
   ;; replaces `apropos-documentation' b/c `apropos' covers this
-  "d"    nil
+  "d"    `("doom" . ,(make-sparse-keymap))
   "db"   #'doom/report-bug
   "dc"   #'doom/open-private-config
   "dd"   #'doom-debug-mode
@@ -262,18 +262,6 @@ Continues comments if executed from a commented line."
   "p"    #'doom/help-packages
   ;; replaces `describe-package' b/c redundant w/ `doom/help-packages'
   "P"    #'find-library)
-
-(after! which-key
-  (let ((prefix-re (regexp-opt (list doom-leader-key doom-leader-alt-key))))
-    (cl-pushnew `((,(format "\\`\\(?:<\\(?:\\(?:f1\\|help\\)>\\)\\|C-h\\|%s h\\) d\\'" prefix-re))
-                  nil . "doom")
-                which-key-replacement-alist)
-    (cl-pushnew `((,(format "\\`\\(?:<\\(?:\\(?:f1\\|help\\)>\\)\\|C-h\\|%s h\\) r\\'" prefix-re))
-                  nil . "reload")
-                which-key-replacement-alist)
-    (cl-pushnew `((,(format "\\`\\(?:<\\(?:\\(?:f1\\|help\\)>\\)\\|C-h\\|%s h\\) b\\'" prefix-re))
-                  nil . "bindings")
-                which-key-replacement-alist)))
 
 
 (when (modulep! +bindings)

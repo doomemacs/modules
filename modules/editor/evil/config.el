@@ -77,6 +77,8 @@ directives. By default, this only recognizes C directives."
   :config
   (evil-select-search-module 'evil-search-module 'evil-search)
 
+  (add-to-list 'doom-which-key-trim-prefixes "^evil-")
+
   ;; HACK: `evil-ex-search' (used by `n'/`N') calls `isearch-range-invisible'
   ;;   which temporarily opens fold overlays, but never calls
   ;;   `isearch-clean-overlays' to restore them. This corrupts org-fold overlay
@@ -310,6 +312,8 @@ don't offer any/enough real value to users.")
 (use-package! evil-easymotion
   :after-call doom-first-input-hook
   :commands evilem-create evilem-default-keybindings
+  :init
+  (add-to-list 'doom-which-key-trim-prefixes "^evilem--?motion-")
   :config
   ;; Use evil-search backend, instead of isearch
   (evilem-make-motion evilem-motion-search-next #'evil-ex-search-next
@@ -331,11 +335,7 @@ don't offer any/enough real value to users.")
   (evilem-make-motion evilem-motion-backward-word-begin #'evil-backward-word-begin :scope 'visible)
   (evilem-make-motion evilem-motion-backward-WORD-begin #'evil-backward-WORD-begin :scope 'visible)
   (evilem-make-motion evilem-motion-backward-word-end #'evil-backward-word-end :scope 'visible)
-  (evilem-make-motion evilem-motion-backward-WORD-end #'evil-backward-WORD-end :scope 'visible)
-
-  (after! which-key
-    (cl-pushnew `(("g s" . "evilem--?motion-\\(.*\\)") nil . "EM \\1")
-                which-key-replacement-alist)))
+  (evilem-make-motion evilem-motion-backward-WORD-end #'evil-backward-WORD-end :scope 'visible))
 
 
 (use-package! evil-embrace
@@ -620,7 +620,7 @@ don't offer any/enough real value to users.")
        "L"       #'+evil/window-move-right
        "C-S-w"   #'ace-swap-window
        ;; Window undo/redo
-       (:prefix "m"
+       (:prefix ("m" . "maximize")
         "m"       #'doom/window-maximize-buffer
         "v"       #'doom/window-maximize-vertically
         "s"       #'doom/window-maximize-horizontally)
@@ -648,7 +648,7 @@ don't offer any/enough real value to users.")
 
       ;; evil-easymotion
       (:after evil-easymotion
-       :m "gs" evilem-map
+       :m "gs" (cons "Easymotion" evilem-map)
        ;; TODO: Use named functions
        (:map evilem-map
         "a" (evilem-create #'evil-forward-arg)

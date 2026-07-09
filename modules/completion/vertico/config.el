@@ -264,8 +264,6 @@ orderless."
 (use-package! embark
   :defer t
   :init
-  (setq which-key-use-C-h-commands nil
-        prefix-help-command #'embark-prefix-help-command)
   (map! [remap describe-bindings] #'embark-bindings
         "C-;"               #'embark-act  ; to be moved to :config default if accepted
         (:map minibuffer-local-map
@@ -279,16 +277,6 @@ orderless."
   (require 'consult)
 
   (set-popup-rule! "^\\*Embark Export:" :size 0.35 :ttl 0 :quit nil)
-
-  (after! which-key
-    (defadvice! +vertico--embark-which-key-prompt-a (fn &rest args)
-      "Hide the which-key indicator immediately when using the completing-read prompter."
-      :around #'embark-completing-read-prompter
-      (which-key--hide-popup-ignore-command)
-      (let ((embark-indicators
-             (remq #'embark-which-key-indicator embark-indicators)))
-        (apply fn args)))
-    (cl-nsubstitute #'+vertico-embark-which-key-indicator #'embark-mixed-indicator embark-indicators))
 
   ;; add the package! target finder before the file target finder,
   ;; so we don't get a false positive match.

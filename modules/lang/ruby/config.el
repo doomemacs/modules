@@ -4,6 +4,8 @@
 (after! projectile
   (add-to-list 'projectile-project-root-files "Gemfile"))
 
+(add-to-list 'doom-which-key-trim-prefixes "^projectile-rails-")
+
 
 ;;
 ;;; Packages
