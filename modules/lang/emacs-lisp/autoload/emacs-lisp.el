@@ -301,13 +301,21 @@ are set by `+emacs-lisp-linter-warnings'
 This backend does not need to be added directly
 as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers."
   (when (doom-project-p)
+    (when (and (fboundp 'trusted-content-p)
+               (not (trusted-content-p))) ; Emacs 31+
+      (message "Disabling elisp-flymake-byte-compile in %s (untrusted content)"
+               (buffer-name))
+      (user-error "Disabling elisp-flymake-byte-compile in %s (untrusted content)"
+                  (buffer-name)))
     ;; if a process already exists. kill it.
     (when (and +emacs-lisp-reduced-flymake-byte-compile--process
                (process-live-p +emacs-lisp-reduced-flymake-byte-compile--process))
       (kill-process +emacs-lisp-reduced-flymake-byte-compile--process))
     (let ((source (current-buffer))
           (tmp-file (make-temp-file "+emacs-lisp-byte-compile-src"))
-          (out-buf (generate-new-buffer "+emacs-lisp-byte-compile-out")))
+          (out-buf (generate-new-buffer "+emacs-lisp-byte-compile-out"))
+          (coding-system-for-write 'utf-8-unix)
+          (coding-system-for-read 'utf-8))
       ;; write the content to a temp file
       (save-restriction
         (widen)
@@ -319,9 +327,10 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
              :noquery t
              :connection-type 'pipe
              :buffer out-buf
-             :command `(,(expand-file-name invocation-name invocation-directory)
-                        "-Q"
-                        "--batch"
+             :command `(,(if (fboundp 'elisp-flymake-byte-compile--executable) ; Emacs 30+
+                             (elisp-flymake-byte-compile--executable)
+                           (expand-file-name invocation-name invocation-directory))
+                        "-Q" "--batch"
                         ,@(mapcan (lambda (p) (list "-L" p)) elisp-flymake-byte-compile-load-path)
                         ;; Appease the byte-compiler by loading Doom
                         "-L" ,doom-core-dir
@@ -332,6 +341,9 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                                       (doom-initialize ,(doom-profile->id doom-profile))
                                       (setq byte-compile-warnings ',+emacs-lisp-linter-warnings)
                                       (startup--load-user-init-file nil)))
+                        ,@(and (derived-mode-p 'lisp-interaction-mode)
+                               '("--eval"
+                                 "(setq bytecomp--inhibit-lexical-cookie-warning t)"))
                         "-f" "elisp-flymake--batch-compile-for-flymake"
                         ,tmp-file)
              :stderr "*stderr of +elisp-flymake-byte-compile-out*"
