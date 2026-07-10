@@ -344,7 +344,7 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                       ;; if the buffer is dead or the process is not the same, log the process as old.
                       ((or (not (buffer-live-p source))
                            (not (with-current-buffer source (eq proc +emacs-lisp-reduced-flymake-byte-compile--process))))
-                       (flymake-log :warning "byte compile process %s is old" proc))
+                       (eval `(flymake-log :warning "byte compile process %s is old" ,proc) t))
                       ;; if the process exited without problem process the buffer
                       ((zerop (process-exit-status proc))
                        (elisp-flymake--byte-compile-done report-fn source out-buf))
