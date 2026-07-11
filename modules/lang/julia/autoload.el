@@ -8,7 +8,6 @@
 ;;;###autoload
 (defun +julia/open-repl ()
   "Run an inferior instance of `julia' inside Emacs."
-  (declare (completion (lambda (_sym _buf) (not (modulep! +snail)))))
   (interactive)
   (if (require 'julia-repl nil t)
       (prog1 (julia-repl)
@@ -24,7 +23,7 @@
 ;;;###autoload
 (defun +julia/open-snail-repl ()
   "A wrapper for julia-snail"
-  (declare (completion (lambda (_sym _buf) (modulep! +snail))))
+  (declare (completion (lambda (_sym _buf) (fboundp 'julia-snail))))
   (interactive)
   (julia-snail)
   (current-buffer))
