@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; completion/vertico/packages.el
 
-(package! vertico :pin "6028bd3d32c99c28e2b938e5e5393ec3508d2424")
+(package! vertico :pin "95bd36e27bafe36158085017b5c5726391089d6b")
 
 (package! orderless :pin "09c90d93efce4fdac52edfe8b22591b773f3e607")
 

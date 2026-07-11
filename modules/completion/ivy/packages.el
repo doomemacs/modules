@@ -12,7 +12,7 @@
 (package! wgrep :pin "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
 
 (if (modulep! +prescient)
-    (package! ivy-prescient :pin "87e2d2f2ddf24f591a5f70cc90d2afb4537caa18")
+    (package! ivy-prescient :pin "5649977fa7789e4615efeca09397ed7eccd06dfc")
   (when (modulep! +fuzzy)
     (package! flx :pin "4b1346eb9a8a76ee9c9dede69738c63ad97ac5b6")))
 
