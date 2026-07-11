@@ -334,6 +334,16 @@ current buffer."
          (dolist (fn '(helm-describe-variable helm-describe-function))
            (advice-add fn :around #'doom-use-helpful-a))))
 
+  ;; HACK: If `info-lookup' or `info-lookup-make-completions' fails to locate
+  ;;   manuals (e.g. bad entries in $INFOPATH), it will freeze Emacs for about a
+  ;;   second or longer to display an error (with `sit-for'). Helpful may call
+  ;;   one or the other on first invocation. This is abysmal UX, so I suppress
+  ;;   the delay.
+  (defadvice! +emacs-lisp--helpful-suppress-sit-for-a (fn &rest args)
+    :around #'helpful--in-manual-p
+    :around #'helpful--manual
+    (letf! ((#'sit-for #'ignore)) (apply fn args)))
+
   ;; Open help:* links with helpful-* instead of describe-*
   (advice-add #'org-link--open-help :around #'doom-use-helpful-a)
 
