@@ -1,9 +1,5 @@
 ;;; completion/vertico/autoload/vertico.el -*- lexical-binding: t; -*-
 
-(defvar consult-ripgrep-args)
-(defvar embark-quit-after-action)
-(defvar embark-after-export-hook)
-
 ;;;###autoload
 (cl-defun +vertico-file-search (&key query in all-files (recursive t) prompt args)
   "Conduct a file search using ripgrep.
@@ -24,45 +20,45 @@
   (setq deactivate-mark t)
   (let* ((project-root (or (doom-project-root) default-directory))
          (directory (or in project-root))
-         (consult-ripgrep-args
-          (concat "rg "
-                  (if all-files "-uu ")
-                  (unless recursive "--maxdepth 1 ")
-                  "--null --line-buffered --color=never --max-columns=1000 "
-                  "--path-separator /   --smart-case --no-heading "
-                  "--with-filename --line-number --search-zip "
-                  "--hidden -g !.git -g !.svn -g !.hg "
-                  (mapconcat #'identity args " ")))
          (prompt (if (stringp prompt) (string-trim prompt) "Search"))
          (query (or query
                     (when (doom-region-active-p)
-                      (regexp-quote (doom-region)))))
-         (consult-async-split-style consult-async-split-style)
-         (consult-async-split-styles-alist
-          (copy-sequence consult-async-split-styles-alist)))
-    ;; Change the split style if the initial query contains the separator.
-    (when query
-      (cl-destructuring-bind (&key separator initial function)
-          (alist-get consult-async-split-style consult-async-split-styles-alist)
-        ;; Perl async split style starts with an #. If the query contains #,
-        ;; then use oneof the alternative delimiters instead.
-        (if (eq consult-async-split-style 'perl)
-            (when (string-match-p (char-to-string initial) query)
-              (setf (alist-get 'perlalt consult-async-split-styles-alist)
-                    `(:initial ,(or (cl-loop for char in (list "%" "@" "!" "&" "/" ";")
-                                             unless (string-match-p char query)
-                                             return char)
-                                    "%")
-                      :separator ,separator
-                      :function ,function)
-                    consult-async-split-style 'perlalt))
-          ;; If the separator character is present *in* the query, escape them.
-          (when separator
-            (setq query
-                  (replace-regexp-in-string (regexp-quote (char-to-string separator))
-                                            (concat "\\" (char-to-string separator))
-                                            query t t))))))
-    (consult--grep prompt #'consult--ripgrep-make-builder directory query)))
+                      (regexp-quote (doom-region))))))
+    (dlet ((consult-ripgrep-args
+            (concat "rg "
+                    (if all-files "-uu ")
+                    (unless recursive "--maxdepth 1 ")
+                    "--null --line-buffered --color=never --max-columns=1000 "
+                    "--path-separator /   --smart-case --no-heading "
+                    "--with-filename --line-number --search-zip "
+                    "--hidden -g !.git -g !.svn -g !.hg "
+                    (mapconcat #'identity args " ")))
+           (consult-async-split-style consult-async-split-style)
+           (consult-async-split-styles-alist
+            (copy-sequence consult-async-split-styles-alist)))
+      ;; Change the split style if the initial query contains the separator.
+      (when query
+        (cl-destructuring-bind (&key separator initial function)
+            (alist-get consult-async-split-style consult-async-split-styles-alist)
+          ;; Perl async split style starts with an #. If the query contains #,
+          ;; then use oneof the alternative delimiters instead.
+          (if (eq consult-async-split-style 'perl)
+              (when (string-match-p (char-to-string initial) query)
+                (setf (alist-get 'perlalt consult-async-split-styles-alist)
+                      `(:initial ,(or (cl-loop for char in (list "%" "@" "!" "&" "/" ";")
+                                               unless (string-match-p char query)
+                                               return char)
+                                      "%")
+                        :separator ,separator
+                        :function ,function)
+                      consult-async-split-style 'perlalt))
+            ;; If the separator character is present *in* the query, escape them.
+            (when separator
+              (setq query
+                    (replace-regexp-in-string (regexp-quote (char-to-string separator))
+                                              (concat "\\" (char-to-string separator))
+                                              query t t))))))
+      (consult--grep prompt #'consult--ripgrep-make-builder directory query))))
 
 ;;;###autoload
 (defun +vertico/project-search (&optional arg initial-query directory)
@@ -105,18 +101,18 @@ occur-edit, and consult-xref to xref-edit-mode (Emacs 31+)."
   (interactive)
   (require 'embark)
   (require 'wgrep)
-  (let* ((edit-command
-          (pcase-let ((`(,type . _)
-                       (run-hook-with-args-until-success 'embark-candidate-collectors)))
-            (pcase type
-              ('consult-grep #'wgrep-change-to-wgrep-mode)
-              ('file #'wdired-change-to-wdired-mode)
-              ('consult-location #'occur-edit-mode)
-              ('consult-xref (if (fboundp 'xref-change-to-xref-edit-mode)
-                                 #'xref-change-to-xref-edit-mode
-                               (user-error "Writable xref export requires Emacs 31+")))
-              (x (user-error "embark category %S doesn't support writable export" x)))))
-         (embark-after-export-hook `(,@embark-after-export-hook ,edit-command)))
+  (dlet ((embark-after-export-hook
+          `(,@embark-after-export-hook
+            ,(pcase-let ((`(,type . _)
+                          (run-hook-with-args-until-success 'embark-candidate-collectors)))
+               (pcase type
+                 ('consult-grep #'wgrep-change-to-wgrep-mode)
+                 ('file #'wdired-change-to-wdired-mode)
+                 ('consult-location #'occur-edit-mode)
+                 ('consult-xref (if (fboundp 'xref-change-to-xref-edit-mode)
+                                    #'xref-change-to-xref-edit-mode
+                                  (user-error "Writable xref export requires Emacs 31+")))
+                 (x (user-error "embark category %S doesn't support writable export" x)))))))
     (embark-export)))
 
 ;;;###autoload
@@ -127,7 +123,7 @@ occur-edit, and consult-xref to xref-edit-mode (Emacs 31+)."
     (unless (require 'embark nil t)
       (user-error "Embark not installed, aborting..."))
     (save-selected-window
-      (let (embark-quit-after-action)
+      (dlet (embark-quit-after-action)
         (embark-dwim)))))
 
 ;;;###autoload

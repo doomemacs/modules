@@ -7,12 +7,11 @@
 ;;;###autoload
 (defalias '+vc-gutter/previous-hunk #'diff-hl-previous-hunk)
 
-(defvar vc-suppress-confirm)
 ;;;###autoload
 (defun +vc-gutter/revert-hunk (&optional no-prompt)
   "Invoke `diff-hl-revert-hunk'."
   (interactive "P")
-  (let ((vc-suppress-confirm (if no-prompt t)))
+  (dlet ((vc-suppress-confirm (if no-prompt t)))
     (call-interactively #'diff-hl-revert-hunk)))
 
 ;;;###autoload

@@ -8,10 +8,9 @@
 (defvar +word-wrap--disable-auto-fill-mode nil)
 (defvar +word-wrap--major-mode-indent-var nil)
 
-(defvar adaptive-wrap-extra-indent)
 (defun +word-wrap--adjust-extra-indent-a (fn beg end)
   "Contextually adjust extra word-wrap indentation."
-  (let ((adaptive-wrap-extra-indent (+word-wrap--calc-extra-indent beg)))
+  (dlet ((adaptive-wrap-extra-indent (+word-wrap--calc-extra-indent beg)))
     (funcall fn beg end)))
 
 (defun +word-wrap--calc-extra-indent (p)

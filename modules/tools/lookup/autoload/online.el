@@ -69,14 +69,12 @@ QUERY must be a string, and PROVIDER must be a key of
 ;;
 ;;; Special provider frontends
 
-(defvar ivy-initial-inputs-alist)
-(defvar counsel-search-engine)
 ;;;###autoload
 (defun +lookup--online-backend-google (query)
   "Search Google, starting with QUERY, with live autocompletion."
   (cond ((and (bound-and-true-p ivy-mode) (fboundp 'counsel-search))
-         (let ((ivy-initial-inputs-alist `((t . ,query)))
-               (counsel-search-engine 'google))
+         (dlet ((ivy-initial-inputs-alist `((t . ,query)))
+                (counsel-search-engine 'google))
            (call-interactively #'counsel-search)
            t))
         ((and (bound-and-true-p helm-mode) (require 'helm-net nil t))
@@ -89,7 +87,7 @@ QUERY must be a string, and PROVIDER must be a key of
 (defun +lookup--online-backend-duckduckgo (query)
   "Search DuckDuckGo, starting with QUERY, with live autocompletion."
   (cond ((and (bound-and-true-p ivy-mode) (fboundp 'counsel-search))
-         (let ((ivy-initial-inputs-alist `((t . ,query)))
-               (counsel-search-engine 'ddg))
+         (dlet ((ivy-initial-inputs-alist `((t . ,query)))
+                (counsel-search-engine 'ddg))
            (call-interactively #'counsel-search)
            t))))

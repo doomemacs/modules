@@ -8,9 +8,6 @@
 (defvar +literate-tangle--async-proc nil)
 (defvar +literate-tangle--async-proc-start-time nil)
 
-(defvar org-mode-hook)
-(defvar org-inhibit-startup)
-
 (defun +literate-tangle (target dest &optional dir)
   "Tangle TARGET org file to DEST."
   (and (require 'ox nil t)
@@ -20,27 +17,27 @@
               (dest   (expand-file-name dest)))
          (print! (start "Tangling your literate config..."))
          (print-group!
-           (let (;; Do as little unnecessary work as possible in these org files.
-                 (org-startup-indented nil)
-                 (org-startup-folded nil)
-                 (vc-handled-backends nil)
-                 ;; Prevent unwanted entries in recentf, or formatters, or
-                 ;; anything that could be on these hooks, really. Nothing else
-                 ;; should be touching these files (particularly in interactive
-                 ;; sessions).
-                 (write-file-functions nil)
-                 (before-save-hook nil)
-                 (after-save-hook nil)
-                 ;; Prevent infinite recursion due to recompile-on-save hooks
-                 ;; later, and speed up `org-mode' init.
-                 (org-mode-hook nil)
-                 (org-inhibit-startup t)
-                 ;; Allow evaluation of src blocks at tangle-time (would abort
-                 ;; them otherwise). This is a security hazard, but Doom will
-                 ;; trust that you know what you're doing!
-                 (org-confirm-babel-evaluate nil)
-                 ;; Say a little more
-                 (doom-print-message-level 'info))
+           (dlet (;; Do as little unnecessary work as possible in these org files.
+                  (org-startup-indented nil)
+                  (org-startup-folded nil)
+                  (vc-handled-backends nil)
+                  ;; Prevent unwanted entries in recentf, or formatters, or
+                  ;; anything that could be on these hooks, really. Nothing else
+                  ;; should be touching these files (particularly in interactive
+                  ;; sessions).
+                  (write-file-functions nil)
+                  (before-save-hook nil)
+                  (after-save-hook nil)
+                  ;; Prevent infinite recursion due to recompile-on-save hooks
+                  ;; later, and speed up `org-mode' init.
+                  (org-mode-hook nil)
+                  (org-inhibit-startup t)
+                  ;; Allow evaluation of src blocks at tangle-time (would abort
+                  ;; them otherwise). This is a security hazard, but Doom will
+                  ;; trust that you know what you're doing!
+                  (org-confirm-babel-evaluate nil)
+                  ;; Say a little more
+                  (doom-print-message-level 'info))
              (cond ((not (file-exists-p target))
                     (print! (warn "No org file at %s. Skipping...") (path target))
                     nil)
@@ -125,7 +122,6 @@
           (push (cons prefix (cdr item)) flattened))))
     (nreverse flattened)))
 
-(defvar imenu-auto-rescan)
 ;;;###autoload
 (defun +literate/find-heading (&optional level)
   "Jump to a heading in your literate org config file."
@@ -133,10 +129,10 @@
   (let* ((buffer (or (find-buffer-visiting +literate-config-file)
                      (find-file-noselect +literate-config-file t))))
     (with-current-buffer buffer
-      (let* ((imenu-auto-rescan t)
-             (org-imenu-depth (or level 8))
-             (index (+literate--flatten-imenu-index (imenu--make-index-alist))))
-        (let ((c (current-window-configuration))
+      (dlet ((imenu-auto-rescan t)
+             (org-imenu-depth (or level 8)))
+        (let ((index (+literate--flatten-imenu-index (imenu--make-index-alist)))
+              (c (current-window-configuration))
               (result nil))
           (unwind-protect
               (progn

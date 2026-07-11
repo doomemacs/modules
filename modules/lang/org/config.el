@@ -720,8 +720,6 @@ via an indirect buffer."
       (when (memq #'+org--restart-mode-h doom-switch-buffer-hook)
         (+org--restart-mode-h))))
 
-  (defvar recentf-exclude)
-  (defvar so-long-target-modes)
   (defadvice! +org--optimize-backgrounded-agenda-buffers-a (fn file)
     "Disable `org-mode's startup processes for temporary agenda buffers.
 
@@ -732,13 +730,13 @@ up to be fully-fledged org-mode buffers."
     :around #'org-get-agenda-file-buffer
     (if-let* ((buf (org-find-base-buffer-visiting file)))
         buf
-      (let ((recentf-exclude '(always))
-            (doom-inhibit-local-var-hooks t)
-            (org-inhibit-startup t)
-            so-long-target-modes
-            vc-handled-backends
-            enable-local-variables
-            find-file-hook)
+      (dlet ((recentf-exclude '(always))
+             (doom-inhibit-local-var-hooks t)
+             (org-inhibit-startup t)
+             so-long-target-modes
+             vc-handled-backends
+             enable-local-variables
+             find-file-hook)
         (when-let* ((buf (delay-mode-hooks (funcall fn file))))
           (with-current-buffer buf
             (add-hook 'doom-switch-buffer-hook #'+org--restart-mode-h

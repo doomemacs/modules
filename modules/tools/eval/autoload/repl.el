@@ -1,8 +1,5 @@
 ;;; tools/eval/autoload/repl.el -*- lexical-binding: t; -*-
 
-(defvar evil-move-cursor-back)
-
-
 ;;
 ;;; Variables
 
@@ -157,7 +154,7 @@ mode."
               ;;   they have their own `comint-send-input' wrapper, so to be
               ;;   safe, I simply emulate the keypress.
               (if (bound-and-true-p evil-local-mode)
-                  (let (evil-move-cursor-back)
+                  (dlet (evil-move-cursor-back)
                     (evil-save-state
                       (evil-append-line 1)
                       (call-interactively (doom-lookup-key (kbd "RET")))))

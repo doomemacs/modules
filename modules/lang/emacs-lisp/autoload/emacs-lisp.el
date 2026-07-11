@@ -1,9 +1,5 @@
 ;;; lang/emacs-lisp/autoload/emacs-lisp.el -*- lexical-binding: t; -*-
 
-(defvar buttercup-suites)
-(defvar pp-max-width)
-
-
 ;;
 ;;; Library
 
@@ -31,7 +27,7 @@ Meant as an eval handler for Doom's :tools eval module."
                   (with-doom-context 'eval
                     (eval-region beg end buffer load-read-function))
                   (with-current-buffer buffer
-                    (let ((pp-max-width nil))
+                    (dlet ((pp-max-width nil))
                       (require 'pp)
                       (pp-buffer)
                       (replace-regexp-in-string "\\\\n" "\n" (string-trim-left (buffer-string))))))
@@ -202,12 +198,12 @@ selected before this command was invoked."
 (defun +emacs-lisp/buttercup-run-file ()
   "Run all buttercup tests in the focused buffer."
   (interactive)
-  (let ((load-path
-         (append (list (doom-path (dir!) "..")
-                       (or (doom-project-root)
-                           default-directory))
-                 load-path))
-        (buttercup-suites nil))
+  (dlet ((load-path
+          (append (list (doom-path (dir!) "..")
+                        (or (doom-project-root)
+                            default-directory))
+                  load-path))
+         (buttercup-suites nil))
     (save-selected-window
       (eval-buffer)
       (buttercup-run))
@@ -217,12 +213,12 @@ selected before this command was invoked."
 (defun +emacs-lisp/buttercup-run-project ()
   "Run all buttercup tests in the project."
   (interactive)
-  (let* ((default-directory (doom-project-root))
-         (load-path (append (list (doom-path "test")
-                                  default-directory)
-                            load-path))
-         (buttercup-suites nil))
-    (buttercup-run-discover)))
+  (dlet ((default-directory (doom-project-root)))
+    (dlet ((load-path (append (list (doom-path "test")
+                                    default-directory)
+                              load-path))
+           (buttercup-suites nil))
+      (buttercup-run-discover))))
 
 ;;;###autoload
 (defun +emacs-lisp/edebug-instrument-defun-on ()

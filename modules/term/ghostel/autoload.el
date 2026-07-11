@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar ghostel-buffer-name)
-
 (defun +ghostel--buffer-name (&optional prefix suffix project?)
   (format "*%sghostel%s%s<%s>*"
           (or prefix "")
@@ -27,29 +25,29 @@ root.
 
 Returns the ghostel buffer."
   (interactive "P")
-  (let* ((default-directory (or (doom-project-root) default-directory))
-         (ghostel-buffer-name (+ghostel--buffer-name "doom:" "-popup" t))
-         confirm-kill-processes
-         current-prefix-arg)
-    (when arg
-      (let ((buffer (get-buffer buffer-name))
-            (window (get-buffer-window buffer-name)))
-        (when (buffer-live-p buffer)
-          (kill-buffer buffer))
-        (when (window-live-p window)
-          (delete-window window))))
-    (if-let* ((win (get-buffer-window ghostel-buffer-name)))
-        (delete-window win)
-      (with-current-buffer (ghostel)
-        (set-window-dedicated-p (get-buffer-window) t)
-        (current-buffer)))))
+  (dlet ((default-directory (or (doom-project-root) default-directory)))
+    (dlet ((ghostel-buffer-name (+ghostel--buffer-name "doom:" "-popup" t))
+           confirm-kill-processes
+           current-prefix-arg)
+      (when arg
+        (let ((buffer (get-buffer buffer-name))
+              (window (get-buffer-window buffer-name)))
+          (when (buffer-live-p buffer)
+            (kill-buffer buffer))
+          (when (window-live-p window)
+            (delete-window window))))
+      (if-let* ((win (get-buffer-window ghostel-buffer-name)))
+          (delete-window win)
+        (with-current-buffer (ghostel)
+          (set-window-dedicated-p (get-buffer-window) t)
+          (current-buffer))))))
 
 ;;;###autoload
 (defun +ghostel/here ()
   "Open a new ghostel buffer in the current window."
   (interactive)
-  (let ((ghostel-buffer-name
-         (generate-new-buffer-name (+ghostel--buffer-name))))
+  (dlet ((ghostel-buffer-name
+          (generate-new-buffer-name (+ghostel--buffer-name))))
     (switch-to-buffer (save-window-excursion (ghostel)))))
 
 ;;; autoload.el ends here

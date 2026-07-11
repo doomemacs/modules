@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar git-link-use-commit)
-
-
 ;;
 ;;; * Helpers
 
@@ -21,8 +18,8 @@
 
 (defun +vc--git-link (&optional arg)
   (require 'git-link)
-  (let ((git-link-use-commit
-         (if arg (not git-link-use-commit) git-link-use-commit)))
+  (dlet ((git-link-use-commit
+          (if arg (not git-link-use-commit) git-link-use-commit)))
     (+vc--safe-git-call
      #'git-link (cons (git-link--remote)
                       (or (and (doom-region-active-p)
@@ -31,8 +28,8 @@
 
 (defun +vc--git-link-commit (&optional arg)
   (require 'git-link)
-  (let ((git-link-use-commit
-         (if arg (not git-link-use-commit) git-link-use-commit)))
+  (dlet ((git-link-use-commit
+          (if arg (not git-link-use-commit) git-link-use-commit)))
     (+vc--safe-git-call #'git-link-commit (list (git-link--select-remote)))))
 
 (defun +vc--git-link-homepage ()

@@ -1,9 +1,5 @@
 ;;; editor/file-templates/autoload.el -*- lexical-binding: t; -*-
 
-(defvar yas-choose-tables-first)
-(defvar yas-choose-keys-first)
-
-
 (defun +file-templates--set (pred plist)
   (if (null (car-safe plist))
       (setq +file-templates-alist
@@ -118,8 +114,7 @@ evil is loaded and enabled)."
   (unless (gethash 'text-mode yas--tables)
     (yas-reload-all t))
   (let ((templates
-         (let (yas-choose-tables-first ; avoid prompts
-               yas-choose-keys-first)
+         (dlet (yas-choose-tables-first yas-choose-keys-first)  ; avoid prompts
            (cl-loop for tpl in (yas--all-templates (yas--get-snippet-tables 'text-mode))
                     for uuid = (yas--template-uuid tpl)
                     if (string-prefix-p "__license-" uuid)

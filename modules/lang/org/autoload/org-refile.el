@@ -81,7 +81,6 @@ If prefix ARG, copy instead of move."
            default)))
     (org-refile)))
 
-(defvar org-after-refile-insert-hook)
 ;; Inspired by org-teleport and alphapapa/alpha-org
 ;;;###autoload
 (defun +org/refile-to-visible ()
@@ -96,6 +95,6 @@ If prefix ARG, copy instead of move."
             (org-with-point-at marker
               (org-get-heading 'no-tags 'no-todo)))
            ;; Won't work with target buffers whose filename is nil
-           (rfloc (list heading filename nil marker))
-           (org-after-refile-insert-hook (cons #'org-reveal org-after-refile-insert-hook)))
-      (org-refile nil nil rfloc))))
+           (rfloc (list heading filename nil marker)))
+      (dlet ((org-after-refile-insert-hook (cons #'org-reveal org-after-refile-insert-hook)))
+        (org-refile nil nil rfloc)))))

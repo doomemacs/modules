@@ -118,13 +118,12 @@ If REVERSE (the prefix arg) is non-nil, sort the transactions in reverst order."
     (re-search-forward (regexp-quote target-xact))
     (goto-char (+ (match-beginning 0) point-delta))))
 
-(defvar compilation-read-command)
 ;;;###autoload
 (defun +beancount/balance (&optional all-accounts)
   "Display a balance report with bean-report (bean-report bal)."
   (interactive "P")
-  (let (compilation-read-command
-        current-prefix-arg)
+  (dlet (compilation-read-command
+         current-prefix-arg)
     (beancount--run "bean-query"
                     buffer-file-name
                     (format (concat "SELECT account, sum(position) as balance %s "

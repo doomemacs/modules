@@ -1,9 +1,5 @@
 ;;; tools/eval/autoload/eval.el -*- lexical-binding: t; -*-
 
-(defvar quickrun-option-cmdkey)
-(defvar eros-overlays-use-font-lock)
-
-
 ;;
 ;;; Library
 
@@ -42,17 +38,17 @@
                               len)))
            (pad (if next-line?
                     (+ (window-hscroll) prefixlen)
-                  0))
-           eros-overlays-use-font-lock)
-      (eros--make-result-overlay
-          (concat (make-string (max 0 (- pad prefixlen)) ?\s)
-                  prefix
-                  (string-join lines (concat hard-newline (make-string pad ?\s))))
-        :where (if next-line?
-                   (line-beginning-position 2)
-                 (line-end-position))
-        :duration eros-eval-result-duration
-        :format "%s"))))
+                  0)))
+      (dlet (eros-overlays-use-font-lock)
+        (eros--make-result-overlay
+            (concat (make-string (max 0 (- pad prefixlen)) ?\s)
+                    prefix
+                    (string-join lines (concat hard-newline (make-string pad ?\s))))
+          :where (if next-line?
+                     (line-beginning-position 2)
+                   (line-end-position))
+          :duration eros-eval-result-duration
+          :format "%s")))))
 
 ;;;###autoload
 (defun +eval-display-results (output &optional source-buffer)

@@ -234,17 +234,15 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   ;;   expensive functionality, this will often introduce unexpected freezes
   ;;   without this advice.
   ;; TODO: PR upstream?
-  (defvar org-inhibit-startup)
-  (defvar org-mode-hook)
   (defadvice! +emacs-lisp--optimize-org-init-a (fn &rest args)
     "Disable unrelated functionality to optimize calls to `org-mode'."
     :around #'elisp-demos--export-json-file
     :around #'elisp-demos--symbols
     :around #'elisp-demos--syntax-highlight
-    (let ((org-inhibit-startup t)
-          (doom-inhibit-local-var-hooks t)
-          enable-dir-local-variables
-          org-mode-hook)
+    (dlet ((org-inhibit-startup t)
+           (doom-inhibit-local-var-hooks t)
+           enable-dir-local-variables
+           org-mode-hook)
       (apply fn args))))
 
 

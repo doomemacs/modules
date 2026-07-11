@@ -25,15 +25,14 @@
                (not (eq (nth 3 (syntax-ppss)) ?\"))))
       res)))
 
-(defvar sh-shell-file)
 ;;;###autoload
 (defun +sh/open-repl ()
   "Open a shell REPL."
   (interactive)
   (require 'sh-script)
-  (let* ((dest-sh (symbol-name sh-shell))
-         (sh-shell-file dest-sh))
-    (sh-shell-process t)
+  (let ((dest-sh (symbol-name sh-shell)))
+    (dlet ((sh-shell-file dest-sh))
+      (sh-shell-process t))
     (with-current-buffer "*shell*"
       (rename-buffer (format "*shell [%s]*" dest-sh))
       (current-buffer))))
