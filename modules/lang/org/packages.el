@@ -42,7 +42,7 @@
                (insert-file-contents "org-loaddefs.el")
                (save-excursion (insert "\n"))
                (insert-file-contents afile))))
-  :pin "dcb8f00ec7605327dcd32562c2a51ad278f7af28"  ; release_9.8.6
+  :pin "cdc16898fd46a30d7187c0a5830b2b898ffbd2de"  ; release_9.8.7
   :env `((org--inhibit-version-check . t)))
 (package! org-contrib
   :recipe (:host github
@@ -75,7 +75,7 @@
 (when (modulep! +noter)
   (package! org-noter :pin "ab9628e449d76af8b2e5a9d5fead4e03ca76a03d"))
 (when (modulep! +pretty)
-  (package! org-modern :pin "4855ade77ab17de7587c37bde12a0afeab342783")
+  (package! org-modern :pin "1959cd4759d4abc8dd695a560563283d838e44e1")
   (package! org-appear :pin "32ee50f8fdfa449bbc235617549c1bccb503cb09"))
 (when (modulep! +present)
   (package! centered-window
