@@ -349,7 +349,9 @@ don't offer any/enough real value to users.")
   :hook ((csharp-mode csharp-ts-mode) . +evil-embrace-angle-bracket-modes-hook-h)
   :hook ((java-mode java-ts-mode) . +evil-embrace-angle-bracket-modes-hook-h)
   :hook ((scala-mode scala-ts-mode) . +evil-embrace-scala-mode-hook-h)
-  :hook ((swift-mode typescript-mode rustic-mode) . +evil-embrace-angle-bracket-modes-hook-h)
+  :hook ((swift-mode swift-ts-mode) . +evil-embrace-angle-bracket-modes-hook-h)
+  :hook ((typescript-mode typescript-ts-mode) . +evil-embrace-angle-bracket-modes-hook-h)
+  :hook ((rustic-mode rust-ts-mode) . +evil-embrace-angle-bracket-modes-hook-h)
   :init
   (after! evil-surround
     (evil-embrace-enable-evil-surround-integration))
