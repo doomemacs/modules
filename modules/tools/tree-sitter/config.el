@@ -45,11 +45,12 @@
   (defadvice! +tree-sitter--maybe-remap-major-mode-a (fn mode)
     :around #'major-mode-remap
     (let ((mode (funcall fn mode)))
-      (if-let* ((ts (get mode '+tree-sitter))
+      (if-let* ((ts (get mode '+tree-sitter)) ; registered by `set-tree-sitter!'
                 (fallback-mode (car ts)))
-          (cond ((not (treesit-available-p))
+          (cond ((get mode '+tree-sitter-mode))
+                ((not (eval-when-compile (treesit-available-p)))
                  (message "Treesit unavailable, falling back to `%S'" fallback-mode)
-                 fallback-mode)
+                 (put mode '+tree-sitter-mode fallback-mode))
                 ((not (fboundp mode))
                  (message "Couldn't find `%S', falling back to `%S'" mode fallback-mode)
                  fallback-mode)
@@ -80,21 +81,22 @@
                           ;; Ensure grammars are present (and prompt to install
                           ;; them if needed).
                           (if-let* ((grammars
-                                     (cl-remove-if (doom-rpartial #'treesit-ready-p 'message)
-                                                   (cdr ts))))
+                                     (cl-loop for g in (cdr ts)
+                                              unless (treesit-ready-p g 'message)
+                                              collect g)))
                               (if (or (eq treesit-auto-install-grammar 'always)
                                       (if (eq treesit-auto-install-grammar 'ask)
-                                          (y-or-n-p
-                                           (format "Missing tree-sitter grammars: %s\nInstall now?"
-                                                   (mapconcat #'symbol-name grammars ", ")))))
+                                          (and (not non-essential)
+                                               (y-or-n-p
+                                                (format "Missing tree-sitter grammars: %s\nInstall now?"
+                                                        (mapconcat #'symbol-name grammars ", "))))))
                                   (mapc #'treesit-install-language-grammar grammars)
                                 (message "Treesit grammars missing (%s), falling back to `%s'..."
                                          (mapconcat #'symbol-name grammars ", ")
                                          fallback-mode)
                                 nil)
                             t)))
-                 (put mode '+tree-sitter-ensured t)
-                 mode)
+                 (put mode '+tree-sitter-mode mode))
                 (fallback-mode))
         mode)))
 
