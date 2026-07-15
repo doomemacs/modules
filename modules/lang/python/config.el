@@ -242,7 +242,7 @@
 (use-package! uv-mode
   :when (modulep! +uv)
   :after python
-  :init
+  :preface
   (add-to-list 'auto-mode-alist '("/uv\\.lock\\'" . conf-toml-mode))
   :config
   ;; HACK: A faster (cached) version of the mode-line segment. See
