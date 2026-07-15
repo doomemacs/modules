@@ -46,7 +46,7 @@ In all cases, 'h' functions go to 'c' and 'l' ones go to 'r' so the navigation k
          :prefix "TAB"
          "$"  '("Last workspace" . +workspace/other)
          ")"  '("Next workspace" . +workspace/switch-right)
-         "("  '("Previous workspace" . +workspace/switch-left)))
+         "("  '("Previous workspace" . +workspace/switch-left))
         (:prefix "b"
          "("  #'previous-buffer
          ")"  #'next-buffer)
