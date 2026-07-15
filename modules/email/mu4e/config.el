@@ -408,7 +408,7 @@ This should already be the case yet it does not always seem to be."
   (defadvice! +mu4e--draft-signature-a (fn &rest args)
     "Prevent `message-signature' from being used with `org-msg-mode'."
     :around #'mu4e--draft
-    (let ((message-signature (unless org-msg-mode message-signature)))
+    (dlet ((message-signature (unless org-msg-mode message-signature)))
       (apply fn args)))
 
   (defvar +org-msg-accent-color "#c01c28"
