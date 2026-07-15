@@ -97,9 +97,7 @@
          (mu4e~icalendar-trash-message . mu4e--icalendar-trash-message)
          (mu4e~view-button-reply . mu4e--view-button-reply))
         ("1.12"
-         (mu4e-icalendar-reply . mu4e--icalendar-reply))
-        ("1.14"
-         (mu4e-personal-addresses . mu4e--personal-addresses))))
+         (mu4e-icalendar-reply . mu4e--icalendar-reply))))
 
 (setq mu4e-compat--needlessly-breaking-renames-future
       '())
