@@ -61,19 +61,15 @@ aliases will be defined for all newer versions."
 ;;
 ;;; * Bootstrap
 
-(pcase (let ((ver (version-to-list mu4e-mu-version)))
-         (list (car ver) (cadr ver)))
+(pcase (seq-take (version-to-list mu4e-mu-version) 2)
   (`(1 0)  (load "mu4e-compat-1.0" t))
   (`(1 8)  (load "mu4e-compat-1.8" t))
   (`(1 10) (load "mu4e-compat-1.10" t))
   (`(1 12) (load "mu4e-compat-1.12" t))
   (`(1 14) (load! "compat/1.14")))
 
-(when mu4e-compat--needlessly-breaking-renames-sofar
-  (mu4e-compat-define-aliases-backwards))
-
-(when mu4e-compat--needlessly-breaking-renames-future
-  (mu4e-compat-define-aliases-forwards))
+(mu4e-compat-define-aliases-backwards)
+(mu4e-compat-define-aliases-forwards)
 
 ;; For pre-1.0 mu4e
 (unless (boundp 'mu4e-headers-buffer-name)
