@@ -123,7 +123,7 @@ more information on modifiers."
           (evil-insert-state-p)
           (evil-emacs-state-p))
       (funcall fn count)
-    (letf! (defun evil-insert-newline-below () (+evil--insert-newline))
+    (letf! (defun! evil-insert-newline-below () (+evil--insert-newline))
       (let ((evil-auto-indent evil-auto-indent))
         (funcall fn count)))))
 
@@ -134,7 +134,7 @@ more information on modifiers."
           (evil-insert-state-p)
           (evil-emacs-state-p))
       (funcall fn count)
-    (letf! (defun evil-insert-newline-above () (+evil--insert-newline 'above))
+    (letf! (defun! evil-insert-newline-above () (+evil--insert-newline 'above))
       (let ((evil-auto-indent evil-auto-indent))
         (funcall fn count)))))
 

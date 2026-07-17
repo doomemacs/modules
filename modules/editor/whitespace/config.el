@@ -128,10 +128,10 @@ or if the current buffer is read-only or not file-visiting."
 `nim-mode'. This prevents them from leaving Emacs in a broken state."
     :around #'dtrt-indent-mode
     (let ((dtrt-indent-run-after-smie dtrt-indent-run-after-smie))
-      (letf! ((defun symbol-config--guess (beg end)
-                (funcall symbol-config--guess beg (min end 10000)))
-              (defun smie-config-guess ()
-                (condition-case e (funcall smie-config-guess)
+      (letf! ((defadvice symbol-config--guess (:around (fn beg end))
+                (funcall fn beg (min end 10000)))
+              (defadvice smie-config-guess (:around (fn))
+                (condition-case e (funcall fn)
                   (error (setq dtrt-indent-run-after-smie t)
                          (message "[WARNING] Indent detection: %s"
                                   (error-message-string e))

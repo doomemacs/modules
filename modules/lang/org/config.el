@@ -508,11 +508,11 @@ relative to `org-directory', unless it is an absolute path."
 
   ;; Add "lookup" links for packages and keystrings; useful for Emacs
   ;; documentation -- especially Doom's!
-  (letf! ((defun -call-interactively (fn)
-            (lambda (path _prefixarg)
-              (funcall (or (command-remapping fn) fn)
-                       (or (intern-soft path)
-                           (user-error "Can't find documentation for %S" path))))))
+  (letf! (defun -call-interactively (fn)
+           (lambda (path _prefixarg)
+             (funcall (or (command-remapping fn) fn)
+                      (or (intern-soft path)
+                          (user-error "Can't find documentation for %S" path)))))
     (org-link-set-parameters
      "kbd"
      :follow (lambda (ev)

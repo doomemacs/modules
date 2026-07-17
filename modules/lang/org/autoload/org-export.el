@@ -50,5 +50,5 @@ properties and font-locking et all)."
     (_
      ;; Omit after/before-string overlay properties in htmlized regions, so we
      ;; don't get fringe characters for things like flycheck or diff-hl
-     (letf! (defun htmlize-add-before-after-strings (_beg _end text) text)
+     (letf! (defun! htmlize-add-before-after-strings (_beg _end text) text)
        (ox-clip-formatted-copy beg end)))))

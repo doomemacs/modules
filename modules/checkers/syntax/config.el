@@ -109,9 +109,8 @@
 
   (defadvice! +syntax-hide-posframe-on-next-command-a (fn &rest args)
     :around #'flycheck-posframe-show-posframe
-    (letf! ((defun posframe-show (&rest args)
-              (add-hook 'post-command-hook #'+syntax--flycheck-posframe-hide-h)
-              (apply posframe-show args)))
+    (letf! (defadvice posframe-show (:before (&rest _args))
+             (add-hook 'post-command-hook #'+syntax--flycheck-posframe-hide-h))
       (apply fn args)))
 
   (after! company

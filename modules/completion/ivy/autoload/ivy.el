@@ -306,10 +306,9 @@ If ARG (universal argument), include all files, even hidden or compressed ones."
 (defun +ivy/compile ()
   "Execute a compile command from the current buffer's directory."
   (interactive)
-  ;; Fix unhelpful 'Couldn't find project root' error
-  (letf! (defun counsel--compile-root ()
-           (ignore-errors
-             (funcall counsel--compile-root)))
+  ;; Fix unhelpful "Couldn't find project root" error
+  (letf! (defadvice counsel--compile-root (:around (fn))
+           (ignore-errors (funcall fn)))
     (counsel-compile default-directory)))
 
 ;;;###autoload

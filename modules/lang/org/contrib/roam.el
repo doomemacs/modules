@@ -79,8 +79,9 @@ inserting the link."
   (defadvice! +org--roam-fix-completion-width-for-vertico-a (fn &rest args)
     "Fixes completion candidate width for vertico users."
     :around #'org-roam-node-read--to-candidate
-    (letf! (defun org-roam-node--format-entry (template node &optional width)
-             (funcall org-roam-node--format-entry template node
+    (letf! (defadvice org-roam-node--format-entry
+               (:around (fn template node &optional width))
+             (funcall fn template node
                       (if (bound-and-true-p vertico-mode)
                           (if (minibufferp)
                               (window-width)

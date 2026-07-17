@@ -51,7 +51,7 @@ headings as titles, and you have more freedom to place them wherever you like.")
   (defadvice! +org-present--hide-first-heading-maybe-a (fn &rest args)
     "Omit the first heading if `+org-present-hide-first-heading' is non-nil."
     :around #'org-tree-slide--display-tree-with-narrow
-    (letf! (defun org-narrow-to-subtree ()
+    (letf! (defun! org-narrow-to-subtree ()
              (save-excursion
                (save-match-data
                  (org-with-limited-levels

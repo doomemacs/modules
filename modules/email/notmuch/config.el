@@ -64,9 +64,9 @@ to update the notmuch-saved-searches variable accordingly."
     "Give email buffers a sane name so they can be targeted via
 `display-buffer-alist' (and the :ui popup module)."
     :around #'notmuch-search-show-thread
-    (letf! (defun notmuch-show (thread-id &optional elide-toggle parent-buffer query-context buffer-name)
-             (funcall notmuch-show
-                      thread-id elide-toggle parent-buffer query-context
+    (letf! (defadvice notmuch-show
+               (:around (fn thread-id &optional elide-toggle parent-buffer query-context buffer-name))
+             (funcall fn thread-id elide-toggle parent-buffer query-context
                       (format "*subject:%s*" (substring buffer-name 1 -1))))
       (apply fn args)))
 

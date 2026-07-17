@@ -139,7 +139,7 @@
 ;;;###autoload
 (defun +rss-put-sliced-image-fn (spec alt &optional flags)
   "TODO"
-  (letf! (defun insert-image (image &optional alt _area _slice)
+  (letf! (defun! insert-image (image &optional alt _area _slice)
            (let ((height (cdr (image-size image t))))
              (insert-sliced-image image alt nil (max 1 (/ height 20.0)) 1)))
     (shr-put-image spec alt flags)))

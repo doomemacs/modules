@@ -35,7 +35,7 @@ EXAMPLES:
   (require 'org)
   (require 'ox)
   (require 'ob-tangle)
-  (letf! ((defun org-babel-tangle-collect-blocks (&optional language tangle-file)
+  (letf! ((defun! org-babel-tangle-collect-blocks (&optional language tangle-file)
             "Ignore blocks that are in trees with the :notangle: tag."
             (let ((counter 0) last-heading-pos blocks)
               (org-babel-map-src-blocks (buffer-file-name)

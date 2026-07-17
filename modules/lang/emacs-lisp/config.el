@@ -310,12 +310,11 @@ Addresses an unwanted side-effect in `find-function-search-for-symbol' on Emacs
 current buffer."
       :around #'find-function-search-for-symbol
       (let (buf pos)
-        (letf! (defun find-library-name (library)
-                 (let ((filename (funcall find-library-name library)))
-                   (with-current-buffer (find-file-noselect filename)
-                     (setq buf (current-buffer)
-                           pos (point)))
-                   filename))
+        (letf! (defadvice find-library-name (:filter-return (filename))
+                 (with-current-buffer (find-file-noselect filename)
+                   (setq buf (current-buffer)
+                         pos (point)))
+                 filename)
           (prog1 (apply fn args)
             (when (buffer-live-p buf)
               (with-current-buffer buf (goto-char pos))))))))

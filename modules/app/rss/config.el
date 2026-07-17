@@ -76,7 +76,7 @@ easier to scroll through."
              (let ((end (region-end)))
                (and (> end (region-beginning))
                     (save-excursion (goto-char end) (bolp)))))
-        (letf! (defun region-end () (1- (funcall region-end)))
+        (letf! (defadvice region-end (:filter-return (value)) (1- value))
           (funcall fn ignore-region-p))
       (funcall fn ignore-region-p))))
 

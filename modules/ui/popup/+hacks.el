@@ -66,9 +66,9 @@ to this commmand."
   "Fix links in popup compilation buffers creating a new window each time they
 were followed."
   :around #'compilation-goto-locus
-  (letf! (defun pop-to-buffer (buffer &optional action norecord)
-           (let ((pop-up-windows (not (+popup-buffer-p (current-buffer)))))
-             (funcall pop-to-buffer buffer action norecord)))
+  (letf! (defadvice pop-to-buffer (:around (fn buffer &optional action norecord))
+           (dlet ((pop-up-windows (not (+popup-buffer-p (current-buffer)))))
+             (funcall fn buffer action norecord)))
     (apply fn args)))
 
 
@@ -181,18 +181,17 @@ the command buffer."
   ;; Fix #897: "cannot open side window" error when TAB-completing file links
   (defadvice! +popup--helm-hide-org-links-popup-a (fn &rest args)
     :around #'org-insert-link
-    (letf! ((defun org-completing-read (&rest args)
-              (when-let* ((win (get-buffer-window "*Org Links*")))
-                ;; While helm is opened as a popup, it will mistaken the *Org
-                ;; Links* popup for the "originated window", and will target it
-                ;; for actions invoked by the user. However, since *Org Links*
-                ;; is a popup too (they're dedicated side windows), Emacs
-                ;; complains about being unable to split a side window. The
-                ;; simple fix: get rid of *Org Links*!
-                (delete-window win)
-                ;; ...but it must exist for org to clean up later.
-                (get-buffer-create "*Org Links*"))
-              (apply org-completing-read args)))
+    (letf! (defadvice org-completing-read (:before (&rest _args))
+             (when-let* ((win (get-buffer-window "*Org Links*")))
+               ;; While helm is opened as a popup, it will mistaken the *Org
+               ;; Links* popup for the "originated window", and will target it
+               ;; for actions invoked by the user. However, since *Org Links* is
+               ;; a popup too (they're dedicated side windows), Emacs complains
+               ;; about being unable to split a side window. The simple fix: get
+               ;; rid of *Org Links*!
+               (delete-window win)
+               ;; ...but it must exist for org to clean up later.
+               (get-buffer-create "*Org Links*")))
       (apply #'funcall-interactively fn args)))
 
   ;; Fix left-over popup window when closing persistent help for `helm-M-x'
@@ -244,12 +243,12 @@ for some reason, which is very unconventional, and so requires these gymnastics
 to tame (i.e. to get the popup manager to handle it)."
     :around #'org-goto-location
     (if +popup-mode
-        (letf! (defun internal-temp-output-buffer-show (buffer)
+        (letf! (defadvice internal-temp-output-buffer-show (:around (fn buffer))
                  (let ((temp-buffer-show-function
                         (doom-rpartial #'+popup-display-buffer-stacked-side-window-fn nil)))
                    (with-current-buffer buffer
                      (+popup-buffer-mode +1))
-                   (funcall internal-temp-output-buffer-show buffer)))
+                   (funcall fn buffer)))
           (apply fn args))
       (apply fn args)))
 
@@ -260,12 +259,11 @@ Ugh, such an ugly hack."
     :around #'org-fast-tag-selection
     :around #'org-fast-todo-selection
     (if +popup-mode
-        (letf! ((defun read-char-exclusive (&rest args)
-                  (message nil)
-                  (apply read-char-exclusive args))
-                (defun split-window-vertically (&optional _size)
-                  (funcall split-window-vertically (- 0 window-min-height 1)))
-                (defun org-fit-window-to-buffer (&optional window max-height min-height shrink-only)
+        (letf! ((defadvice read-char-exclusive (:before (&rest _args))
+                  (message nil))
+                (defadvice split-window-vertically (:filter-args (args))
+                  (setcar args (- 0 window-min-height 1)))
+                (defun! org-fit-window-to-buffer (&optional window max-height min-height shrink-only)
                   (when-let* ((buf (window-buffer window)))
                     (with-current-buffer buf
                       (+popup-buffer-mode)))
@@ -351,7 +349,7 @@ Ugh, such an ugly hack."
           which-key-custom-hide-popup-function #'which-key--hide-buffer-side-window
           which-key-custom-show-popup-function
           (lambda (act-popup-dim)
-            (letf! (defun display-buffer-in-side-window (buffer alist)
+            (letf! (defun! display-buffer-in-side-window (buffer alist)
                      (+popup-display-buffer-stacked-side-window-fn
                       buffer (append '((vslot . -9999) (select . t)) alist)))
               ;; HACK: Fix #2219 where the which-key popup would get cut off.
@@ -364,7 +362,7 @@ Ugh, such an ugly hack."
 (defadvice! +popup--ignore-window-parameters-a (fn &rest args)
   "Allow *interactive* window moving commands to traverse popups."
   :around '(windmove-up windmove-down windmove-left windmove-right)
-  (letf! (defun windmove-find-other-window (dir &optional arg window)
+  (letf! (defun! windmove-find-other-window (dir &optional arg window)
            (window-in-direction
             (pcase dir (`up 'above) (`down 'below) (_ dir))
             window (bound-and-true-p +popup-mode) arg windmove-wrap-around t))

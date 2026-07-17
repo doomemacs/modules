@@ -38,8 +38,9 @@
   (defadvice! +hl-todo-clamp-font-lock-fontify-region-a (fn &rest args)
     "Fix an `args-out-of-range' error in some modes."
     :around #'hl-todo-mode
-    (letf! (defun font-lock-fontify-region (beg end &optional loudly)
-             (funcall font-lock-fontify-region (max beg 1) end loudly))
+    (letf! (defadvice font-lock-fontify-region
+               (:around (fn beg end &optional loudly))
+             (funcall fn (max beg 1) end loudly))
       (apply fn args)))
 
   ;; Use a more primitive todo-keyword detection method in major modes that
