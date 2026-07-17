@@ -107,7 +107,11 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   (dolist (mode '(emacs-lisp-mode lisp-data-mode lisp-interaction-mode))
     (font-lock-add-keywords
      mode (append `(;; custom Doom cookies
-                    ("^;;;###\\(autodef\\|if\\|package\\)[ \n]" (1 font-lock-warning-face t)))
+                    ("^;;;###\\(autodef\\|if\\|package\\)[ \n]" (1 font-lock-warning-face t))
+                    ;; defun* and defun! blocks in `letf!'
+                    ("(\\(defun[!*]\\)\\_>[ \t]*\\(\\(?:\\sw\\|\\s_\\)+\\)?"
+                     (1 font-lock-keyword-face)
+                     (2 font-lock-function-name-face nil t)))
                   ;; highlight defined, special variables & functions
                   (when +emacs-lisp-enable-extra-fontification
                     `((+emacs-lisp-highlight-vars-and-faces . +emacs-lisp--face))))))
