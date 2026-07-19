@@ -62,7 +62,7 @@
 (when (modulep! :editor evil +everywhere)
   (package! evil-org
     :recipe (:host github :repo "doomelpa/evil-org-mode")
-    :pin "06518c65ff4f7aea2ea51149d701549dcbccce5d"))
+    :pin "e8b535bb0e9b590a9f46701b80c82dc9563f579e"))
 (when (modulep! +dragndrop)
   (package! org-download :pin "c8be2611786d1d8d666b7b4f73582de1093f25ac"))
 (when (modulep! +gnuplot)
