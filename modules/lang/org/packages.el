@@ -4,8 +4,8 @@
 (package! org
   :recipe (:host github
            ;; REVIEW: I intentionally avoid git.savannah.gnu.org because of SSL
-           ;;   issues (see #5655), uptime issues, download time, and lack of
-           ;;   shallow clone support.
+           ;;   issues (see doomemacs/core#5655), uptime issues, download time,
+           ;;   and lack of shallow clone support.
            :repo "emacs-straight/org-mode"
            :files (:defaults "etc")
            :depth 1

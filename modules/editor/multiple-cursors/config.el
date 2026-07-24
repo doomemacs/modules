@@ -57,7 +57,7 @@
   ;;   rather than declared at top-level, some hooks aren't defined or
   ;;   documented, it's a bit initializer-function drunk, and its minor modes
   ;;   are intended to be perpetually active -- even when no cursors are active
-  ;;   (causing #6021). I undo all of that here.
+  ;;   (causing doomemacs/core#6021). I undo all of that here.
   (evil-mc-define-vars)
   (evil-mc-initialize-vars)
   (add-hook 'evil-mc-before-cursors-created #'evil-mc-pause-incompatible-modes)

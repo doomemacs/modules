@@ -59,7 +59,7 @@ SCP, FTP, and more.
 ** Known compatibility issues
 - gdb-mi (via ~M-x gdb~) ::
   Doesn't work with direct-async enabled. To get around this, add ~set debuginfod
-  enabled~ to =~/.gdbinit=. (Reported in #8510)
+  enabled~ to =~/.gdbinit= (reported in [[github:doomemacs/core/issues/8510][doomemacs/core#8510]]).
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]

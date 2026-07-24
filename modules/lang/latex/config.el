@@ -202,7 +202,8 @@ Math faces should stay fixed by the mixed-pitch blacklist, this is mostly for
   (dolist (env '("itemize" "enumerate" "description"))
     (add-to-list 'LaTeX-indent-environment-list `(,env +latex-indent-item-fn)))
 
-  ;; Fix #1849: allow fill-paragraph in itemize/enumerate/description.
+  ;; Fix doomemacs/core#1849: allow fill-paragraph in itemize, enumerate, &
+  ;; description.
   (defadvice! +latex--re-indent-itemize-and-enumerate-and-description-a (fn &rest args)
     :around #'LaTeX-fill-region-as-para-do
     (let ((LaTeX-indent-environment-list

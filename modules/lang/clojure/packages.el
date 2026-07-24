@@ -1,9 +1,9 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/clojure/packages.el
 
-;; HACK: Fix #5577. Paredit is a cider dependency. We install paredit ourselves
-;;   to get it from emacsmirror, because the original upstream is a custom git
-;;   server with shallow clones disabled.
+;; HACK: Fix doomemacs/core#5577. Paredit is a cider dependency. We install
+;;   paredit ourselves to get it from emacsmirror, because the original upstream
+;;   is a custom git server with shallow clones disabled.
 (package! paredit
   :recipe (:host github :repo "emacsmirror/paredit")
   :pin "af075775af91f2dbc63b915d762b4aec092946c4")

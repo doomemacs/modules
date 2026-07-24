@@ -111,5 +111,5 @@
   :when (modulep! :completion helm)
   :defer t
   :config
-  ;; helm and org-cite don't get along (#8462)
+  ;; helm and org-cite don't get along (doomemacs/core#8462)
   (add-to-list 'helm-completing-read-handlers-alist '(org-cite-insert)))

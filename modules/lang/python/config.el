@@ -83,7 +83,8 @@
   ;;   (TERM=dumb), particularly on macOS. The ^C character is treated as
   ;;   literal input rather than triggering an interrupt signal. Disabling
   ;;   pyrepl forces the classic readline-based REPL which handles signals
-  ;;   correctly. See #8391, also used by VS Code's Python extension.
+  ;;   correctly. See doomemacs/core#8391, also used by VS Code's Python
+  ;;   extension.
   (add-to-list 'python-shell-process-environment "PYTHON_BASIC_REPL=1")
 
   (add-hook! '(python-mode-hook python-ts-mode-hook)
@@ -170,8 +171,9 @@
   :defer t
   :config
   ;; HACK: `pip-requirements-mode' performs a sudden HTTP request to
-  ;;   https://pypi.org/simple, which causes unexpected hangs (see #5998). This
-  ;;   advice defers this behavior until the first time completion is invoked.
+  ;;   https://pypi.org/simple, which causes unexpected hangs (see
+  ;;   doomemacs/core#5998). This advice defers this behavior until the first
+  ;;   time completion is invoked.
   ;; REVIEW: More sensible behavior should be PRed upstream.
   (defadvice! +python--init-completion-a (&rest _)
     "Call `pip-requirements-fetch-packages' first time completion is invoked."

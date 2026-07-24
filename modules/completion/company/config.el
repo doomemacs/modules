@@ -58,27 +58,27 @@
         ;; REVIEW: Revisit this to refactor; shouldn't be necessary!
         (when company-candidates
           (company-abort))))
-    ;; Allow users to switch between backends on the fly. E.g. C-x C-s followed
-    ;; by C-x C-n, will switch from `company-yasnippet' to
-    ;; `company-dabbrev-code'.
+    ;; HACK: Allow users to switch between backends on the fly. E.g. C-x C-s
+    ;;   followed by C-x C-n, will switch from `company-yasnippet' to
+    ;;   `company-dabbrev-code'.
     (defadvice! +company--abort-previous-a (&rest _)
       :before #'company-begin-backend
       (company-abort)))
 
   (add-hook 'company-mode-hook #'+company-init-backends-h 'append)
 
-  ;; Fix #1335: ensure `company-emulation-alist' is the first item of
-  ;; `emulation-mode-map-alists', thus higher priority than keymaps of
-  ;; evil-mode. We raise the priority of company-mode keymaps unconditionally
-  ;; even when completion is not activated. This should not cause problems,
-  ;; because when completion is activated, the value of
-  ;; `company-emulation-alist' is ((t . company-my-keymap)), when completion is
-  ;; not activated, the value is ((t . nil)).
+  ;; HACK: Fix doomemacs/core#1335: ensure `company-emulation-alist' is the
+  ;;   first item of `emulation-mode-map-alists', thus higher priority than
+  ;;   keymaps of evil-mode. We raise the priority of company-mode keymaps
+  ;;   unconditionally even when completion is not activated. This should not
+  ;;   cause problems, because when completion is activated, the value of
+  ;;   `company-emulation-alist' is ((t . company-my-keymap)), when completion
+  ;;   is not activated, the value is ((t . nil)).
   (add-hook! 'evil-local-mode-hook
     (when (memq 'company-emulation-alist emulation-mode-map-alists)
       (company-ensure-emulation-alist)))
 
-  ;; Fix #4355: allow eldoc to trigger after completions.
+  ;; Fix doomemacs/core#4355: allow eldoc to trigger after completions.
   (after! eldoc
     (eldoc-add-command 'company-complete-selection
                        'company-complete-common

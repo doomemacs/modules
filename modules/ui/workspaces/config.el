@@ -75,8 +75,8 @@ stored in `persp-save-dir'.")
                       ;; Start from 2 b/c persp-mode counts the nil workspace
                       (> (hash-table-count *persp-hash*) 2))
             (persp-add-new +workspaces-main))
-          ;; HACK: Fix #319: the warnings buffer gets swallowed when creating
-          ;;   `+workspaces-main', so display it ourselves, if it exists.
+          ;; HACK: Fix doomemacs/core#319: the warnings buffer gets swallowed
+          ;;   when creating `+workspaces-main', so display it ourselves.
           (when-let* ((warnings (get-buffer "*Warnings*")))
             (unless (get-buffer-window warnings)
               (save-excursion
@@ -151,8 +151,8 @@ stored in `persp-save-dir'.")
           (cadr prev-buffers)
         head)))
 
-  ;; HACK: Fixes #4196, #1525: selecting deleted buffer error when quitting
-  ;;   Emacs or on some buffer listing ops.
+  ;; HACK: Fixes doomemacs/core#4196, doomemacs/core#1525: selecting deleted
+  ;;   buffer error when quitting Emacs or on some buffer listing ops.
   (defadvice! +workspaces-remove-dead-buffers-a (persp)
     :before #'persp-buffers-to-savelist
     (when (perspective-p persp)
@@ -209,16 +209,16 @@ stored in `persp-save-dir'.")
   ;; Don't bother auto-saving the session if no real buffers are open.
   (advice-add #'persp-asave-on-exit :around #'+workspaces-autosave-real-buffers-a)
 
-  ;; Fix #1973: visual selection surviving workspace changes
+  ;; Fix doomemacs/core#1973: visual selection surviving workspace changes
   (add-hook 'persp-before-deactivate-functions #'deactivate-mark)
 
-  ;; Fix #1017: stop session persistence from restoring broken childframes.
+  ;; Fix doomemacs/core#1017: stop session persisting broken childframes
   (add-hook 'persp-after-load-state-functions #'doom-kill-childframes-h)
 
   ;; Don't try to persist dead/remote buffers. They cause errors.
   (add-hook! 'persp-filter-save-buffers-functions
     (defun +workspaces-dead-buffer-p (buf)
-      ;; Fix #1525: Ignore dead buffers in PERSP's buffer list
+      ;; Fix doomemacs/core#1525: Ignore dead buffers in PERSP's buffer list
       (not (buffer-live-p buf)))
     (defun +workspaces-remote-buffer-p (buf)
       ;; And don't save TRAMP buffers; they're super slow to restore

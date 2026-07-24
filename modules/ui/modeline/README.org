@@ -101,7 +101,7 @@ Some possible solutions:
       '(mode-line-inactive :family "Noto Sans" :height 0.9))
     #+end_src
 
-(Mentioned in [[doom-ref:][#1680]], [[doom-ref:][#278]] and [[https://github.com/seagle0128/doom-modeline/issues/334][seagle0128/doom-modeline#334]])
+(Mentioned in [[github:doomemacs/core/issues/1680][#1680]], [[github:doomemacs/core/issues/278][#278]] and [[https://github.com/seagle0128/doom-modeline/issues/334][seagle0128/doom-modeline#334]])
 
 4. Change the width of icon characters in ~char-width-table~:
     #+begin_src emacs-lisp

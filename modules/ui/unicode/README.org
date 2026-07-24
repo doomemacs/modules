@@ -107,10 +107,10 @@ You can find a list of fonts available to emacs using ~M-x counsel-fonts~.
 * Troubleshooting
 [[doom-report:][Report an issue?]]
 
-** TODO Emacs daemon mode ([[doom-ref:][#3328]])
+** TODO Emacs daemon mode ([[github:doomemacs/core/issues/3328][#3328]])
 This module may fail to setup fonts when emacs is run in a daemon session.
 
-** Common error: ~void-variable \.\.\.~ ([[doom-ref:][#7164]])
+** Common error: ~void-variable \.\.\.~ ([[github:doomemacs/core/issues/7164][#7164]])
 Users for this module may see the error similar to:
 
 #+begin_src

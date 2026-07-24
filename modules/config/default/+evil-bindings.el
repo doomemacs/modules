@@ -76,8 +76,8 @@
            ,@(when (modulep! :editor fold)
                '(((save-excursion (end-of-line) (invisible-p (point)))
                   #'+fold/toggle)))
-           ;; Fixes #4548: without this, this tab keybind overrides
-           ;; mode-local ones for modes that don't have an evil
+           ;; Fixes doomemacs/core#4548: without this, this tab keybind
+           ;; overrides mode-local ones for modes that don't have an evil
            ;; keybinding scheme or users who don't have :editor (evil
            ;; +everywhere) enabled.
            ((or (doom-lookup-key

@@ -61,7 +61,7 @@ directives. By default, this only recognizes C directives."
               ((modulep! :emacs undo) 'undo-fu)
               ('undo-redo)))
 
-  ;; Fix #7141
+  ;; Fix doomemacs/core#7141
   (defadvice! +evil--persist-state-a (fn &rest args)
     "When changing major modes, Evil's state is lost. This advice preserves it."
     :around #'set-auto-mode
@@ -83,7 +83,7 @@ directives. By default, this only recognizes C directives."
   ;;   which temporarily opens fold overlays, but never calls
   ;;   `isearch-clean-overlays' to restore them. This corrupts org-fold overlay
   ;;   state, making subtrees permanently unfoldable with TAB. See
-  ;;   emacs-evil/evil#1630, #8625.
+  ;;   emacs-evil/evil#1630, doomemacs/core#8625.
   ;; REVIEW: Remove when emacs-evil/evil#1630 is resolved.
   (defadvice! +evil--clean-isearch-overlays-a (&rest _)
     :after #'evil-ex-search

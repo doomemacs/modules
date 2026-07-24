@@ -55,8 +55,9 @@
 (use-package! company-nixos-options
   :defer t
   :init
-  ;; Fix #3927: disable idle completion because `company-nixos-options' is
-  ;; dreadfully slow. It can still be invoked manually..
+  ;; HACK: Fix doomemacs/core#3927: disable idle completion because
+  ;;   `company-nixos-options' is dreadfully slow. It can still be invoked
+  ;;   manually.
   (setq-hook! '(nix-mode-hook nix-ts-mode-hook) company-idle-delay nil))
 
 

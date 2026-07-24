@@ -46,7 +46,7 @@ results buffer.")
     [remap persp-switch-to-buffer]        #'+ivy/switch-workspace-buffer
     [remap evil-show-jumps]               #'+ivy/jump-list)
 
-  ;; Fix #4886: otherwise our remaps are overwritten
+  ;; Fix doomemacs/core#4886: otherwise our remaps are overwritten
   (setq ivy-mode-map (make-sparse-keymap))
   :config
   ;; The default sorter is much to slow and the default for `ivy-sort-max-size'

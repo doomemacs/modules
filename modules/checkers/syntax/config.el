@@ -76,7 +76,7 @@
   ;; HACK: Only display the flycheck popup if we're in normal mode (for evil
   ;;   users) or if no selection or completion is active. This popup can
   ;;   interfere with the active evil mode, clear active regions, and other
-  ;;   funny business (see #7242).
+  ;;   funny business (see doomemacs/core#7242).
   (defadvice! +syntax--disable-flycheck-popup-tip-maybe-a (&rest _)
     :before-while #'flycheck-popup-tip-show-popup
     (if (and (bound-and-true-p evil-local-mode)

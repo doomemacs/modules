@@ -556,7 +556,7 @@ This be hooked to `projectile-after-switch-project-hook'."
          (pname (doom-project-name))
          (proot (file-truename default-directory))
          ;; HACK: Clear projectile-project-root or cached roots could interfere
-         ;;   with project switching (see #3166).
+         ;;   with project switching (see doomemacs/core#3166).
          projectile-project-root)
     (when persp-mode
       (if (and (not (null +workspaces-on-switch-project-behavior))

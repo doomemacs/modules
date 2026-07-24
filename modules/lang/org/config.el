@@ -406,8 +406,8 @@ I like:
   (after! org-capture
     (org-capture-put :kill-buffer t))
 
-  ;; Fix #462: when refiling from org-capture, Emacs prompts to kill the
-  ;; underlying, modified buffer. This fixes that.
+  ;; Fix doomemacs/core#462: when refiling from org-capture, Emacs prompts to
+  ;; kill the underlying, modified buffer. This fixes that.
   (add-hook! 'org-after-refile-insert-hook
     (defun +org-save-buffer-after-capture-h ()
       (when (bound-and-true-p org-capture-is-refiling)
@@ -1045,8 +1045,8 @@ between the two."
 
 
 (use-package! org-eldoc
-  ;; HACK: Fix #7633: this hook is no longer autoloaded by org-eldoc (in
-  ;;   org-contrib), so we have to add it ourselves.
+  ;; HACK: Fix doomemacs/core#7633: this hook is no longer autoloaded by
+  ;;   org-eldoc (in org-contrib), so we have to add it ourselves.
   :hook (org-mode . org-eldoc-load)
   :init (setq org-eldoc-breadcrumb-separator " → ")
   :config
@@ -1059,8 +1059,8 @@ between the two."
                #'+org-link-doom--help-echo-from-textprop)
            (+org-link-doom--help-echo-from-textprop nil (current-buffer) (point)))))
 
-  ;; HACK: Fix #2972: infinite recursion when eldoc kicks in 'org' or 'python'
-  ;;   src blocks.
+  ;; HACK: Fix doomemacs/core#2972: infinite recursion when eldoc kicks in 'org'
+  ;;   or 'python' src blocks.
   ;; REVIEW: Should be reported upstream!
   (puthash "org" #'ignore org-eldoc-local-functions-cache)
   (puthash "plantuml" #'ignore org-eldoc-local-functions-cache)

@@ -186,7 +186,7 @@ dashboard reloading is inhibited.")
   ;; Line numbers are ugly with large margins
   (setq-local display-line-numbers-type nil)
   ;; Ensure the ever-changing margins don't screw with the mode-line's
-  ;; right-alignment (see #8114).
+  ;; right-alignment (see doomemacs/core#8114).
   (setq-local mode-line-right-align-edge 'right-margin)
   ;; Ensure point is always on a button
   (add-hook 'post-command-hook #'+dashboard-reposition-point-h nil 'local)
@@ -247,8 +247,8 @@ dashboard reloading is inhibited.")
     ;; `persp-mode' integration: update `default-directory' when switching perspectives
     (add-hook 'persp-created-functions #'+dashboard--persp-record-project-h)
     (add-hook 'persp-activated-functions #'+dashboard--persp-detect-project-h)
-    ;; Fix #2219 where, in GUI daemon frames, the dashboard loses center
-    ;; alignment after switching (or killing) workspaces.
+    ;; Fix doomemacs/core#2219 where, in GUI daemon frames, the dashboard loses
+    ;; center alignment after switching (or killing) workspaces.
     (when (daemonp)
       (add-hook 'persp-activated-functions #'+dashboard-reload-maybe-h))
     (add-hook 'persp-before-switch-functions #'+dashboard--persp-record-project-h)))
