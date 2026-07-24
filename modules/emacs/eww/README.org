@@ -4,7 +4,7 @@
 #+title:     :emacs eww
 #+subtitle:  The internet is gross
 #+created:   September 11, 2024
-#+since:     24.10
+#+since:     24.10.0
 
 * Description :unfold:
 This module augments eww (Emacs Web Wowser); Emacs' built-in web browser, with

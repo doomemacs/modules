@@ -1,7 +1,7 @@
 #+title:    :tools biblio
 #+subtitle: Writes a PhD for you (citation needed)
 #+created:  April 11, 2020
-#+since:    21.12.0 (#5290)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds tools to help when working with bibliographies and citations.

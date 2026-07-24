@@ -1,7 +1,7 @@
 #+title:    :lang faust
 #+subtitle: DSP, but you can keep your soul
 #+created:  October 14, 2019
-#+since:    21.12.0 (#1898)
+#+since:    21.12.0
 
 * Description :unfold:
 Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.

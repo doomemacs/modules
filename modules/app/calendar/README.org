@@ -1,7 +1,7 @@
 #+title:    :app calendar
 #+subtitle: Watch your missed deadlines in real time
 #+created:  January 13, 2018
-#+since:    21.12.0 (#355)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds a calendar view for Emacs, with org and google calendar sync

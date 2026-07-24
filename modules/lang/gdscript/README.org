@@ -1,7 +1,7 @@
 #+title:    :lang gdscript
 #+subtitle: the language you waited for
 #+created:  June 01, 2020
-#+since:    21.12.0 (#3239)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds support for GDScript, the scripting language of the [[http://godotengine.org/][Godot]] game

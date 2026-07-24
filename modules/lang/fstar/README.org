@@ -1,7 +1,7 @@
 #+title:    :lang fstar
 #+subtitle: (Dependent) types and (monadic) effects and Z3
 #+created:  February 02, 2020
-#+since:    21.12.0 (#2473)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds [[https://fstar-lang.org/][F*]] support, powered by [[https://github.com/FStarLang/fstar-mode.el][fstar-mode.el]].

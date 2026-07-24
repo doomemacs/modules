@@ -1,7 +1,7 @@
 #+title:    :completion vertico
 #+subtitle: Tomorrow's search engine
 #+created:  July 25, 2021
-#+since:    21.12.0 (#4664)
+#+since:    21.12.0
 
 * Description :unfold:
 This module enhances the Emacs search and completion experience, and also

@@ -1,7 +1,7 @@
 #+title:    :lang racket
 #+subtitle: The DSL for DSLs
 #+created:  July 29, 2018
-#+since:    2.0.9 (#772)
+#+since:    2.0.9
 
 * Description :unfold:
 This module adds support for the [[https://www.racket-lang.org/][Racket programming language]] to Doom Emacs.

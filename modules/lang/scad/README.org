@@ -4,7 +4,7 @@
 #+title:     :lang scad
 #+subtitle:  Trust the preview, regret the render
 #+created:   June 13, 2026
-#+since:     26.06 (#4)
+#+since:     26.06.0
 
 * Description :unfold:
 This module adds [[https://openscad.org/][OpenSCAD]] support to Doom Emacs.

@@ -1,7 +1,7 @@
 #+title:    :lang erlang
 #+subtitle: an elegant language for a more civilized age
 #+created:  April 07, 2018
-#+since:    21.12.0 (#497)
+#+since:    21.12.0
 
 * Description :unfold:
 This module provides support [[https://www.erlang.org/][Erlang programming language]]. Support for the

@@ -1,7 +1,7 @@
 #+title:     :lang hy
 #+subtitle:  Lisp is better than ugly
 #+created:   June 25, 2017
-#+since:     2.0.4 (#122)
+#+since:     2.0.4
 
 * Description :unfold:
 /(No description yet)/

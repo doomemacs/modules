@@ -1,7 +1,7 @@
 #+title:    :ui treemacs
 #+subtitle: A sidebar for all the things
 #+created:  June 09, 2018
-#+since:    21.12.0 (#669)
+#+since:    21.12.0
 
 * Description :unfold:
 [[doom-package:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,

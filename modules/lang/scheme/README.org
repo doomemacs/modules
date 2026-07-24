@@ -1,7 +1,7 @@
 #+title:    :lang scheme
 #+subtitle: A fully conniving family of lisps
 #+created:  July 23, 2019
-#+since:    21.12.0 (#1588)
+#+since:    21.12.0
 
 * Description :unfold:
 This module provides support for the Scheme family of Lisp languages, powered by

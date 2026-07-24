@@ -1,7 +1,7 @@
 #+title:    :lang elm
 #+subtitle: Care for a cup of TEA?
 #+created:  May 21, 2017
-#+since:    2.0.3 (#74)
+#+since:    2.0.3
 
 * Description :unfold:
 This module adds [[https://elm-lang.org/][Elm]] support to Doom Emacs.

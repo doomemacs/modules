@@ -1,7 +1,7 @@
 #+title:    :lang agda
 #+subtitle: Types of types of types of types...
 #+created:  August 21, 2018
-#+since:    21.12.0 (#821)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds support for the [[http://wiki.portal.chalmers.se/agda/pmwiki.php][agda]] programming language. The Emacs support

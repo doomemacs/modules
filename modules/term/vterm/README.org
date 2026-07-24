@@ -1,7 +1,7 @@
 #+title:    :term vterm
 #+subtitle: Almost the best terminal emulation in Emacs
 #+created:  January 16, 2019
-#+since:    21.12.0 (#1144)
+#+since:    21.12.0
 
 * Description :unfold:
 This module provides a terminal emulator powered by libvterm. It is still in

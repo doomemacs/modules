@@ -1,7 +1,7 @@
 #+title:    :lang fsharp
 #+subtitle: ML stands for Microsoft's Language
 #+created:  May 23, 2019
-#+since:    21.12.0 (#1327)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds [[https://fsharp.org/][F#]] support to Doom Emacs.

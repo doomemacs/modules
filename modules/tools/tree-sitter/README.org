@@ -1,7 +1,7 @@
 #+title:    :tools tree-sitter
 #+subtitle: Syntax and parsing, sitting in a tree...
 #+created:  August 17, 2021
-#+since:    22.06.0 (#5401)
+#+since:    22.06.0
 
 * Description :unfold:
 This module adds [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] support to Doom Emacs.

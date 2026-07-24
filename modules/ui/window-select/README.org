@@ -1,7 +1,7 @@
 #+title:    :ui window-select
 #+subtitle: Visually switch windows
 #+created:  October 08, 2017
-#+since:    2.0.7 (#237)
+#+since:    2.0.7
 
 * Description :unfold:
 This module provides several methods for selecting windows without the use of

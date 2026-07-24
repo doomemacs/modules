@@ -1,7 +1,7 @@
 #+title:    :lang fortran
 #+subtitle: In FORTRAN, GOD is REAL (unless declared INTEGER)
 #+date:     October 22, 2021
-#+since:    22.04.0 (#5676)
+#+since:    22.04.0
 
 * Description :unfold:
 This module enables a complete, modern development environment for the [[https://fortran-lang.org/][Fortran]]

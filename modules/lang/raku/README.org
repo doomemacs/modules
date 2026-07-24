@@ -1,7 +1,7 @@
 #+title:    :lang raku
 #+subtitle: The artist formerly known as perl6
 #+created:  June 05, 2020
-#+since:    21.12.0 (#3308)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds support for the [[https://www.raku.org/][Raku programming language]] to Doom Emacs.

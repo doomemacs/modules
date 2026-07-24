@@ -1,7 +1,7 @@
 #+title:    :input bidi
 #+subtitle: (tfel ot) thgir etirw uoy gnipleh
 #+created:  April 22, 2022
-#+since:    22.04.0 (#5526)
+#+since:    22.04.0
 
 * Description :unfold:
 This module improves support for bidirectional text (bidi). Enable it if you

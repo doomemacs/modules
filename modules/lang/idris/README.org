@@ -1,7 +1,7 @@
 #+title:    :lang idris
 #+subtitle: A language you can depend on
 #+created:  August 21, 2018
-#+since:    21.12.0 (#822)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds rudimentary [[https://www.idris-lang.org/][Idris]] support to Doom Emacs.

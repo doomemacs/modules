@@ -1,7 +1,7 @@
 #+title:    :lang elixir
 #+subtitle: Erlang done right
 #+created:  May 24, 2017
-#+since:    2.0.3 (#83)
+#+since:    2.0.3
 
 * Description :unfold:
 This module provides support for [[https://elixir-lang.org/][Elixir programming language]] via [[https://github.com/elixir-lsp/elixir-ls/][elixir-ls]].

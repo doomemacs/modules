@@ -1,7 +1,7 @@
 #+title:    :lang solidity
 #+subtitle: Do you need a blockchain? No.
 #+created:  May 19, 2018
-#+since:    21.12.0 (#599)
+#+since:    21.12.0
 
 * Description :unfold:
 This module adds [[https://github.com/ethereum/solidity][Solidity]] support to Doom Emacs.
