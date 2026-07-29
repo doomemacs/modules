@@ -129,6 +129,7 @@ Respects `diff-hl-disable-on-remote'."
       "Return nil to prevent shadowing other `doom-escape-hook' hooks."
       (when-let* (((or (bound-and-true-p diff-hl-mode)
                        (bound-and-true-p diff-hl-dir-mode)))
+                  ((not (file-remote-p default-directory)))
                   (file (buffer-file-name (buffer-base-buffer)))
                   ((not ; debouncing
                     (equal (cons (point) +vc-gutter--last-state)
