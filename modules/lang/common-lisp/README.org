@@ -22,8 +22,12 @@ to run unmodified for a long time.
 
 ** Packages
 - [[doom-package:sly]]
+- [[doom-package:sly-asdf]]
+- [[doom-package:sly-quicklisp]]
+- [[doom-package:sly-stepper]]
 - [[doom-package:sly-macrostep]]
 - [[doom-package:sly-repl-ansi-color]]
+- [[doom-package:sly-overlay]]
 
 ** Hacks
 /No hacks documented for this module./
