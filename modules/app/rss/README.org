@@ -19,7 +19,6 @@ Read RSS feeds in the comfort of Emacs.
 
 ** Packages
 - [[doom-package:elfeed]]
-- [[doom-package:elfeed-goodies]]
 - [[doom-package:elfeed-org]] if [[doom-module:+org]]
 - [[doom-package:elfeed-tube]] if [[doom-module:+youtube]]
 

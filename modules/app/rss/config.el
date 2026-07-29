@@ -98,12 +98,6 @@ easier to scroll through."
         (setq rmh-elfeed-org-files (cl-remove-if-not #'file-exists-p files))))))
 
 
-(use-package! elfeed-goodies
-  :after elfeed
-  :config
-  (elfeed-goodies/setup))
-
-
 (use-package! elfeed-tube
   :when (modulep! +youtube)
   :after elfeed
