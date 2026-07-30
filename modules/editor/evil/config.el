@@ -400,7 +400,7 @@ don't offer any/enough real value to users.")
   :hook (doom-first-input . evil-escape-mode)
   :init
   (setq evil-escape-excluded-states '(normal visual multiedit emacs motion)
-        evil-escape-excluded-major-modes '(neotree-mode treemacs-mode vterm-mode)
+        evil-escape-excluded-major-modes '(neotree-mode treemacs-mode vterm-mode ghostel-mode)
         evil-escape-key-sequence nil
         evil-escape-delay 0.15)
   (evil-define-key* '(insert replace visual operator) 'global "\C-g" #'evil-escape)
