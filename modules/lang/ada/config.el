@@ -13,7 +13,11 @@
         :localleader
         :desc "Build Alire Project" "b" #'+ada/alr-build
         :desc "Run Alire Project"   "r" #'+ada/alr-run
-        :desc "Clean Alire Project" "c" #'+ada/alr-clean))
+        :desc "Clean Alire Project" "c" #'+ada/alr-clean
+        :desc "Run gnatprove"       "p" #'+ada/alr-prove
+        :desc "Run Alire Tests"     "t" #'+ada/alr-test))
+
+
 
 
 (defun +gpr-common-config (mode)
