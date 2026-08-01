@@ -18,8 +18,6 @@
         :desc "Run Alire Tests"     "t" #'+ada/alr-test))
 
 
-
-
 (defun +gpr-common-config (mode)
   (when (modulep! +lsp)
     (add-hook (intern (format "%s-local-vars-hook" mode)) #'lsp! 'append))
