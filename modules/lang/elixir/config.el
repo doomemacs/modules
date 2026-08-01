@@ -67,7 +67,7 @@
 
 (use-package! elixir-ts-mode  ; 30.1+ only
   :when (modulep! +tree-sitter)
-  :defer t
+  :hook (elixir-ts-mode . +elixir-ts-embed-elixir-in-heex-h)
   :init
   (set-tree-sitter! 'elixir-mode 'elixir-ts-mode
     '((elixir :url "https://github.com/elixir-lang/tree-sitter-elixir"
@@ -75,7 +75,23 @@
       (heex :url "https://github.com/phoenixframework/tree-sitter-heex"
             :commit "b5a7cb5f74dc695a9ff5f04919f872ebc7a895e9")))
   :config
-  (+elixir-common-config 'elixir-ts-mode))
+  (+elixir-common-config 'elixir-ts-mode)
+
+  ;; REVIEW: PR this upstream
+  (defun +elixir-ts-embed-elixir-in-heex-h ()
+    "Add highlighting for Elixir code in HEEx's curly braces."
+    (when (treesit-ready-p 'heex)
+      (setq-local
+       treesit-range-settings
+       (append treesit-range-settings
+               (treesit-range-rules
+                :embed 'elixir
+                :host 'heex
+                :local t
+                '((expression (expression_value) @cap)
+                  (directive (expression_value) @cap)
+                  (directive (partial_expression_value) @cap)
+                  (directive (ending_expression_value) @cap))))))))
 
 
 (use-package! heex-ts-mode
