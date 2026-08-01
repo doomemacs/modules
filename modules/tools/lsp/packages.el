@@ -9,7 +9,8 @@
         (package! consult-eglot :pin "3e4d9a40911b897c0a2c5d20199d0f7c30bfc1c2"))
       (when (modulep! :checkers syntax -flymake)
         (package! flycheck-eglot :pin "cd1dd78cec0ae1f566c765d98bbff322cc7b67ef"))
-      (when (modulep! +booster)
+      ;; DEPRECATED: Remove when 29 support is dropped
+      (when (and (< emacs-major-version 30) (modulep! +booster))
         (package! eglot-booster
           :recipe (:host github :repo "jdtsmith/eglot-booster")
           :pin "510f579409627c333ef0e9157db713b1004da842")))

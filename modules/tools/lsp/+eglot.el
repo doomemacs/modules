@@ -61,7 +61,9 @@ server an expensive restart when its buffer is reverted."
       (funcall fn server))))
 
 
+;; DEPRECATED: Remove when 29 support is dropped
 (use-package! eglot-booster
+  :when (< emacs-major-version 30)
   :when (modulep! +booster)
   :after eglot
   :init
