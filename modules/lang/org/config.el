@@ -225,9 +225,9 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
 
   (defadvice! +org--exclude-expand-noweb-references-a (fn &rest args)
     :around #'ob-async-org-babel-execute-src-block
-    (let ((async-inject-variables-exclude-regexps
-           (cons "\\`org-babel-expand-noweb-references--cache-buffer\\'"
-                 async-inject-variables-exclude-regexps)))
+    (dlet ((async-inject-variables-exclude-regexps
+            (cons "\\`org-babel-expand-noweb-references--cache-buffer\\'"
+                  async-inject-variables-exclude-regexps)))
       (apply fn args)))
 
   (defadvice! +org-babel-disable-async-maybe-a (fn &optional orig-fn arg info params)
@@ -278,7 +278,7 @@ Also adds support for a `:sync' parameter to override `:async'."
                ;; Since Doom adds its most expensive hooks to
                ;; MAJOR-MODE-local-vars-hook, we can savely inhibit those.
                (lambda ()
-                 (let ((doom-inhibit-local-var-hooks t))
+                 (dlet ((doom-inhibit-local-var-hooks t))
                    (funcall initialize)))
              initialize)
            args))
@@ -634,7 +634,7 @@ relative to `org-directory', unless it is an absolute path."
     "Exporting and tangling trigger save hooks; inadvertantly triggering
 mutating hooks on exported output, like formatters."
     :around '(org-export-to-file org-babel-tangle)
-    (let (before-save-hook after-save-hook)
+    (dlet (before-save-hook after-save-hook)
       (apply fn args)))
 
   (defadvice! +org--fix-async-export-a (fn &rest args)
@@ -685,10 +685,10 @@ mutating hooks on exported output, like formatters."
   (defadvice! +org--strip-properties-from-outline-a (fn &rest args)
     "Fix variable height faces in eldoc breadcrumbs."
     :around #'org-format-outline-path
-    (let ((org-level-faces
-           (cl-loop for face in org-level-faces
-                    collect `(:foreground ,(face-foreground face nil t)
-                              :weight bold))))
+    (dlet ((org-level-faces
+            (cl-loop for face in org-level-faces
+                     collect `(:foreground ,(face-foreground face nil t)
+                               :weight bold))))
       (apply fn args)))
 
   (defun +org--restart-mode-h ()
@@ -704,7 +704,7 @@ mutating hooks on exported output, like formatters."
       (when (and org-agenda-new-buffers
                  (bound-and-true-p persp-mode)
                  (not org-agenda-sticky))
-        (let (persp-autokill-buffer-on-remove)
+        (dlet (persp-autokill-buffer-on-remove)
           (persp-remove-buffer org-agenda-new-buffers
                                (get-current-persp)
                                nil)))))
