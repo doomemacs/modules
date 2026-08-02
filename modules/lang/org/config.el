@@ -487,119 +487,17 @@ relative to `org-directory', unless it is an absolute path."
                     '(warning org-link))))
 
   ;; Additional custom links for convenience
-  (dolist (abbrev `(("github"      . "https://github.com/%s")
-                    ("youtube"     . "https://youtube.com/watch?v=%s")
-                    ("google"      . "https://google.com/search?q=")
-                    ("gimages"     . "https://google.com/images?q=%s")
-                    ("gmap"        . "https://maps.google.com/maps?q=%s")
-                    ("kagi"        . "https://kagi.com/search?q=%s")
-                    ("duckduckgo"  . "https://duckduckgo.com/?q=%s")
-                    ("wikipedia"   . "https://en.wikipedia.org/wiki/%s")
-                    ("wolfram"     . "https://wolframalpha.com/input/?i=%s")
-                    ("doom-repo"   . "https://github.com/doomemacs/core/%s")
-                    ("emacsdir"    . ,(doom-path doom-emacs-dir "%s"))
-                    ("doomdir"     . ,(doom-path doom-user-dir "%s"))))
+  (dolist (abbrev `(("org"        . ,(lambda (path) (abbreviate-file-name (expand-file-name path org-directory))))
+                    ("github"     . "https://github.com/%s")
+                    ("youtube"    . "https://youtube.com/watch?v=%s")
+                    ("google"     . "https://google.com/search?q=")
+                    ("gimages"    . "https://google.com/images?q=%s")
+                    ("gmap"       . "https://maps.google.com/maps?q=%s")
+                    ("kagi"       . "https://kagi.com/search?q=%s")
+                    ("duckduckgo" . "https://duckduckgo.com/?q=%s")
+                    ("wikipedia"  . "https://en.wikipedia.org/wiki/%s")
+                    ("wolfram"    . "https://wolframalpha.com/input/?i=%s")))
     (add-to-list 'org-link-abbrev-alist abbrev))
-
-  (+org-define-basic-link "org" 'org-directory)
-  (+org-define-basic-link "doom" 'doom-emacs-dir)
-  (+org-define-basic-link "doom-docs" 'doom-docs-dir)
-  ;; FIXME: (+org-define-basic-link "doom-modules" 'doom-modules-dir)
-
-  ;; Add "lookup" links for packages and keystrings; useful for Emacs
-  ;; documentation -- especially Doom's!
-  (letf! (defun -call-interactively (fn)
-           (lambda (path _prefixarg)
-             (funcall (or (command-remapping fn) fn)
-                      (or (intern-soft path)
-                          (user-error "Can't find documentation for %S" path)))))
-    (org-link-set-parameters
-     "kbd"
-     :follow (lambda (ev)
-               (interactive "e")
-               (minibuffer-message "%s" (+org-link-doom--help-echo-from-textprop
-                                         nil (current-buffer) (posn-point (event-start ev)))))
-     :help-echo #'+org-link-doom--help-echo-from-textprop
-     :face 'help-key-binding)
-    (org-link-set-parameters
-     "var"
-     :follow (-call-interactively #'describe-variable)
-     :activate-func #'+org-link--var-link-activate-fn
-     :face '(font-lock-variable-name-face underline))
-    (org-link-set-parameters
-     "fn"
-     :follow (-call-interactively #'describe-function)
-     :activate-func #'+org-link--fn-link-activate-fn
-     :face '(font-lock-function-name-face underline))
-    (org-link-set-parameters
-     "face"
-     :follow (-call-interactively #'describe-face)
-     :activate-func #'+org-link--face-link-activate-fn
-     :face '(font-lock-type-face underline))
-    (org-link-set-parameters
-     "cmd"
-     :follow (-call-interactively #'describe-command)
-     :activate-func #'+org-link--command-link-activate-fn
-     :face 'help-key-binding
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
-    (org-link-set-parameters
-     "doom-package"
-     :follow #'+org-link--doom-package-link-follow-fn
-     :activate-func #'+org-link--doom-package-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
-    (org-link-set-parameters
-     "doom-module"
-     :follow #'+org-link--doom-module-link-follow-fn
-     :activate-func #'+org-link--doom-module-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
-    (org-link-set-parameters
-     "doom-executable"
-     :activate-func #'+org-link--doom-executable-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop
-     :face 'org-verbatim)
-    (org-link-set-parameters
-     "doom-ref"
-     :follow (lambda (link)
-               (let ((link (+org-link-read-desc-at-point link))
-                     (url "https://github.com")
-                     (doom-repo "doomemacs/core"))
-                 (save-match-data
-                   (browse-url
-                    (cond ((string-match "^\\([^/]+\\(?:/[^/]+\\)?\\)?#\\([0-9]+\\(?:#.*\\)?\\)" link)
-                           (format "%s/%s/issues/%s" url
-                                   (or (match-string 1 link)
-                                       doom-repo)
-                                   (match-string 2 link)))
-                          ((string-match "^\\([^/]+\\(?:/[^/]+\\)?@\\)?\\([a-z0-9]\\{7,\\}\\(?:#.*\\)?\\)" link)
-                           (format "%s/%s/commit/%s" url
-                                   (or (match-string 1 link)
-                                       doom-repo)
-                                   (match-string 2 link)))
-                          ((user-error "Invalid doom-ref link: %S" link)))))))
-     :face (lambda (link)
-             (let ((link (+org-link-read-desc-at-point link)))
-               (if (or (string-match "^\\([^/]+\\(?:/[^/]+\\)?\\)?#\\([0-9]+\\(?:#.*\\)?\\)" link)
-                       (string-match "^\\([^/]+\\(?:/[^/]+\\)?@\\)?\\([a-z0-9]\\{7,\\}\\(?:#.*\\)?\\)" link))
-                   'org-link
-                 'error))))
-    (org-link-set-parameters
-     "doom-user"
-     :follow (lambda (link)
-               (browse-url
-                (format "https://github.com/%s"
-                        (string-remove-prefix
-                         "@" (+org-link-read-desc-at-point link)))))
-     :face (lambda (_)
-             ;; Avoid confusion with function `org-priority'
-             'org-priority))
-    (org-link-set-parameters
-     "doom-changelog"
-     :follow (lambda (link)
-               (find-file (doom-path doom-docs-dir "changelog.org"))
-               (org-match-sparse-tree nil link))))
-
-  ;; Add "lookup" links for packages and keystrings; useful for Emacs
-  ;; documentation -- especially Doom's!
 
   ;; Allow inline image previews of http(s)? urls or data uris.
   ;; `+org-link-preview-image-url-fn' will respect

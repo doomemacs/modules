@@ -16,9 +16,24 @@
 
   (after! org
     ;; A shorter link to attachments
-    (+org-define-basic-link "download" (lambda () (or org-download-image-dir org-attach-id-dir "."))
-      :preview #'+org-link-preview-attachment-fn
-      :requires 'org-download))
+    (letf! (defun dir (&rest segments)
+             (apply #'doom-path (or org-download-image-dir org-attach-id-dir ".")
+                    segments))
+      (org-link-set-parameters
+       "download"
+       :preview #'+org-link-preview-attachment-fn
+       :complete (fn! (require 'org-download)
+                      (let* ((root (dir))
+                             (path (doom-docs--read-link-path key root))
+                             (path* (file-relative-name path root)))
+                        (if (string-match-p "\\.\\." path*) path path*)))
+       :follow (fn! (org-link-open-as-file (dir %) nil))
+       :face (fn! (let* ((path (dir %))
+                         (option-index (string-match-p "::\\(.*\\)\\'" path))
+                         (file-name (substring path 0 option-index)))
+                    (if (file-exists-p file-name)
+                        'org-link
+                      'error))))))
   :config
   (unless org-download-image-dir
     (setq org-download-image-dir org-attach-id-dir))
