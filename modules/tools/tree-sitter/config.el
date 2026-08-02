@@ -146,68 +146,64 @@
       '((toml :url "https://github.com/tree-sitter-grammars/tree-sitter-toml"
               :rev "v0.7.0")))))
 
+(use-package! evil-textobj-tree-sitter
+  :when (modulep! :editor evil +everywhere)
+  :defer t
+  :init
+  ;; Define the minor mode to replace the dead tree-sitter-mode
+  (define-minor-mode +tree-sitter-textobjs-mode
+    "Enable evil tree-sitter text objects in this buffer."
+    :lighter "")
 
-;; TODO: combobulate or evil-textobj-tree-sitter
+  :after-call doom-first-input-hook
+  :config
+  (defvar +tree-sitter-inner-text-objects-map (make-sparse-keymap))
+  (defvar +tree-sitter-outer-text-objects-map (make-sparse-keymap))
+  (defvar +tree-sitter-goto-previous-map (make-sparse-keymap))
+  (defvar +tree-sitter-goto-next-map (make-sparse-keymap))
 
+  (evil-define-key '(visual operator) '+tree-sitter-textobjs-mode
+    "i" +tree-sitter-inner-text-objects-map
+    "a" +tree-sitter-outer-text-objects-map)
 
-;; (use-package! combobulate
-;;   :commands combobulate-query-builder
-;;   :hook (prog-mode . combobulate-mode))
+  (evil-define-key 'normal '+tree-sitter-textobjs-mode
+    "[g" +tree-sitter-goto-previous-map
+    "]g" +tree-sitter-goto-next-map)
 
+  (map! (:map +tree-sitter-inner-text-objects-map
+              "A" (+tree-sitter-get-textobj '("parameter.inner" "call.inner"))
+              "f" (+tree-sitter-get-textobj "function.inner")
+              "F" (+tree-sitter-get-textobj "call.inner")
+              "C" (+tree-sitter-get-textobj "class.inner")
+              "v" (+tree-sitter-get-textobj "conditional.inner")
+              "l" (+tree-sitter-get-textobj "loop.inner"))
+        (:map +tree-sitter-outer-text-objects-map
+              "A" (+tree-sitter-get-textobj '("parameter.outer" "call.outer"))
+              "f" (+tree-sitter-get-textobj "function.outer")
+              "F" (+tree-sitter-get-textobj "call.outer")
+              "C" (+tree-sitter-get-textobj "class.outer")
+              "c" (+tree-sitter-get-textobj "comment.outer")
+              "v" (+tree-sitter-get-textobj "conditional.outer")
+              "l" (+tree-sitter-get-textobj "loop.outer"))
+        (:map +tree-sitter-goto-previous-map
+              "a" (+tree-sitter-goto-textobj "parameter.outer" t)
+              "f" (+tree-sitter-goto-textobj "function.outer" t)
+              "F" (+tree-sitter-goto-textobj "call.outer" t)
+              "C" (+tree-sitter-goto-textobj "class.outer" t)
+              "c" (+tree-sitter-goto-textobj "comment.outer" t)
+              "v" (+tree-sitter-goto-textobj "conditional.outer" t)
+              "l" (+tree-sitter-goto-textobj "loop.outer" t))
+        (:map +tree-sitter-goto-next-map
+              "a" (+tree-sitter-goto-textobj "parameter.outer")
+              "f" (+tree-sitter-goto-textobj "function.outer")
+              "F" (+tree-sitter-goto-textobj "call.outer")
+              "C" (+tree-sitter-goto-textobj "class.outer")
+              "c" (+tree-sitter-goto-textobj "comment.outer")
+              "v" (+tree-sitter-goto-textobj "conditional.outer")
+              "l" (+tree-sitter-goto-textobj "loop.outer")))
 
-;; (use-package! evil-textobj-tree-sitter
-;;   :when (modulep! :editor evil +everywhere)
-;;   :defer t
-;;   :init (after! tree-sitter (require 'evil-textobj-tree-sitter))
-;;   :after-call doom-first-input-hook
-;;   :config
-;;   (defvar +tree-sitter-inner-text-objects-map (make-sparse-keymap))
-;;   (defvar +tree-sitter-outer-text-objects-map (make-sparse-keymap))
-;;   (defvar +tree-sitter-goto-previous-map (make-sparse-keymap))
-;;   (defvar +tree-sitter-goto-next-map (make-sparse-keymap))
-
-;;   (evil-define-key '(visual operator) 'tree-sitter-mode
-;;     "i" +tree-sitter-inner-text-objects-map
-;;     "a" +tree-sitter-outer-text-objects-map)
-;;   (evil-define-key 'normal 'tree-sitter-mode
-;;     "[g" +tree-sitter-goto-previous-map
-;;     "]g" +tree-sitter-goto-next-map)
-
-;;   (map! (:map +tree-sitter-inner-text-objects-map
-;;          "A" (+tree-sitter-get-textobj '("parameter.inner" "call.inner"))
-;;          "f" (+tree-sitter-get-textobj "function.inner")
-;;          "F" (+tree-sitter-get-textobj "call.inner")
-;;          "C" (+tree-sitter-get-textobj "class.inner")
-;;          "v" (+tree-sitter-get-textobj "conditional.inner")
-;;          "l" (+tree-sitter-get-textobj "loop.inner"))
-;;         (:map +tree-sitter-outer-text-objects-map
-;;          "A" (+tree-sitter-get-textobj '("parameter.outer" "call.outer"))
-;;          "f" (+tree-sitter-get-textobj "function.outer")
-;;          "F" (+tree-sitter-get-textobj "call.outer")
-;;          "C" (+tree-sitter-get-textobj "class.outer")
-;;          "c" (+tree-sitter-get-textobj "comment.outer")
-;;          "v" (+tree-sitter-get-textobj "conditional.outer")
-;;          "l" (+tree-sitter-get-textobj "loop.outer"))
-
-;;         (:map +tree-sitter-goto-previous-map
-;;          "a" (+tree-sitter-goto-textobj "parameter.outer" t)
-;;          "f" (+tree-sitter-goto-textobj "function.outer" t)
-;;          "F" (+tree-sitter-goto-textobj "call.outer" t)
-;;          "C" (+tree-sitter-goto-textobj "class.outer" t)
-;;          "c" (+tree-sitter-goto-textobj "comment.outer" t)
-;;          "v" (+tree-sitter-goto-textobj "conditional.outer" t)
-;;          "l" (+tree-sitter-goto-textobj "loop.outer" t))
-;;         (:map +tree-sitter-goto-next-map
-;;          "a" (+tree-sitter-goto-textobj "parameter.outer")
-;;          "f" (+tree-sitter-goto-textobj "function.outer")
-;;          "F" (+tree-sitter-goto-textobj "call.outer")
-;;          "C" (+tree-sitter-goto-textobj "class.outer")
-;;          "c" (+tree-sitter-goto-textobj "comment.outer")
-;;          "v" (+tree-sitter-goto-textobj "conditional.outer")
-;;          "l" (+tree-sitter-goto-textobj "loop.outer")))
-
-;;   (after! which-key
-;;     (setq which-key-allow-multiple-replacements t)
-;;     (pushnew!
-;;      which-key-replacement-alist
-;;      '(("" . "\\`+?evil-textobj-tree-sitter-function--\\(.*\\)\\(?:.inner\\|.outer\\)") . (nil . "\\1")))))
+  (after! which-key
+    (setq which-key-allow-multiple-replacements t)
+    (pushnew!
+     which-key-replacement-alist
+     '(("" . "\\`+?evil-textobj-tree-sitter-function--\\(.*\\)\\(?:.inner\\|.outer\\)") . (nil . "\\1")))))

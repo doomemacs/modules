@@ -31,6 +31,8 @@ pre-Emacs 31."
       (when m
         (setf (alist-get m major-mode-remap-defaults) ts-mode))
       (put ts-mode '+tree-sitter (cons m (mapcar #'car recipes))))
+    (when (fboundp '+tree-sitter-textobjs-mode)
+      (add-hook (intern (format "%s-hook" ts-mode)) #'+tree-sitter-textobjs-mode))
     (when-let* ((fn (intern-soft (format "%s-maybe" ts-mode))))
       (cl-callf2 rassq-delete-all fn auto-mode-alist)
       (cl-callf2 rassq-delete-all fn interpreter-mode-alist))
@@ -49,21 +51,21 @@ pre-Emacs 31."
                                   'many)
                               (list commit))))))))))
 
-;; ;; HACK: Remove and refactor when `use-package' eager macro expansion is solved or `use-package!' is removed
-;; ;;;###autoload
-;; (defun +tree-sitter-get-textobj (group &optional query)
-;;   "A wrapper around `evil-textobj-tree-sitter-get-textobj' to
-;; prevent eager expansion."
-;;   (eval `(evil-textobj-tree-sitter-get-textobj ,group ,query)))
+;; HACK: Remove and refactor when `use-package' eager macro expansion is solved or `use-package!' is removed
+;;;###autoload
+(defun +tree-sitter-get-textobj (group &optional query)
+  "A wrapper around `evil-textobj-tree-sitter-get-textobj' to
+prevent eager expansion."
+  (eval `(evil-textobj-tree-sitter-get-textobj ,group ,query)))
 
-;; ;;;###autoload
-;; (defun +tree-sitter-goto-textobj (group &optional previous end query)
-;;   "Thin wrapper that returns the symbol of a named function, used in keybindings."
-;;   (let ((sym (intern (format "+goto%s%s-%s" (if previous "-previous" "") (if end "-end" "") group))))
-;;     (fset sym (lambda ()
-;;                 (interactive)
-;;                 (evil-textobj-tree-sitter-goto-textobj group previous end query)))
-;;     sym))
+;;;###autoload
+(defun +tree-sitter-goto-textobj (group &optional previous end query)
+  "Thin wrapper that returns the symbol of a named function, used in keybindings."
+  (let ((sym (intern (format "+goto%s%s-%s" (if previous "-previous" "") (if end "-end" "") group))))
+    (fset sym (lambda ()
+                (interactive)
+                (evil-textobj-tree-sitter-goto-textobj group previous end query)))
+    sym))
 
 ;;;###autoload
 (defun +tree-sitter-ts-mode-inhibit-side-effects-a (fn &rest args)
