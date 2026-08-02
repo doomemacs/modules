@@ -439,8 +439,8 @@ relative to `org-directory', unless it is an absolute path."
     :after #'org-capture-refile
     (+org-capture-cleanup-frame-h))
 
-  (when (modulep! :ui doom-dashboard)
-    (add-hook '+doom-dashboard-inhibit-functions #'+org-capture-frame-p)))
+  (when (modulep! :ui dashboard)
+    (add-hook '+dashboard-inhibit-functions #'+org-capture-frame-p)))
 
 
 (defun +org-init-attachments-h ()
