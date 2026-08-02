@@ -242,14 +242,6 @@ exist, and `org-link' otherwise."
 ;;
 ;;; Help-echo / eldoc
 
-(defadvice! doom-docs--display-docs-link-in-eldoc-a (&rest _)
-  "Display help for doom-*: links in minibuffer when cursor/mouse is over it."
-  :before-until #'org-eldoc-documentation-function
-  (and (bound-and-true-p doom-docs-mode)
-       (eq (get-text-property (point) 'help-echo)
-           #'+org-link-doom--help-echo-from-textprop)
-       (+org-link-doom--help-echo-from-textprop nil (current-buffer) (point))))
-
 (defvar +org-link-doom--help-echo-cache nil)
 
 (defun +org-link-doom--help-echo-from-textprop (_window object pos)
