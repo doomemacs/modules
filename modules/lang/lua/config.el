@@ -30,10 +30,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'lua-mode 'lua-ts-mode
-    `((lua :url "https://github.com/tree-sitter-grammars/tree-sitter-lua"
-           :rev ,(if (< (treesit-library-abi-version) 15) "v0.3.0")
-           :commit "db16e76558122e834ee214c8dc755b4a3edc82a9")))
+  (set-tree-sitter! 'lua-mode 'lua-ts-mode 'lua)
   :config
   (+lua-common-config 'lua-ts-mode))
 

@@ -11,9 +11,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'yaml-mode 'yaml-ts-mode
-    `((yaml :url "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
-            :rev ,(if (< (treesit-library-abi-version) 15) "v0.7.2" "v0.7.0"))))
+  (set-tree-sitter! 'yaml-mode 'yaml-ts-mode 'yaml)
   :config
   (when (modulep! +lsp)
     (add-hook 'yaml-ts-mode-local-vars-hook #'lsp! 'append)))

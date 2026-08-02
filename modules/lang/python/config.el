@@ -29,9 +29,7 @@
         python-indent-guess-indent-offset-verbose nil)
 
   (when (modulep! +tree-sitter)
-    (set-tree-sitter! 'python-mode 'python-ts-mode
-      `((python :url "https://github.com/tree-sitter/tree-sitter-python"
-                :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.6" "v0.25.0")))))
+    (set-tree-sitter! 'python-mode 'python-ts-mode 'python))
 
   :config
   ;; HACK: `python-base-mode' (and `python-ts-mode') don't exist on pre-29

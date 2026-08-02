@@ -53,8 +53,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'haskell-mode 'haskell-ts-mode
-    '((haskell :url "https://github.com/tree-sitter/tree-sitter-haskell")))
+  (set-tree-sitter! 'haskell-mode 'haskell-ts-mode 'haskell)
   :config
   (set-repl-handler! 'haskell-ts-mode #'run-haskell :persist t)
   (set-eglot-client! 'haskell-ts-mode '("haskell-language-server-wrapper" "--lsp"))

@@ -17,8 +17,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'erlang-mode 'erlang-ts-mode
-    '((erlang :url "https://github.com/WhatsApp/tree-sitter-erlang"))))
+  (set-tree-sitter! 'erlang-mode 'erlang-ts-mode 'erlang))
 
 
 (use-package! erlang-flymake

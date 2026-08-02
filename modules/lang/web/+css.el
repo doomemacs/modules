@@ -81,6 +81,4 @@ If set to `nil', disable all the above behaviors.")
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'css-mode 'css-ts-mode
-    `((css :url "https://github.com/tree-sitter/tree-sitter-css"
-           :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.0" "v0.23.2")))))
+  (set-tree-sitter! 'css-mode 'css-ts-mode 'css))

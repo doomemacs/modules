@@ -53,8 +53,6 @@
   :init
   (after! org-src
     (add-to-list 'org-src-lang-modes '("scad" . scad-ts-mode)))
-  (set-tree-sitter! 'scad-mode 'scad-ts-mode
-    '((openscad :url "https://github.com/openscad/tree-sitter-openscad"
-                :rev "v0.7.1")))
+  (set-tree-sitter! 'scad-mode 'scad-ts-mode 'openscad)
   :config
   (+scad-common-config 'scad-ts-mode))

@@ -4,10 +4,7 @@
   :defer t
   :init
   (when (modulep! +tree-sitter)
-    (set-tree-sitter! 'csharp-mode 'csharp-ts-mode
-      `((c-sharp :url "https://github.com/tree-sitter/tree-sitter-c-sharp"
-                 :rev ,(if (< (treesit-library-abi-version) 15) "v0.20.0" "v0.23.1")
-                 :commit "3431444351c871dffb32654f1299a00019280f2f"))))
+    (set-tree-sitter! 'csharp-mode 'csharp-ts-mode 'c-sharp))
   :config
   (set-rotate-patterns! '(csharp-mode csharp-ts-mode)
     :symbols '(("public" "protected" "private")

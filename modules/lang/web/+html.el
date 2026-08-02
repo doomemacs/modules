@@ -178,9 +178,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'html-mode 'html-ts-mode
-    `((html :url "https://github.com/tree-sitter/tree-sitter-html"
-            :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.0" "v0.23.2")))))
+  (set-tree-sitter! 'html-mode 'html-ts-mode 'html))
 
 
 (use-package! mhtml-ts-mode  ; 31+ only

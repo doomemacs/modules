@@ -42,8 +42,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'zig-mode 'zig-ts-mode
-    '((zig :url "https://github.com/tree-sitter-grammars/tree-sitter-zig")))
+  (set-tree-sitter! 'zig-mode 'zig-ts-mode 'zig)
   :config
   (+zig-common-config 'zig-ts-mode)
 

@@ -12,6 +12,4 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'dockerfile-mode 'dockerfile-ts-mode
-    '((dockerfile :url "https://github.com/camdencheek/tree-sitter-dockerfile"
-                  :commit "087daa20438a6cc01fa5e6fe6906d77c869d19fe"))))
+  (set-tree-sitter! 'dockerfile-mode 'dockerfile-ts-mode 'dockerfile))

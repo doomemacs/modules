@@ -24,8 +24,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'kotlin-mode 'kotlin-ts-mode
-    '((kotlin :url "https://github.com/fwcd/tree-sitter-kotlin")))
+  (set-tree-sitter! 'kotlin-mode 'kotlin-ts-mode 'kotlin)
   :config
   (when (modulep! +lsp)
     (add-hook 'kotlin-ts-mode-local-vars-hook #'lsp! 'append)))

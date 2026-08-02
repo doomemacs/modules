@@ -38,8 +38,6 @@ Can be overridden per-project via .dir-locals.el."
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'odin-mode 'odin-ts-mode
-    '((odin :url "https://github.com/tree-sitter-grammars/tree-sitter-odin"
-            :rev "v1.3.0")))
+  (set-tree-sitter! 'odin-mode 'odin-ts-mode 'odin)
   :config
   (+odin-common-config 'odin-ts-mode))

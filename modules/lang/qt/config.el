@@ -16,8 +16,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'qml-mode 'qml-ts-mode
-    '((qmljs :url "https://github.com/yuja/tree-sitter-qmljs")))
+  (set-tree-sitter! 'qml-mode 'qml-ts-mode 'qmljs)
   :config
   (+qt-common-config 'qml-ts-mode))
 

@@ -18,9 +18,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'swift-mode 'swift-ts-mode
-    '((swift :url "https://github.com/alex-pinkus/tree-sitter-swift"
-             :rev "0.7.1-with-generated-files")))
+  (set-tree-sitter! 'swift-mode 'swift-ts-mode 'swift)
   :config
   (+swift-common-config 'swift-ts-mode))
 

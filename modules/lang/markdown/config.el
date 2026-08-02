@@ -151,13 +151,7 @@ output buffer."
   :commands (markdown-ts-mode)
   :defer t
   :init
-  (set-tree-sitter! 'markdown-mode 'markdown-ts-mode
-    `((markdown :url "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
-                :rev ,(if (< (treesit-library-abi-version) 15) "v0.4.1" "v0.5.3")
-                :source-dir "tree-sitter-markdown/src")
-      (markdown-inline :url "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
-                       :rev ,(if (< (treesit-library-abi-version) 15) "v0.4.1" "v0.5.3")
-                       :source-dir "tree-sitter-markdown-inline/src")))
+  (set-tree-sitter! 'markdown-mode 'markdown-ts-mode '(markdown markdown-inline))
   :config
   (+markdown-common-config 'markdown-ts-mode))
 

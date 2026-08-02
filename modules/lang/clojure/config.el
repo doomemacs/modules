@@ -59,8 +59,7 @@
   :defer t
   :init
   (setq clojure-ts-auto-remap nil)  ; we do it ourselves
-  (set-tree-sitter! 'clojure-mode 'clojure-ts-mode
-    '((clojure :url "https://github.com/sogaiu/tree-sitter-clojure")))
+  (set-tree-sitter! 'clojure-mode 'clojure-ts-mode 'clojure)
   (set-tree-sitter! 'clojurec-mode 'clojure-ts-clojurec-mode 'clojure)
   (set-tree-sitter! 'clojuredart-mode 'clojure-ts-clojuredart-mode 'clojure)
   (set-tree-sitter! 'clojurescript-mode 'clojure-ts-clojurescript-mode 'javascript)

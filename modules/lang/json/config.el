@@ -24,9 +24,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'json-mode 'json-ts-mode
-    '((json :url "https://github.com/tree-sitter/tree-sitter-json"
-            :commit "4d770d31f732d50d3ec373865822fbe659e47c75")))
+  (set-tree-sitter! 'json-mode 'json-ts-mode 'json)
   :config
   (when (modulep! +lsp)
     (add-hook 'json-ts-mode-local-vars-hook #'lsp! 'append)))

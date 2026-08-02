@@ -62,9 +62,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'gdscript-mode 'gdscript-ts-mode
-    `((gdscript :url "https://github.com/PrestonKnopp/tree-sitter-gdscript.git"
-                :rev ,(if (< (treesit-library-abi-version) 15) "v5.0.1" "v6.1.0"))))
+  (set-tree-sitter! 'gdscript-mode 'gdscript-ts-mode 'gdscript)
   :config
   (set-eglot-client! 'gdscript-ts-mode #'gdscript-eglot-contact)
 

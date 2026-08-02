@@ -43,11 +43,7 @@ If the depth is 2, the first two directories are removed: net.lissner.game.")
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'java-mode 'java-ts-mode
-    '((java :url "https://github.com/tree-sitter/tree-sitter-java"
-            :commit "94703d5a6bed02b98e438d7cad1136c01a60ba2c")
-      (doxygen :url "https://github.com/tree-sitter-grammars/tree-sitter-doxygen"
-               :commit "1e28054cb5be80d5febac082706225e42eff14e6"))))
+  (set-tree-sitter! 'java-mode 'java-ts-mode '(java doxygen)))
 
 
 (use-package! android-mode

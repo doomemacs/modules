@@ -34,8 +34,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'graphql-mode 'graphql-ts-mode
-    '((graphql :url "https://github.com/bkegley/tree-sitter-graphql")))
+  (set-tree-sitter! 'graphql-mode 'graphql-ts-mode 'graphql)
   :config
   (+graphql-common-config 'graphql-ts-mode))
 

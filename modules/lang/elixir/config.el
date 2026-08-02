@@ -69,11 +69,7 @@
   :when (modulep! +tree-sitter)
   :hook (elixir-ts-mode . +elixir-ts-embed-elixir-in-heex-h)
   :init
-  (set-tree-sitter! 'elixir-mode 'elixir-ts-mode
-    '((elixir :url "https://github.com/elixir-lang/tree-sitter-elixir"
-              :commit "d24cecee673c4c770f797bac6f87ae4b6d7ddec5")
-      (heex :url "https://github.com/phoenixframework/tree-sitter-heex"
-            :commit "b5a7cb5f74dc695a9ff5f04919f872ebc7a895e9")))
+  (set-tree-sitter! 'elixir-mode 'elixir-ts-mode '(elixir heex))
   :config
   (+elixir-common-config 'elixir-ts-mode)
 

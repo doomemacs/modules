@@ -40,9 +40,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'ruby-mode 'ruby-ts-mode
-    '((ruby :url "https://github.com/tree-sitter/tree-sitter-ruby"
-            :commit "71bd32fb7607035768799732addba884a37a6210")))
+  (set-tree-sitter! 'ruby-mode 'ruby-ts-mode 'ruby)
   :config
   (set-electric! 'ruby-ts-mode :words '("else" "end" "elsif"))
   (set-repl-handler! 'ruby-ts-mode #'inf-ruby)

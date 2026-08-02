@@ -60,9 +60,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'scala-mode 'scala-ts-mode
-    '((scala :url "https://github.com/tree-sitter/tree-sitter-scala")))
-
+  (set-tree-sitter! 'scala-mode 'scala-ts-mode 'scala)
   :config
   (when (modulep! +lsp)
     (setq-hook! 'scala-ts-mode-hook lsp-enable-indentation nil))

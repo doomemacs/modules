@@ -49,11 +49,7 @@
   :mode ("\\.pac\\'" . js-mode)
   :init
   (when (modulep! +tree-sitter)  ; 29.1+ only
-    (set-tree-sitter! 'js-mode 'js-ts-mode
-      `((javascript :url "https://github.com/tree-sitter/tree-sitter-javascript"
-                    :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.0" "v0.25.0"))
-        (jsdoc :url "https://github.com/tree-sitter/tree-sitter-jsdoc"
-               :rev "v0.23.2"))))
+    (set-tree-sitter! 'js-mode 'js-ts-mode '(javascript jsdoc)))
   :config
   (+javascript-common-config 'js-mode)
   (when (modulep! +tree-sitter)
@@ -74,14 +70,8 @@
   :mode "\\.ts\\'"
   :mode ("\\.[tj]sx\\'" . tsx-ts-mode)
   :init
-  (set-tree-sitter! 'typescript-mode 'typescript-ts-mode
-    '((typescript :url "https://github.com/tree-sitter/tree-sitter-typescript"
-                  :commit "8e13e1db35b941fc57f2bd2dd4628180448c17d5"
-                  :source-dir "typescript/src")))
-  (set-tree-sitter! nil 'tsx-ts-mode
-    '((tsx :url "https://github.com/tree-sitter/tree-sitter-typescript"
-           :commit "8e13e1db35b941fc57f2bd2dd4628180448c17d5"
-           :source-dir "tsx/src")))
+  (set-tree-sitter! 'typescript-mode 'typescript-ts-mode 'typescript)
+  (set-tree-sitter! nil 'tsx-ts-mode 'tsx)
   :config
   (+javascript-common-config 'typescript-ts-mode)
   (+javascript-common-config 'tsx-ts-mode))

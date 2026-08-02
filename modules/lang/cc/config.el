@@ -29,13 +29,8 @@ This is ignored by ccls.")
   ;;; Improve fontification in C/C++ (also see `modern-cpp-font-lock')
   :init
   (when (modulep! +tree-sitter)
-    (set-tree-sitter! 'c-mode 'c-ts-mode
-      `((c :url "https://github.com/tree-sitter/tree-sitter-c"
-           :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.6" "v0.24.1"))))
-    (set-tree-sitter! 'c++-mode 'c++-ts-mode
-      `((cpp :url "https://github.com/tree-sitter/tree-sitter-cpp"
-             :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.4")
-             :commit "80f5bd82d3b4a1acf07f34a569d88a4a29f74c42"))))
+    (set-tree-sitter! 'c-mode 'c-ts-mode 'c)
+    (set-tree-sitter! 'c++-mode 'c++-ts-mode 'cpp))
 
   (after! ffap
     (add-to-list 'ffap-alist '(c-mode . ffap-c-mode))
@@ -130,8 +125,7 @@ This is ignored by ccls.")
   :init
   (when (and (modulep! +tree-sitter)
              (fboundp 'cmake-ts-mode)) ; 29+ only
-    (set-tree-sitter! 'cmake-mode 'cmake-ts-mode
-      '((cmake :url "https://github.com/uyha/tree-sitter-cmake"))))
+    (set-tree-sitter! 'cmake-mode 'cmake-ts-mode 'cmake))
   :config
   (set-docsets! '(cmake-mode cmake-ts-mode) "CMake")
   (set-popup-rule! "^\\*CMake Help\\*" :size 0.4 :ttl t)
@@ -148,8 +142,7 @@ This is ignored by ccls.")
   :defer t
   :init
   (when (modulep! +tree-sitter)
-    (set-tree-sitter! 'glsl-mode 'glsl-ts-mode
-      '((glsl :url "https://github.com/tree-sitter-grammars/tree-sitter-glsl"))))
+    (set-tree-sitter! 'glsl-mode 'glsl-ts-mode 'glsl))
   :config
   (when (require 'company-glsl nil t)
     (set-company-backend! 'glsl-mode 'company-glsl))
@@ -170,8 +163,7 @@ This is ignored by ccls.")
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'cuda-mode 'cuda-ts-mode
-    '((cuda :url "https://github.com/tree-sitter-grammars/tree-sitter-cuda")))
+  (set-tree-sitter! 'cuda-mode 'cuda-ts-mode 'cuda)
   :config
   (set-eglot-client! 'cuda-ts-mode '("clangd"))
   (when (modulep! +lsp)

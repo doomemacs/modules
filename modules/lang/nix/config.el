@@ -46,8 +46,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'nix-mode 'nix-ts-mode
-    '((nix :url "https://github.com/nix-community/tree-sitter-nix")))
+  (set-tree-sitter! 'nix-mode 'nix-ts-mode 'nix)
   :config
   (+nix-common-config 'nix-ts-mode))
 

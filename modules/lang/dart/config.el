@@ -35,8 +35,7 @@
   :when (modulep! +tree-sitter)
   :defer t
   :init
-  (set-tree-sitter! 'dart-mode 'dart-ts-mode
-    '((dart :url "https://github.com/ast-grep/tree-sitter-dart")))
+  (set-tree-sitter! 'dart-mode 'dart-ts-mode 'dart)
   :config
   (+dart-common-config 'dart-ts-mode))
 
