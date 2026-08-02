@@ -25,3 +25,17 @@
   (interactive)
   (+ada--barf-unless-project)
   (compile "alr clean"))
+
+;;;###autoload
+(defun +ada/alr-test ()
+  "Run 'alr test' in the current project."
+  (interactive)
+  (+ada--barf-unless-project)
+  (compile "alr test"))
+
+;;;###autoload
+(defun +ada/alr-prove ()
+  "Run 'alr prove' in the current project."
+  (interactive)
+  (+ada--barf-unless-project)
+  (compile "alr gnatprove"))
