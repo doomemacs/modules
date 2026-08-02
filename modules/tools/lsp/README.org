@@ -29,16 +29,22 @@ for its =+lsp= flag).
 - +eglot ::
   Use [[https://elpa.gnu.org/packages/eglot.html][Eglot]] instead of [[https://github.com/emacs-lsp/lsp-mode][LSP-mode]] to implement the LSP client in Emacs.
 - +peek ::
-  Use ~lsp-ui-peek~ when looking up definitions and references with
-  functionality from the [[doom-module::tools lookup]] module.
+  Use ~lsp-ui-peek~ when looking up definitions and references with functionality
+  from the [[doom-module::tools lookup]] module.
 
 ** Packages
-- [[doom-package:lsp-mode]]
-- [[doom-package:lsp-ui]]
-- [[doom-package:lsp-ivy]] ([[doom-module::completion ivy]])
-- [[doom-package:helm-lsp]] ([[doom-module::completion helm]])
-- [[doom-package:consult-lsp]] ([[doom-module::completion vertico]])
-- [[doom-package:eglot]]
+- if [[doom-module:+eglot][+eglot]]
+  - [[doom-package:eglot]]
+  - [[doom-package:jsonrpc]]
+  - [[doom-package:consult-eglot]] if [[doom-module::completion vertico][:completion vertico]]
+  - [[doom-package:flycheck-eglot]] if [[doom-module::checkers syntax -flymake][:checkers syntax -flymake]]
+  - [[doom-package:eglot-booster]] if [[doom-module:+booster]] and Emacs<30
+- if [[doom-module:-eglot]]
+  - [[doom-package:lsp-mode]]
+  - [[doom-package:lsp-ui]]
+  - [[doom-package:lsp-ivy]] if [[doom-module::completion ivy]]
+  - [[doom-package:helm-lsp]] if [[doom-module::completion helm]]
+  - [[doom-package:consult-lsp]] if [[doom-module::completion vertico]]
 
 ** Hacks
 /No hacks documented for this module./
