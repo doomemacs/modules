@@ -66,8 +66,7 @@ Returns its exit code."
     (call-process-region beg end "pandoc" nil output-buffer nil
                          "-f" "markdown"
                          "-t" "html"
-                         "--mathjax"
-                         "--highlight-style=pygments")))
+                         "--mathjax")))
 
 ;;;###autoload
 (defun +markdown-compile-multimarkdown (beg end output-buffer)
