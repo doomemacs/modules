@@ -69,6 +69,7 @@ or t to enable all ts-modes."
                    (if (or (eq val t) (memq (cdr m) val))
                        (cons m major-mode-remap-alist)
                      (delete m major-mode-remap-alist))))))
-  :version "31.1")
+  :version "31.1"
+  :group 'treesit)
 
 ;;; compat-30.el ends here
