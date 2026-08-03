@@ -35,12 +35,14 @@
                                 (string-match "-ts-mode\\(?:-maybe\\)?$" (symbol-name fn)))
                     collect (cons src fn)))))
 
-  ;; HACK: These *-ts-modes change `auto-mode-alist' and/or
-  ;;   `interpreter-mode-alist' every time they are activated, running the risk
-  ;;   of overwriting user (or Doom) config.
-  ;; REVIEW: Should be addressed upstream.
-  (dolist (mode '(csharp-ts-mode
-                  python-ts-mode))
+  ;; HACK: These built-in ts-modes clobber `auto-mode-alist' and/or
+  ;;   `interpreter-mode-alist' every time they're activated, so suppress them!
+  ;;   Fortunately, this has (mostly) been addressed in 31.1.
+  ;; REVIEW: Remove when 30.x support is dropped
+  (dolist (mode '(csharp-ts-mode    ; fixed in 31.1
+                  css-ts-mode       ; fixed in 31.1
+                  js-ts-mode        ; fixed in 31.1
+                  python-ts-mode))  ; partially fixed in 31.1
     (advice-add mode :around #'+tree-sitter-ts-mode-inhibit-side-effects-a))
 
   ;; HACK: Intercept all ts-mode major mode remappings so grammars can be
