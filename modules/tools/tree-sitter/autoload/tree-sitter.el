@@ -1,5 +1,11 @@
 ;;; tools/tree-sitter/autoload/tree-sitter.el -*- lexical-binding: t; -*-
 
+;; When this module isn't enabled, let's make treesit as invisible as possible.
+;; Don't prompt to installing missing grammars. Languages without support should
+;; simply error out or end up in fundamental-mode (or similar).
+;;;###autodef (setq treesit-auto-install-grammar 'never)
+(setq treesit-auto-install-grammar 'ask)
+
 ;;;###autodef (fset 'tree-sitter! #'ignore)
 (defun tree-sitter! ()
   (message "Old tree-sitter.el support is deprecated!"))
