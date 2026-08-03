@@ -67,19 +67,7 @@
   (set-tree-sitter! 'joker-mode 'clojure-ts-joker-mode 'clojure)
 
   :config
-  (+clojure-common-config '(clojure-ts-mode clojure-ts-clojurec-mode clojure-ts-clojurescript-mode))
-
-  ;; HACK: Rely on `major-mode-remap-defaults' instead (upstream also doesn't
-  ;;   check if the grammars are ready before adding these entries, which will
-  ;;   bork clojure buffers.
-  (cl-callf2 rassq-delete-all 'clojure-ts-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-clojurescript-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-clojurec-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-clojuredart-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-jank-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-joker-mode auto-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-mode interpreter-mode-alist)
-  (cl-callf2 rassq-delete-all 'clojure-ts-clojurescript-mode interpreter-mode-alist))
+  (+clojure-common-config '(clojure-ts-mode clojure-ts-clojurec-mode clojure-ts-clojurescript-mode)))
 
 
 ;; `cider-mode' is used instead of the typical `cider' package due to the main

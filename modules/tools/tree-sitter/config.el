@@ -18,23 +18,6 @@
   ;; simply "looks off."
   (setq treesit-font-lock-level 4)
 
-  ;; HACK: The *-ts-mode major modes are inconsistent about how they treat
-  ;;   missing language grammars (some error out, some respect
-  ;;   `treesit-auto-install-grammar', some fall back to `fundamental-mode').
-  ;;   I'd like to address this poor UX using `major-mode-remap-alist' entries
-  ;;   created by `set-tree-sitter!' (which will fall back to the non-treesit
-  ;;   modes), but most *-ts-mode's clobber `auto-mode-alist' and/or
-  ;;   `interpreter-mode-alist' each time the major mode is activated, so those
-  ;;   must be undone too so they don't overwrite user config.
-  ;; TODO: Handle this during the 'doom sync' process instead.
-  (save-match-data
-    (dolist (sym '(auto-mode-alist interpreter-mode-alist))
-      (set
-       sym (cl-loop for (src . fn) in (symbol-value sym)
-                    unless (and (functionp fn)
-                                (string-match "-ts-mode\\(?:-maybe\\)?$" (symbol-name fn)))
-                    collect (cons src fn)))))
-
   ;; HACK: These built-in ts-modes clobber `auto-mode-alist' and/or
   ;;   `interpreter-mode-alist' every time they're activated, so suppress them!
   ;;   Fortunately, this has (mostly) been addressed in 31.1.
@@ -72,12 +55,14 @@
                             (warning-suppress-types
                              (if doom-debug-mode
                                  warning-suppress-types
-                               (cons '(treesit) warning-suppress-types))))
+                               (cons '(treesit) warning-suppress-types)))
+                            ;; For ts-modes that aren't registered with
+                            ;; `set-tree-sitter!' and try to clobber these
+                            ;; alists at load time.
+                            auto-mode-alist
+                            interpreter-mode-alist)
                         (or (not (autoloadp fn))
-                            ;; ts-modes usually change these alists at autoload
-                            ;; *and* load time.
-                            (let (auto-mode-alist interpreter-mode-alist)
-                              (autoload-do-load fn mode))))
+                            (autoload-do-load fn mode)))
                       ;; Only prompt once, and log other times.
                       (or (null (cdr ts))  ; no grammars, no problem!
                           ;; If the base/fallback mode doesn't exist, let's

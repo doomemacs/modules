@@ -37,9 +37,18 @@ pre-Emacs 31."
       (when m
         (setf (alist-get m major-mode-remap-defaults) ts-mode))
       (put ts-mode '+tree-sitter (cons m (mapcar #'car recipes))))
-    (when-let* ((fn (intern-soft (format "%s-maybe" ts-mode))))
-      (cl-callf2 rassq-delete-all fn auto-mode-alist)
-      (cl-callf2 rassq-delete-all fn interpreter-mode-alist))
+    ;; HACK: Prevent ts-modes clobbering `auto-mode-alist' and/or
+    ;;   `interpreter-mode-alist' from their autoloads or when they're first
+    ;;   loaded.
+    (dolist (hook '("%s" "%s-maybe"))
+      (when-let* ((fn (intern-soft (format hook ts-mode))))
+        (dolist (var '(auto-mode-alist interpreter-mode-alist))
+          (when-let* ((val (symbol-value var))
+                      (entry (rassq fn val)))
+            (cl-callf2 delete entry val)
+            (defer-until! (and (fboundp ts-mode)
+                               (not (autoloadp (symbol-function ts-mode))))
+              (cl-callf2 delete entry val))))))
     (when-let* ((recipes (cl-delete-if-not #'cdr recipes)))
       (with-eval-after-load 'treesit
         (dolist (recipe (mapcar #'ensure-list recipes))

@@ -50,9 +50,4 @@
   ;;   user) recipes for the zig grammar in `treesit-language-source-alist'. It
   ;;   also won't try to install them (redundant with what the tree-sitter
   ;;   module already does).
-  (setq zig-ts-grammar-recipes nil)
-
-  ;; HACK: Rely on `major-mode-remap-defaults' instead (upstream also doesn't
-  ;;   check if the grammars are ready before adding these entries, which will
-  ;;   bork zig buffers).
-  (cl-callf2 rassq-delete-all 'zig-ts-mode auto-mode-alist))
+  (setq zig-ts-grammar-recipes nil))
