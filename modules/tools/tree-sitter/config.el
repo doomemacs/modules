@@ -1,5 +1,59 @@
 ;;; tools/tree-sitter/config.el -*- lexical-binding: t; -*-
 ;;; Commentary:
+;;
+;; treesit is fairly new, so *-ts-mode major modes are an unstandardized mess:
+;;
+;; - ts-modes are wildly inconsistent when a language grammar is missing (some
+;;   throw fatal errors, some respect `treesit-auto-install-grammar' and may
+;;   attempt to install the grammar, others fall back to `fundamental-mode'
+;;   silently).
+;; - Some ts-modes clobber `auto-mode-alist' and/or `interpreter-mode-alist' up
+;;   to three times:
+;;
+;;   a) In their autoloads,
+;;   b) When the containing package is loaded,
+;;   c) When the mode itself is activated.
+;;
+;;   Awful. This easily overrides user configuration or any custom file
+;;   extensions the mode authors hadn't thought of. Even worse for built-in
+;;   modes which won't see a fix until the next major Emacs release (with
+;;   anywhere between 6 months and 5 years between them).
+;;
+;;   This module uses `set-tree-sitter!' to handle A,
+;;   `+tree-sitter--maybe-remap-major-mode-a' to handle B, and
+;;   `+tree-sitter-ts-mode-inhibit-side-effects-a' to handle C.
+;; - Treesit does nothing to deal with ABI hell. The wrong Emacs version, built
+;;   against the wrong tree-sitter libraries, coupled with the wrong grammar
+;;   version... These are three points of failure that now fall to the user (or
+;;   us) to resolve.
+;;
+;;   Built-in ts-modes (particularly older ones) install the latest commit of
+;;   most grammars *blindly hoping* that Emacs was built with the right
+;;   tree-sitter ABI that the grammar is expecting. Some (particularly newer or
+;;   third-party) ts-modes will do some ABI testing, but that assumes the
+;;   grammars practice good ABI discipline (not as uncommon as I'd hoped).
+;;   ts-modes can even use grammar features within the same ABI that may not
+;;   survive Emacs releases! Sigh. What a mess!
+;;
+;; So how does this module attempt to wrangle all this silliness?
+;;
+;; - Standardizing how ts-modes react to missing grammars by advising
+;;   `major-mode-remap' and performing all the grammar checks (and
+;;   auto-installation steps, if desired) before the ts-modes have a chance to
+;;   be silly.
+;; - By throwing out hard-coded auto-mode-alist and interpreter-mode-alist
+;;   entries and relying on `major-mode-remap-defaults' (which Doom backports
+;;   for pre-30 users). Extra steps are taken to ensure ts-modes stay out of
+;;   those mode alists after-the-fact.
+;; - By defining our own list of grammar recipes that incrementally more
+;;   ABI/feature gating than the ts-mode authors or Emacs devs do, and pray that
+;;   they get around to dealing with it upstream one day.
+;; - treesit imposes a couple breaking API changes between Emacs 29 and 30,
+;;   without backwards compatibility. Guess that's our job now!
+;;
+;; More reading:
+;; - https://cottontailia.github.io/the-day-tree-sitter-killed-portability/
+;;
 ;;; Code:
 
 (defvar +tree-sitter--commit-field? nil)
@@ -31,7 +85,7 @@
   ;; HACK: Intercept all ts-mode major mode remappings so grammars can be
   ;;   dynamically checked and `treesit-auto-install-grammar' can be
   ;;   consistently respected (which isn't currently the case with the majority
-  ;;   of ts-modes, even the built-in ones).
+  ;;   of ts-modes, even the built-in ones across Emacs releases).
   (defadvice! +tree-sitter--maybe-remap-major-mode-a (fn mode)
     :around #'major-mode-remap
     (let ((mode (funcall fn mode)))
