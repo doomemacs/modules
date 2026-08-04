@@ -501,7 +501,7 @@ relative to `org-directory', unless it is an absolute path."
   (defun +org-dir (tag)
     "Build an (abbreviated) path to TAG under `org-directory.'"
     (abbreviate-file-name (expand-file-name tag org-directory)))
-  (add-to-list 'org-link-abbrev-alist '(org . +org-dir))
+  (add-to-list 'org-link-abbrev-alist '("org" . +org-dir))
 
   ;; Allow inline image previews of http(s)? urls or data uris.
   ;; `+org-link-preview-image-url-fn' will respect
