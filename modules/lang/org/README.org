@@ -173,13 +173,13 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
 
 This module has no hard requirements, but these soft requirements are needed to
 use Org's more esoteric features:
-- For inline LaTeX previews, [[doom-executable:latex]] and [[doom-executable:dvipng]] is needed.
-- To render GNUPlot images (with [[doom-module:+gnuplot]] flag) the [[doom-executable:gnuplot]] program is needed.
+- For inline LaTeX previews, ~latex~ and ~dvipng~ is needed.
+- To render GNUPlot images (with [[doom-module:+gnuplot]] flag) the ~gnuplot~ program is needed.
 - To execute babel code blocks, you need whatever dependencies those languages
   need. It is recommended you enable the associated [[doom-module::lang]] module and ensure its
-  dependencies are met, e.g. install the [[doom-executable:ruby]] executable for ruby support. To
+  dependencies are met, e.g. install the ~ruby~ executable for ruby support. To
   use ~jupyter kernels~ you need the [[doom-module:+jupyter]] flag, the associated kernel as
-  well as the [[doom-executable:jupyter]] program.
+  well as the ~jupyter~ program.
 - [[doom-package:org-roam]] (with the [[doom-module:+roam]] flag) requires Emacs to be
   built with sqlite support.
 

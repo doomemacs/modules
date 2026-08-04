@@ -77,8 +77,7 @@ This module's requirements change depending on how you use it.
 + cmake-language-server :: available through ~pip~ on most distributions
 
 ** =:editor format=
-The formatter used is [[doom-executable:clang-format]] which should be installed alongside
-=clang=.
+The formatter used is =clang-format= which should be installed alongside =clang=.
 
 For more info, see [[doom-module::editor format]].
 
