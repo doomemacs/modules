@@ -487,8 +487,7 @@ relative to `org-directory', unless it is an absolute path."
                     '(warning org-link))))
 
   ;; Additional custom links for convenience
-  (dolist (abbrev `(("org"        . ,(lambda (path) (abbreviate-file-name (expand-file-name path org-directory))))
-                    ("github"     . "https://github.com/%s")
+  (dolist (abbrev '(("github"     . "https://github.com/%s")
                     ("youtube"    . "https://youtube.com/watch?v=%s")
                     ("google"     . "https://google.com/search?q=")
                     ("gimages"    . "https://google.com/images?q=%s")
@@ -498,6 +497,11 @@ relative to `org-directory', unless it is an absolute path."
                     ("wikipedia"  . "https://en.wikipedia.org/wiki/%s")
                     ("wolfram"    . "https://wolframalpha.com/input/?i=%s")))
     (add-to-list 'org-link-abbrev-alist abbrev))
+
+  (defun +org-dir (tag)
+    "Build an (abbreviated) path to TAG under `org-directory.'"
+    (abbreviate-file-name (expand-file-name tag org-directory)))
+  (add-to-list 'org-link-abbrev-alist '(org . +org-dir))
 
   ;; Allow inline image previews of http(s)? urls or data uris.
   ;; `+org-link-preview-image-url-fn' will respect
