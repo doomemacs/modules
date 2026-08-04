@@ -19,9 +19,10 @@
 ;;   modes which won't see a fix until the next major Emacs release (with
 ;;   anywhere between 6 months and 5 years between them).
 ;;
-;;   This module uses `set-tree-sitter!' to handle A,
-;;   `+tree-sitter--maybe-remap-major-mode-a' to handle B, and
-;;   `+tree-sitter-ts-mode-inhibit-side-effects-a' to handle C.
+;;   This module uses `set-tree-sitter!' to handle A & most cases of B,
+;;   `+tree-sitter--maybe-remap-major-mode-a' to handle edge cases of B, and
+;;   `+tree-sitter-ts-mode-inhibit-side-effects-a' to handle C, but only in
+;;   ts-modes that are built into Emacs or managed by Doom's modules.
 ;; - Treesit does nothing to deal with ABI hell. The wrong Emacs version, built
 ;;   against the wrong tree-sitter libraries, coupled with the wrong grammar
 ;;   version... These are three points of failure that now fall to the user (or
@@ -30,7 +31,7 @@
 ;;   Built-in ts-modes (particularly older ones) install the latest commit of
 ;;   most grammars *blindly hoping* that Emacs was built with the right
 ;;   tree-sitter ABI that the grammar is expecting. Some (particularly newer or
-;;   third-party) ts-modes will do some ABI testing, but that assumes the
+;;   third-party) ts-modes will do some ABI version checks, but that assumes the
 ;;   grammars practice good ABI discipline (not as uncommon as I'd hoped).
 ;;   ts-modes can even use grammar features within the same ABI that may not
 ;;   survive Emacs releases! Sigh. What a mess!
@@ -41,7 +42,7 @@
 ;;   `major-mode-remap' and performing all the grammar checks (and
 ;;   auto-installation steps, if desired) before the ts-modes have a chance to
 ;;   be silly.
-;; - By throwing out hard-coded auto-mode-alist and interpreter-mode-alist
+;; - By throwing out hard-coded `auto-mode-alist' and `interpreter-mode-alist'
 ;;   entries and relying on `major-mode-remap-defaults' (which Doom backports
 ;;   for pre-30 users). Extra steps are taken to ensure ts-modes stay out of
 ;;   those mode alists after-the-fact.
