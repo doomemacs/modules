@@ -39,8 +39,8 @@ runners and/or repls to power the functionality of this module. Visit the
 documentation of their respective [[doom-module::lang]] module for instructions.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Inline Code Evaluation
@@ -61,8 +61,8 @@ Invoked via:
   active
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Register a REPL for a major-mode
@@ -129,6 +129,6 @@ Or if you'd rather run an elisp command:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

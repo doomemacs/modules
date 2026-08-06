@@ -28,16 +28,16 @@ This module adds [[https://elm-lang.org/][Elm]] support to Doom Emacs.
 * TODO Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-#+begin_quote
- 󱌣 /This module's prerequisites are not all documented./ [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+/This module's prerequisites are not all documented./ [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 - If [[doom-module:+lsp]] is enabled, [[https://github.com/elm-tooling/elm-language-server][elm-language-server]] is required to be installed and in
   your =$PATH=.
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 ** formatter
@@ -47,8 +47,8 @@ used to format the current buffer.
 Enable [[doom-module::editor format +onsave]] to format the buffer on save.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -58,6 +58,6 @@ Enable [[doom-module::editor format +onsave]] to format the buffer on save.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

@@ -80,10 +80,9 @@ right-to-left when ~+bidi-mode~ is on, add the following to your config:
 (setq +bidi-paragraph-direction 'right-to-left)
 #+end_src
 
-#+begin_quote
-  Do not do this if you are using ~+bidi-global-mode~, it will mess up all of
-    the buffers in Emacs that use English, including things like the =M-x=
-    buffer.
+#+begin_quote warning
+Do not do this if you are using ~+bidi-global-mode~, it will mess up all of the
+buffers in Emacs that use English, including things like the =M-x= buffer.
 #+end_quote
 
 ** Input Methods
@@ -158,6 +157,6 @@ If Emacs is having trouble properly displaying a Nastaliq font, try using one of
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

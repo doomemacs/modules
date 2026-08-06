@@ -33,19 +33,19 @@ or Kakoune and tries to align them with regular Emacs conventions.
 
 /This module has no external requirements./
 
-#+begin_quote
-  This module is incompatible with [[doom-module::editor evil]]. Do not enable them both at
-    the same time or you will get errors.
+#+begin_quote warning
+This module is incompatible with [[doom-module::editor evil]]. Do not enable them both at the
+same time or you will get errors.
 #+end_quote
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -55,6 +55,6 @@ or Kakoune and tries to align them with regular Emacs conventions.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

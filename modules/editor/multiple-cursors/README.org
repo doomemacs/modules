@@ -38,8 +38,8 @@ evil) that loosely take after multi-cursors in Atom or Sublime Text.
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** evil-mc
@@ -62,8 +62,8 @@ Designates "interactive edit" regions. Only the textual changes to them are mirr
 - Or ~:iedit/REGEX~ to iedit all matches of REGEX.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -73,6 +73,6 @@ Designates "interactive edit" regions. Only the textual changes to them are mirr
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

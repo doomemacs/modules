@@ -29,21 +29,21 @@ This module adds rudimentary [[https://www.idris-lang.org/][Idris]] support to D
 
 For [[doom-module:+lsp]], [[https://github.com/idris-community/idris2-lsp][idris2-lsp]] is required.
 
-#+begin_quote
-󱌣 /No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+/No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 * TODO Usage
-#+begin_quote
-󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 In addition to ~idris-mode~ goodness, this module adds frequently used functions
 under the [[kbd:][<localleader>]] key.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Support for Idris 2
@@ -66,6 +66,6 @@ To get this working, simply set [[var:idris-interpreter-path]] to the path of th
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
-󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

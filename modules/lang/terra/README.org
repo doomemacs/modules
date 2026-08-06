@@ -26,18 +26,18 @@
 * TODO Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-#+begin_quote
- 󱌣 /No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+/No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -47,6 +47,6 @@
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

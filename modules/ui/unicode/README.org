@@ -44,13 +44,13 @@ When this module is enabled:
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 The first font that will be analyzed to see if it contains the glyphs of
@@ -133,6 +133,6 @@ rm -f $EMACSDIR/.local/cache/pcache/unicode-fonts
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

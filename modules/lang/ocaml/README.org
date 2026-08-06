@@ -58,8 +58,8 @@ This module requires the following packages available through [[http://opam.ocam
 - ocamlformat
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 - The following files should have syntax highlighting support: ~.ml{i,p,y,}~,
@@ -82,8 +82,8 @@ This module requires the following packages available through [[http://opam.ocam
 | ~opam-switch-set-switch~     | [[kbd:][<localleader> w]] | evaluate selected region in =utop=                        |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 - If [[doom-module::completion company]] is enabled then autocomplete is provided by [[doom-package:merlin]]
@@ -109,6 +109,6 @@ missing tools.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

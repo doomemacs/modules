@@ -43,8 +43,8 @@ project) is needed to configure code style for files in the same directory or
 below. Documentation on editorconfig's properties can be found [[https://editorconfig.org/#example-file][here]].
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Adding support for more major modes
@@ -76,6 +76,6 @@ session of Emacs. Look for variables that have the words =indent=, =offset= or
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

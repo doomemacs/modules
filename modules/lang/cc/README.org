@@ -82,8 +82,8 @@ The formatter used is =clang-format= which should be installed alongside =clang=
 For more info, see [[doom-module::editor format]].
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 1. Enable this module.
@@ -102,8 +102,8 @@ additional function to get inheritance type hierarchy is added:
 | [[kbd:][<prefix> <localleader> c t]] | Display inheritance type hierarchy (downwards) |
 
 * TODO Configure
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Project compile settings
@@ -219,6 +219,6 @@ use [[fn:set-eglot-client!]]:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

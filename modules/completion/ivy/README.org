@@ -3,10 +3,10 @@
 #+created:  February 20, 2017
 #+since:    2.0.0
 
-#+begin_quote
-  *This module is deprecated* in favor of the [[doom-module::completion vertico]]
-    module. This module will be in maintenance mode until it is eventually
-    removed. Consider switching to the Vertico module instead.
+#+begin_quote warning
+*This module is deprecated* in favor of the [[doom-module::completion vertico]] module. This
+module will be in maintenance mode until it is eventually removed. Consider
+switching to the Vertico module instead.
 #+end_quote
 
 * Description :unfold:
@@ -69,8 +69,8 @@ programs are optional for this module, but must be installed if you intend to
 use their associated Helm command or plugin.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 [[doom-package:ivy]] is a /large/ framework for completing things. Covering all its features is
@@ -174,8 +174,8 @@ A wgrep buffer can be opened from swiper with [[kbd:][C-c C-e]].
 | [[kbd:][SPC s s]] | Search the current buffer (incrementally) |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** TODO Enable fuzzy/non-fuzzy search for specific commands
@@ -200,6 +200,6 @@ issues, so increasing the value may fix your issue:
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

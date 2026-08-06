@@ -36,9 +36,9 @@ recognizing.
 Quit Emacs with [[kbd:][<leader> q q]] and watch it go. The prompt only happens if you
 have (real) buffers open.
 
-#+begin_quote
-  This module won't kick in when killing daemon frames (because that isn't
-    actually “quitting” Emacs).
+#+begin_quote warning
+This module won't kick in when killing daemon frames (because that isn't
+actually “quitting” Emacs).
 #+end_quote
 
 * Configurations

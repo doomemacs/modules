@@ -39,8 +39,8 @@ For official documentation about Helm, see:
 - [[doom-package:helm-swiper]]
 
 ** TODO Hacks
-#+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -161,8 +161,8 @@ Helm also has a number of overrides for built-in functionality:
 | [[kbd:][SPC s s]] | Search the current buffer (incrementally) (~+default/search-buffer~) |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** helm-mode
@@ -201,6 +201,6 @@ maintain consistency with other icons across Doom's modules,
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

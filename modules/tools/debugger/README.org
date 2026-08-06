@@ -30,10 +30,10 @@ debuggers.
 Then check out the [[https://github.com/svaante/dape?tab=readme-ov-file#supported-debug-adapters][install instructions for the debug adapters]] you want to work
 with.
 
-#+begin_quote
-  Dape's documentation will instruct you to install debug adapters to
-    =$EMACSDIR/debug-adapters/=, but Doom uses =$DOOMDIR/debug-adapters/= instead!
-    Alter [[var:][dape-adapter-dir]] to change this.
+#+begin_quote warning
+Dape's documentation will instruct you to install debug adapters to
+=$EMACSDIR/debug-adapters/=, but Doom uses =$DOOMDIR/debug-adapters/= instead! Alter
+[[var:][dape-adapter-dir]] to change this.
 #+end_quote
 
 * Usage
@@ -44,8 +44,8 @@ traverse your history of debugger configs).
 Once the session is started, it can be terminated by ~M-x +debugger/quit~.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 The default debugger configs can be found in [[var:dape-configs]].
@@ -57,6 +57,6 @@ The default debugger configs can be found in [[var:dape-configs]].
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

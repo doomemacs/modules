@@ -50,13 +50,13 @@ This module has several optional dependencies:
   - [[https://github.com/patrickvane/shfmt][shfmt]]: Enables formatting for {posix,ba,mk}sh scripts
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -66,6 +66,6 @@ This module has several optional dependencies:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

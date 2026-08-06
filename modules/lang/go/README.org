@@ -83,8 +83,8 @@ go install github.com/fatih/gomodifytags@latest
   [[https://github.com/golangci/golangci-lint#binary-release][documentation]].
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 ** Keybinds
@@ -111,8 +111,8 @@ go install github.com/fatih/gomodifytags@latest
 | [[kbd:][<localleader> r i r]] | reimove unused imports                                |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -122,6 +122,6 @@ go install github.com/fatih/gomodifytags@latest
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

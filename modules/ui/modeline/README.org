@@ -35,8 +35,8 @@ powered by the [[doom-package:doom-modeline]] package (where you can find screen
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Hiding the modeline
@@ -46,8 +46,8 @@ powered by the [[doom-package:doom-modeline]] package (where you can find screen
 ** TODO Switching the modeline and header line
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** TODO Changing the default modeline
@@ -126,8 +126,8 @@ Some possible solutions:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+#+begin_quote wip
+/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
 #+end_quote
 
 ** Autodefs

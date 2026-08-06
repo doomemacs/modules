@@ -37,8 +37,8 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Django, and more.
 - [[doom-package:web-mode]]
 
 ** TODO Hacks
-#+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 - Fixes ~//~ line commenting in JSX and Javascript files (if you aren't using
@@ -55,13 +55,13 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Django, and more.
 Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -71,6 +71,6 @@ Formatting is handled using the [[doom-module::editor format]] module via [[http
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

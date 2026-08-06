@@ -73,8 +73,8 @@ For eglot users, a list of [[https://github.com/joaotavora/eglot/blob/master/REA
 including instructions to register your own.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** LSP-powered project search
@@ -112,8 +112,8 @@ All that said, it's easy to switch between the two implementations by swapping
 in/out the [[doom-module:+lsp]] or [[doom-module:+eglot]] flag when [[id:01cffea4-3329-45e2-a892-95a384ab2338][enabling this module]].
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Turn off lsp-mode's intrusive features
@@ -144,6 +144,6 @@ Follow [[https://emacs-lsp.github.io/lsp-mode/page/performance/#tuning][lsp-tuni
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

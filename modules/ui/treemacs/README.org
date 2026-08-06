@@ -46,8 +46,8 @@ If =python3= is present on your =$PATH=, [[doom-package:treemacs]] will use it t
 status for files.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 The project bar can be opened using [[kbd:][SPC o p]].
@@ -58,8 +58,8 @@ The project bar can be opened using [[kbd:][SPC o p]].
 | [[kbd:][o v]]     | Open a vertical dired buffer on the currently highlighted node   |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 The variable ~+treemacs-git-mode~ sets the type of git integration that treemacs
@@ -72,8 +72,8 @@ There are 3 possible values:
    python,
 3. ~'deferred~, same as extended, but highlights asynchronously.
 
-#+begin_quote
-  ~+treemacs-git-mode~ must be set before treemacs is loaded.
+#+begin_quote warning
+~+treemacs-git-mode~ must be set before treemacs is loaded.
 #+end_quote
 
 * Troubleshooting
@@ -83,6 +83,6 @@ There are 3 possible values:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

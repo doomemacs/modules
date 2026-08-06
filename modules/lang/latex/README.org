@@ -43,8 +43,8 @@ Provide a helping hand when working with LaTeX documents.
   - [[doom-package:company-reftex]]
 
 ** TODO Hacks
-#+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -57,11 +57,11 @@ Provide a helping hand when working with LaTeX documents.
 This module requires ghostscript and a latex compiler. These are provided by the
 =texlive= bundle, available through many OS package managers.
 
-#+begin_quote
-  Ghostscript <= 9.27 is [[/auctex/manual/preview-latex/No-images-are-displayed-with-gs-9_002e27-and-earlier.html][reportedly buggy]] and doesn't work with auctex's math
-    previews. (You can check you ghostscript version with ~$ gs --version~.)
-    Most package managers already have newer versions, but if not you might have
-    to build gs from source.
+#+begin_quote warning
+Ghostscript <= 9.27 is [[/auctex/manual/preview-latex/No-images-are-displayed-with-gs-9_002e27-and-earlier.html][reportedly buggy]] and doesn't work with auctex's math
+previews. (You can check you ghostscript version with ~$ gs --version~.) Most
+package managers already have newer versions, but if not you might have to build
+gs from source.
 #+end_quote
 
 ** Ubuntu
@@ -81,8 +81,8 @@ brew install --cask basictex
 brew install --cask mactex  # WARNING: large 4gb download!
 #+end_src
 
-#+begin_quote
- 󱌣 This has not been verified.
+#+begin_quote wip
+This has not been verified.
 #+end_quote
 
 ** NixOS
@@ -95,8 +95,8 @@ environment.systemPackages = [ pkgs.texlive.combined.scheme-medium ];
 Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/cmhughes/latexindent.pl][latexindent]].
 
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Configuration

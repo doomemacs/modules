@@ -62,8 +62,8 @@ more. These programs are optional for this module, but must be installed if you
 intend to use their associated Helm command or plugin.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 The packages in this module modify and use the built-in ~completing-read~
@@ -259,8 +259,8 @@ you can use to further specify each space separated input in the following ways:
 | ~~foo~ or ~foo~~ | match input =foo= with fuzzy/flex matching |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 If you want to further configure this module, here are some good places to
@@ -301,6 +301,6 @@ defining them [[https://github.com/minad/marginalia/#adding-custom-annotators-or
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

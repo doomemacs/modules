@@ -21,8 +21,8 @@ marker, indent and syntax-based code folding for as many languages as possible.
 - [[doom-package:treesit-fold]] if [[doom-module::tools tree-sitter]]
 
 ** TODO Hacks
-#+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -35,8 +35,8 @@ marker, indent and syntax-based code folding for as many languages as possible.
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 Emacs keybinds when [[doom-module::editor evil +everywhere]] is disabled:
@@ -50,8 +50,8 @@ Emacs keybinds when [[doom-module::editor evil +everywhere]] is disabled:
 | [[kbd:][C-c C-a C-d]]        | Delete all folded regions |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -63,6 +63,6 @@ Emacs keybinds when [[doom-module::editor evil +everywhere]] is disabled:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

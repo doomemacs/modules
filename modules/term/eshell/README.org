@@ -44,8 +44,8 @@ Emacs Lisp. It is an alternative to traditional shells such as =bash=, =zsh=,
 This module requires either [[https://fishshell.com/][Fish shell]] or [[https://www.gnu.org/software/bash/][Bash]] for code completion.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 - Command completion with Company
@@ -54,8 +54,8 @@ This module requires either [[https://fishshell.com/][Fish shell]] or [[https://
 - Command-not-found recommendations
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** TERM name
@@ -70,6 +70,6 @@ will not always work 100%. Modifying ~eshell-term-name~ to your liking may help.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

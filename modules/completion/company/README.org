@@ -3,10 +3,10 @@
 #+created:  February 19, 2017
 #+since:    2.0.0
 
-#+begin_quote
-  *This module is deprecated* in favor of the [[doom-module::completion corfu]]
-    module. This module will be in maintenance mode until it is eventually
-    removed. Consider switching to the Corfu module instead.
+#+begin_quote warning
+*This module is deprecated* in favor of the [[doom-module::completion corfu]] module. This module
+will be in maintenance mode until it is eventually removed. Consider switching
+to the Corfu module instead.
 #+end_quote
 
 * Description :unfold:
@@ -49,8 +49,8 @@ languages may lack code completion support altogether). Run ~$ doom doctor~ to
 find out if you're missing any dependencies.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Code completion
@@ -92,8 +92,8 @@ If the =vertico= module is enabled, users can perform code completion with multi
 More information can be found [[https://github.com/oantolin/orderless#company][here]].
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Enable company backend(s) in certain modes
@@ -147,6 +147,6 @@ on changing what backends are available for that mode.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

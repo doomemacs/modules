@@ -243,8 +243,8 @@ with Xwidgets support):
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+#+begin_quote wip
+/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
 #+end_quote
 
 ** Commands

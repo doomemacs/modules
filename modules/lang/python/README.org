@@ -157,8 +157,8 @@ Formatters can also be set per-project in a =.dir-locals.el= file or file-local
 variables. See [[doom-module::editor format]]'s documentation for details.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 This module supports LSP. It requires an LSP server, like [[https://github.com/astral-sh/ty][ty]] (recommended). See [[Language Server Protocol
@@ -190,8 +190,8 @@ format]].
 | [[kbd:][<localleader> t p]] | ~python-pytest-popup~         |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 The arguments passed to the [[https://ipython.org/][ipython]] or [[https://jupyter.org/][jupyter]] shells can be altered through
@@ -214,6 +214,6 @@ detecting missing dependencies, so it will only report the bare minimum.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

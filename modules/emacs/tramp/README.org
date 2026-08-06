@@ -11,9 +11,9 @@ This module provides sensible and performant defaults for TRAMP, a built-in
 Emacs package that provides remote file editing over various protocols like SSH,
 SCP, FTP, and more.
 
-#+begin_quote
-  The performance enhancements in this module have the greatest effects in
-    later versions of Emacs (at least 30.1 is recommended).
+#+begin_quote warning
+The performance enhancements in this module have the greatest effects in later
+versions of Emacs (at least 30.1 is recommended).
 #+end_quote
 
 ** Maintainers
@@ -44,13 +44,13 @@ SCP, FTP, and more.
 /This module has no external requirements./
 
 * Usage
-#+begin_quote
-󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
-󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -65,6 +65,6 @@ SCP, FTP, and more.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
-󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

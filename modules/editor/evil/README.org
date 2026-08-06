@@ -57,8 +57,8 @@ This holy module brings the Vim editing model to Emacs.
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Ported vim plugins
@@ -159,8 +159,8 @@ And these are text objects added by this module:
 | ~:tabsave [NAME]~        | ([[doom-module::ui workspaces]]) Save the selected workspace to file                   |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -214,9 +214,9 @@ If you prefer the old behavior, it can be reversed with:
 3. [OPTIONAL] Change ~doom-leader-alt-key~ and ~doom-localleader-alt-key~. These
    are bound to [[kbd:][C-c]] and [[kbd:][C-c l]] by default.
 
-#+begin_quote
-  Ignore ~doom-leader-key~ and ~doom-localleader-key~, they don't apply to
-    non-evil sessions.
+#+begin_quote warning
+Ignore ~doom-leader-key~ and ~doom-localleader-key~, they don't apply to non-evil
+sessions.
 #+end_quote
 
 Evil-specific configuration and keybindings (defined with ~map!~) will be
@@ -262,6 +262,6 @@ Like in vim, the clipboard can still be accessed by using the [[kbd:][+]] regist
 [[kbd:]["+dd]] or [[kbd:]["+cw]].
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

@@ -33,8 +33,8 @@ This module adds [[https://coq.inria.fr][coq]] support, powered by [[https://pro
   You can use your linux distribution's Coq package or one of the methods given on the [[https://coq.inria.fr/download][Coq website]].
   
 * TODO Usage
-#+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Configuration
@@ -48,6 +48,6 @@ See [[https://github.com/doomemacs/modules/issues?q=is%3Aissue+is%3Aopen+label%3
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

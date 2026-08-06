@@ -52,8 +52,8 @@ fresh instance of Emacs, or after killing all real buffers.
 You can forcibly open the dashboard with ~M-x +dashboard/open~.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** A custom banner
@@ -74,9 +74,9 @@ Doom's dashboard iterates over ~+dashboard-functions~ when it is told to
 redraw. Add your own functions to operate on the buffer and potentially add
 whatever you like to Doom's splash screen.
 
-#+begin_quote
-  Keep in mind that inserting text from expensive sources, e.g. your org
-    agenda, will negate most of Doom's startup benefits.
+#+begin_quote warning
+Keep in mind that inserting text from expensive sources, e.g. your org agenda,
+will negate most of Doom's startup benefits.
 #+end_quote
 
 ** Customizing Faces
@@ -112,6 +112,6 @@ or for a per-theme setting
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

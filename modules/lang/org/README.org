@@ -216,8 +216,8 @@ environment.systemPackages = with pkgs; [
 ** TODO Windows
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Invoking the org-capture frame from outside Emacs
@@ -253,8 +253,8 @@ They are (with examples):
 For =evil-mode= users, an overview of org-mode keybindings is provided [[https://github.com/Somelauw/evil-org-mode/blob/master/README.org#keybindings][here]].
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing ~org-directory~
@@ -277,6 +277,6 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

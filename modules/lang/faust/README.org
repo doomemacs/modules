@@ -35,8 +35,8 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
   auto-complete' warnings have been silenced.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 | Binding           | Description          |
@@ -53,8 +53,8 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
 | [[kbd:][<localleader> S-d]] | diagram all          |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -64,6 +64,6 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

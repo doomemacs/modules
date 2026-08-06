@@ -7,10 +7,10 @@
 This module provides support for [[https://github.com/dakra/ghostel][ghostel]], an Emacs terminal emulator powered by
 =libghostty-vt=.
 
-#+begin_quote
- 💡 [[doom-package:ghostel]] is a modern alternative to [[doom-module::term vterm][:term vterm]], with support for
-    synchronized output, the Kitty keyboard and graphics protocols, OSC 8
-    hyperlinks, and true color. Like vterm, it requires extra steps to set up.
+#+begin_quote tip
+ghostel is a modern alternative to vterm, with support for synchronized output,
+the Kitty keyboard and graphics protocols, OSC 8 hyperlinks, and true color.
+Like vterm, it requires extra steps to set up.
 #+end_quote
 
 ** Maintainers
@@ -67,13 +67,13 @@ Auto-install behavior is controlled by [[var:][ghostel-module-auto-install]] (de
 #+end_src
 
 * TODO Usage
-#+begin_quote
-󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
-#+begin_quote
-󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting

@@ -134,8 +134,8 @@ installed through your OS's package manager:
 Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Markdown preview
@@ -145,8 +145,8 @@ compiled markdown document in your browser.
 Alternatively, you can use ~grip-mode~ through [[doom-module:+grip]].
 
 * Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing how markdown is compiled
@@ -186,6 +186,6 @@ Otherwise, you can change ~markdown-command~ directly:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

@@ -59,8 +59,8 @@ which can be installed through system package manager, cabal, or stack.
 relying on hls, follow the linked install instructions.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 This module integrates the haskell packages into Doom by providing things such
@@ -75,8 +75,8 @@ keybindings:
 | [[kbd:][<localleader> H]] | hides all top level functions               |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 After installing your preferred formatter, make sure to set
@@ -96,6 +96,6 @@ Make sure to configure the lsp to use your perfered formatter, e.g.:
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

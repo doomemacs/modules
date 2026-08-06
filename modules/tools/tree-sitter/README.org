@@ -79,16 +79,16 @@ To test whether tree-sitter is functioning in the current buffer, execute ~M-x
 +tree-sitter/doctor~.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Text Objects
 Not all languages support all text objects (yet). [[https://github.com/nvim-treesitter/nvim-treesitter-textobjects#built-in-textobjects][Here is a table of the text
 object languages support]].
 
-#+begin_quote
-  Only languages with parsers in Emacs have text object support at the moment.
+#+begin_quote warning
+Only languages with parsers in Emacs have text object support at the moment.
 #+end_quote
 
 Currently text objects are bound to:
@@ -121,8 +121,8 @@ Currently keys are bound to:
 | [[kbd:][l]]   | loop           |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Rebind text objects
@@ -179,6 +179,6 @@ current key bound) or [[https://github.com/nvim-treesitter/nvim-treesitter-texto
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

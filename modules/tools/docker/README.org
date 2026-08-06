@@ -46,8 +46,8 @@ Optionally, this module also uses the following programs:
 - =dockfmt= for [[doom-module::editor format]]: https://github.com/jessfraz/dockfmt#installation
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Docker control
@@ -90,8 +90,8 @@ C-x C-f /docker:$USER@$CONTAINER:/path/to/file
 | =$CONTAINER= | the id or name of the container          |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Popups
@@ -141,6 +141,6 @@ For older versions of TRAMP you can dump [[https://github.com/emacs-pe/docker-tr
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

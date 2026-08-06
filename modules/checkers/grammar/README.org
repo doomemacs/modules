@@ -40,16 +40,16 @@ you get a warning that Doom ~couldn't find languagetool-commandline.jar~, you
 will need to set ~langtool-language-tool-jar~ to its location.
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Language Tool
 [[https://www.languagetool.org/][Language Tool]] is a polyglot proofreader service that checks for grammar and
 stylistic issues in your writing. This requires Java 1.8+.
 
-#+begin_quote
-  This requires Java 1.8+
+#+begin_quote warning
+This requires Java 1.8+
 #+end_quote
 
 *** Commands
@@ -60,8 +60,8 @@ stylistic issues in your writing. This requires Java 1.8+.
 This minor mode highlights weasel words, duplication and passive voice.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -71,6 +71,6 @@ This minor mode highlights weasel words, duplication and passive voice.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

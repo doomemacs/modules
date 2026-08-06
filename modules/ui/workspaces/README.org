@@ -28,8 +28,8 @@ for manipulating them.
 - [[doom-package:persp-mode]]
 
 ** TODO Hacks
-#+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+#+begin_quote wip
+This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -42,8 +42,8 @@ for manipulating them.
 /This module has no external requirements./
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Isolated buffer-list
@@ -90,8 +90,8 @@ in [[../../editor/evil/+commands.el][config/default/+evil-commands.el]]).
 | ~+workspace/kill-session~         | [[kbd:][SPC TAB x]] / [[kbd:][:sclear]]  | Clears the current session (kills all windows and buffers) |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -101,8 +101,8 @@ in [[../../editor/evil/+commands.el][config/default/+evil-commands.el]]).
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+#+begin_quote wip
+/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
 #+end_quote
 
 ** API

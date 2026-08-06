@@ -10,15 +10,15 @@ pixel-smooth. With the =+interpolate= flag, it performs interpolated scrolling o
 a growing list of scroll commands that traverse larger distances, smoothly
 scrolling from point A to B on PgUp or PgDown (or [[kbd:][C-d]]/[[kbd:][C-u]] for Evil users).
 
-#+begin_quote
-  This module requires Emacs 29.1 or newer.
+#+begin_quote warning
+This module requires Emacs 29.1 or newer.
 #+end_quote
 
-#+begin_quote
-  Scroll interpolation support is currently limited to the ~scroll-up~ and
-    ~scroll-down~ commands, and any command that calls them (like ~evil-scroll-down~
-    and ~evil-scroll-up~), so you're likely to find many scroll commands are not
-    interpolated. We welcome PRs to expand its support.
+#+begin_quote warning
+Scroll interpolation support is currently limited to the ~scroll-up~ and
+~scroll-down~ commands, and any command that calls them (like ~evil-scroll-down~ and
+~evil-scroll-up~), so you're likely to find many scroll commands are not
+interpolated. We welcome PRs to expand its support.
 #+end_quote
 
 ** Maintainers
@@ -48,18 +48,18 @@ scrolling from point A to B on PgUp or PgDown (or [[kbd:][C-d]]/[[kbd:][C-u]] fo
 
 /This module has no external requirements./
 
-#+begin_quote
-  For optimal performance from this module, it's highly recommended you use
-    Emacs with native-compilation. MacOS users may also have a better experience
-    using the [[https://bitbucket.org/mituharu/emacs-mac][emacs-mac]] fork of Emacs, available via Homebrew.
+#+begin_quote warning
+For optimal performance from this module, it's highly recommended you use Emacs
+with native-compilation. MacOS users may also have a better experience using the
+[[https://bitbucket.org/mituharu/emacs-mac][emacs-mac]] fork of Emacs, available via Homebrew.
 #+end_quote
 
 * Usage
 This module only needs to be activated to experience its benefits.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+#+begin_quote wip
+This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -108,6 +108,6 @@ decide whether this trade-off is worth it for you.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

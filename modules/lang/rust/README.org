@@ -73,8 +73,8 @@ To install and manage Rust on Windows, consult [[https://forge.rust-lang.org/inf
   - ~cargo-process-clippy~: ~$ rustup component add clippy-preview~
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** LSP support (rust-analyzer)
@@ -111,8 +111,8 @@ Enable [[doom-module::editor format +onsave]] to get formatting on save with
 | =<localleader> t t= | ~run current test~          |
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Enabling eglot support for Rust
@@ -134,6 +134,6 @@ To fix this your project needs a =rustfmt.toml= with ~edition = "2018"~ in it.
 /This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote

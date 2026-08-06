@@ -45,8 +45,8 @@ This module requires:
 - [[doom-package:code-review]] will also require a token setup (see [[https://github.com/wandersoncferreira/code-review#configuration][configuration]] for your particular forge)
 
 * TODO Usage
-#+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 Start magit with [[kbd:][<leader> g g]] (~M-x magit-status~).
@@ -54,8 +54,8 @@ Start magit with [[kbd:][<leader> g g]] (~M-x magit-status~).
 If you are new to Magit, see the [[https://github.com/magit/magit#getting-started][Getting Started]] section of its project readme.
 
 * TODO Configuration
-#+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Enable Gravatars
@@ -94,6 +94,6 @@ machine api.github.com login yourlogin^code-review password MYTOKENGOESHERE
 #+end_src
 
 * TODO Appendix
-#+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+#+begin_quote wip
+This module has no appendix yet. [[doom-contrib-module:][Write one?]]
 #+end_quote
