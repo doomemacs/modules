@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui tabs
 #+subtitle: Keep tabs on your buffers, literally
 #+created:  July 12, 2019

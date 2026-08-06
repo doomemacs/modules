@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :os tty
 #+subtitle: Make TTY Emacs suck less
 #+created:  August 07, 2020

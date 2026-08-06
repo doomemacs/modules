@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :app irc
 #+subtitle: How neckbeards socialize
 #+created:  June 11, 2017

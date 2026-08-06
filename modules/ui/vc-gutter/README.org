@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui vc-gutter
 #+subtitle: Get your diff out of the gutter
 #+created:  June 26, 2018

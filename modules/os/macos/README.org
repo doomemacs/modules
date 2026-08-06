@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :os macos
 #+subtitle: Compatibility for our favorite walled garden
 #+created:  February 19, 2017

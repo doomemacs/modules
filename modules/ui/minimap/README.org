@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui minimap
 #+subtitle: A map for lost programmers
 #+created:  May 08, 2020

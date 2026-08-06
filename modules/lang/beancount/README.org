@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang beancount
 #+subtitle: Mind the GAAP
 #+created:  April 13, 2021

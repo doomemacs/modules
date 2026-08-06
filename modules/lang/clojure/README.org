@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang clojure
 #+subtitle: Java with a lisp
 #+created:  May 30, 2017

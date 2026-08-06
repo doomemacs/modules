@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang csharp
 #+subtitle: Unity, .NET, and Mono shenanigans
 #+created:  February 20, 2017

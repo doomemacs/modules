@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :emacs ibuffer
 #+subtitle: Edit me like one of your French buffers
 #+created:  October 20, 2019

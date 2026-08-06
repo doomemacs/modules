@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :term ghostel
 #+subtitle: The best terminal emulation in Emacs
 #+created:  June 24, 2026

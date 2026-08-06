@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang plantuml
 #+subtitle: Diagrams to confuse people more
 #+created:  July 08, 2017

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang coq
 #+subtitle: Proofs as programs
 #+created:  August 14, 2018

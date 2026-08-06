@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools docker
 #+subtitle: Yo dawg, I heard you like OSes, so I…
 #+created:  September 06, 2018

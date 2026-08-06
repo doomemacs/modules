@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :input chinese
 #+subtitle: Spend your 3 hours a week in Emacs
 #+created:  May 13, 2019

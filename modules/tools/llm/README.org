@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:     :tools llm
 #+subtitle:  When I said you needed friends, I didn't mean...
 #+created:   May 06, 2025

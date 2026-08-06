@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang julia
 #+subtitle: A better, faster MATLAB
 #+created:  April 08, 2020

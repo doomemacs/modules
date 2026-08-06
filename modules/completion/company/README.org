@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :completion company
 #+subtitle: The ultimate code completion backend
 #+created:  February 19, 2017

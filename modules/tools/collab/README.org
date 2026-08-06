@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools collab
 #+subtitle: Buffers with friends
 #+created:  September 2, 2022

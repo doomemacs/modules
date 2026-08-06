@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui deft
 #+subtitle: Notational velocity for Emacs
 #+created:  August 26, 2018

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools debugger
 #+subtitle: Step through code to add more bugs
 #+created:  February 20, 2020

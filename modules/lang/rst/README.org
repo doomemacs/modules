@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang rst
 #+subtitle: ReST in peace
 #+created:  October 15, 2021

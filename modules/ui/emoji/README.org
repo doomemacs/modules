@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui emoji
 #+subtitle: 💩
 #+created:  September 30, 2020

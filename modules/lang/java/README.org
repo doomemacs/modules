@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang java
 #+subtitle: The poster child for carpal tunnel syndrome
 #+created:  January 16, 2017

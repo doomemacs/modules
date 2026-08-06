@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang crystal
 #+subtitle: Ruby at the speed of C
 #+created:  January 16, 2017

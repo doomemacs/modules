@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui doom-quit
 #+subtitle: One does not simply quit Emacs
 #+created:  February 19, 2017

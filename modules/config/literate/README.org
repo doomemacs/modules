@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :config literate
 #+subtitle: Disguise your config as poor documentation
 #+created:  May 28, 2020

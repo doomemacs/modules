@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:     :lang hy
 #+subtitle:  Lisp is better than ugly
 #+created:   June 25, 2017

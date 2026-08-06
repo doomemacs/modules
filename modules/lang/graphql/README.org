@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang graphql
 #+subtitle: Give queries a REST
 #+created:  March 31, 2022

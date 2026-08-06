@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang org
 #+subtitle: Organize your plain life in plain text
 #+created:  February 20, 2017

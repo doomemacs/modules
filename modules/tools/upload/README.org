@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools upload
 #+subtitle: Map local directories to remotes via ssh/ftp
 #+created:  February 20, 2017

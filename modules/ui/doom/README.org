@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui doom
 #+subtitle: Make Doom fabulous again
 #+created:  February 20, 2017

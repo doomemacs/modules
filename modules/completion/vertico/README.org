@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :completion vertico
 #+subtitle: Tomorrow's search engine
 #+created:  July 25, 2021

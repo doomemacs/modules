@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang racket
 #+subtitle: The DSL for DSLs
 #+created:  July 29, 2018

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang markdown
 #+subtitle: Write docs for people to ignore
 #+created:  February 19, 2017

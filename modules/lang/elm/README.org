@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang elm
 #+subtitle: Care for a cup of TEA?
 #+created:  May 21, 2017

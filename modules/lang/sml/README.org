@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang sml
 #+subtitle: ...
 #+created:  Mar 30, 2020

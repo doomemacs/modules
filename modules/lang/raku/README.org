@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang raku
 #+subtitle: The artist formerly known as perl6
 #+created:  June 05, 2020

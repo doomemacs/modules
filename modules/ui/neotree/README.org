@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui neotree
 #+subtitle: NERDTree for evil nerds
 #+created:  May 11, 2018

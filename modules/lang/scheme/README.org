@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang scheme
 #+subtitle: A fully conniving family of lisps
 #+created:  July 23, 2019

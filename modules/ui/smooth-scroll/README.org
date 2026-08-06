@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui smooth-scroll
 #+subtitle: So smooth you won't believe it's not butter
 #+created:  April 1, 2025

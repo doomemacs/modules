@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :checkers grammar
 #+subtitle: Tasing grammar mistake every you make
 #+created:  January 09, 2020

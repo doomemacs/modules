@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui window-select
 #+subtitle: Visually switch windows
 #+created:  October 08, 2017

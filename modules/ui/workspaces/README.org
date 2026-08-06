@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui workspaces
 #+subtitle: Tab emulation, persistence, & separate workspaces
 #+created:  February 20, 2017

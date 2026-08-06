@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang dhall
 #+subtitle: Config as code
 #+created:  August 03, 2021

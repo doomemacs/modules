@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang dart
 #+subtitle: Paint ui and not much else
 #+created:  February 15, 2020

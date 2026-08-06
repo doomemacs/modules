@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools lsp
 #+subtitle: M-x vscode
 #+created:  March 05, 2019

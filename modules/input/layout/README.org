@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :input layout
 #+subtitle: auie,ctsrnm is the superior home row
 #+created:  Jun 29, 2020

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools pdf
 #+subtitle: Emacs, your next PDF reader
 #+created:  February 06, 2018

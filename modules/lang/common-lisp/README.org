@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang common-lisp
 #+subtitle: If you've seen one lisp, you've seen them all
 #+created:  June 13, 2018

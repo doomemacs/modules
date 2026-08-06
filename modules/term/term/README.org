@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :term term
 #+subtitle: It's terminal
 #+created:  August 01, 2021

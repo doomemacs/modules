@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 :PROPERTIES:
 :ID:       0903d239-7eab-47d7-8b88-00420fe6a50f
 :END:

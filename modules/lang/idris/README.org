@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang idris
 #+subtitle: A language you can depend on
 #+created:  August 21, 2018

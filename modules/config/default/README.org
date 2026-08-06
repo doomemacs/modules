@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :config default
 #+subtitle: Reasonable defaults for reasonable people
 #+created:  February 14, 2018

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :term eshell
 #+subtitle: The elisp shell that works everywhere
 #+created:  February 20, 2017

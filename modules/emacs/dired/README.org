@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :emacs dired
 #+subtitle: Making dired pretty [functional]
 #+created:  February 20, 2017

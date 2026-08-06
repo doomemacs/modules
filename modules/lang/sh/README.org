@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang sh
 #+subtitle: She sells {ba,z,fi}sh shells on the C xor
 #+created:  September 28, 2015

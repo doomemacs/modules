@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :editor evil
 #+subtitle: The text editor Emacs was missing
 #+created:  April 08, 2020

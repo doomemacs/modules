@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :completion helm
 #+subtitle: A bazooka for hunting house flies
 #+created:  February 20, 2017

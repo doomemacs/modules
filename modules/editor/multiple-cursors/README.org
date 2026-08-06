@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :editor multiple-cursors
 #+subtitle: Make all your mistakes at once
 #+created:  October 13, 2021

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang purescript
 #+subtitle: Javascript, but functional
 #+created:  May 21, 2017

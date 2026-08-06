@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang lean
 #+subtitle: For folks with too much to prove
 #+created:  September 10, 2019

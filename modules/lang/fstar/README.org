@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang fstar
 #+subtitle: (Dependent) types and (monadic) effects and Z3
 #+created:  February 02, 2020

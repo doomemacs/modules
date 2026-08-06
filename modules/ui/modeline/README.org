@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui modeline
 #+subtitle: Snazzy, Atom-inspired modeline, plus API
 #+created:  February 20, 2017

@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :ui dashboard
 #+subtitle: A pretty face for your doom
 #+created:  February 20, 2017

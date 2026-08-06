@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools terraform
 #+subtitle: Infrastructure as code
 #+created:  November 21, 2019

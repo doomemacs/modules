@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :tools tree-sitter
 #+subtitle: Syntax and parsing, sitting in a tree...
 #+created:  August 17, 2021

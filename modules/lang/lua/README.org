@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang lua
 #+subtitle: One-based indices? one-based indices
 #+created:  Jun 03, 2020

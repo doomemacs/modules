@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :email mu4e
 #+subtitle: The great filter Hanson hadn't anticipated
 #+created:  April 08, 2017

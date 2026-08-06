@@ -1,3 +1,4 @@
+# -*- doom-docs -*-
 #+title:    :lang fortran
 #+subtitle: In FORTRAN, GOD is REAL (unless declared INTEGER)
 #+date:     October 22, 2021
