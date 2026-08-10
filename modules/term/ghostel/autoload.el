@@ -27,6 +27,7 @@ Returns the ghostel buffer."
   (interactive "P")
   (dlet ((default-directory (or (doom-project-root) default-directory)))
     (dlet ((ghostel-buffer-name (+ghostel--buffer-name "doom:" "-popup" t))
+           ghostel-buffer-name-function
            confirm-kill-processes
            current-prefix-arg)
       (when arg
@@ -38,7 +39,9 @@ Returns the ghostel buffer."
             (delete-window window))))
       (if-let* ((win (get-buffer-window ghostel-buffer-name)))
           (delete-window win)
-        (with-current-buffer (ghostel)
+        (with-current-buffer (ghostel t)
+          ;; Don't rename the buffer or the popup manager may lose track of it.
+          (setq-local ghostel-buffer-name-function nil)
           (set-window-dedicated-p (get-buffer-window) t)
           (current-buffer))))))
 
