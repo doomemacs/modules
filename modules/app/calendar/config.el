@@ -92,4 +92,4 @@
   :defer t
   :init
   (defvar org-gcal-dir (doom-profile-cache-dir t "org-gcal/"))
-  (defvar org-gcal-token-file (concat org-gcal-dir "token.gpg")))
+  (defvar org-gcal-token-file (file-name-concat org-gcal-dir "token.gpg")))
