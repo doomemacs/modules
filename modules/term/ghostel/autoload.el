@@ -46,11 +46,6 @@ Returns the ghostel buffer."
           (current-buffer))))))
 
 ;;;###autoload
-(defun +ghostel/here ()
-  "Open a new ghostel buffer in the current window."
-  (interactive)
-  (dlet ((ghostel-buffer-name
-          (generate-new-buffer-name (+ghostel--buffer-name))))
-    (switch-to-buffer (save-window-excursion (ghostel)))))
+(defalias '+ghostel/here #'ghostel)
 
 ;;; autoload.el ends here
