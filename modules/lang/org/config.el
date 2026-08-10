@@ -961,8 +961,9 @@ between the two."
                 ((stringp help-echo)
                  help-echo)))
         (apply fn args)
-        (when-let* ((url (thing-at-point 'url t)))
-          (format "LINK: %s" url))))
+        (when-let* (((bound-and-true-p org-link-descriptive))
+                    (url (org-element-property :raw-link (org-element-context))))
+          (format "%s %s" (propertize "Link:" 'face 'bold) url))))
 
   ;; HACK: Fix doomemacs/core#2972: infinite recursion when eldoc kicks in 'org'
   ;;   or 'python' src blocks.
