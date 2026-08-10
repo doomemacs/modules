@@ -1201,7 +1201,7 @@ between the two."
     :references #'+org-lookup-references-handler
     :documentation #'+org-lookup-documentation-handler)
 
-  (add-hook! 'org-mode-hook
+  (add-hook! 'org-mode-local-vars-hook
     ;; HACK: `save-place' can position the cursor in an invisible region. This
     ;;   makes it visible unless `org-inhibit-startup' or
     ;;   `org-inhibit-startup-visibility-stuff' is non-nil.
