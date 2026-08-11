@@ -282,7 +282,13 @@ Possible values for this parameter are:
 Any non-nil value besides the above will be used as the raw value for
 `mode-line-format'."
   (when (bound-and-true-p +popup-buffer-mode)
-    (let ((modeline (+popup-parameter 'modeline)))
+    ;; This runs from the buffer's `after-change-major-mode-hook', where
+    ;; the selected window is not necessarily the one displaying the
+    ;; buffer, so read the parameter from the buffer's popup window.
+    (let ((modeline (+popup-parameter
+                     'modeline
+                     (seq-find #'+popup-window-p
+                               (get-buffer-window-list nil nil t)))))
       (cond ((eq modeline 't))
             ((null modeline)
              (mode-line-invisible-mode +1))
