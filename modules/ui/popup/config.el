@@ -114,8 +114,11 @@ prevent the popup(s) from messing up the UI (or vice versa)."
           (+popup--inhibit-transient t)
           buffer-list-update-hook
           +popup--last)
-     (dolist (p popups)
-       (+popup/close p 'force))
+     (when popups
+       (+popup--remember popups)
+       (let (+popup--remember-last)
+         (dolist (p popups)
+           (+popup/close p 'force))))
      (unwind-protect
          (progn ,@body)
        (when popups
