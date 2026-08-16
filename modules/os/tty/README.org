@@ -25,17 +25,13 @@ This module configures Emacs for use in the terminal, by providing:
   connections or Tmux. However, this requires [[https://github.com/spudlyo/clipetty#terminals-that-support-osc-clipboard-operations][a supported terminal]].
 
 ** Packages
-- [[doom-package:clipetty]] if [[doom-module:+osc]]
-- [[doom-package:evil-terminal-cursor-changer]] if [[doom-module::editor evil]]
-- [[doom-package:kkp]]
-- [[doom-package:xclip]] unless [[doom-module:+osc]]
+- [[package:clipetty]] if [[module:+osc]]
+- [[package:evil-terminal-cursor-changer]] if [[module::editor evil]]
+- [[package:kkp]]
+- [[package:xclip]] unless [[module:+osc]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -48,7 +44,7 @@ need:
     - Linux: =xclip=, =xsel=, or =wl-clibpoard= (Wayland)
     - macOS: =pbcopy= and =pbpaste= (included with macOS)
     - Windows: =getclip= and =putclip= (cygwin)
-  - (If [[doom-module:+osc]] is enabled) A terminal that supports OSC 52 escape codes, such as:
+  - (If [[module:+osc]] is enabled) A terminal that supports OSC 52 escape codes, such as:
     xterm (unix), iTerm2 (macOS), alacritty (cross platform), kitty (macOS,
     linux), mintty (Windows), hterm (javascript), st (unix), mlterm (cross
     platform)
@@ -84,9 +80,4 @@ employed a workaround for envrc, and will cover its own modules, but you must
 take care of any functionality beyond that.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

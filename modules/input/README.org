@@ -8,4 +8,4 @@ Modules in this category extend Emacs support for additional keyboard layouts
 and input methods for non-English languages.
 
 * Frequently asked questions
-/This category has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This category has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

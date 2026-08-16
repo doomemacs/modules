@@ -8,12 +8,12 @@
 This module flashes the line around the cursor after any significant motion, to
 make it easy to follow after big operations.
 
-#+begin_quote
- 💡 Tremendously helpful on large, 1600p+ or 4K displays.
+#+begin_quote aside
+Tremendously helpful on large, 1600p+ or 4K displays.
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -21,14 +21,10 @@ make it easy to follow after big operations.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:nav-flash]]
+- [[package:nav-flash]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -36,8 +32,8 @@ make it easy to follow after big operations.
 /This module has no external requirements./
 
 * Usage
-By default, [[doom-package:nav-flash]] will be triggered whenever [[fn:recenter]] is called or an entry
-is added to the jump-list (managed by [[doom-package:better-jumper]]).
+By default, [[pkg:nav-flash]] will be triggered whenever [[fn:recenter]] is called or an entry
+is added to the jump-list (managed by [[pkg:better-jumper]]).
 
 [[fn:recenter]] is called after many hooks and commands, such as:
 - [[var:better-jumper-post-jump-hook]]
@@ -55,9 +51,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -13,22 +13,18 @@ engine, to Doom Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mo
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~gdscript-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~gdscript-mode~. Requires [[module::tools lsp]] and a langserver
   (Godot ~3.2.1~ or newer).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires Emacs 29.1+ and [[doom-module::tools tree-sitter]].
+  editing. Requires Emacs 29.1+ and [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:gdscript-mode]]
-- [[doom-package:gdshader-mode]]
+- [[package:gdscript-mode]]
+- [[package:gdshader-mode]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -52,7 +48,7 @@ pip3 install gdtoolkit
 
 ** LSP support
 The language server support for GDScript is built into by lsp-mode. As long as
-you have [[doom-module:+lsp]] and [[doom-module::tools lsp]] enabled, and Godot 3.2.1+ installed, it should work
+you have [[module:+lsp]] and [[module::tools lsp]] enabled, and Godot 3.2.1+ installed, it should work
 out of the box.
 
 Godot's language server is built into the game engine, so you need to open your
@@ -72,12 +68,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 [[doom-report:][Report an issue?]]
 
 - The GDScript language server has known issues causing some errors with
-  [[doom-package:lsp-mode]]. They should be addressed in future releases.
+  [[pkg:lsp-mode]]. They should be addressed in future releases.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

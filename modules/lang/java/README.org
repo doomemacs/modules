@@ -13,31 +13,27 @@ This module adds [[https://www.java.com][Java]] support to Doom Emacs, including
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~java-mode~. Requires [[doom-module::tools lsp]] and a
+  Enable LSP support for ~java-mode~. Requires [[module::tools lsp]] and a
   langserver (supports eclipse.jdt.ls).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:android-mode]]
-- [[doom-package:groovy-mode]]
-- if [[doom-module:+lsp]] and not [[doom-module::tools lsp +eglot]]
-  - [[doom-package:lsp-java]]
+- [[package:android-mode]]
+- [[package:groovy-mode]]
+- if [[module:+lsp]] and not [[module::tools lsp +eglot]]
+  - [[package:lsp-java]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module requires:
 - [[https://www.oracle.com/java/technologies/downloads/][Java SDK]]
-- The LSP test runner requires [[doom-module::tools debugger +lsp]] (requires [[doom-package:dap-mode]])
+- The LSP test runner requires [[module::tools debugger +lsp]] (requires [[pkg:dap-mode]])
 
 ** OpenJDK 11
 *** Ubuntu
@@ -83,18 +79,18 @@ It is common to need support for multiple Java versions. You can use a generic
 tool like [[https://github.com/shyiko/jabba][jabba]] to install and manage multiple Java versions on any OS.
 
 To have a different version of Java per-project, it is recommended you use
-[[https://github.com/direnv/direnv][direnv]] and [[doom-module::tools direnv]]; create a =.envrc= in the root of the project pointing
+[[https://github.com/direnv/direnv][direnv]] and [[module::tools direnv]]; create a =.envrc= in the root of the project pointing
 to the Java installation:
 #+begin_src sh
 PATH_add ~/.jabba/jdk/adopt@1.11.0-3
 JAVA_HOME=~/.jabba/jdk/adopt@1.11.0-3
 #+end_src
 
-And then run ~$ direnv allow .~ in the project directory. The [[doom-module::tools direnv]]
+And then run ~$ direnv allow .~ in the project directory. The [[module::tools direnv]]
 module will automatically source this environment before activating LSP servers.
 
 ** Formatter
-[[doom-module::editor format]] uses [[https://github.com/google/google-java-format][google-java-format]] to handle formatting.
+[[module::editor format]] uses [[https://github.com/google/google-java-format][google-java-format]] to handle formatting.
 
 To install, grab the latest =all-deps.jar= release from the above, put it
 somewhere and create a script similar to the below:
@@ -109,23 +105,23 @@ java -jar /path/to/google-java-format-all-deps.jar
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** [[doom-module:+lsp]] features
+** [[module:+lsp]] features
 According to [[https://github.com/emacs-lsp/lsp-java]], you get:
-- As you type reporting of parsing and compilation errors (via [[doom-package:flycheck]] or
-  [[doom-package:lsp-ui]])
-- Code completion ([[doom-package:company-lsp]] or complete-at-point)
-- Javadoc hovers ([[doom-package:lsp-ui]])
-- Code actions ([[doom-package:lsp-ui]])
-- Code outline ([[doom-package:imenu]])
-- Code navigation ([[doom-package:xref]])
-- Code lens for references/implementations ([[doom-package:xref]])
+- As you type reporting of parsing and compilation errors (via [[pkg:flycheck]] or
+  [[pkg:lsp-ui]])
+- Code completion ([[pkg:company-lsp]] or complete-at-point)
+- Javadoc hovers ([[pkg:lsp-ui]])
+- Code actions ([[pkg:lsp-ui]])
+- Code outline ([[pkg:imenu]])
+- Code navigation ([[pkg:xref]])
+- Code lens for references/implementations ([[pkg:xref]])
 - Highlights
 - Code formatting
 - Maven pom.xml project support
 - Limited Gradle support
-- Visual debugger ([[doom-package:dap-mode]])
-- Test runner ([[doom-package:dap-mode]])
-- Project explorer integration ([[doom-package:treemacs]])
+- Visual debugger ([[pkg:dap-mode]])
+- Test runner ([[pkg:dap-mode]])
+- Project explorer integration ([[pkg:treemacs]])
 - Integration with [[https://start.spring.io/][Spring Initializr]]
 
 * TODO Configuration
@@ -133,7 +129,7 @@ According to [[https://github.com/emacs-lsp/lsp-java]], you get:
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** [[doom-module:+lsp]]
+** [[module:+lsp]]
 Install the eclipse server by executing ~M-x lsp-install-server~ and selecting
 =jdtls=. After that any newly opened =java= files should start the LSP server
 automatically.
@@ -144,15 +140,10 @@ Note that if you change Java version you may need to remove the LSP server and
 install it again. You can do this with ~M-x +lsp/uninstall-server~ followed by
 ~M-x lsp-install-server~.
 
-Enable the [[doom-module::tools debugger +lsp]] module to get test runner support.
+Enable the [[module::tools debugger +lsp]] module to get test runner support.
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

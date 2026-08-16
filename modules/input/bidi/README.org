@@ -11,8 +11,8 @@ exceptionally user-specific, read on for additional instructions to customize it
 to your needs.
 
 ** Maintainers
-- [[doom-user:][@iyefrat]]
-- [[doom-user:][@ymarco]]
+- [[github:iyefrat]]
+- [[github:ymarco]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -33,18 +33,20 @@ system (unless you've changed ~+bidi-hebrew-font~ and ~+bidi-arabic-font~ to a
 different font).
 
 * Usage
-This module provides ~+bidi-mode~, a minor mode that improves the display of RTL
+This module provides [[minor:+bidi-mode]], a minor mode that improves the display of RTL
 text by right-aligning lines that start with an RTL language, on a per-line
 basis. Since exact use cases vary, turning on this mode is left to the user.
 
 It also provides easy font configuration for Hebrew and Arabic-derived scripts
-(Arabic, Persian, Urdu, etc.) in ~+bidi-hebrew-font~ and ~+bidi-arabic-font~.
-See [[Fonts]] for more information. If you use an RTL language that isn't covered by
-these characters, open an issue requesting support for it.
+(Arabic, Persian, Urdu, etc.) in [[var:+bidi-hebrew-font]] and
+[[var:+bidi-arabic-font]]. See [[Fonts]] for more information. If you use an RTL
+language that isn't covered by these characters, open an issue requesting
+support for it.
 
-To resize fonts, don't include a ~:size~ parameter in ~+bidi-hebrew-font~ or
-~+bidi-arabic-font~, set ~+bidi-hebrew-font-scale~ or ~+bidi-arabic-font-scale~
-instead, or add an entry to ~face-font-rescale-alist~ for your font. E.g.
+To resize fonts, don't include a ~:size~ parameter in [[var:+bidi-hebrew-font]] or
+[[var:+bidi-arabic-font]], set [[var:+bidi-hebrew-font-scale]] or
+var:+bidi-arabic-font-scale instead, or add an entry to
+[[var:face-font-rescale-alist]] for your font. E.g.
 #+begin_src emacs-lisp
 ;;; Add to $DOOMDIR/config.el
 (setq +bidi-arabic-font-scale 1.5)
@@ -108,11 +110,11 @@ Hebrew and monospace fonts. To this end, we provide [[var:+bidi-hebrew-font]] an
 Hebrew and Arabic characters. They are set by default to =DejaVu Sans=, since it
 has decent looking Hebrew and Arabic character support.
 
-#+begin_quote
- 󰐃 If you are writing in an Arabic-derived script, such as Persian, Urdu, or
-    Pashto, you may want to change ~+bidi-arabic-font~ to one specific to your
-    language, especially if you want your script to be written in the Nastaliq
-    style.
+#+begin_quote warning
+If you are writing in an Arabic-derived script, such as Persian, Urdu, or
+Pashto, you may want to change [[var:+bidi-arabic-font]] to one specific to your
+language, especially if you want your script to be written in the Nastaliq
+style.
 #+end_quote
 
 If you use an RTL language the script of which isn't covered by the =hebrew= or
@@ -123,7 +125,7 @@ If you use an RTL language the script of which isn't covered by the =hebrew= or
 #+end_src
 
 Make sure to use the correct unicode block name, see the documentation of
-[[fn:set-fontset-font]] for more details.
+[[fns:set-fontset-font]] for more details.
 
 *** Smart Fontify
 Since good bidi fonts are often not monospace (as is the default =DejaVu Sans=),
@@ -135,8 +137,8 @@ off by setting:
 #+end_src
 
 ** Change Dictionary Language On Bidi Buffers
-If you only use ~+bidi-mode~ in specific buffers, you might want to
-automatically change the dictionary language there. For example:
+If you only use [[minor:+bidi-mode]] in specific buffers, you might want to automatically
+change the dictionary language there. For example:
 #+begin_src emacs-lisp
 (add-hook! '+bidi-mode-hook
   (ispell-change-dictionary (if +bidi-mode "hebrew" "default")))
@@ -155,9 +157,4 @@ If Emacs is having trouble properly displaying a Nastaliq font, try using one of
 [[https://urdufonts.net/fonts/jameel-noori-nastaleeq-regular][these]] [[https://urdufonts.net/fonts/alvi-nastaleeq-regular][two]] fonts for [[var:+bidi-arabic-font]].
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

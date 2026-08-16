@@ -22,10 +22,6 @@ tangled =$DOOMDIR/config.el=, by default, when ~$ doom sync~ is executed.
 ** Hacks
 /No hacks documented for this module./
 
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
@@ -98,7 +94,7 @@ support [[https://orgmode.org/manual/Working-with-Source-Code.html][in the Org m
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[doom-contrib-faq:][Ask a question?]]
 
 ** How do I tangle to =$DOOMDIR/init.el=?
 If your literate needs are more complex (e.g. you want to make your init.el
@@ -118,8 +114,3 @@ your =$DOOMDIR=). This behavior can be disabled with:
 ;; add to $DOOMDIR/config.el
 (remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
 #+end_src
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote

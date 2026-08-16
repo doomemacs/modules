@@ -12,23 +12,19 @@ This module adds rudimentary [[https://www.idris-lang.org/][Idris]] support to D
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~idris-mode~. Requires [[doom-module::tools lsp]] and
+  Enable LSP support for ~idris-mode~. Requires [[module::tools lsp]] and
   [[https://github.com/idris-community/idris2-lsp][idris2-lsp]].
 
 ** Packages
-- [[doom-package:idris-mode]]
+- [[package:idris-mode]]
 
 ** Hacks
 /No hacks documented for this module./
 
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 * TODO Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-For [[doom-module:+lsp]], [[https://github.com/idris-community/idris2-lsp][idris2-lsp]] is required.
+For [[module:+lsp]], [[https://github.com/idris-community/idris2-lsp][idris2-lsp]] is required.
 
 #+begin_quote wip
 /No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
@@ -48,7 +44,7 @@ under the [[kbd:][<localleader>]] key.
 #+end_quote
 
 ** Support for Idris 2
-While [[doom-package:idris-mode]] was designed for v1 of the IDE-Protocol of Idris,
+While [[pkg:idris-mode]] was designed for v1 of the IDE-Protocol of Idris,
 it tries to maintain compatibility with v2. However, not all the features have
 been realized, so expect a little jank.
 
@@ -64,9 +60,4 @@ To get this working, simply set [[var:idris-interpreter-path]] to the path of th
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

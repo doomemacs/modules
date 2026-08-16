@@ -6,29 +6,25 @@
 
 * Description :unfold:
 This module provides an Atom-inspired, minimalistic modeline for Doom Emacs,
-powered by the [[doom-package:doom-modeline]] package (where you can find screenshots).
+powered by the [[pkg:doom-modeline]] package (where you can find screenshots).
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +light ::
   Enable a lighter, less featureful version of the modeline that does not depend
-  on [[doom-package:doom-modeline]], which has performances issues in some cases.
+  on [[pkg:doom-modeline]], which has performances issues in some cases.
 
 ** Packages
-- [[doom-package:anzu]]
-- [[doom-package:doom-modeline]] unless [[doom-module:+light]]
-- [[doom-package:evil-anzu]] if [[doom-module::editor evil]]
+- [[package:anzu]]
+- [[package:doom-modeline]] unless [[module:+light]]
+- [[package:evil-anzu]] if [[module::editor evil]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -124,66 +120,4 @@ Some possible solutions:
    ~width 3~.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
-#+end_quote
-
-** Autodefs
-- ~def-modeline-format! NAME LEFT &optional RIGHT~
-- ~def-modeline-segment! NAME &rest REST~
-- ~set-modeline! NAME &optional DEFAULT~
-
-** Variables
-- doom-modeline-height
-- doom-modeline-bar-width
-- doom-modeline-buffer-file-name-style
-- doom-modeline-icon
-- doom-modeline-major-mode-icon
-- doom-modeline-major-mode-color-icon
-- doom-modeline-buffer-state-icon
-- doom-modeline-buffer-modification-icon
-- doom-modeline-minor-modes
-- doom-modeline-enable-word-count
-- doom-modeline-buffer-encoding
-- doom-modeline-indent-info
-- doom-modeline-checker-simple-format
-- doom-modeline-vcs-max-length
-- doom-modeline-persp-name
-- doom-modeline-lsp
-- doom-modeline-github
-- doom-modeline-github-interval
-- doom-modeline-env-version
-- doom-modeline-mu4e
-- doom-modeline-irc
-- doom-modeline-irc-stylize
-
-** Faces
-- doom-modeline-buffer-path
-- doom-modeline-buffer-file
-- doom-modeline-buffer-modified
-- doom-modeline-buffer-major-mode
-- doom-modeline-buffer-minor-mode
-- doom-modeline-project-parent-dir
-- doom-modeline-project-dir
-- doom-modeline-project-root-dir
-- doom-modeline-highlight
-- doom-modeline-panel
-- doom-modeline-debug
-- doom-modeline-info
-- doom-modeline-warning
-- doom-modeline-urgent
-- doom-modeline-unread-number
-- doom-modeline-bar
-- doom-modeline-inactive-bar
-- doom-modeline-evil-emacs-state
-- doom-modeline-evil-insert-state
-- doom-modeline-evil-motion-state
-- doom-modeline-evil-normal-state
-- doom-modeline-evil-operator-state
-- doom-modeline-evil-visual-state
-- doom-modeline-evil-replace-state
-- doom-modeline-persp-name
-- doom-modeline-persp-buffer-not-in-persp
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

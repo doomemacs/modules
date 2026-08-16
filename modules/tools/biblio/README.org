@@ -11,8 +11,8 @@ details are listed in [[*Configuration][Configuration]] below. Some sensible def
 selected so it should be possible to use without modifications.
 
 ** Maintainers
-- [[doom-user:][bdarcus]]
-- [[doom-user:][bmg]]
+- [[github:bdarcus][bdarcus]]
+- [[github:bmg][bmg]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -20,37 +20,33 @@ selected so it should be possible to use without modifications.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:bibtex-completion]] if [[doom-module::completion ivy]] or [[doom-module::completion helm]]
-- [[doom-package:parsebib]] if [[doom-module::completion ivy]] or [[doom-module::completion helm]] or [[doom-module::completion vertico]]
-- [[doom-package:citar]] if [[doom-module::completion vertico]]
-- [[doom-package:citar-embark]] if [[doom-module::completion vertico]]
-- [[doom-package:citar-org-roam]] if [[doom-module::completion vertico]] and [[doom-module::lang org +roam]]
-- [[doom-package:helm-bibtex]] if [[doom-module::completion helm]]
-- [[doom-package:ivy-bibtex]] if [[doom-module::completion ivy]]
+- [[package:bibtex-completion]] if [[module::completion ivy]] or [[module::completion helm]]
+- [[package:parsebib]] if [[module::completion ivy]] or [[module::completion helm]] or [[module::completion vertico]]
+- [[package:citar]] if [[module::completion vertico]]
+- [[package:citar-embark]] if [[module::completion vertico]]
+- [[package:citar-org-roam]] if [[module::completion vertico]] and [[module::lang org +roam]]
+- [[package:helm-bibtex]] if [[module::completion helm]]
+- [[package:ivy-bibtex]] if [[module::completion ivy]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 There are no hard dependencies for this module, but this module can benefit from
-having a PDF reader and one of Doom's [[doom-module::completion]] modules.
+having a PDF reader and one of Doom's [[module::completion]] modules.
 
 ** PDF viewing
 An application for opening PDF files is required. By default =DocView= is used
-though [[doom-module::tools pdf]] is highly recommended so PDFs can be viewed within Emacs.
+though [[module::tools pdf]] is highly recommended so PDFs can be viewed within Emacs.
 
 ** Bibtex completion
-For vertico, helm, or ivy bibtex completion you should enable [[doom-module::completion vertico]], [[doom-module::completion helm]], or [[doom-module::completion ivy]] respectively.
+For vertico, helm, or ivy bibtex completion you should enable [[module::completion vertico]], [[module::completion helm]], or [[module::completion ivy]] respectively.
 
 * Usage
-Both [[doom-package:helm-bibtex]] (includes [[doom-package:helm-bibtex]], [[doom-package:ivy-bibtex]], and bibtex-completion code)
-and [[doom-package:citar]] provide an extensive range of features so it is best to check their
+Both [[pkg:helm-bibtex]] (includes [[pkg:helm-bibtex]], [[pkg:ivy-bibtex]], and bibtex-completion code)
+and [[pkg:citar]] provide an extensive range of features so it is best to check their
 respective sites for a full list of features.
 
 On a high-level you can expect:
@@ -65,7 +61,7 @@ To understand the interaction between these packages this [[https://www.reddit.c
 explain the unique features and the overlapping functionality, if any.
 
 In addition, this module provides support for native Org-mode citations
-([[doom-package:org-cite]]).
+([[pkg:org-cite]]).
 
 * Configuration
 To override any defaults set by this module, do so in an ~(with-eval-after-load
@@ -73,7 +69,7 @@ To override any defaults set by this module, do so in an ~(with-eval-after-load
 
 ** Org-cite
 *** Processor configuration
-[[doom-package:org-cite]] provides rich features and flexible configuration options via its
+[[pkg:org-cite]] provides rich features and flexible configuration options via its
 "processor" capabilities.
 
 1. /insert/ provides =org-cite-insert= integration for inserting and editing
@@ -84,7 +80,7 @@ To override any defaults set by this module, do so in an ~(with-eval-after-load
 
 This module makes the following processors available:
 1. The core =oc-basic=, =oc-natbib=, =oc-biblatex=, and =oc-csl=.
-2. [[doom-package:citar]] for integration with [[doom-package:vertico]] completion.
+2. [[pkg:citar]] for integration with [[pkg:vertico]] completion.
 
 The module configures these processors as follows for the different completion
 modules:
@@ -102,8 +98,8 @@ directory for your CSL styles:
 #+end_src
 
 ** Path configuration
-You must set the path variable for either [[doom-package:citar]] (if using [[doom-module::completion vertico]])
-or [[doom-package:bibtex-completion]] (if using [[doom-module::completion ivy][ivy]] or [[doom-module::completion helm][helm]]); this module will in turn set the
+You must set the path variable for either [[pkg:citar]] (if using [[module::completion vertico]])
+or [[pkg:bibtex-completion]] (if using [[module::completion ivy][ivy]] or [[module::completion helm][helm]]); this module will in turn set the
 [[var:org-cite-global-bibliography]] variable to the same value:
 #+begin_src emacs-lisp
 (setopt bibtex-completion-bibliography '("/path/to/references.bib"))
@@ -134,9 +130,4 @@ in-depth instructions.
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

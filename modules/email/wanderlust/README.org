@@ -20,16 +20,12 @@ This module has no description. [[doom-contrib-module:][Write one?]]
   Enable support of [X-Face] powered by [compface].
 
 ** Packages
-- [[doom-package:wanderlust]]
+- [[package:wanderlust]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -50,12 +46,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
-
-[X-Face]: https://en.wikipedia.org/wiki/X-Face
-[compface]: http://freecode.com/projects/compface/
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

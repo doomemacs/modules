@@ -8,4 +8,4 @@ Modules in this category provide sane defaults or improve your ability to
 configure Emacs. It is best to load these last.
 
 * Frequently asked questions
-/This category has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This category has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

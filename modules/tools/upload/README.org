@@ -7,18 +7,18 @@
 * Description :unfold:
 Uses ~ssh-deploy~ to map a local folder to a remote one.
 
-#+begin_quote
- 󰝗 The ssh-deploy plug-in for Emacs makes it possible to effortlessly deploy
-    local files and directories to remote hosts via Tramp (including but not
-    limited to SSH, SFTP, FTP). It tries to provide functions that can be easily
-    used by custom scripts.
+#+begin_quote excerpt
+The ssh-deploy plug-in for Emacs makes it possible to effortlessly deploy local
+files and directories to remote hosts via Tramp (including but not limited to
+SSH, SFTP, FTP). It tries to provide functions that can be easily used by custom
+scripts.
 
-    The idea for this plug-in was to mimic the behavior of PhpStorm deployment
-    functionality. —[[https://github.com/emacsmirror/ssh-deploy][ssh-deploy README]]
+The idea for this plug-in was to mimic the behavior of PhpStorm deployment
+functionality. —[[https://github.com/emacsmirror/ssh-deploy][ssh-deploy README]]
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -26,14 +26,10 @@ Uses ~ssh-deploy~ to map a local folder to a remote one.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:ssh-deploy]]
+- [[package:ssh-deploy]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -68,9 +64,9 @@ There are three ways to map a local directory to a remote one:
 3. Manually, on a per-buffer basis, with the ~M-x +upload/register-remote~
    command. Use ~M-x +upload/unregister-all-remotes~ to undo all manual remotes.
 
-#+begin_quote
- 󰐃 ~ssh-deploy-root-local~ is optional, and will resort to ~doom-project-root~ if
-    unspecified.
+#+begin_quote tip
+~ssh-deploy-root-local~ is optional, and will resort to ~doom-project-root~ if
+unspecified.
 #+end_quote
 
 * TODO Configuration
@@ -89,9 +85,4 @@ The final directory names much match:
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

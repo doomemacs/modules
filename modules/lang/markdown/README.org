@@ -7,7 +7,7 @@
 * Description :unfold:
 This module provides Markdown support for Emacs.
 
-#+begin_quote
+#+begin_quote excerpt
 Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you
 to write using an easy-to-read, easy-to-write plain text format, then convert it
 to structurally valid XHTML (or HTML).
@@ -26,45 +26,41 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
   Enable an LSP hook for ~markdown-mode~, ~gfm-mode~, and ~markdown-ts-mode~. Requires
-  [[doom-module::tools lsp]] and a language server (e.g. unified-language-server,
+  [[module::tools lsp]] and a language server (e.g. unified-language-server,
   remark-language-server, marksman, vscode-markdown-language-server).
 - +grip ::
   Enable [[https://github.com/seagle0128/grip-mode][grip support]] (on [[kbd:][<localleader> p]]), to provide live github-style
   previews of your markdown (or org) files.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]]. Tree-sitter support for
+  editing. Requires [[module::tools tree-sitter]]. Tree-sitter support for
   Markdown is rudimentary in Emacs 30 or older. Upgrade to 31 for better
   support.
 
 ** Packages
-- [[doom-package:edit-indirect]]
-- [[doom-package:evil-markdown]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:grip-mode]] if [[doom-module:+grip]]
-- [[doom-package:markdown-ts-mode]] if [[doom-module:+tree-sitter]] (and Emacs <31)
-- [[doom-package:markdown-mode]]
-- [[doom-package:markdown-toc]]
+- [[package:edit-indirect]]
+- [[package:evil-markdown]] if [[module::editor evil +everywhere]]
+- [[package:grip-mode]] if [[module:+grip]]
+- [[package:markdown-ts-mode]] if [[module:+tree-sitter]] (and Emacs <31)
+- [[package:markdown-mode]]
+- [[package:markdown-toc]]
 
 ** Hacks
-- [[doom-package:flyspell]] has been configured not to spell check in code blocks, links, HTML
+- [[package:flyspell]] has been configured not to spell check in code blocks, links, HTML
   tags or references.
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module requires:
-- A linter (requires [[doom-module::checkers syntax]])
+- A linter (requires [[module::checkers syntax]])
 - A markdown compiler, for previewing Markdown
 - Tree-sitter support in Emacs 30 and older is rudimentary. Upgrade to Emacs 31+
   for better (and native) support.
@@ -132,7 +128,7 @@ installed through your OS's package manager:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
 #+begin_quote wip
@@ -143,7 +139,7 @@ Formatting is handled using the [[doom-module::editor format]] module via [[http
 ~markdown-preview~ is bound to [[kbd:][<localleader> p]]. This will open a preview of your
 compiled markdown document in your browser.
 
-Alternatively, you can use ~grip-mode~ through [[doom-module:+grip]].
+Alternatively, you can use ~grip-mode~ through [[module:+grip]].
 
 * Configuration
 #+begin_quote wip
@@ -184,9 +180,4 @@ Otherwise, you can change ~markdown-command~ directly:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -5,20 +5,20 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module adds support for workspaces, powered by [[doom-package:persp-mode]], as well as a API
+This module adds support for workspaces, powered by [[pkg:persp-mode]], as well as a API
 for manipulating them.
 
-#+begin_quote
- 💡 There are many ways to use workspaces. I spawn a workspace per task. Say I'm
-    working in the main workspace, when I realize there is a bug in another part
-    of my project. I open a new workspace and deal with it in there. In the
-    meantime, I need to check my email, so mu4e gets its own workspace.
+#+begin_quote aside
+There are many ways to use workspaces. I spawn a workspace per task. Say I'm
+working in the main workspace, when I realize there is a bug in another part of
+my project. I open a new workspace and deal with it in there. In the meantime, I
+need to check my email, so mu4e gets its own workspace.
 
-    Once I've completed the task, I close the workspace and return to main.
+Once I've completed the task, I close the workspace and return to main.
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -26,16 +26,12 @@ for manipulating them.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:persp-mode]]
+- [[package:persp-mode]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -99,28 +95,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
-#+end_quote
-
-** API
-+ ~+workspace-list~ -> list<Struct>
-+ ~+workspace-list-names~ -> list<string>
-+ ~+workspace-buffer-list &optional PERSP~ -> bool
-+ ~+workspace-p OBJ~ -> bool
-+ ~+workspace-exists-p NAME~ -> bool
-+ ~+workspace-get NAME &optional NOERROR~ -> Struct
-+ ~+workspace-current &optional FRAME WINDOW~ -> Struct
-+ ~+workspace-current-name~ -> string
-+ ~+workspace-load NAME~
-+ ~+workspace-load-session NAME~
-+ ~+workspace-save NAME~
-+ ~+workspace-save-session NAME~
-+ ~+workspace-new NAME~
-+ ~+workspace-rename NAME NEW-NAME~
-+ ~+workspace-kill NAME &optional INHIBIT-KILL-P~
-+ ~+workspace-switch NAME &optional AUTO-CREATE-P~
-+ ~+workspace-protected-p NAME~ -> bool
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

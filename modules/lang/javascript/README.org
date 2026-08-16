@@ -7,44 +7,40 @@
 * Description :unfold:
 This module adds [[https://www.javascript.com/][JavaScript]] and [[https://www.typescriptlang.org/][TypeScript]] support to Doom Emacs.
 
-- JSX/TSX support (requires [[doom-module:+tree-sitter]] and Emacs 29.1+)
+- JSX/TSX support (requires [[module:+tree-sitter]] and Emacs 29.1+)
 - LSP Integration
-  - Code completion (with [[doom-module::completion corfu]] (recommended) or
-    [[doom-module::completion company]])
-  - Syntax checking (with [[doom-module::checkers syntax]])
+  - Code completion (with [[module::completion corfu]] (recommended) or
+    [[module::completion company]])
+  - Syntax checking (with [[module::checkers syntax]])
   - Jump-to-definitions and references support
-- Code formatting (with [[doom-module::editor format]] and [[https://prettier.io/docs/en/install.html][prettier]])
-- REPL support (with [[doom-package:nodejs-repl]] and/or [[doom-module::tools eval]])
+- Code formatting (with [[module::editor format]] and [[https://prettier.io/docs/en/install.html][prettier]])
+- REPL support (with [[pkg:nodejs-repl]] and/or [[module::tools eval]])
 
 ** Maintainers
-- [[doom-user:][@elken]]
-- [[doom-user:][@hlissner]]
-- [[doom-user:][@iyefrat]]
+- [[github:elken]]
+- [[github:hlissner]]
+- [[github:iyefrat]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
   Enable LSP support for ~js-mode~, ~js-ts-mode~, ~typesript-mode~, and
-  ~typescript-ts-mode. Requires [[doom-module::tools lsp]] and a langserver
+  ~typescript-ts-mode. Requires [[module::tools lsp]] and a langserver
   (supports ts-ls and deno-ls).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]]. Requires Emacs 29.1+.
+  editing. Requires [[module::tools tree-sitter]]. Requires Emacs 29.1+.
   Required for JSX/TSX support.
 
 ** Packages
-- [[doom-package:nodejs-repl]]
-- [[doom-package:typescript-mode]] unless [[doom-module:+tree-sitter]]
+- [[package:nodejs-repl]]
+- [[package:typescript-mode]] unless [[module:+tree-sitter]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -56,7 +52,7 @@ This module requires [[https://nodejs.org/en/][NodeJS]] and one of [[https://www
 - openSUSE: ~$ zypper install nodejs npm~
 
 ** Formatter
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
 #+begin_quote wip
@@ -72,9 +68,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

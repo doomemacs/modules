@@ -8,7 +8,7 @@
 This holy module brings the Vim editing model to Emacs.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -18,24 +18,24 @@ This holy module brings the Vim editing model to Emacs.
   as a foundation.
 
 ** Packages
-- [[doom-package:evil]]
-- [[doom-package:evil-args]]
-- [[doom-package:evil-collection]] if [[doom-module:+everywhere]]
-- [[doom-package:evil-easymotion]]
-- [[doom-package:evil-embrace]]
-- [[doom-package:evil-escape]]
-- [[doom-package:evil-exchange]]
-- [[doom-package:evil-indent-plus]]
-- [[doom-package:evil-lion]]
-- [[doom-package:evil-nerd-commenter]]
-- [[doom-package:evil-numbers]]
-- [[doom-package:evil-quick-diff]]
-- [[doom-package:evil-snipe]]
-- [[doom-package:evil-surround]]
-- [[doom-package:evil-textobj-anyblock]]
-- [[doom-package:evil-traces]]
-- [[doom-package:evil-visualstar]]
-- [[doom-package:exato]]
+- [[package:evil]]
+- [[package:evil-args]]
+- [[package:evil-collection]] if [[module:+everywhere]]
+- [[package:evil-easymotion]]
+- [[package:evil-embrace]]
+- [[package:evil-escape]]
+- [[package:evil-exchange]]
+- [[package:evil-indent-plus]]
+- [[package:evil-lion]]
+- [[package:evil-nerd-commenter]]
+- [[package:evil-numbers]]
+- [[package:evil-quick-diff]]
+- [[package:evil-snipe]]
+- [[package:evil-surround]]
+- [[package:evil-textobj-anyblock]]
+- [[package:evil-traces]]
+- [[package:evil-visualstar]]
+- [[package:exato]]
 
 ** Hacks
 - The o/O keys will respect and continue commented lines (can be disabled by
@@ -47,10 +47,6 @@ This holy module brings the Vim editing model to Emacs.
   ~:p:h~ or ~:t~) than vanilla evil-mode offers.
 - A custom filename modifier is available in Doom: ~:P~, which expands to the
   project root (throws an error if not in a project).
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -77,11 +73,11 @@ The following vim plugins have been ported to evil:
 This module has also ported vim-unimpaired keybinds to Emacs.
 
 In other modules:
-- The [[doom-module::ui neotree]] & [[doom-module::ui treemacs]] modules provide a =NERDTree= equivalent.
-- The [[doom-module::editor multiple-cursors]] module contains functionality equal to the
+- The [[module::ui neotree]] & [[module::ui treemacs]] modules provide a =NERDTree= equivalent.
+- The [[module::editor multiple-cursors]] module contains functionality equal to the
   following vim plugins:
-  - [[doom-package:evil-multiedit]] => [[github:hlissner/vim-multiedit][vim-multiedit]]
-  - [[doom-package:evil-mc]] => [[https://github.com/terryma/vim-multiple-cursors][vim-multiple-cursors]]
+  - [[package:evil-multiedit]] => [[github:hlissner/vim-multiedit][vim-multiedit]]
+  - [[package:evil-mc]] => [[https://github.com/terryma/vim-multiple-cursors][vim-multiple-cursors]]
 
 ** Custom Text Objects
 This module provides a couple extra text objects, along with the built-in ones.
@@ -144,20 +140,20 @@ And these are text objects added by this module:
 | ~:rev[erse]~             | Reverse the selected lines                                                         |
 | ~:rm[!] [PATH]~          | Delete the current buffer's file and buffer                                        |
 | ~:sh[ell] CMD~           | Execute a command in the last opened eshell buffer (or make one)                   |
-| ~:sclear~                | ([[doom-module::ui workspaces]]) Kill all workspaces                                   |
-| ~:sl[oad]~               | ([[doom-module::ui workspaces]]) Load the last saved session                           |
-| ~:ss[ave]~               | ([[doom-module::ui workspaces]]) Save the current session                              |
-| ~:tabc[lose]~            | ([[doom-module::ui workspaces]]) Close the current workspace                           |
-| ~:tabclear~              | ([[doom-module::ui workspaces]]) Kill all buffers in current workspace                 |
-| ~:tabf[irst]~            | ([[doom-module::ui workspaces]]) Switch to the first workspace                         |
-| ~:tabl[ast]~             | ([[doom-module::ui workspaces]]) Switch to the last workspace                          |
-| ~:tabload [NAME]~        | ([[doom-module::ui workspaces]]) Load a workspace from file                            |
-| ~:tabn[ew][!]~ [NAME]    | ([[doom-module::ui workspaces]]) Create a new workspace                                |
-| ~:tabnext~               | ([[doom-module::ui workspaces]]) Switch to next workspace                              |
-| ~:tabprev~               | ([[doom-module::ui workspaces]]) Switch to previous workspace                          |
-| ~:tabr[ename]~ NAME      | ([[doom-module::ui workspaces]]) Rename the current workspace to NAME                  |
-| ~:tabs~                  | ([[doom-module::ui workspaces]]) Display all workspaces in the echo area               |
-| ~:tabsave [NAME]~        | ([[doom-module::ui workspaces]]) Save the selected workspace to file                   |
+| ~:sclear~                | ([[module::ui workspaces]]) Kill all workspaces                                   |
+| ~:sl[oad]~               | ([[module::ui workspaces]]) Load the last saved session                           |
+| ~:ss[ave]~               | ([[module::ui workspaces]]) Save the current session                              |
+| ~:tabc[lose]~            | ([[module::ui workspaces]]) Close the current workspace                           |
+| ~:tabclear~              | ([[module::ui workspaces]]) Kill all buffers in current workspace                 |
+| ~:tabf[irst]~            | ([[module::ui workspaces]]) Switch to the first workspace                         |
+| ~:tabl[ast]~             | ([[module::ui workspaces]]) Switch to the last workspace                          |
+| ~:tabload [NAME]~        | ([[module::ui workspaces]]) Load a workspace from file                            |
+| ~:tabn[ew][!]~ [NAME]    | ([[module::ui workspaces]]) Create a new workspace                                |
+| ~:tabnext~               | ([[module::ui workspaces]]) Switch to next workspace                              |
+| ~:tabprev~               | ([[module::ui workspaces]]) Switch to previous workspace                          |
+| ~:tabr[ename]~ NAME      | ([[module::ui workspaces]]) Rename the current workspace to NAME                  |
+| ~:tabs~                  | ([[module::ui workspaces]]) Display all workspaces in the echo area               |
+| ~:tabsave [NAME]~        | ([[module::ui workspaces]]) Save the selected workspace to file                   |
 
 * TODO Configuration
 #+begin_quote wip
@@ -180,13 +176,13 @@ To undo this, use:
 #+end_src
 
 ** The [[kbd:][s]]/[[kbd:][S]] keys behave differently from Vim
-Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[doom-package:evil-snipe]] package (a port of
+Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[pkg:evil-snipe]] package (a port of
 vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
 1. Disable ~evil-snipe-mode~ by adding ~(remove-hook 'doom-first-input-hook
    #'evil-snipe-mode)~ to =$DOOMDIR/config.el=,
-2. Or disable [[doom-package:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
+2. Or disable [[pkg:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
    added to =$DOOMDIR/packages.el=, but this will also disable incremental
    highlighting for the f/F/t/T motions keys.
 3. Or use [[kbd:][cl]] and [[kbd:][cc]], respectively; they do the same thing.
@@ -203,7 +199,7 @@ If you prefer the old behavior, it can be reversed with:
 #+end_src
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[doom-contrib-faq:][Ask a question?]]
 
 ** How do I remove evil?
 :PROPERTIES:
@@ -221,7 +217,7 @@ sessions.
 #+end_quote
 
 Evil-specific configuration and keybindings (defined with ~map!~) will be
-ignored without [[doom-module::editor evil]] present (and omitted when byte-compiling).
+ignored without [[module::editor evil]] present (and omitted when byte-compiling).
 
 ** Include underscores in evil word motions?
 A more in-depth answer and explanation for this can be found [[https://evil.readthedocs.io/en/latest/faq.html#underscore-is-not-a-word-character][in Evil's
@@ -261,8 +257,3 @@ making these operations behave closer to their vim counterparts:
 
 Like in vim, the clipboard can still be accessed by using the [[kbd:][+]] register, e.g.
 [[kbd:]["+dd]] or [[kbd:]["+cw]].
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote

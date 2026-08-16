@@ -14,15 +14,11 @@ This module turns Emacs into an IRC client, capable of OS notifications.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:circe]]
-- [[doom-package:circe-notifications]]
+- [[package:circe]]
+- [[package:circe-notifications]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -115,7 +111,7 @@ macos or :tools pass modules if you want integration into the MacOS keychain or
       :channels ("#emacs"))))
 #+end_src
 
-If Doom's [[doom-module::tools pass]] module is enabled, ~auth-source~ can integrate
+If Doom's [[module::tools pass]] module is enabled, ~auth-source~ can integrate
 with [[https://www.passwordstore.org/][Pass]].
 
 #+begin_quote warning
@@ -148,9 +144,4 @@ Do this, instead:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

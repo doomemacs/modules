@@ -17,15 +17,11 @@ This module adds [[https://coq.inria.fr][coq]] support, powered by [[https://pro
 /This module has no flags./
 
 ** Packages
-- [[doom-package:proof-general]]
-- [[doom-package:company-coq]]
+- [[package:proof-general]]
+- [[package:company-coq]]
 
 ** Hacks
 + Replaces coq-mode abbrevs with yasnippet snippets from doom's snippet library
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 + [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -46,9 +42,4 @@ See [[https://github.com/doomemacs/modules/issues?q=is%3Aissue+is%3Aopen+label%3
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

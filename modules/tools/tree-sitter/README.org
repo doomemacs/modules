@@ -7,11 +7,11 @@
 * Description :unfold:
 This module adds [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] support to Doom Emacs.
 
-#+begin_quote
- 󰟶 Tree sitter is a parser generator tool and an incremental parsing library.
-    It can build a concrete syntax tree for a source file and efficiently update
-    the syntax tree as the source file is edited. This allows for features of
-    the editor to become syntax aware.
+#+begin_quote aside
+Tree sitter is a parser generator tool and an incremental parsing library. It
+can build a concrete syntax tree for a source file and efficiently update the
+syntax tree as the source file is edited. This allows for features of the editor
+to become syntax aware.
 #+end_quote
 
 It includes:
@@ -20,7 +20,7 @@ It includes:
   structures like any other text object.
 
 ** Maintainers
-- [[doom-user:][@jeetelongname]]
+- [[github:jeetelongname]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -48,10 +48,6 @@ It includes:
   ~interpreter-mode-alist~ are proactively removed so we can consistently rely on
   ~major-mode-remap-{alist,defaults}~ instead (which is more predictable and
   harder for users/modules to carelessly override)
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -177,9 +173,4 @@ can be fixed by either adding in a custom query (which would override the
 current key bound) or [[https://github.com/nvim-treesitter/nvim-treesitter-textobjects/][contributing upstream!]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

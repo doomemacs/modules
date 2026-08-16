@@ -7,9 +7,9 @@
 * Description :unfold:
 This module adds [[https://nim-lang.org][Nim]] support to Doom Emacs.
 
-- Code completion ([[doom-package:nimsuggest]] + [[doom-package:company]])
-- Syntax checking ([[doom-package:nimsuggest]] + [[doom-package:flycheck]])
-- Org babel support ([[doom-package:ob-nim]])
+- Code completion ([[pkg:nimsuggest]] + [[pkg:company]])
+- Syntax checking ([[pkg:nimsuggest]] + [[pkg:flycheck]])
+- Org babel support ([[pkg:ob-nim]])
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
@@ -18,18 +18,14 @@ This module adds [[https://nim-lang.org][Nim]] support to Doom Emacs.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:flycheck-nim]] if [[doom-module::checkers syntax]]
-- [[doom-package:nim-mode]]
+- [[package:flycheck-nim]] if [[module::checkers syntax]]
+- [[package:nim-mode]]
 
 ** Hacks
-- [[doom-package:nimsuggest]] was modified to strip invalid characters from its temp file paths
+- [[package:nimsuggest]] was modified to strip invalid characters from its temp file paths
   (which would break nimsuggest on Windows systems).
-- [[doom-package:nim-mode]] was modified to fail gracefully if =nimsuggest= (the executable)
+- [[package:nim-mode]] was modified to fail gracefully if =nimsuggest= (the executable)
   isn't available.
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -53,7 +49,7 @@ Alternatively, nim is usually available through your OS's package manager:
 - openSUSE: ~$ zypper install nim~
 
 ** Formatter
-Formatting is handled using the [[doom-module::editor format]] module via nimpretty
+Formatting is handled using the [[module::editor format]] module via nimpretty
 (included with Nim).
 
 * TODO Usage
@@ -70,9 +66,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

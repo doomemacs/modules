@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module turns Emacs into an email client using [[doom-package:notmuch]].
+This module turns Emacs into an email client using [[pkg:notmuch]].
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
@@ -14,22 +14,18 @@ This module turns Emacs into an email client using [[doom-package:notmuch]].
 - +afew ::
   Enable integration with [[https://github.com/afewmail/afew][afew]].
 - +org ::
-  Enable [[doom-package:org-mime]] for writing HTML emails using org-mode.
+  Enable [[pkg:org-mime]] for writing HTML emails using org-mode.
 
 ** Packages
-- [[doom-package:counsel-notmuch]] if [[doom-module::completion ivy]]
-- [[doom-package:helm-notmuch]] if [[doom-module::completion helm]]
-- [[doom-package:notmuch]]
-- [[doom-package:org-mime]]* if [[doom-module:+org]]
+- [[package:counsel-notmuch]] if [[module::completion ivy]]
+- [[package:helm-notmuch]] if [[module::completion helm]]
+- [[package:notmuch]]
+- [[package:org-mime]]* if [[module:+org]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -200,9 +196,4 @@ features off:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

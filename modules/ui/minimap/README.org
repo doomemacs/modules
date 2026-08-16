@@ -15,14 +15,10 @@ feature found in many other editors.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:demap]]
+- [[package:demap]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Usage
 Press [[kbd:][SPC t m]] to toggle the minimap.
@@ -53,18 +49,4 @@ by default it is set to ="**Minimap**"=.
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-** Variables
-- demap-minimap-change-major-mode-hook
-- demap-minimap-default-name
-- demap-minimap-window-width
-- demap-minimap-window-side
-- demap-minimap-kill-hook
-- demap-minimap-construct-hook
-- demap-minimap-window-set-hook
-- demap-minimap-change-functions
-- demap-minimap-window-sleep-hook
-- demap-minimap-protected-variables
-- demap-minimap-close-kill-minimap-p
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -18,17 +18,13 @@ interface for opening and interacting with REPLs.
   minibuffer will be used anyway.
 
 ** Packages
-- [[doom-package:quickrun]]
+- [[package:quickrun]]
 
 ** Hacks
 - Quickrun has been modified to:
   - Use only one output window, in case of consecutive execution of code.
   - The quickrun window will resize itself to fit its output, once the
     underlying process is finished executing the code.
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -37,7 +33,7 @@ This module has no direct prerequisites.
 
 However, many languages will require that you install their interpreters, code
 runners and/or repls to power the functionality of this module. Visit the
-documentation of their respective [[doom-module::lang]] module for instructions.
+documentation of their respective [[module::lang]] module for instructions.
 
 * TODO Usage
 #+begin_quote wip
@@ -74,7 +70,7 @@ To use them, you may use ~M-x +eval/open-repl-other-window~, ~M-x
 +eval/open-repl-same-window~, ~:repl~ (for evil users) or the default binding:
 [[kbd:][SPC o r]]. These will open a REPL in a popup window.
 
-#+begin_quote
+#+begin_quote tip
 You can simply call that mode's REPL command manually. e.g. ~M-x ielm~, but this
 will bar you from the benefits of Doom's REPL system (like send-to-repl
 functionality).
@@ -127,9 +123,4 @@ Or if you'd rather run an elisp command:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -17,18 +17,14 @@ This module has no dedicated maintainers.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:crystal-mode]]
-- [[doom-package:inf-crystal]]
-- if [[doom-module::checkers syntax]]
-  - [[doom-package:flycheck-ameba]]
-  - [[doom-package:flycheck-crystal]]
+- [[package:crystal-mode]]
+- [[package:inf-crystal]]
+- if [[module::checkers syntax]]
+  - [[package:flycheck-ameba]]
+  - [[package:flycheck-crystal]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -50,10 +46,10 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 ** formatter
-By enabling [[doom-module::editor format]], [[doom-package:apheleia]] will be
+By enabling [[module::editor format]], [[pkg:apheleia]] will be
 used to format the current buffer.
 
-Enable [[doom-module::editor format +onsave]] to format the buffer on save.
+Enable [[module::editor format +onsave]] to format the buffer on save.
 
 * TODO Configuration
 #+begin_quote wip
@@ -64,9 +60,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

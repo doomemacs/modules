@@ -19,7 +19,7 @@ be formatted and returned to the buffer using
 [[https://tools.ietf.org/doc/tcllib/html/rcs.html#section4][RCS patching]].
 
 ** Maintainers
-- [[doom-user:][@elken]]
+- [[github:elken]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -33,7 +33,7 @@ be formatted and returned to the buffer using
   client has the capabilities.
 
 ** Packages
-- [[doom-package:apheleia]]
+- [[package:apheleia]]
 
 ** Hacks
 - Apheleia -- and many formatters -- don't support partial formatting (i.e. the
@@ -46,16 +46,12 @@ be formatted and returned to the buffer using
 - [[fn:save-buffer]] is advised to suppress format-on-save behavior if passed the
   universal argument (e.g. [[kbd:SPC u SPC b s]] or [[kbd:C-u C-x C-s]]).
 
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module has no direct requirements, but each language will need one of their
 supported formatter programs in order for this to work. In their absence,
-[[doom-package:apheleia]] will fail silently.
+[[pkg:apheleia]] will fail silently.
 
 To see if a particular mode has a configured formatter, check for the mode in
 [[var:apheleia-mode-alist]] which corresponds to the list of formatters defined in
@@ -174,10 +170,10 @@ To save the buffer without formatting just once, pass the universal argument to
 - Without evil: [[kbd:][C-u C-x C-s]]
 
 ** Using ~lsp-mode~ or ~eglot~'s formatter
-If you have a buffer open with [[doom-package:lsp-mode]] or [[doom-package:eglot]]
+If you have a buffer open with [[pkg:lsp-mode]] or [[pkg:eglot]]
 enabled, and the running server supports =textDocument/formatting= or
 =textDocument/rangeFormatting=, it can be used instead of
-[[doom-package:apheleia]]'s (or Doom's) default formatters by enabling this module
+[[pkg:apheleia]]'s (or Doom's) default formatters by enabling this module
 with its =+lsp= flag or manually activating the [[fn:+format-with-lsp-mode]] minor
 mode (though it's a better idea to use [[fn:+format-with-lsp-toggle-h]] if you're
 looking for a function to use with mode hooks; this function will respect
@@ -186,7 +182,7 @@ pre-existing modifications to [[var:+format-with]]).
 To enable this formatter selectively, see the next section.
 
 * Troubleshooting
-There are a few fail-safes [[doom-package:apheleia]] has to prevent accidental code
+There are a few fail-safes [[pkg:apheleia]] has to prevent accidental code
 wipe, included silently failing if the command errors or doesn't exist. Check
 that the command you've specified runs fine in a terminal first before reporting
 issues.
@@ -197,9 +193,4 @@ to the error buffer and handle any problems raised.
 Any issues specific to Apheleia should most often be reported upstream [[https://github.com/radian-software/apheleia/issues][here]].
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module provides support for [[https://lisp-lang.org/][Common Lisp]] and the [[doom-package:Sly]] development
+This module provides support for [[https://lisp-lang.org/][Common Lisp]] and the [[pkg:Sly]] development
 environment. Common Lisp is not a single language but a specification, with many
 competing compiler implementations. By default, [[http://www.sbcl.org/][Steel Bank Common Lisp]] (SBCL) is
 assumed to be installed, but this can be configured.
@@ -22,20 +22,16 @@ to run unmodified for a long time.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:sly]]
-- [[doom-package:sly-asdf]]
-- [[doom-package:sly-quicklisp]]
-- [[doom-package:sly-stepper]]
-- [[doom-package:sly-macrostep]]
-- [[doom-package:sly-repl-ansi-color]]
-- [[doom-package:sly-overlay]]
+- [[package:sly]]
+- [[package:sly-asdf]]
+- [[package:sly-quicklisp]]
+- [[package:sly-stepper]]
+- [[package:sly-macrostep]]
+- [[package:sly-repl-ansi-color]]
+- [[package:sly-overlay]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -47,7 +43,7 @@ This module requires [[http://www.sbcl.org/][SBCL]].
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-This module does not integrate with [[doom-module::tools lsp]]. Sly (and SLIME before it) is
+This module does not integrate with [[module::tools lsp]]. Sly (and SLIME before it) is
 considered the defacto development environment for Common Lisp and provides much
 of what is normally expected of an LSP, plus tight integration with the REPL and
 Emacs.
@@ -65,10 +61,10 @@ However, you will need a running Sly session for this to work. ~M-x sly~ starts
 such a session if you didn't have one open already.
 
 ** formatter
-By enabling [[doom-module::editor format]], [[fn:apheleia-indent-lisp-buffer]] will be
+By enabling [[module::editor format]], [[fn:apheleia-indent-lisp-buffer]] will be
 used to format the current buffer.
 
-Enable [[doom-module::editor format +onsave]] to format the buffer on save.
+Enable [[module::editor format +onsave]] to format the buffer on save.
 
 * TODO Configuration
 #+begin_quote wip
@@ -82,9 +78,4 @@ If you don't want Sly to use SBCL, you can configure the variable
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

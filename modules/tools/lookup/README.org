@@ -17,7 +17,7 @@ or synonyms.
 - Support for online (and offline) dictionaries and thesauruses.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -27,36 +27,32 @@ or synonyms.
 - +docsets ::
   Enable integration with Dash.app docsets.
 - +offline ::
-  Install and prefer offline dictionary/thesaurus (with [[doom-module:+dictionary]]).
+  Install and prefer offline dictionary/thesaurus (with [[module:+dictionary]]).
 - +yandex ::
   Add Yandex, Yandex Images, and Yandex Maps to the lookup backends for the
   [[cmd:+lookup/online]] command.
 
 ** Packages
-- [[doom-package:dumb-jump]]
-- [[doom-package:helm-xref]] if [[doom-module::completion helm]]
-- [[doom-package:ivy-xref]] if [[doom-module::completion ivy]]
-- [[doom-package:request]]
-- if [[doom-module:+docsets]]
-  - [[doom-package:dash-docs]]
-  - [[doom-package:counsel-dash]] if [[doom-module::completion ivy]]
-  - [[doom-package:helm-dash]] if [[doom-module::completion helm]]
-- if [[doom-module:+dictionary]]
+- [[package:dumb-jump]]
+- [[package:helm-xref]] if [[module::completion helm]]
+- [[package:ivy-xref]] if [[module::completion ivy]]
+- [[package:request]]
+- if [[module:+docsets]]
+  - [[package:dash-docs]]
+  - [[package:counsel-dash]] if [[module::completion ivy]]
+  - [[package:helm-dash]] if [[module::completion helm]]
+- if [[module:+dictionary]]
   - if macOS
-    - [[doom-package:osx-dictionary]]
+    - [[package:osx-dictionary]]
   - else
-    - [[doom-package:define-word]]
-    - [[doom-package:powerthesaurus]]
-    - if [[doom-module:+offline]]
-      - [[doom-package:wordnut]]
-      - [[doom-package:synosaurus]]
+    - [[package:define-word]]
+    - [[package:powerthesaurus]]
+    - if [[module:+offline]]
+      - [[package:wordnut]]
+      - [[package:synosaurus]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -64,9 +60,9 @@ or synonyms.
 This module has several optional dependencies:
 
 - ~ripgrep~ as a last-resort fallback for jump-to-definition/find-references.
-- ~sqlite3~ for Dash docset support (if you have [[doom-module:+docsets]] enabled)
+- ~sqlite3~ for Dash docset support (if you have [[module:+docsets]] enabled)
 - ~wordnet~ for offline dictionary and thesaurus support (if you have
-  [[doom-module:+dictionary]] and [[doom-module:+offline]] enabled).
+  [[module:+dictionary]] and [[module:+offline]] enabled).
 
 ** MacOS
 #+begin_src sh
@@ -106,7 +102,7 @@ following sources before giving up:
 1. Whatever ~:definition~ function is registered for the current buffer with the
    ~:lookup~ setting (see "Configuration" section).
 2. Any available xref backends.
-3. [[doom-package:dumb-jump]] (a text search with aides to reduce false positives).
+3. [[pkg:dumb-jump]] (a text search with aides to reduce false positives).
 3. An ordinary project-wide text search with =ripgrep=.
 5. If ~evil-mode~ is active, use ~evil-goto-definition~, which preforms a simple
    text search within the current buffer.
@@ -122,7 +118,7 @@ will try:
 
 1. Whatever ~:references~ function is registered for the current buffer with the
    ~:lookup~ setting (see [[*Configuration][Configuration]]).
-2. Any available [[doom-package:xref]] backends.
+2. Any available [[pkg:xref]] backends.
 3. An ordinary project-wide text search with ripgrep.
 
 If there are multiple results, you will be prompted to select one.
@@ -173,7 +169,7 @@ properties:
   Run when looking up the file for a symbol/string. Typically a file path. Used
   by ~+lookup/file~.
 - ~:xref-backend FN~ ::
-  Defines an [[doom-package:xref]] backend, which implicitly provides ~:definition~ and
+  Defines an [[pkg:xref]] backend, which implicitly provides ~:definition~ and
   ~:references~ handlers. If you specify them anyway, they will take precedence
   over the xref backend, however.
 
@@ -221,9 +217,9 @@ Emacs):
 (setq +lookup-open-url-fn #'eww)
 #+end_src
 
-#+begin_quote
- 󰐃 ~+lookup/in-docsets~ consults ~dash-docs-browser-func~ instead, which is
-    already set to ~#'eww~ by default.
+#+begin_quote tip
+~+lookup/in-docsets~ consults ~dash-docs-browser-func~ instead, which is already set
+to ~#'eww~ by default.
 #+end_quote
 
 ** Open in Xwidget WebKit instead of browser
@@ -241,18 +237,4 @@ with Xwidgets support):
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
-#+end_quote
-
-** Commands
-- ~+lookup/definition~
-- ~+lookup/references~
-- ~+lookup/documentation~
-- ~+lookup/online~
-- ~+lookup/online-select~
-- ~+lookup/in-devdocs~
-- ~+lookup/in-docsets~
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

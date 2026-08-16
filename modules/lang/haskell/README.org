@@ -8,22 +8,22 @@
 This module adds Haskell support to Doom Emacs.
 
 ** Maintainers
-- [[doom-user:][@iyefrat]]
+- [[github:iyefrat]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~haskell-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~haskell-mode~. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/haskell/haskell-language-server][haskell-language-server]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
   
 ** Packages
-- [[doom-package:haskell-mode]]
-- [[doom-package:haskell-ts-mode]] if [[doom-module:+tree-sitter]]
-- [[doom-package:lsp-haskell]] if [[doom-module:+lsp]]
+- [[package:haskell-mode]]
+- [[package:haskell-ts-mode]] if [[module:+tree-sitter]]
+- [[package:lsp-haskell]] if [[module:+lsp]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -56,7 +56,7 @@ which can be installed through system package manager, cabal, or stack.
 
 ** Formatter
 
-[[doom-module::editor format]] by default uses [[https://github.com/fourmolu/fourmolu#installation][fourmolu]] to format code when not
+[[module::editor format]] by default uses [[https://github.com/fourmolu/fourmolu#installation][fourmolu]] to format code when not
 relying on hls, follow the linked install instructions.
 
 * TODO Usage
@@ -94,9 +94,4 @@ Make sure to configure the lsp to use your perfered formatter, e.g.:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

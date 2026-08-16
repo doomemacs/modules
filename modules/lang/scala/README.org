@@ -27,24 +27,20 @@ Through the power of [[https://scalameta.org/metals/docs/editors/overview.html][
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~scala-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~scala-mode~. Requires [[module::tools lsp]] and a langserver
   (supports metals).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires Emacs 29.1+ and [[doom-module::tools tree-sitter]].
+  editing. Requires Emacs 29.1+ and [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:sbt-mode]]
-- [[doom-package:scala-mode]]
-- [[doom-package:scala-ts-mode]] if [[doom-module:+tree-sitter]]
-- [[doom-package:lsp-metals]] if [[doom-module:+lsp]]
+- [[package:sbt-mode]]
+- [[package:scala-mode]]
+- [[package:scala-ts-mode]] if [[module:+tree-sitter]]
+- [[package:lsp-metals]] if [[module:+lsp]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -99,7 +95,7 @@ yay -S metals
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://scalameta.org/scalafmt/docs/installation.html#cli][scalafmt]].
+Formatting is handled using the [[module::editor format]] module via [[https://scalameta.org/scalafmt/docs/installation.html#cli][scalafmt]].
 
 * TODO Usage
 #+begin_quote wip
@@ -121,9 +117,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 - Full reference here: https://scalameta.org/metals/docs/editors/emacs.html
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

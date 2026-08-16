@@ -13,29 +13,25 @@ SAS, Julia and Stata.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~ess-r-mode~. Requires [[doom-module::tools lsp]] and the
+  Enable LSP support for ~ess-r-mode~. Requires [[module::tools lsp]] and the
   [[https://github.com/REditorSupport/languageserver][languageserver]] R package.
 - +stan ::
   Enable support for ~stan-mode~, including code completion and syntax checking.
 
 ** Packages
-- [[doom-package:ess]]
-- [[doom-package:ess-view-data]]
-- [[doom-package:polymode]]
-- [[doom-package:poly-R]]
-- [[doom-package:quarto-mode]]
-- if [[doom-module:+stan]]
-  - [[doom-package:company-stan]] if [[doom-module::completion company]]
-  - [[doom-package:eldoc-stan]]
-  - [[doom-package:flycheck-stan]] if [[doom-module::checkers syntax]]
-  - [[doom-package:stan-mode]]
+- [[package:ess]]
+- [[package:ess-view-data]]
+- [[package:polymode]]
+- [[package:poly-R]]
+- [[package:quarto-mode]]
+- if [[module:+stan]]
+  - [[package:company-stan]] if [[module::completion company]]
+  - [[package:eldoc-stan]]
+  - [[package:flycheck-stan]] if [[module::checkers syntax]]
+  - [[package:stan-mode]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -43,7 +39,7 @@ SAS, Julia and Stata.
 This module has several optional dependencies:
 
 - [[https://github.com/jimhester/lintr][lintr]]: for R linting.
-- [[https://github.com/REditorSupport/languageserver][languageserver]]: for LSP support in an R buffer (with [[doom-module:+lsp]] flag).
+- [[https://github.com/REditorSupport/languageserver][languageserver]]: for LSP support in an R buffer (with [[module:+lsp]] flag).
 
 * TODO Usage
 #+begin_quote wip
@@ -101,9 +97,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

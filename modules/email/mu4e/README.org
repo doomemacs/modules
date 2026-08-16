@@ -7,30 +7,28 @@
 * Description :unfold:
 This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]].
 
-- Tidied mu4e headers view, with flags from [[doom-package:nerd-icons]].
+- Tidied mu4e headers view, with flags from [[pkg:nerd-icons]].
 - Consistent coloring of reply depths (across compose and gnus modes).
 - Prettified =mu4e:main= view.
 - Cooperative locking of the =mu= process. Another Emacs instance may request
   access, or grab the lock when it's available.
-- [[doom-package:org-msg]] integration with [[doom-module:+org]], which can be toggled per-message, with revamped
+- [[package:org-msg]] integration with [[module:+org]], which can be toggled per-message, with revamped
   style and an accent color.
-- Gmail integrations with the [[doom-module:+gmail]] flag.
-- Email notifications with [[doom-package:mu4e-alert]], and (on Linux) a customised notification
+- Gmail integrations with the [[module:+gmail]] flag.
+- Email notifications with [[pkg:mu4e-alert]], and (on Linux) a customised notification
   style.
 
-#+begin_quote
- 💡 I want to live in Emacs, but as we all know, living is incomplete without
-    email. So I prayed to the text editor gods and they (I) answered.
-    Emacs+evil's editing combined with org-mode for writing emails? /Yes
-    please./
+#+begin_quote aside
+I want to live in Emacs, but as we all know, living is incomplete without email.
+So I prayed to the text editor gods and they (I) answered. Emacs+evil's editing
+combined with org-mode for writing emails? /Yes please./
 
-    It uses ~mu4e~ to read my email, but depends on ~offlineimap~ (to sync my
-    email via IMAP) and ~mu~ (to index my mail into a format ~mu4e~ can
-    understand).
+It uses ~mu4e~ to read my email, but depends on ~offlineimap~ (to sync my email via
+IMAP) and ~mu~ (to index my mail into a format ~mu4e~ can understand).
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@tecosaur]]
+- [[github:tecosaur]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -43,21 +41,17 @@ This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/cod
 - +offlineimap ::
   Use [[https://www.offlineimap.org/about/][offlineimap]] to synchronize with mu.
 - +org ::
-  Use [[doom-package:org-msg]] for composing email in Org, then sending a multipart text (ASCII
+  Use [[pkg:org-msg]] for composing email in Org, then sending a multipart text (ASCII
   export) and HTML message.
 
 ** Packages
-- [[doom-package:mu4e-compat]]
-- [[doom-package:org-msg]] if [[doom-module:+org]]
+- [[package:mu4e-compat]]
+- [[package:org-msg]] if [[module:+org]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -171,7 +165,7 @@ use it, set [[var:mu4e-get-mail-command]]:
 
 If your command prompts you for a passphrase, you might want to change the value
 of the ~mu4e~get-mail-password-regexp~ variable
-(~mu4e--get-mail-password-regexp~ if =mu= *>=1.8*) such that [[doom-package:mu4e]] will recognize
+(~mu4e--get-mail-password-regexp~ if =mu= *>=1.8*) such that [[pkg:mu4e]] will recognize
 the prompt and let you provide the passphrase from within Emacs.
 
 ** mu and mu4e
@@ -225,7 +219,7 @@ you are not replying to an email to or from one of the specified aliases, you
 will be prompted for an alias to send from.
 
 *** Gmail
-With the [[doom-module:+gmail]] flag, integrations are applied which account for the different
+With the [[module:+gmail]] flag, integrations are applied which account for the different
 behaviour of Gmail.
 
 The integrations are applied to addresses with /both/ "@gmail.com" in the
@@ -271,7 +265,7 @@ before sending mail. Emacs will prompt you for this password when you attempt to
 send mail. You can store this password as described in [[elisp:(info "(emacs) Authentication")][the relevant info node]].
 
 Alternately, if you're already using =pass= to store your passwords, you can use
-the [[doom-module::tools pass +auth]] module as an auth source. The corresponding
+the [[module::tools pass +auth]] module as an auth source. The corresponding
 entry in your password store should have the same name as your SMTP server (for
 example, it might be called =smtp.bar.com=). You may also need to run the function
 ~auth-source-pass-enable~ at some point.
@@ -313,7 +307,7 @@ the defaults:
 *** Sending mail asynchronously
 Normally, =mu4e= will block Emacs while sending mail, which can be annoying when
 you're on a slow connection and the mail takes a long time to send. There is a
-workaround [[elisp:(info "(mu4e) Writing messages")][in mu4e's manual]] that uses the [[doom-package:async]] library. To use it,
+workaround [[elisp:(info "(mu4e) Writing messages")][in mu4e's manual]] that uses the [[pkg:async]] library. To use it,
 you need to include it in your ~set-email-account!~ block:
 #+begin_src emacs-lisp
 ;; In `set-email-account!'
@@ -321,7 +315,7 @@ you need to include it in your ~set-email-account!~ block:
 (message-send-mail-function . async-smtpmail-send-it)
 #+end_src
 
-If you're using [[doom-module::tools pass +auth]], you also need to ensure that the child
+If you're using [[module::tools pass +auth]], you also need to ensure that the child
 Emacs process can access your password-store:
 #+begin_src emacs-lisp
 ;; This goes OUTSIDE your `set-email-account!' block!
@@ -330,7 +324,7 @@ Emacs process can access your password-store:
 #+end_src
 
 ** OrgMsg
-With the [[doom-module:+org]] flag, [[doom-package:org-msg]] is installed, and ~org-msg-mode~ is enabled before
+With the [[module:+org]] flag, [[pkg:org-msg]] is installed, and ~org-msg-mode~ is enabled before
 composing the first message. To disable ~org-msg-mode~ by default:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
@@ -338,7 +332,7 @@ composing the first message. To disable ~org-msg-mode~ by default:
 #+end_src
 
 To toggle org-msg for a single message, just apply the universal argument to the
-compose or reply command ([[kbd:][SPC u]] with [[doom-package:evil]], [[kbd:][C-u]] otherwise).
+compose or reply command ([[kbd:][SPC u]] with [[pkg:evil]], [[kbd:][C-u]] otherwise).
 
 The accent color that Doom uses can be customised by setting
 ~+org-msg-accent-color~ to a CSS color string.
@@ -395,9 +389,4 @@ Later versions of the =net-mail/mu= package have [[https://gitweb.gentoo.org/rep
 need to switch to the unstable build of =net-mail/mu= to see it.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

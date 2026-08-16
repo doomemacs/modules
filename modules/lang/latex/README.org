@@ -9,48 +9,44 @@ Provide a helping hand when working with LaTeX documents.
 
 - Sane defaults
 - Fontification of many popular commands
-- Pretty indentation of wrapped lines using the [[doom-package:adaptive-wrap]] package
-- Spell checking with [[doom-package:flycheck]]
+- Pretty indentation of wrapped lines using the [[pkg:adaptive-wrap]] package
+- Spell checking with [[pkg:flycheck]]
 - Change PDF viewer to Okular or AUCTeX-selected viewer
 - Bibtex editor
-- Autocompletion using [[doom-package:company-mode]]
+- Autocompletion using [[pkg:company-mode]]
 - Compile your =.tex= code only once using LatexMk
 
 ** Maintainers
-- [[doom-user:][@tecosaur]]
-- [[doom-user:][@ymarco]]
+- [[github:tecosaur]]
+- [[github:ymarco]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +cdlatex ::
-  Enable [[doom-package:cdlatex]] for fast math insertion.
+  Enable [[pkg:cdlatex]] for fast math insertion.
 - +fold ::
-  Use TeX-fold (from [[doom-package:auctex]]) to fold LaTeX macros to unicode, and make folding
+  Use TeX-fold (from [[pkg:auctex]]) to fold LaTeX macros to unicode, and make folding
   hook-based and less manual.
 - +lsp ::
-  Enable LSP support in latex buffers. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support in latex buffers. Requires [[module::tools lsp]] and a langserver
   (supports digestif and TexLab).
 
 ** Packages
-- [[doom-package:adaptive-wrap]]
-- [[doom-package:auctex]]
-- [[doom-package:cdlatex]] if [[doom-module:+cdlatex]]
-- [[doom-package:evil-tex]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:auctex-cont-latexmk]]
-- if [[doom-module::completion company]]
-  - [[doom-package:company-auctex]]
-  - [[doom-package:company-math]]
-  - [[doom-package:company-reftex]]
+- [[package:adaptive-wrap]]
+- [[package:auctex]]
+- [[package:cdlatex]] if [[module:+cdlatex]]
+- [[package:evil-tex]] if [[module::editor evil +everywhere]]
+- [[package:auctex-cont-latexmk]]
+- if [[module::completion company]]
+  - [[package:company-auctex]]
+  - [[package:company-math]]
+  - [[package:company-reftex]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -93,7 +89,7 @@ environment.systemPackages = [ pkgs.texlive.combined.scheme-medium ];
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/cmhughes/latexindent.pl][latexindent]].
+Formatting is handled using the [[module::editor format]] module via [[https://github.com/cmhughes/latexindent.pl][latexindent]].
 
 * TODO Usage
 #+begin_quote wip
@@ -117,7 +113,7 @@ This module provides integration for four supported pdf viewers. They are
 + Sumatra PDF
 + Zathura
 + Okular
-+ pdf-tools (requires [[doom-module::tools pdf]] module)
++ pdf-tools (requires [[module::tools pdf]] module)
 
 They are searched for in this order. See ~+latex-viewers~ to change the order,
 or remove tools from the search altogether. If you want to exclusively use one
@@ -128,8 +124,8 @@ tool, for instance:
 #+end_src
 
 ** Using cdlatex's snippets despite having yasnippet
-[[doom-package:cdlatex]] has a snippet insertion capability which is disabled in favor of
-[[doom-package:yasnippet]] when using [[doom-module::editor snippets]]. If you still wanna use it, simply rebind
+[[pkg:cdlatex]] has a snippet insertion capability which is disabled in favor of
+[[pkg:yasnippet]] when using [[module::editor snippets]]. If you still wanna use it, simply rebind
 the [[kbd:][TAB]] key for cdlatex, which takes care of snippet-related stuff:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
@@ -145,8 +141,4 @@ in latex buffers.
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* Appendix
-** Commands
-- ~+latex/live-preview~: Pop up the viewer of choice and display the document compiled live with each save.
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -5,18 +5,18 @@
 #+since:    21.12.0
 
 * Description :unfold:
-[[doom-package:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
+[[pkg:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
 but largely inspired by the Project Explorer in Eclipse. It shows the file
 system outlines of your projects in a simple tree layout allowing quick
 navigation and exploration, while also possessing basic file management
 utilities. It includes:
 
-- Integration with Git (if [[doom-module::tools magit]] is enabled)
-- Integration with Evil (if [[doom-module::editor evil +everywhere]] is enabled)
-- Workspace awareness (if [[doom-module::ui workspaces]] is enabled)
+- Integration with Git (if [[module::tools magit]] is enabled)
+- Integration with Evil (if [[module::editor evil +everywhere]] is enabled)
+- Workspace awareness (if [[module::ui workspaces]] is enabled)
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -25,25 +25,21 @@ utilities. It includes:
   Enable ~lsp-treemacs~ integration and add shortcuts for common commands.
 
 ** Packages
-- [[doom-package:lsp-treemacs]] if [[doom-module:+lsp]]
-- [[doom-package:treemacs]]
-- [[doom-package:treemacs-nerd-icons]]
-- [[doom-package:treemacs-evil]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:treemacs-magit]] if [[doom-module::tools magit]]
-- [[doom-package:treemacs-persp]] if [[doom-module::ui workspaces]]
-- [[doom-package:treemacs-projectile]]
+- [[package:lsp-treemacs]] if [[module:+lsp]]
+- [[package:treemacs]]
+- [[package:treemacs-nerd-icons]]
+- [[package:treemacs-evil]] if [[module::editor evil +everywhere]]
+- [[package:treemacs-magit]] if [[module::tools magit]]
+- [[package:treemacs-persp]] if [[module::ui workspaces]]
+- [[package:treemacs-projectile]]
 
 ** Hacks
 /No hacks documented for this module./
 
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-If =python3= is present on your =$PATH=, [[doom-package:treemacs]] will use it to display git
+If =python3= is present on your =$PATH=, [[pkg:treemacs]] will use it to display git
 status for files.
 
 * TODO Usage
@@ -81,9 +77,4 @@ There are 3 possible values:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

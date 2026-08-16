@@ -13,7 +13,7 @@ This module adds Lua support to Doom Emacs.
 - Fennel support
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -21,29 +21,25 @@ This module adds Lua support to Doom Emacs.
 - +fennel ::
   Enable support for the Fennel language.
 - +lsp ::
-  Enable LSP support for ~lua-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~lua-mode~. Requires [[module::tools lsp]] and a langserver
   (supports EmmyLua, lua-language-server, and lua-lsp).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires Emacs 30.1+ and [[doom-module::tools tree-sitter]]. Only
+  editing. Requires Emacs 30.1+ and [[module::tools tree-sitter]]. Only
   supports Lua at the moment.
 - +moonscript ::
   Enable support for the Moonscript language.
 
 ** Packages
-- [[doom-package:company-lua]] if [[doom-module::completion company]]
-- [[doom-package:fennel-mode]] if [[doom-module:+fennel]]
-- [[doom-package:lua-mode]]
-- if [[doom-module:+moonscript]]
-  - [[doom-package:flycheck-moonscript]] if [[doom-module::checkers syntax]]
-  - [[doom-package:moonscript-mode]]
+- [[package:company-lua]] if [[module::completion company]]
+- [[package:fennel-mode]] if [[module:+fennel]]
+- [[package:lua-mode]]
+- if [[module:+moonscript]]
+  - [[package:flycheck-moonscript]] if [[module::checkers syntax]]
+  - [[package:moonscript-mode]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -53,8 +49,8 @@ fennel and moonscript transpilers. An LSP server is also required for LSP
 support.
 
 ** Language Server Protocol servers
-LSP server support depends on which flavor of the [[doom-module::tools lsp]] module you have
-installed ([[doom-package:eglot]] or [[doom-package:lsp-mode]]).
+LSP server support depends on which flavor of the [[module::tools lsp]] module you have
+installed ([[pkg:eglot]] or [[pkg:lsp-mode]]).
 
 *** LSP-mode
 Three servers are supported, ordered from highest to lowest priority:
@@ -78,7 +74,7 @@ Eglot currently only supports one of the above servers out of the box:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/JohnnyMorganz/StyLua#installation][Stylua]].
+Formatting is handled using the [[module::editor format]] module via [[https://github.com/JohnnyMorganz/StyLua#installation][Stylua]].
 
 * TODO Usage
 #+begin_quote wip
@@ -90,7 +86,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-- lua-lsp-dir :: This must be set when using [[doom-module:+lsp]] and using [[https://github.com/sumneko/lua-language-server][lua-language-server]].
+- lua-lsp-dir :: This must be set when using [[module:+lsp]] and using [[https://github.com/sumneko/lua-language-server][lua-language-server]].
   This controls where the repository has been cloned and built to finish the
   configuration of the server.
 
@@ -102,9 +98,4 @@ A [[https://github.com/sumneko/lua-language-server/issues/60][catch-all issue]] 
 lua-language-server on non-VSCode platforms.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -5,9 +5,9 @@
 #+since:    24.04.0
 
 * Description :unfold:
-This module provides code completion, powered by [[doom-package:corfu]].
+This module provides code completion, powered by [[pkg:corfu]].
 
-It is recommended to enable either this or [[doom-module::completion company]] in
+It is recommended to enable either this or [[module::completion company]] in
 case you desire pre-configured auto-completion. Corfu is much lighter weight and
 focused, plus it's built on native Emacs functionality, whereas Company is heavy
 and highly non-native, but has some extra features and more maturity.
@@ -17,8 +17,8 @@ README]], as the backend is very configurable and provides many power-user
 utilities for fine-tuning. Only some of common behaviors are documented here.
 
 ** Maintainers
-- [[doom-user:][@LuigiPiucco]]
-- [[doom-user:][@LemonBreezes]]
+- [[github:LuigiPiucco]]
+- [[github:LemonBreezes]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -26,26 +26,22 @@ utilities for fine-tuning. Only some of common behaviors are documented here.
 - +icons ::
   Display icons beside completion suggestions.
 - +orderless ::
-  Pull in [[doom-package:orderless]] if necessary and apply multi-component
-  completion (still needed if [[doom-module::completion vertico]] is active).
+  Pull in [[pkg:orderless]] if necessary and apply multi-component
+  completion (still needed if [[module::completion vertico]] is active).
 - +dabbrev ::
-  Enable and configure [[doom-package:dabbrev]] as a close-to-universal CAPF
+  Enable and configure [[pkg:dabbrev]] as a close-to-universal CAPF
   fallback.
 
 ** Packages
-- [[doom-package:corfu]]
-- [[doom-package:cape]]
-- [[doom-package:nerd-icons-corfu]] if [[doom-module::completion corfu +icons]]
-- [[doom-package:orderless]] if [[doom-module::completion corfu +orderless]]
-- [[doom-package:corfu-terminal]] if [[doom-module::os tty]]
-- [[doom-package:yasnippet-capf]] if [[doom-module::editor snippets]]
+- [[package:corfu]]
+- [[package:cape]]
+- [[package:nerd-icons-corfu]] if [[module::completion corfu +icons]]
+- [[package:orderless]] if [[module::completion corfu +orderless]]
+- [[package:corfu-terminal]] if [[module::os tty]]
+- [[package:yasnippet-capf]] if [[module::editor snippets]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 Enable this module in your ~doom!~ block.
@@ -59,8 +55,8 @@ supports generic, context insensitive candidates such as file names or recurring
 words. Snippets may also appear in the candidate list if available.
 
 * TODO Usage
-#+begin_quote
- 🔨 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+#+begin_quote wip
+/This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
 By default, completion gets triggered after typing 2 non-space consecutive
@@ -143,7 +139,7 @@ You may unbind them by setting to nil, see ~map!~'s documentation.
 | [[kbd:][S-TAB]]   | Go to previous candidate |
 
 ** Searching with multiple keywords (~+orderless~)
-If the [[doom-module::completion corfu +orderless]] flag is enabled, users can
+If the [[module::completion corfu +orderless]] flag is enabled, users can
 perform code completion with multiple search keywords by use of space as the
 separator. More information can be found [[https://github.com/oantolin/orderless#company][here]]. Pressing [[kdb:][C-SPC]] again while
 completing inserts a space as separator. This allows searching with
@@ -165,7 +161,7 @@ you accidentaly press more than needed.
 ** Exporting to the minibuffer
 The entries shown in the completion popup can be exported to a ~completing-read~
 minibuffer, giving access to all the manipulations that suite allows. Using
-Vertico for instance, one could use this to export with [[doom-package:embark]] via
+Vertico for instance, one could use this to export with [[pkg:embark]] via
 [[kbd:][C-c C-l]] and get a buffer with all candidates.
 
 * Configuration
@@ -250,7 +246,7 @@ To add other CAPFs to keys, adapt the snippet below into your ~config.el~:
 It's okay to add to the mode directly because ~completion-at-point~ works
 regardless of Corfu (the latter is an enhanced UI for the former). Just note not
 all CAPFs are interactive to be called this way, in which case you can use
-[[doom-package:cape]]'s adapter to enable this.
+[[pkg:cape]]'s adapter to enable this.
 
 * Troubleshooting
 [[doom-report:][Report an issue?]]
@@ -313,9 +309,4 @@ If ever in a situation like this, use ~describe-key~ with ~C-h k~ and look at wh
 command is being called as well as what keymaps the command is defined in.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote
- 🔨 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

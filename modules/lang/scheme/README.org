@@ -23,25 +23,21 @@ This module provides support for the Scheme family of Lisp languages, powered by
 - +racket ::
 
 ** Packages
-- [[doom-package:flycheck-guile]] if [[doom-module:+guile]] and [[doom-module::checkers syntax]]
-- [[doom-package:geiser]]
-- [[doom-package:geiser-chez]] if [[doom-module:+chez]]
-- [[doom-package:geiser-chibi]] if [[doom-module:+chibi]]
-- [[doom-package:geiser-chicken]] if [[doom-module:+chicken]]
-- [[doom-package:geiser-gambit]] if [[doom-module:+gambit]]
-- [[doom-package:geiser-gauche]] if [[doom-module:+gauche]]
-- [[doom-package:geiser-guile]] if [[doom-module:+guile]]
-- [[doom-package:geiser-kawa]] if [[doom-module:+kawa]]
-- [[doom-package:geiser-mit]] if [[doom-module:+mit]]
-- [[doom-package:geiser-racket]] if [[doom-module:+racket]]
-- [[doom-package:macrostep-geiser]]
+- [[package:flycheck-guile]] if [[module:+guile]] and [[module::checkers syntax]]
+- [[package:geiser]]
+- [[package:geiser-chez]] if [[module:+chez]]
+- [[package:geiser-chibi]] if [[module:+chibi]]
+- [[package:geiser-chicken]] if [[module:+chicken]]
+- [[package:geiser-gambit]] if [[module:+gambit]]
+- [[package:geiser-gauche]] if [[module:+gauche]]
+- [[package:geiser-guile]] if [[module:+guile]]
+- [[package:geiser-kawa]] if [[module:+kawa]]
+- [[package:geiser-mit]] if [[module:+mit]]
+- [[package:geiser-racket]] if [[module:+racket]]
+- [[package:macrostep-geiser]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -54,7 +50,7 @@ associated Schemes, namely:
 - [[https://synthcode.com/scheme/chibi][Chibi Scheme]] 0.7.3 or better
 - [[https://www.scheme.com][Chez Scheme]] 9.4 or better
 
-Their executables must be present in your =$PATH= for [[doom-package:geiser]] to work properly.
+Their executables must be present in your =$PATH= for [[pkg:geiser]] to work properly.
 
 * TODO Usage
 #+begin_quote wip
@@ -74,9 +70,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

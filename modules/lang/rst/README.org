@@ -14,14 +14,10 @@ This module adds [[https://docutils.sourceforge.io/rst.html][ReStructured Text]]
 /This module has no flags./
 
 ** Packages
-- [[doom-package:sphinx-mode]]
+- [[package:sphinx-mode]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -30,7 +26,7 @@ This module requires [[https://www.sphinx-doc.org/en/master/usage/installation.h
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/dzhu/rstfmt#usage][rstfmt]].
+Formatting is handled using the [[module::editor format]] module via [[https://github.com/dzhu/rstfmt#usage][rstfmt]].
 
 * TODO Usage
 #+begin_quote wip
@@ -46,9 +42,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

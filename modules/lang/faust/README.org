@@ -21,17 +21,17 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
   shortcuts, etc.)
 - Automatic keyword completion (if Auto-Complete is installed)
 - Automatic objets (functions, operators, etc.) template insertion with default
-  sensible values (if [[doom-module::editor snippets]] is enabled)
+  sensible values (if [[module::editor snippets]] is enabled)
 - Modeline indicator of the state of the code
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Packages
-- [[doom-package:faustine]]
+- [[package:faustine]]
 
 ** Hacks
-- Both ~faust-mode~ and ~faustine-mode~ are hardcoded to use [[doom-package:auto-complete]],
+- Both ~faust-mode~ and ~faustine-mode~ are hardcoded to use [[pkg:auto-complete]],
   which Doom does not use. Its obnoxious 'You really should install and use
   auto-complete' warnings have been silenced.
 
@@ -62,9 +62,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

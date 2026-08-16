@@ -7,14 +7,14 @@
 * Description :unfold:
 This module adds [[https://www.python.org/][Python]] support to Doom Emacs.
 
-- Syntax checking ([[doom-package:flycheck]])
+- Syntax checking ([[pkg:flycheck]])
 - Snippets
-- Run tests ([[doom-package:nose]], [[doom-package:pytest]])
-- Auto-format (with ~black~, requires [[doom-module::editor format]])
+- Run tests ([[pkg:nose]], [[pkg:pytest]])
+- Auto-format (with ~black~, requires [[module::editor format]])
 - LSP integration (=pyls=, =jedi=, =ruff=, =pyright=, or =basedpyright=)
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -25,46 +25,42 @@ This module adds [[https://www.python.org/][Python]] support to Doom Emacs.
   Enable support for Cython files support.
 - +lsp ::
   Enable LSP support for ~python-mode~ and ~python-ts-mode~. Requires
-  [[doom-module::tools lsp]] and an LSP server (e.g. =ty= (recommended), =pyright=,
+  [[module::tools lsp]] and an LSP server (e.g. =ty= (recommended), =pyright=,
   =basedpyright=, =jedi=, =ruff=).
 - +poetry ::
   Enable Python packaging, dependency management, and virtual environment
   support via [[https://python-poetry.org/][Poetry]].
 - +pyenv ::
   Enable Python virtual environment support via [[https://github.com/pyenv/pyenv][pyenv]]. Cannot be used together
-  with [[doom-module:+uv]].
+  with [[module:+uv]].
 - +pyright ::
-  Add support for the pyright LSP server (requires [[doom-module:+lsp]]).
+  Add support for the pyright LSP server (requires [[module:+lsp]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]]. Support is much improved on
+  editing. Requires [[module::tools tree-sitter]]. Support is much improved on
   Emacs 30 and newer.
 - +uv ::
   Enable Python virtual environment support via [[https://github.com/astral-sh/uv][uv]]. Cannot be used together with
-  [[doom-module:+pyenv]].
+  [[module:+pyenv]].
 
 ** Packages
-- [[doom-package:conda]] if [[doom-module:+conda]]
-- [[doom-package:nose]]
-- [[doom-package:pipenv]]
-- [[doom-package:pip-requirements]]
-- [[doom-package:poetry]] if [[doom-module:+poetry]]
-- [[doom-package:pyenv]] if [[doom-module:+pyenv]]
-- [[doom-package:uvenv]] if [[doom-module:+uv]]
-- [[doom-package:python-pytest]]
-- if [[doom-module:+cython]]
-  - [[doom-package:cython-mode]]
-  - [[doom-package:flycheck-cython]] if [[doom-module::checkers syntax]]
-- if [[doom-module:+lsp]]
-  - if [[doom-module:+pyright]]
-    - [[doom-package:lsp-pyright]]
+- [[package:conda]] if [[module:+conda]]
+- [[package:nose]]
+- [[package:pipenv]]
+- [[package:pip-requirements]]
+- [[package:poetry]] if [[module:+poetry]]
+- [[package:pyenv]] if [[module:+pyenv]]
+- [[package:uvenv]] if [[module:+uv]]
+- [[package:python-pytest]]
+- if [[module:+cython]]
+  - [[package:cython-mode]]
+  - [[package:flycheck-cython]] if [[module::checkers syntax]]
+- if [[module:+lsp]]
+  - if [[module:+pyright]]
+    - [[package:lsp-pyright]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -76,13 +72,13 @@ This module has no hard requirements, but softly depends on:
   | Checker    | Flycheck support        | Flymake support |
   |------------+-------------------------+-----------------|
   | pylint     | built-in                | built-in [fn:1]     |
-  | pyflakes   | needs [[doom-package:flycheck-pyflakes][package]] | built-in [fn:1]     |
+  | pyflakes   | needs [[pkg:flycheck-pyflakes][package]] | built-in [fn:1]     |
   | ruff       | built-in                | built-in [fn:1]     |
   | flake8     | built-in                | built-in [fn:1]     |
   | pyright    | built-in                | no              |
   | py_compile | built-in                | no              |
   | mypy       | built-in                | no              |
-  | cython     | needs [[doom-module:+cython]]           | no              |
+  | cython     | needs [[module:+cython]]           | no              |
 
   [fn:1] *Flymake users only:* The python-check-command variable sets what checker to
   use for flymake. It will search for pyflakes, ruff, flake8, and epylint in
@@ -97,7 +93,7 @@ This module has no hard requirements, but softly depends on:
   Flycheck users should use ~M-x flycheck-verify-setup~ to see what checkers are
   available, what state they're in, and why.
 
-- The [[doom-module::editor format]] module uses [[https://github.com/psf/black][Black]] for
+- The [[module::editor format]] module uses [[https://github.com/psf/black][Black]] for
   formatting python files.
 
 - Python virtual environments install instructions at:
@@ -114,8 +110,8 @@ This module has no hard requirements, but softly depends on:
   - nose :: ~$ pip install nose~
 
 ** Language Server Protocol Support
-For LSP support the [[doom-module::tools lsp]] module must be enabled, along with
-this module's [[doom-module:+lsp]] flag. It supports anything that lsp-mode and
+For LSP support the [[module::tools lsp]] module must be enabled, along with
+this module's [[module:+lsp]] flag. It supports anything that lsp-mode and
 Eglot support. [[https://github.com/astral-sh/ty][ty]] is recommended. Some can be installed from within Emacs using
 ~M-x lsp-install-server~, others are available through OS package managers or pip.
 E.g.
@@ -146,7 +142,7 @@ To prioritize ~ty~:
 #+end_src
 
 ** Formatter
-Formatting is handled by the [[doom-module::editor format]] module. Python buffers
+Formatting is handled by the [[module::editor format]] module. Python buffers
 use [[https://black.readthedocs.io/en/stable/getting_started.html#installation][black]], by default. [[https://github.com/astral-sh/ruff][ruff]] is also supported:
 #+begin_src elisp
 ;;; Add to $DOOMDIR/config.el
@@ -155,7 +151,7 @@ use [[https://black.readthedocs.io/en/stable/getting_started.html#installation][
 #+end_src
 
 Formatters can also be set per-project in a =.dir-locals.el= file or file-local
-variables. See [[doom-module::editor format]]'s documentation for details.
+variables. See [[module::editor format]]'s documentation for details.
 
 * TODO Usage
 #+begin_quote wip
@@ -165,7 +161,7 @@ variables. See [[doom-module::editor format]]'s documentation for details.
 This module supports LSP. It requires an LSP server, like [[https://github.com/astral-sh/ty][ty]] (recommended). See [[Language Server Protocol
  Support][LSP Support]].
 
-To enable support for auto-formatting with black enable [[doom-module::editor
+To enable support for auto-formatting with black enable [[module::editor
 format]].
 
 ** Keybindings
@@ -212,9 +208,4 @@ doctor='s global checks for executables is significantly less useful for
 detecting missing dependencies, so it will only report the bare minimum.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

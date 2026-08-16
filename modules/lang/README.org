@@ -8,4 +8,4 @@ These modules specialize in the integration of particular languages and their
 ecosystems into (Doom) Emacs.
 
 * Frequently asked questions
-/This category has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This category has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

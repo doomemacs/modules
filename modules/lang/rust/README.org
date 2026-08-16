@@ -8,9 +8,9 @@
 This module adds support for the Rust language and integration for its tools,
 e.g. ~cargo~.
 
-- Code completion ([[doom-package:racer]] or an LSP server)
-- Syntax checking ([[doom-package:flycheck]])
-- LSP support (for rust-analyzer and rls) ([[doom-package:rustic]])
+- Code completion ([[pkg:racer]] or an LSP server)
+- Syntax checking ([[pkg:flycheck]])
+- LSP support (for rust-analyzer and rls) ([[pkg:rustic]])
 - Snippets
 
 ** Maintainers
@@ -20,24 +20,20 @@ e.g. ~cargo~.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~rustic-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~rustic-mode~. Requires [[module::tools lsp]] and a langserver
   (supports [[https://rust-analyzer.github.io/][rust-analyzer]] and rls).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:rust-mode]]
-- [[doom-package:rustic]]
+- [[package:rust-mode]]
+- [[package:rustic]]
 
 ** Hacks
 - rustic has been modified /not/ to automatically install lsp-mode or eglot if
-  they're missing. Doom expects you to have enabled the [[doom-module::tools lsp]] module
+  they're missing. Doom expects you to have enabled the [[module::tools lsp]] module
   yourself.
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -54,20 +50,19 @@ $ rustup update --no-self-update
 
 To install and manage Rust on Windows, consult [[https://forge.rust-lang.org/infra/other-installation-methods.html][Rust's official documentation]].
 
-#+begin_quote
- 󰐃 Once installed, I recommended that you add Cargo's executable to your
-    ~$PATH~, so that the Emacs utilities that depend on it -- or any tools
-    installed through it -- can easily locate them (without any added
-    configuration on your part).
+#+begin_quote tip
+Once installed, I recommended that you add Cargo's executable to your ~$PATH~, so
+that the Emacs utilities that depend on it -- or any tools installed through it
+-- can easily locate them (without any added configuration on your part).
 
-    Also, if you have used ~$ doom sync --env~ in the past, changes to your
-    ~$PATH~ won't be visible to Doom until you run ~$ doom sync~ again.
+Also, if you have used ~$ doom sync --env~ in the past, changes to your ~$PATH~
+won't be visible to Doom until you run ~$ doom sync~ again.
 #+end_quote
 
 ** Other Requirements
-- If [[doom-module::editor format]] is enabled, you'll need =rustfmt=: ~$ rustup component add
+- If [[module::editor format]] is enabled, you'll need =rustfmt=: ~$ rustup component add
   rustfmt~.
-- Users with [[doom-module:+lsp]] enabled will need [[github:rust-analyzer/rust-analyzer][rust-analyzer]] (rls is supported,
+- Users with [[module:+lsp]] enabled will need [[github:rust-analyzer/rust-analyzer][rust-analyzer]] (rls is supported,
   but [[https://blog.rust-lang.org/2022/07/01/RLS-deprecation.html][deprecated]]).
 - Using the following commands requires:
   - ~cargo-process-check~: ~$ cargo install cargo-check~
@@ -88,12 +83,12 @@ $ rustup component add rust-analyzer rust-src
 
 If your needs are more complex, consult [[https://rust-analyzer.github.io/manual.html#installation][rust-analyzer's documentation]].
 
-Finally, enable Doom's [[doom-module::tools lsp]] module, and this module's
-[[doom-module:+lsp]] flag ([[id:01cffea4-3329-45e2-a892-95a384ab2338][how to enable modules and their flags]]), and you're good
+Finally, enable Doom's [[module::tools lsp]] module, and this module's
+[[module:+lsp]] flag ([[id:01cffea4-3329-45e2-a892-95a384ab2338][how to enable modules and their flags]]), and you're good
 to go!
 
 ** Format on save
-Enable [[doom-module::editor format +onsave]] to get formatting on save with
+Enable [[module::editor format +onsave]] to get formatting on save with
 =rustfmt=. No additional configuration is necessary.
 
 ** Keybinds
@@ -117,7 +112,7 @@ Enable [[doom-module::editor format +onsave]] to get formatting on save with
 #+end_quote
 
 ** Enabling eglot support for Rust
-Doom's [[doom-module::tools lsp]] module has an [[doom-module:+eglot]] flag. Enable it and this module will use
+Doom's [[module::tools lsp]] module has an [[module:+eglot]] flag. Enable it and this module will use
 eglot instead.
 
 * Troubleshooting
@@ -126,15 +121,10 @@ eglot instead.
 ** error[E0670]: `async fn` is not permitted in the 2015 edition
 You may be seeing this error, despite having ~edition = "2018"~ in your
 =Cargo.toml=. This error actually originates from ~rustfmt~, which the LSP
-server tries to invoke on save (if you have ~rustic-format-trigger~ or [[doom-module::editor
+server tries to invoke on save (if you have ~rustic-format-trigger~ or [[module::editor
 format]] enabled).
 
 To fix this your project needs a =rustfmt.toml= with ~edition = "2018"~ in it.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

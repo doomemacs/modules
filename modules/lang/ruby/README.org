@@ -10,7 +10,7 @@ This module add Ruby and optional Ruby on Rails support to Emacs. IDE features
 client (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[https://github.com/castwide/solargraph][solargraph]]).
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -18,7 +18,7 @@ client (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[http
 - +chruby ::
   Enable chruby integration.
 - +lsp ::
-  Enable LSP support for ~ruby-mode~. Requires [[doom-module::tools lsp]] and a
+  Enable LSP support for ~ruby-mode~. Requires [[module::tools lsp]] and a
   langserver (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[https://github.com/castwide/solargraph][solargraph]]).
 - +rails ::
   Enable rails navigational commands, plus server+console integration.
@@ -28,29 +28,24 @@ client (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[http
   Enable RVM (Ruby Version Manager) integration.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:bundler]]
-- [[doom-package:chruby]] if [[doom-module:+chruby]]
-- [[doom-package:company-inf-ruby]] if :completion company
-- [[doom-package:inf-ruby]]
-- [[doom-package:minitest]]
-- [[doom-package:rake]]
-- [[doom-package:rbenv]] if [[doom-module:+rbenv]]
-- [[doom-package:rspec-mode]]
-- [[doom-package:rvm]] if [[doom-module:+rvm]]
-- if [[doom-module:+rails]]
-  - [[doom-package:inflections]]
-  - [[doom-package:projectile-rails]]
+- [[package:bundler]]
+- [[package:chruby]] if [[module:+chruby]]
+- [[package:company-inf-ruby]] if :completion company
+- [[package:inf-ruby]]
+- [[package:minitest]]
+- [[package:rake]]
+- [[package:rbenv]] if [[module:+rbenv]]
+- [[package:rspec-mode]]
+- [[package:rvm]] if [[module:+rvm]]
+- if [[module:+rails]]
+  - [[package:inflections]]
+  - [[package:projectile-rails]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -64,7 +59,7 @@ These guides will help you install Ruby:
 - [[https://gorails.com/setup/windows/10][Windows]]
 
 ** Formatter
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
 #+begin_quote wip
@@ -134,9 +129,4 @@ addressed upstream. PRs to fix them locally are welcome.
   intermediary class (i.e. has side-effects).
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -19,14 +19,14 @@ intuitive out of the box:
 - A configuration for using org-mode for slide-show presentations or exporting
   org files to reveal.js slideshows.
 - Drag-and-drop support for images (with inline preview) and media files (drops
-  a file icon and a short link) (requires [[doom-module:+dragndrop]] flag).
+  a file icon and a short link) (requires [[module:+dragndrop]] flag).
 - Integration with pandoc, jupyter, reveal.js, beamer, and others (requires
   flags).
 - Export-to-clipboard functionality, for copying text into formatted html,
   markdown or rich text to the clipboard (see fn:+org/export-to-clipboard and
   fn:+org/export-to-clipboard-as-rich-text).
 
-#+begin_quote
+#+begin_quote excerpt
 Org is a system for writing plain text notes with syntax highlighting, code
 execution, task scheduling, agenda management, and many more. The whole idea is
 that you can write notes and mix them with references to things like articles,
@@ -37,7 +37,7 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -46,19 +46,19 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
   Enable drag-and-drop support for images and files; inserts inline previews for
   images and an icon+link for other media types.
 - +crypt ::
-  Enable [[doom-package:org-crypt]] integraiton for encryption and decryption on org
+  Enable [[pkg:org-crypt]] integraiton for encryption and decryption on org
   files.
 - +gnuplot ::
   Install gnuplot & gnuplot-mode, which enables rendering images from gnuplot
   src blocks or plotting tables with fn:org-plot/gnuplot (bound to [[kbd:][SPC m b p]], by
   default).
 - +journal ::
-  Enable [[doom-package:org-journal]] integration.
+  Enable [[pkg:org-journal]] integration.
 - +jupyter ::
   Enable Jupyter integration for babel.
 - +noter ::
-  Enable [[doom-package:org-noter]] integration. Keeps notes in sync with a
-  document. Requires [[doom-module::tools pdf]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html][DocView]], or [[https://github.com/wasamasa/nov.el][nov.el]] to be enabled.
+  Enable [[pkg:org-noter]] integration. Keeps notes in sync with a
+  document. Requires [[module::tools pdf]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html][DocView]], or [[https://github.com/wasamasa/nov.el][nov.el]] to be enabled.
 - +pandoc ::
   Enable pandoc integration into the Org exporter.
 - +present ::
@@ -72,74 +72,74 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
   Enable integration with [[https://github.com/org-roam/org-roam][org-roam v2]].
 
 ** Packages
-- [[doom-package:htmlize]]
-- [[doom-package:ob-async]]
-- [[doom-package:org]]
-- [[doom-package:org-cliplink]]
-- [[doom-package:org-contrib]]
-- [[doom-package:ox-clip]]
-- [[doom-package:toc-org]]
+- [[package:htmlize]]
+- [[package:ob-async]]
+- [[package:org]]
+- [[package:org-cliplink]]
+- [[package:org-contrib]]
+- [[package:ox-clip]]
+- [[package:toc-org]]
 
 *** From Flags
-- [[doom-module:+dragndrop]]
-  - [[doom-package:org-download]]
-- [[doom-module:+gnuplot]]
-  - [[doom-package:gnuplot]]
-  - [[doom-package:gnuplot-mode]]
-- [[doom-module:+jupyter]]
-  - [[doom-package:jupyter]]
-- [[doom-module:+noter]]
-  - [[doom-package:org-noter]]
-- [[doom-module:+pandoc]]
-  - [[doom-package:ox-pandoc]]
-- [[doom-module:+present]]
-  - [[doom-package:centered-window]]
-  - [[doom-package:org-tree-slide]]
-  - [[doom-package:org-re-reveal]]
-- [[doom-module:+pretty]]
-  - [[doom-package:org-appear]]
-  - [[doom-package:org-modern]]
-- [[doom-module:+roam]]
-  - [[doom-package:org-roam]]
+- [[module:+dragndrop]]
+  - [[package:org-download]]
+- [[module:+gnuplot]]
+  - [[package:gnuplot]]
+  - [[package:gnuplot-mode]]
+- [[module:+jupyter]]
+  - [[package:jupyter]]
+- [[module:+noter]]
+  - [[package:org-noter]]
+- [[module:+pandoc]]
+  - [[package:ox-pandoc]]
+- [[module:+present]]
+  - [[package:centered-window]]
+  - [[package:org-tree-slide]]
+  - [[package:org-re-reveal]]
+- [[module:+pretty]]
+  - [[package:org-appear]]
+  - [[package:org-modern]]
+- [[module:+roam]]
+  - [[package:org-roam]]
 
 *** From Modules
-- [[doom-module::editor evil]]
-  - [[doom-package:evil-org]]
-- [[doom-module::lang crystal]]
-  - [[doom-package:ob-crystal]]
-- [[doom-module::lang elixir]]
-  - [[doom-package:ob-elixir]]
-- [[doom-module::lang fsharp]]
-  - [[doom-package:ob-fsharp]]
-- [[doom-module::lang go]]
-  - [[doom-package:ob-go]]
-- [[doom-module::lang hy]]
-  - [[doom-package:ob-hy]]
-- [[doom-module::lang nim]]
-  - [[doom-package:ob-nim]]
-- [[doom-module::lang php]]
-  - [[doom-package:ob-php]]
-- [[doom-module::lang racket]]
-  - [[doom-package:ob-racket]]
-- [[doom-module::lang rest]]
-  - [[doom-package:ob-restclient]]
-- [[doom-module::lang rst]]
-  - [[doom-package:ox-rst]]
-- [[doom-module::lang scala]]
-  - [[doom-package:ob-ammonite]]
-- [[doom-module::os macos]]
-  - [[doom-package:org-mac-link]]
+- [[module::editor evil]]
+  - [[package:evil-org]]
+- [[module::lang crystal]]
+  - [[package:ob-crystal]]
+- [[module::lang elixir]]
+  - [[package:ob-elixir]]
+- [[module::lang fsharp]]
+  - [[package:ob-fsharp]]
+- [[module::lang go]]
+  - [[package:ob-go]]
+- [[module::lang hy]]
+  - [[package:ob-hy]]
+- [[module::lang nim]]
+  - [[package:ob-nim]]
+- [[module::lang php]]
+  - [[package:ob-php]]
+- [[module::lang racket]]
+  - [[package:ob-racket]]
+- [[module::lang rest]]
+  - [[package:ob-restclient]]
+- [[module::lang rst]]
+  - [[package:ox-rst]]
+- [[module::lang scala]]
+  - [[package:ob-ammonite]]
+- [[module::os macos]]
+  - [[package:org-mac-link]]
 
 ** Hacks
 - Adds support for a ~:sync~ parameter for org src blocks. This overrides
   ~:async~.
-- Gracefully degrades ~:async~ babel blocks to ~:sync~ when [[doom-package:ob-async]] would cause
-  errors or issues (such as with a ~:session~ parameter, which [[doom-package:ob-async]] does not
+- Gracefully degrades ~:async~ babel blocks to ~:sync~ when [[pkg:ob-async]] would cause
+  errors or issues (such as with a ~:session~ parameter, which [[pkg:ob-async]] does not
   support, or when exporting org documents).
 - The window is recentered when following links.
 - The breadcrumbs displayed in eldoc when hovering over an org headline has been
   reworked to strip out link syntax and normalize font-size disparities.
-- If [[doom-module::ui workspaces]] is enabled, persp-mode won't register org agenda buffers
+- If [[module::ui workspaces]] is enabled, persp-mode won't register org agenda buffers
   that are temporarily opened in the background.
 - Temporary org agenda files aren't added to recentf.
 - =file:= links are highlighted with the [[face:error]] face if they are broken.
@@ -165,23 +165,19 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
   resolved relative to [[var:org-directory]], instead of [[var:default-directory]] (see
   [[fn:+org--capture-expand-variable-file-a]]).
 
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
-
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module has no hard requirements, but these soft requirements are needed to
 use Org's more esoteric features:
 - For inline LaTeX previews, ~latex~ and ~dvipng~ is needed.
-- To render GNUPlot images (with [[doom-module:+gnuplot]] flag) the ~gnuplot~ program is needed.
+- To render GNUPlot images (with [[module:+gnuplot]] flag) the ~gnuplot~ program is needed.
 - To execute babel code blocks, you need whatever dependencies those languages
-  need. It is recommended you enable the associated [[doom-module::lang]] module and ensure its
+  need. It is recommended you enable the associated [[module::lang]] module and ensure its
   dependencies are met, e.g. install the ~ruby~ executable for ruby support. To
-  use ~jupyter kernels~ you need the [[doom-module:+jupyter]] flag, the associated kernel as
+  use ~jupyter kernels~ you need the [[module:+jupyter]] flag, the associated kernel as
   well as the ~jupyter~ program.
-- [[doom-package:org-roam]] (with the [[doom-module:+roam]] flag) requires Emacs to be
+- [[package:org-roam]] (with the [[module:+roam]] flag) requires Emacs to be
   built with sqlite support.
 
 ** MacOS
@@ -196,7 +192,7 @@ pacman -S texlive-core texlive-bin texlive-science texlive-latexextra
 pacman -S gnuplot
 #+end_src
 
-For [[doom-module:+jupyter]], install =jupyterlab= or =jupyter-notebook= ([[https://wiki.archlinux.org/title/Jupyter][source]]).
+For [[module:+jupyter]], install =jupyterlab= or =jupyter-notebook= ([[https://wiki.archlinux.org/title/Jupyter][source]]).
 
 ** Debian & Ubuntu
 #+begin_src sh
@@ -259,7 +255,7 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 #+end_quote
 
 ** Changing ~org-directory~
-~org-directory~ must be set /before/ [[doom-package:org]] has loaded:
+~org-directory~ must be set /before/ [[pkg:org]] has loaded:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq org-directory "~/new/org/location/")
@@ -275,9 +271,4 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

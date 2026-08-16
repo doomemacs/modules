@@ -10,7 +10,7 @@
 * Description :unfold:
 This module adds [[https://openscad.org/][OpenSCAD]] support to Doom Emacs.
 
-- Syntax highlighting ([[doom-package:scad-mode]] or [[doom-package:scad-ts-mode]] with tree-sitter)
+- Syntax highlighting ([[pkg:scad-mode]] or [[pkg:scad-ts-mode]] with tree-sitter)
 - Preview rendered models (~scad-preview~)
 - Export to STL, SVG, PNG, etc. (~scad-export~)
 - Flymake integration for inline error/warning display
@@ -19,30 +19,26 @@ This module adds [[https://openscad.org/][OpenSCAD]] support to Doom Emacs.
 - Tree-sitter integration for superior indentation and highlighting
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP integration via ~openscad-lsp~. Works with both [[doom-package:lsp-mode]]
-  and [[doom-package:eglot]]. Requires [[doom-module::tools lsp]] and the ~openscad-lsp~
+  Enable LSP integration via ~openscad-lsp~. Works with both [[pkg:lsp-mode]]
+  and [[pkg:eglot]]. Requires [[module::tools lsp]] and the ~openscad-lsp~
   executable in your ~$PATH~.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting, indentation, and
-  structural text editing. Requires Emacs 29.1+ and [[doom-module::tools
+  structural text editing. Requires Emacs 29.1+ and [[module::tools
   tree-sitter]].
 
 ** Packages
-- [[doom-package:scad-mode]]
-- [[doom-package:scad-ts-mode]] if [[doom-module:+tree-sitter]]
+- [[package:scad-mode]]
+- [[package:scad-ts-mode]] if [[module:+tree-sitter]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -51,7 +47,7 @@ This module requires OpenSCAD (~openscad~ CLI) for preview and export
 functionality. Pre-built binaries are available from
 [[https://openscad.org/downloads.html]].
 
-For LSP support, enable the [[doom-module:+lsp]] flag and the [[doom-module::tools lsp]]
+For LSP support, enable the [[module:+lsp]] flag and the [[module::tools lsp]]
 module, then install ~openscad-lsp~ (see [[https://github.com/Leathong/openscad-LSP]])
 and ensure it is in your ~$PATH~.
 
@@ -60,14 +56,14 @@ and ensure it is in your ~$PATH~.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-When [[doom-module:+lsp]] is enabled, the preview buffer is set to Emacs state in
+When [[module:+lsp]] is enabled, the preview buffer is set to Emacs state in
 evil to ensure camera controls work correctly.
 
 ** Org-babel
 This module registers ~scad~ as an org-babel language. Use it in your org
 documents with ~#+begin_src scad~ ... ~#+end_src~. Results default to a file output
 (:results file) and code is exported (:exports code). When
-[[doom-module:+tree-sitter]] is active, source blocks are edited in ~scad-ts-mode~.
+[[module:+tree-sitter]] is active, source blocks are edited in ~scad-ts-mode~.
 
 ** Keybinds
 *** Scad mode
@@ -102,9 +98,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

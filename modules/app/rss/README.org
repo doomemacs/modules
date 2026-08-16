@@ -12,16 +12,16 @@ Read RSS feeds in the comfort of Emacs.
 
 ** Module flags
 - +org ::
-  Enable [[doom-package:elfeed-org]], so you can configure your feeds with an org file
+  Enable [[pkg:elfeed-org]], so you can configure your feeds with an org file
   (={org-directory}/elfeed.org=) rather than Elisp.
 - +youtube ::
-  Enable [[doom-package:elfeed-tube]], for tighter integration between elfeed and
+  Enable [[pkg:elfeed-tube]], for tighter integration between elfeed and
   your Youtube subscriptions.
 
 ** Packages
-- [[doom-package:elfeed]]
-- [[doom-package:elfeed-org]] if [[doom-module:+org]]
-- [[doom-package:elfeed-tube]] if [[doom-module:+youtube]]
+- [[package:elfeed]]
+- [[package:elfeed-org]] if [[module:+org]]
+- [[package:elfeed-tube]] if [[module:+youtube]]
 
 ** Hacks
 - By default ~elfeed-search-filter~ is set to ~@2-weeks-ago~ and makes the last
@@ -31,10 +31,6 @@ Read RSS feeds in the comfort of Emacs.
   (with-eval-after-load 'elfeed
     (setq elfeed-search-filter "@1-month-ago +unread"))
   #+end_src
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -128,9 +124,4 @@ Hook ~elfeed-update~ to ~elfeed-search-mode-hook~:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

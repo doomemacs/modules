@@ -17,23 +17,19 @@ This module adds [[https://fsharp.org/][F#]] support to Doom Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~fsharp-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~fsharp-mode~. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/emacs-lsp/lsp-mode/blob/master/clients/lsp-fsharp.el][lsp-fsharp]].).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires Emacs 29.1+ and [[doom-module::tools tree-sitter]].
+  editing. Requires Emacs 29.1+ and [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:fsharp-mode]]
-- [[doom-package:fsharp-ts-mode]] if [[doom-module:+tree-sitter]]
-- [[doom-package:lsp-fsharp]] if [[doom-package:+lsp]]
+- [[package:fsharp-mode]]
+- [[package:fsharp-ts-mode]] if [[module:+tree-sitter]]
+- [[package:lsp-fsharp]] if [[pkg:+lsp]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -54,7 +50,7 @@ pacman -S mono
 The language server is automatically installed by [[https://github.com/emacs-lsp/lsp-mode/blob/master/clients/lsp-fsharp.el][lsp-fsharp]].
 
 ** Fantomas
-Fantomas is used for formatting via [[doom-module::editor format]] and can be installed as a [[https://dotnet.microsoft.com/en-us/download][dotnet]] tool. 
+Fantomas is used for formatting via [[module::editor format]] and can be installed as a [[https://dotnet.microsoft.com/en-us/download][dotnet]] tool. 
 
 #+begin_src shell
 dotnet tool install -g fantomas-tool
@@ -74,9 +70,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -6,10 +6,10 @@
 
 * Description :unfold:
 This module provides reasonable defaults and augmentations for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][Dired]] (the
-built-in file manager for Emacs), powered by [[doom-package:dirvish][Dirvish]].
+built-in file manager for Emacs), powered by [[pkg:dirvish][Dirvish]].
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -25,17 +25,13 @@ built-in file manager for Emacs), powered by [[doom-package:dirvish][Dirvish]].
   as well as arrows for expanded/collapsed directories.
 
 ** Packages
-- [[doom-package:dirvish]]
-- [[doom-package:diredfl]]
+- [[package:dirvish]]
+- [[package:diredfl]]
 
 ** TODO Hacks
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -45,7 +41,7 @@ This module has no requirements *except on BSDs* like MacOS or FreeBSD, where
 
 Optionally, install these dependencies to improve the preview experience:
 - =imagemagick= for image previews
-- =poppler= (or [[doom-module::tools pdf-tools]]) for pdf previews,
+- =poppler= (or [[module::tools pdf-tools]]) for pdf previews,
 - =ffmpegthumbnailer= for video previews,
 - =mediainfo= for audio/video metadata generation,
 - =tar= and =unzip= for archive files previews.
@@ -143,7 +139,7 @@ Other bindings in this module:
 | [[kbd:][M-b]]     | Jump to previous dired history entry          |
 | [[kbd:][M-n]]     | Narrow the buffer with user input             |
 | [[kbd:][M-t]]     | Toggle fullscreen (preview)                   |
-| [[kbd:][C-c C-e]] | Rename entries with [[doom-package:wdired]]              |
+| [[kbd:][C-c C-e]] | Rename entries with [[pkg:wdired]]              |
 
 * Configuration
 ** Quick access entries
@@ -166,12 +162,7 @@ Use the following syntax to configure the entries displayed in
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]
 
 ** How to kill all session buffers on quit?
 Set ~dirvish-reuse-session~ to nil.
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote

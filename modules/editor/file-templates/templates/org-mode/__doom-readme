@@ -17,9 +17,9 @@ Then a longer, multiple paragraph description goes here, which should explain
 the purpose of the module and the features/technology(ies) it provides.
 
 ** Maintainers
-- [[doom-user:][@github_username]]
-- [[doom-user:][@github_username]]
-- [[doom-user:][@github_username]]
+- [[github:username][username]]
+- [[github:username][username]]
+- [[github:username][username]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -39,7 +39,7 @@ the purpose of the module and the features/technology(ies) it provides.
   Display X in a [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Child-Frames.html][child frame]] rather than an overlay or tooltip. *Requires GUI
   Emacs.*
 - +lsp ::
-  Enable LSP support for ~X-mode~. Requires [[doom-module::tools lsp]] and a
+  Enable LSP support for ~X-mode~. Requires [[module::tools lsp]] and a
   langserver (supports A, B, and C).
 
 # If this module has no flags, then...
@@ -52,13 +52,13 @@ This module has flags, but they aren't documented yet. [[doom-contrib-module:][D
 #+end_quote
 
 ** Packages
-- [[doom-package:org]]
-- [[doom-package:org-contrib]] if [[doom-module:+contrib]]
-- [[doom-package:org-bullets]] unless  [[doom-module:+bullets]]
-- if [[doom-module:+present]]
-  - [[doom-package:centered-window]]
-  - [[doom-package:org-tree-slide]]
-  - [[doom-package:org-re-reveal]]
+- [[package:org]]
+- [[package:org-contrib]] if [[module:+contrib]]
+- [[package:org-bullets]] unless  [[module:+bullets]]
+- if [[module:+present]]
+  - [[package:centered-window]]
+  - [[package:org-tree-slide]]
+  - [[package:org-re-reveal]]
 
 # If this module installs no packages, then...
 /This module doesn't install any packages./
@@ -84,25 +84,6 @@ This module installs packages, but they aren't documented yet. [[doom-contrib-mo
 #+begin_quote wip
 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
 #+end_quote
-
-** TODO Changelog
-# Do not edit this by hand. Your commits are your changelog. Commits that
-# shouldn't show up should use the 'Amend: ...' trailer (see
-# https://docs.doomemacs.org/-/git-conventions for details).
-#
-# ALSO: Version headings should be linked to the respective heading in
-# docs/changelog.org.
-*** [[doom-tag:][v21.12.0]] [2021-12-30]
-**** [[doom-ref:a1b2c3d4][commit SUBJECT linked to github commit]]
-commit BODY
-**** [[doom-ref:a1b2c3d4][commit SUBJECT linked to github commit]]
-commit BODY
-**** [[doom-ref:a1b2c3d4][commit SUBJECT linked to github commit]]
-commit BODY
-
-# If no changelog is available, use:
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 # This section should describe, in-depth, how to set up this module and its
@@ -166,7 +147,7 @@ Solution.
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[doom-contrib-faq:][Ask a question?]]
 
 # This is for adoption, design, or niche questions. More general
 # usage/configuration matters should be covered in the sections above.
@@ -178,19 +159,4 @@ Answer
 Answer
 
 # If no questions are available, use
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-# A glossary of important major modes, minor modes, commands, functions, faces,
-# and variables that this module exposes. It doesn't have to be exhaustive and
-# should omit explanation/documentation.
-
-# If this is left empty, add TODO to the heading and use:
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
-
-# If this section has incomplete content, add TODO to the heading and use:
-#+begin_quote wip
-/This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

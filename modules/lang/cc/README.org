@@ -17,43 +17,39 @@ Through LSP, this module offers:
 - Several improvements to C++11 indentation and syntax highlighting.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[github:hlissner]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~c-mode~, ~c++-mode~, and ~objc-mode~. Requires [[doom-module::tools lsp]]
+  Enable LSP support for ~c-mode~, ~c++-mode~, and ~objc-mode~. Requires [[module::tools lsp]]
   and a langserver (supports clangd, ccls, and cquery).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:cmake-mode]]
-- [[doom-package:cuda-mode]]
-- [[doom-package:demangle-mode]]
-- [[doom-package:disaster]]
-- [[doom-package:glsl-mode]]
-  - [[doom-package:company-glsl]]
-- [[doom-package:modern-cpp-font-lock]] unless [[doom-module:+tree-sitter]]
-- [[doom-package:opencl-mode]]
-- if [[doom-module:+lsp]]
-  - [[doom-package:ccls]] if [[doom-module::tools lsp -eglot]]
+- [[package:cmake-mode]]
+- [[package:cuda-mode]]
+- [[package:demangle-mode]]
+- [[package:disaster]]
+- [[package:glsl-mode]]
+  - [[package:company-glsl]]
+- [[package:modern-cpp-font-lock]] unless [[module:+tree-sitter]]
+- [[package:opencl-mode]]
+- if [[module:+lsp]]
+  - [[package:ccls]] if [[module::tools lsp -eglot]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module's requirements change depending on how you use it.
 
-- If [[doom-module:+lsp]] is enabled, you need one of *clangd v9+* or *ccls*.
+- If [[module:+lsp]] is enabled, you need one of *clangd v9+* or *ccls*.
 - Other features in this module depend on:
   - (optional) glslangValidator, for GLSL completion in ~glsl-mode~
   - (optional) cmake, for code completion in ~cmake-mode~
@@ -80,7 +76,7 @@ This module's requirements change depending on how you use it.
 ** =:editor format=
 The formatter used is =clang-format= which should be installed alongside =clang=.
 
-For more info, see [[doom-module::editor format]].
+For more info, see [[module::editor format]].
 
 * TODO Usage
 #+begin_quote wip
@@ -95,7 +91,7 @@ For more info, see [[doom-module::editor format]].
 4. Run ~$ doom sync~ on the command line and restart Emacs.
 
 ** Eglot-specific bindings
-When using [[doom-module:+lsp]] and [[doom-module::tools lsp +eglot]], [[doom-package:lsp-mode]] is replaced with [[doom-package:eglot]], and an
+When using [[module:+lsp]] and [[module::tools lsp +eglot]], [[pkg:lsp-mode]] is replaced with [[pkg:eglot]], and an
 additional function to get inheritance type hierarchy is added:
 | Binding                    | Description                                    |
 |----------------------------+------------------------------------------------|
@@ -127,7 +123,7 @@ MacOS' [[https://support.apple.com/en-us/HT204899][System Integrity Protection (
 under ~/usr/bin/~ which results in an empty compilation database.
 
 From the bear [[https://github.com/rizsotto/Bear#empty-compilation-database-on-os-x-captain-or-fedora][readme]]:
-#+begin_quote
+#+begin_quote excerpt
 Security extension/modes on different operating systems might disable library
 preloads. This case Bear behaves normally, but the result compilation database
 will be empty. (Please make sure it's not the case when reporting bugs.) Notable
@@ -160,7 +156,7 @@ Additional info:
 
 ** Configure LSP servers
 Search for your combination of =(LSP client package, LSP server)=. You are using
-[[doom-package:lsp-mode]] by default, [[doom-package:eglot]] if you have [[doom-module::tools lsp +eglot]] active in
+[[pkg:lsp-mode]] by default, [[pkg:eglot]] if you have [[module::tools lsp +eglot]] active in
 =$DOOMDIR/init.el= file.
 
 *** LSP-mode with clangd
@@ -217,9 +213,4 @@ use [[fn:set-eglot-client!]]:
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

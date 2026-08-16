@@ -16,14 +16,10 @@ quickly jot down thoughts and easily retrieve them later.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:deft]]
+- [[package:deft]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -68,9 +64,4 @@ https://github.com/jrblevin/deft#other-customizations
 - It is [[https://github.com/doomemacs/core/pull/2845/commits/dce80a3c8032f5390f4e763e18a108d5f3f08772][not recommended]] to re-enable deft's buffer auto-save.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

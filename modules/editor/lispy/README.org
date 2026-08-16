@@ -25,15 +25,11 @@ languages:
 /This module has no flags./
 
 ** Packages
-- [[doom-package:lispy]]
-- [[doom-package:lispyville]] if [[doom-module::editor evil +everywhere]]
+- [[package:lispy]]
+- [[package:lispyville]] if [[module::editor evil +everywhere]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -45,8 +41,8 @@ languages:
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-If [[doom-module::editor evil]] is enabled, [[doom-package:lispyville]] would also be activated for every mode
-where [[doom-package:lispy]] is active.
+If [[module::editor evil]] is enabled, [[pkg:lispyville]] would also be activated for every mode
+where [[pkg:lispy]] is active.
 
 * TODO Configuration
 #+begin_quote wip
@@ -99,9 +95,4 @@ lispyville binds [[kbd:][M-[]] to ~lispyville-wrap-brackets~ when the =wrap= or
 Emacs receives when you scroll with your mouse wheel.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -12,23 +12,19 @@ This module provides support for [[https://elixir-lang.org/][Elixir programming 
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~elixir-mode~. Requires [[doom-module::tools lsp]] and a
+  Enable LSP support for ~elixir-mode~. Requires [[module::tools lsp]] and a
   langserver (supports [[https://github.com/elixir-lsp/elixir-ls/][elixir-ls]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires Emacs 30.1+ and [[doom-module::tools tree-sitter]].
+  editing. Requires Emacs 30.1+ and [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:elixir-mode]]
-- [[doom-package:exunit]]
-- [[doom-package:flycheck-credo]] if [[doom-module::checkers syntax]]
+- [[package:elixir-mode]]
+- [[package:exunit]]
+- [[package:flycheck-credo]] if [[module::checkers syntax]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -36,7 +32,7 @@ This module provides support for [[https://elixir-lang.org/][Elixir programming 
 This module requires Elixir. Install it via your distribution's package manager
 or a version management tool such as [[https://github.com/asdf-vm/asdf-elixir][asdf]].
 
-To add LSP support, install [[https://github.com/JakeBecker/elixir-ls/][elixir-ls]] and enable [[doom-module::tools lsp]].
+To add LSP support, install [[https://github.com/JakeBecker/elixir-ls/][elixir-ls]] and enable [[module::tools lsp]].
 
 To support linting with [[https://github.com/rrrene/credo][credo]], add ~:checkers syntax~ to ~$DOOMDIR/init.el~.
 
@@ -69,13 +65,13 @@ zypper install elixir
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-- Code completion ([[doom-module::completion company]])
-- Documentation lookup ([[doom-module::tools lookup]])
+- Code completion ([[module::completion company]])
+- Documentation lookup ([[module::tools lookup]])
 - Mix integration
 - Phoenix support
-- ~iex~ integration ([[doom-module::tools eval]])
-- Syntax checking ([[doom-module::checkers syntax]], using [[doom-package:flycheck-credo]])
-- Formatting for elixir files provided by [[doom-module::editor format]].
+- ~iex~ integration ([[module::tools eval]])
+- Syntax checking ([[module::checkers syntax]], using [[pkg:flycheck-credo]])
+- Formatting for elixir files provided by [[module::editor format]].
 
 ** exunit-mode
 The exunit-mode prefix is [[kbd:][<localleader> t]]. Here is some examples:
@@ -97,9 +93,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

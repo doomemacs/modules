@@ -7,9 +7,9 @@
 * Description :unfold:
 This module adds [[https://github.com/ethereum/solidity][Solidity]] support to Doom Emacs.
 
-- Syntax-checking ([[doom-package:flycheck]])
-- Code completion ([[doom-package:company-solidity]])
-- Gas estimation (~C-c C-g~)
+- Syntax-checking ([[pkg:flycheck]])
+- Code completion ([[pkg:company-solidity]])
+- Gas estimation ([[kbd:][C-c C-g]])
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
@@ -18,16 +18,12 @@ This module adds [[https://github.com/ethereum/solidity][Solidity]] support to D
 /This module has no flags./
 
 ** Packages
-- [[doom-package:company-solidity]] if [[doom-module::completion company]]
-- [[doom-package:solidity-flycheck]] if [[doom-module::checkers syntax]]
-- [[doom-package:solidity-mode]]
+- [[package:company-solidity]] if [[module::completion company]]
+- [[package:solidity-flycheck]] if [[module::checkers syntax]]
+- [[package:solidity-mode]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -58,7 +54,7 @@ can set it to your own =.soliumrc.json= with:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/prettier-solidity/prettier-plugin-solidity#installation-and-usage][prettier]].
+Formatting is handled using the [[module::editor format]] module via [[https://github.com/prettier-solidity/prettier-plugin-solidity#installation-and-usage][prettier]].
 
 * TODO Usage
 #+begin_quote wip
@@ -74,9 +70,4 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 /There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

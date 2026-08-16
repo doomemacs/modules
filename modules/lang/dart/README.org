@@ -13,7 +13,7 @@ This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-serve
 =.dart= files, syntax highlighting, debugging, closing labels, etc.
 
 ** Maintainers
-- [[doom-user:][@ericdallo]]
+- [[github:ericdallo]]
 
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -22,24 +22,20 @@ This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-serve
   Enable ~flutter~ integration and some sane defaults for Flutter development
   along with ~hover~ for desktop development.
 - +lsp ::
-  Enable LSP support for ~dart-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~dart-mode~. Requires [[module::tools lsp]] and a langserver
   (supports flutter).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:dart-mode]]
-- [[doom-package:dart-ts-mode]] if [[doom-module:+tree-sitter]]
-- [[doom-package:flutter.el]]
-- [[doom-package:hover.el]]
+- [[package:dart-mode]]
+- [[package:dart-ts-mode]] if [[module:+tree-sitter]]
+- [[package:flutter.el]]
+- [[package:hover.el]]
 
 ** Hacks
 /No hacks documented for this module./
-
-** TODO Changelog
-# This section will be machine generated. Don't edit it by hand.
-/This module does not have a changelog yet./
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -92,12 +88,12 @@ flutter doctor # for Dependency check and further instructions
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-- Syntax highlighting and formatting for ~.dart~ files provided by LSP or [[doom-module::editor format]].
+- Syntax highlighting and formatting for ~.dart~ files provided by LSP or [[module::editor format]].
 - Auto import.
 - Widget guide lines for Flutter.
 - Closing labels for constructors.
 - Run tests interactively.
-- Outline support via [[doom-package:lsp-treemacs]].
+- Outline support via [[pkg:lsp-treemacs]].
 - Emacs functions for running and debugging Flutter projects.
 
 * TODO Configuration
@@ -135,9 +131,4 @@ the permissions of the =/opt/dart-sdk= and =/opt/flutter= directories (not to
 mention the Android SDK, as discussed above).
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
-
-* TODO Appendix
-#+begin_quote wip
-This module has no appendix yet. [[doom-contrib-module:][Write one?]]
-#+end_quote
+/This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]
