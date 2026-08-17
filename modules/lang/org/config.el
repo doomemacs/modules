@@ -487,9 +487,9 @@ relative to `org-directory', unless it is an absolute path."
                     '(warning org-link))))
 
   ;; Additional custom links for convenience
-  (dolist (abbrev '(("github"     . "https://github.com/%s")
+  (dolist (abbrev '(("github"     . "https://github.com/")
                     ("youtube"    . "https://youtube.com/watch?v=%s")
-                    ("google"     . "https://google.com/search?q=")
+                    ("google"     . "https://google.com/search?q=%s")
                     ("gimages"    . "https://google.com/images?q=%s")
                     ("gmap"       . "https://maps.google.com/maps?q=%s")
                     ("kagi"       . "https://kagi.com/search?q=%s")
