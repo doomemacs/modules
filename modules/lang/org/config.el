@@ -499,7 +499,7 @@ relative to `org-directory', unless it is an absolute path."
     (add-to-list 'org-link-abbrev-alist abbrev))
 
   (defun +org-dir (tag)
-    "Build an (abbreviated) path to TAG under `org-directory.'"
+    "Build an (abbreviated) path to TAG under `org-directory'."
     (abbreviate-file-name (expand-file-name tag org-directory)))
   (add-to-list 'org-link-abbrev-alist '("org" . +org-dir))
 
