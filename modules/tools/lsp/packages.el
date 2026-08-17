@@ -7,8 +7,6 @@
       (package! jsonrpc :pin "d8143c52679eaeebcca26dd41e015dc73d167b49")
       (when (modulep! :completion vertico)
         (package! consult-eglot :pin "3e4d9a40911b897c0a2c5d20199d0f7c30bfc1c2"))
-      (when (modulep! :checkers syntax -flymake)
-        (package! flycheck-eglot :pin "cd1dd78cec0ae1f566c765d98bbff322cc7b67ef"))
       ;; DEPRECATED: Remove when 29 support is dropped
       (when (and (< emacs-major-version 30) (modulep! +booster))
         (package! eglot-booster

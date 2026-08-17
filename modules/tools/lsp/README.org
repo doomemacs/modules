@@ -38,7 +38,6 @@ for its =+lsp= flag).
   - [[package:eglot]]
   - [[package:jsonrpc]]
   - [[package:consult-eglot]] if [[module::completion vertico][:completion vertico]]
-  - [[package:flycheck-eglot]] if [[module::checkers syntax -flymake][:checkers syntax -flymake]]
   - [[package:eglot-booster]] if [[module:+booster]] and Emacs<30
 - if [[module:-eglot]]
   - [[package:lsp-mode]]

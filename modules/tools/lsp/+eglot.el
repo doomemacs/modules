@@ -29,6 +29,10 @@
     :type-definition #'eglot-find-typeDefinition
     :documentation   #'+eglot-lookup-documentation)
 
+  (and (modulep! :checkers syntax -flymake)
+       (fboundp 'global-flycheck-eglot-mode)
+       (global-flycheck-eglot-mode +1))
+
   ;; Leave management of flymake to the :checkers syntax module.
   (when (modulep! :checkers syntax -flymake)
     (add-to-list 'eglot-stay-out-of 'flymake))
@@ -83,8 +87,3 @@ server an expensive restart when its buffer is reverted."
   (map! :after eglot
         :map eglot-mode-map
         [remap xref-find-apropos] #'consult-eglot-symbols))
-
-
-(use-package! flycheck-eglot
-  :when (modulep! :checkers syntax -flymake)
-  :hook (eglot-managed-mode . flycheck-eglot-mode))
