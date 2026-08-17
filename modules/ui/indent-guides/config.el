@@ -25,7 +25,8 @@ be enabled. If any function returns non-nil, the mode will not be activated."
     (unless (or (eq major-mode 'fundamental-mode)
                 (doom-temp-buffer-p (current-buffer))
                 (run-hook-with-args-until-success '+indent-guides-inhibit-functions))
-      (indent-bars-mode +1)))
+      (dlet (indent-bars-defer-setup) ; I defer it myself; don't override that
+        (indent-bars-mode +1))))
 
   :config
   (setq indent-bars-treesit-support (modulep! :tools tree-sitter)
