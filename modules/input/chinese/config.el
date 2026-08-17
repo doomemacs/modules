@@ -31,9 +31,13 @@
 (use-package! liberime
   :when (modulep! +rime)
   :after pyim
+  :preface
+  (setq liberime-load-on-require nil) ; give users a chance to reconfigure it
   :init
   (setq liberime-auto-build t
-        liberime-user-data-dir (file-name-concat doom-cache-dir "rime")))
+        liberime-user-data-dir (doom-cache-dir "rime"))
+  :config
+  (after! liberime (liberime-load)))  ; ensure it runs after user configuration
 
 
 (use-package! pyim-liberime
