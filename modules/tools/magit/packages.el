@@ -5,14 +5,14 @@
 ;;   of only pinning primary packages, but an exception is made because the
 ;;   Magit ecosystem seems prone to breakage.
 
-(package! transient :pin "3d20a780605f0a33d6360dc0a2ce9174c69a9a92") ; 0.13.5
+(package! transient :pin "0ec75dcce235f5ab3d39a02b878e6aaa78159b22") ; 0.13.7
 (package! cond-let :pin "c48600dfab6372670225f046cace263700c78eab")  ; 1.1.3
 
-(package! magit :pin "b6c512597fd66abe69883a058a2d13bcea76bf33")     ; 4.6.0
+(package! magit :pin "67f203853e74e926e2c99f60ed508840714f7ced")     ; 4.7.0
 (when (modulep! +forge)
   (package! closql :pin "d382e7427f5d375ffc872851b049e9f9c4a43dfc")  ; 2.4.1
-  (package! forge :pin "9628f76740aec9270e9fb31457ff4cb38d9f3f16")   ; 0.6.7
-  (package! ghub :pin "59d0b9b33e780d6cff5131886904ff26033dd2e6")    ; 5.2.2
+  (package! forge :pin "29f45d8f247079a1d8d2247efdacb5b50a3b1e51")   ; 0.6.8
+  (package! ghub :pin "cba5666d8b999e2733aefac369a4e0def3be7fc9")    ; 5.3.0
   (package! code-review
     :recipe (:host github
              :repo "doomelpa/code-review"
@@ -20,6 +20,6 @@
     :pin "303edcfbad8190eccb9a9269dfc58ed26d386ba5"))
 
 (when (modulep! :lang org)
-  (package! orgit :pin "7c4827cd04953166f71eaec151ad1c50872fc680") ; v2.2.0
+  (package! orgit :pin "c948819a7cad37a654ada275ebf7c003abf782d0") ; v2.2.1
   (when (modulep! :tools magit +forge)
-    (package! orgit-forge :pin "c421620af3fb38ab4654f745f51370471b65cf4e"))) ; v1.1.3
+    (package! orgit-forge :pin "87f257ba03c634198a634f0bdafc1b9cf6c6d09a"))) ; v1.1.4
