@@ -23,7 +23,7 @@
          (prompt (if (stringp prompt) (string-trim prompt) "Search"))
          (query (or query
                     (when (doom-region-active-p)
-                      (regexp-quote (doom-region))))))
+                      (regexp-quote (doom-region t))))))
     (dlet ((consult-ripgrep-args
             (concat "rg "
                     (if all-files "-uu ")

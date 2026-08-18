@@ -175,7 +175,7 @@ If ARG (universal argument), prompt for a specific REPL to open."
    (list (or (unless current-prefix-arg
                (assq major-mode +eval-repl-handler-alist))
              (+eval-repl-select "Open REPL in this window: "))
-         (doom-region)))
+         (doom-region t)))
   (+eval--repl-open spec #'switch-to-buffer input))
 
 ;;;###autoload
@@ -187,7 +187,7 @@ If ARG (universal argument), prompt for a specific REPL to open."
    (list (or (unless current-prefix-arg
                (assq major-mode +eval-repl-handler-alist))
              (+eval-repl-select "Open REPL in popup: "))
-         (doom-region)))
+         (doom-region t)))
   (+eval--repl-open spec #'pop-to-buffer input))
 
 ;;;###autoload
