@@ -31,11 +31,11 @@
     (defun +zen-enable-text-scaling-mode-h (arg)
       "Enable `mixed-pitch-mode' when in `+zen-mixed-pitch-modes'."
       (when (/= +zen-text-scale 0)
-        (text-scale-set (if (= arg 1) +zen-text-scale 0))
-        (visual-fill-column-adjust))))
+        (text-scale-set (if (= arg 1) +zen-text-scale 0)))))
 
   ;; Adjust margins when text size is changed
-  (advice-add #'text-scale-adjust :after #'visual-fill-column-adjust))
+  (add-hook 'after-setting-font-hook #'visual-fill-column-adjust)
+  (add-hook 'text-scale-mode-hook #'visual-fill-column-adjust))
 
 
 (use-package! mixed-pitch
