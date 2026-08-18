@@ -5,7 +5,7 @@
   :type '(repeat symbol)
   :group '+zen)
 
-(defcustom +zen-text-scale 2.0
+(defcustom +zen-text-scale 1.0
   "The text-scaling level for `writeroom-mode'."
   :type 'float
   :group '+zen)
