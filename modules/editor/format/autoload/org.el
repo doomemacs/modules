@@ -30,7 +30,7 @@
 ;;;###autoload
 (defun +format/org-blocks-in-region (beg end)
   "Calls `+format/org-block' in each src block between BEG and END (inclusive)."
-  (interactive (doom-region t))
+  (interactive (doom-region-bounds t))
   (unless (derived-mode-p 'org-mode)
     (user-error "Not an org-mode buffer!"))
   (unless (and beg end)
