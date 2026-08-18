@@ -93,7 +93,7 @@ configure feeds to follow:
 + If ~:editor evil +everywhere~
   | Key | Description                 |
   |-----+-----------------------------|
-  | [[kbd:][q]]   | elfeed-kill-buffer          |
+  | [[kbd:][q]]   | kill-current-buffer         |
   | [[kbd:][r]]   | elfeed-search-update--force |
   | [[kbd:][g c]] | Copy link of current entry  |
 

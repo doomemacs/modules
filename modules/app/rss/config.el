@@ -59,13 +59,13 @@ easier to scroll through."
       [remap next-buffer]     #'+rss/next
       [remap previous-buffer] #'+rss/previous))
   (when (modulep! :editor evil +everywhere)
-    (evil-define-key 'normal elfeed-search-mode-map
-      "q" #'kill-current-buffer
-      "r" #'revert-buffer
-      (kbd "M-RET") #'elfeed-search-browse-url)
-    (map! :map elfeed-show-mode-map
-          :n "gc" nil
-          :n "gc" #'+rss/copy-link))
+    (map! (:map elfeed-search-mode-map
+           :n "q" #'kill-current-buffer
+           :n "r" #'revert-buffer
+           :n "M-RET" #'elfeed-search-browse-url)
+          (:map elfeed-show-mode-map
+           :n "gc" nil
+           :n "gc" #'+rss/copy-link)))
 
   ;; HACK: Fix visual-line mode (evil) selecting +1 line when executing
   ;;   elfeed-search operations on selected entries.
