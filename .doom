@@ -4,8 +4,7 @@
  (version . "26.08.0")
  (homepage . "https://doomemacs.org/modules")
 
- (commit
-  (preset (doom-conventional-commits +modules)))
+ (commits (style doom))
 
  (make
   ("LICENSE"
