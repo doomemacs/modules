@@ -117,7 +117,7 @@
 (use-package! composer
   :defer t
   :init
-  (setq composer-directory-to-managed-file (file-name-concat doom-etc-dir "composer/"))
+  (setq composer-directory-to-managed-file (doom-data-dir "composer/"))
   (defvar +php-common-mode-map (make-sparse-keymap))
   (map! :map +php-common-mode-map
         "c" #'composer

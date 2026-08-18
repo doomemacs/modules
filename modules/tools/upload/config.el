@@ -7,7 +7,7 @@
              ssh-deploy-browse-remote-handler
              ssh-deploy-remote-changes-handler)
   :init
-  (setq ssh-deploy-revision-folder (file-name-concat doom-cache-dir "ssh-revisions/")
+  (setq ssh-deploy-revision-folder (doom-cache-dir "ssh-revisions/")
         ssh-deploy-on-explicit-save 1
         ssh-deploy-automatically-detect-remote-changes nil)
 

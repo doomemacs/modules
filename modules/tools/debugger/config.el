@@ -6,7 +6,7 @@
 (use-package! dape
   :defer t
   :preface
-  (setq dape-adapter-dir (file-name-concat doom-user-dir "debug-adapters/"))
+  (setq dape-adapter-dir (doom-user-dir "debug-adapters/"))
   :config
   (set-debug-var! 'dape-debug t)
   (setq dape-buffer-window-arrangement 'right

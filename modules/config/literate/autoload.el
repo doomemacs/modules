@@ -2,7 +2,7 @@
 
 ;;;###autoload (add-hook 'org-mode-hook #'+literate-enable-recompile-h)
 
-(defvar +literate-config-file (file-name-concat doom-user-dir "config.org")
+(defvar +literate-config-file (doom-user-dir "config.org")
   "The file path of your literate config file.")
 
 (defvar +literate-tangle--async-proc nil)
