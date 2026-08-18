@@ -58,8 +58,11 @@
   :when (> emacs-major-version 29)  ; package requires 30.1+
   :defer t
   :init
-  (setq clojure-ts-auto-remap nil)  ; we do it ourselves
-  (set-tree-sitter! 'clojure-mode 'clojure-ts-mode 'clojure)
+  ;; Handle setup ourselves (because upstream is too messy)
+  (setq clojure-ts-auto-remap nil
+        clojure-ts-ensure-grammars nil)
+
+  (set-tree-sitter! 'clojure-mode 'clojure-ts-mode '(clojure markdown-inline regex))
   (set-tree-sitter! 'clojurec-mode 'clojure-ts-clojurec-mode 'clojure)
   (set-tree-sitter! 'clojuredart-mode 'clojure-ts-clojuredart-mode 'clojure)
   (set-tree-sitter! 'clojurescript-mode 'clojure-ts-clojurescript-mode 'javascript)

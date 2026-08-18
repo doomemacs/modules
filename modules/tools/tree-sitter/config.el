@@ -217,7 +217,8 @@
                  (c-sharp :url "https://github.com/tree-sitter/tree-sitter-c-sharp"
                           :rev ,(if (< (treesit-library-abi-version) 15) "v0.20.0" "v0.23.1")
                           :commit "3431444351c871dffb32654f1299a00019280f2f")
-                 (clojure :url "https://github.com/sogaiu/tree-sitter-clojure")
+                 (clojure :url "https://github.com/sogaiu/tree-sitter-clojure.git"
+                          :rev "unstable-20250526")
                  (cuda :url "https://github.com/tree-sitter-grammars/tree-sitter-cuda")
                  (css :url "https://github.com/tree-sitter/tree-sitter-css"
                       :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.0" "v0.23.2"))
@@ -287,6 +288,8 @@
                          :commit "03bb10330704b0b371b044e937d5cc7cd40b4999")
                  (python :url "https://github.com/tree-sitter/tree-sitter-python"
                          :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.6" "v0.25.0"))
+                 (regex :url "https://github.com/tree-sitter/tree-sitter-regex"
+                        :rev "v0.24.3")
                  (ruby :url "https://github.com/tree-sitter/tree-sitter-ruby"
                        :commit "71bd32fb7607035768799732addba884a37a6210")
                  (rust :url "https://github.com/tree-sitter/tree-sitter-rust"
