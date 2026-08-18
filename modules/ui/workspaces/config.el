@@ -161,6 +161,14 @@ stored in `persp-save-dir'.")
       (setf (aref persp 2)
             (cl-delete-if-not #'persp-get-buffer-or-null (persp-buffers persp)))))
 
+  ;; HACK: Ensure that persp-mode's autosave file doesn't end up in the recentf
+  ;;   file. It gets written to so often that it often appears at the top.
+  ;; REVIEW: Fix this upstream!
+  (defadvice! +workspaces-exclude-autosave-from-recentf-a (fn &rest args)
+    :around #'persp-savelist-to-file
+    (let ((recentf-exclude (cons #'always recentf-exclude)))
+      (apply fn args)))
+
   ;; Delete the current workspace if closing the last open window
   (define-key! persp-mode-map
     [remap delete-window] #'+workspace/close-window-or-workspace
