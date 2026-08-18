@@ -1,4 +1,9 @@
 ;;; lang/org/autoload/org-babel.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+;;
+;;; * Lookup handlers
 
 ;;;###autoload
 (defun +org-eval-handler (beg end)
@@ -24,7 +29,6 @@
                     (require 'jupyter nil t))
                (jupyter-eval-region beg end))
               ((+eval-with-mode-handler-fn beg end nil (org-src-get-lang-mode lang))))))))
-
 
 ;;;###autoload
 (defun +org-lookup-definition-handler (identifier)
@@ -66,7 +70,7 @@
 
 
 ;;
-;;; Commands
+;;; * Commands
 
 ;;;###autoload
 (defun +org/remove-result-blocks (remove-all)
@@ -79,7 +83,7 @@
 
 
 ;;
-;;; Hooks
+;;; * Hooks
 
 ;;;###autoload
 (defun +org-clear-babel-results-h ()
@@ -88,3 +92,5 @@
              (org-babel-where-is-src-block-result))
     (org-babel-remove-result)
     t))
+
+;;; org-babel.el ends here

@@ -1,4 +1,6 @@
 ;;; lang/org/autoload/org-refile.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;; REVIEW: These are all proof-of-concept. Refactor me!
 
@@ -98,3 +100,5 @@ If prefix ARG, copy instead of move."
            (rfloc (list heading filename nil marker)))
       (dlet ((org-after-refile-insert-hook (cons #'org-reveal org-after-refile-insert-hook)))
         (org-refile nil nil rfloc)))))
+
+;;; org-refile.el ends here

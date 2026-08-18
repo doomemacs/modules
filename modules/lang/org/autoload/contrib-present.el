@@ -1,8 +1,10 @@
 ;;; lang/org/autoload/contrib-present.el -*- lexical-binding: t; -*-
 ;;;###if (modulep! +present)
+;;; Commentary:
+;;; Code:
 
 ;;
-;;; Helpers
+;;; * Helpers
 
 (defun +org-present--cleanup-org-tree-slides-mode ()
   (unless (cl-loop for buf in (doom-buffers-in-mode 'org-mode)
@@ -14,7 +16,7 @@
 
 
 ;;
-;;; Hooks
+;;; * Hooks
 
 ;;;###autoload
 (defun +org-present-hide-blocks-h ()
@@ -85,3 +87,5 @@
            (org-remove-inline-images)
            (org-mode)))
     (redraw-display)))
+
+;;; contrib-present.el ends here

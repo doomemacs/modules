@@ -1,4 +1,6 @@
 ;;; lang/org/autoload/org-avy.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;;;###autoload
 (defun +org-headline-avy ()
@@ -18,3 +20,5 @@
   "TODO"
   (interactive)
   (goto-char (+org-headline-avy)))
+
+;;; org-avy.el ends here

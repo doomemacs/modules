@@ -1,7 +1,11 @@
 ;;; lang/org/autoload/contrib-roam.el -*- lexical-binding: t; -*-
 ;;;###if (or (modulep! +roam) (modulep! +roam2))
+;;; Commentary:
+;;; Code:
 
-;;; Custom node accessors
+;;
+;;; * Custom node accessors
+
 ;;;###autoload (autoload 'org-roam-node-doom-filetitle "lang/org/autoload/contrib-roam" nil t)
 (cl-defmethod org-roam-node-doom-filetitle ((node org-roam-node))
   "Return the value of \"#+title:\" (if any) from file that NODE resides in.
@@ -64,7 +68,7 @@ If there's none, return an empty string."
 
 
 ;;
-;;; Hooks
+;;; * Hooks
 
 ;;;###autoload
 (defun +org-roam-manage-backlinks-buffer-h ()
@@ -87,7 +91,7 @@ Controlled by `+org-roam-auto-backlinks-buffer'."
 
 
 ;;
-;;; Advice
+;;; * Advice
 
 ;;;###autoload
 (defun org-roam-link-follow-link-with-description-a (args)
@@ -129,3 +133,5 @@ Controlled by `+org-roam-auto-backlinks-buffer'."
           (replace-match (org-link-make-string
                           (concat "id:" (org-roam-node-id node))
                           (or desc path))))))))
+
+;;; contrib-roam.el ends here

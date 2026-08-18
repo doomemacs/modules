@@ -1,4 +1,6 @@
 ;;; lang/org/autoload/org-attach.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;;;###autoload
 (defun +org-attach-icon-for (path)
@@ -57,3 +59,5 @@ PATH (a string) can be an url, a local file path, or a base64 encoded datauri."
                  (org-download-insert-link raw-uri new-path)))))
     (error
      (user-error "Failed to attach file: %s" (error-message-string e)))))
+
+;;; org-attach.el ends here

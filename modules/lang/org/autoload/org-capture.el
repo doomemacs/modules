@@ -1,7 +1,9 @@
 ;;; lang/org/autoload/org-capture.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;;
-;;; External frame
+;;; * External frame
 
 (defvar +org-capture-fn #'org-capture
   "Command to use to initiate org-capture.")
@@ -70,7 +72,7 @@ you're done. This can be called from an external shell script."
 
 
 ;;
-;;; Capture targets
+;;; * Capture targets
 
 ;;;###autoload
 (defun +org-capture-todo-file ()
@@ -158,3 +160,5 @@ project."
   "TODO"
   (+org--capture-central-file
    +org-capture-projects-file (projectile-project-name)))
+
+;;; org-capture.el ends here

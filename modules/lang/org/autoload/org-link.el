@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;
-;;; Image data functions (for custom inline images)
+;;; * Link preview functions
 
 ;;;###autoload
 (defun +org-link-preview-attachment-fn (ov link elem)
@@ -67,7 +67,7 @@
 
 
 ;;
-;;; Commands
+;;; * Commands
 
 ;;;###autoload
 (defun +org/remove-link ()
@@ -91,3 +91,4 @@ If on top of an Org link, will only copy the link component."
     (kill-new (or url (user-error "No URL at point")))
     (message "Copied link: %s" url)))
 
+;;; org-link.el ends here

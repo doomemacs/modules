@@ -1,7 +1,9 @@
 ;;; lang/org/autoload/org-tables.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;;
-;;; Row/Column traversal
+;;; * Row/Column traversal
 
 ;;;###autoload
 (defun +org/table-previous-row ()
@@ -25,7 +27,7 @@ re-align the table if necessary. (Necessary because org-mode has a
 
 
 ;;
-;;; Row/Column insertion
+;;; * Row/Column insertion
 
 ;;;###autoload
 (defun +org/table-insert-column-left ()
@@ -42,7 +44,7 @@ re-align the table if necessary. (Necessary because org-mode has a
 
 
 ;;
-;;; Hooks
+;;; * Hooks
 
 ;;;###autoload
 (defun +org-realign-table-maybe-h ()
@@ -78,10 +80,12 @@ re-align the table if necessary. (Necessary because org-mode has a
 
 
 ;;
-;;; Advice
+;;; * Advice
 
 ;;;###autoload
 (defun +org-realign-table-maybe-a (&rest _)
   "Auto-align table under cursor and re-calculate formulas."
   (when (eq major-mode 'org-mode)
     (+org-realign-table-maybe-h)))
+
+;;; org-tables.el ends here

@@ -1,7 +1,9 @@
 ;;; lang/org/autoload/org.el -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
 ;;
-;;; Helpers
+;;; * Helpers
 
 (defun +org--toggle-inline-images-in-subtree (&optional beg end refresh)
   "Refresh inline image previews in the current heading/tree."
@@ -123,7 +125,7 @@
 
 
 ;;
-;;; Modes
+;;; * Modes
 
 ;;;###autoload
 (define-minor-mode +org-pretty-mode
@@ -139,7 +141,7 @@
 
 
 ;;
-;;; Commands
+;;; * Commands
 
 ;;;###autoload
 (defun +org/return ()
@@ -300,7 +302,6 @@ Executes `org-table-copy-down' if in table."
       (org-table-copy-down arg)
     (org-return nil arg)))
 
-
 ;; I use these instead of `org-insert-item' or `org-insert-heading' because they
 ;; impose bizarre whitespace rules depending on cursor location and many
 ;; settings. These commands have a much simpler responsibility.
@@ -315,7 +316,6 @@ Executes `org-table-copy-down' if in table."
   "Inserts a new heading, table cell or item above the current one."
   (interactive "p")
   (dotimes (_ count) (+org--insert-item 'above)))
-
 
 ;;;###autoload
 (defun +org/toggle-last-clock (arg)
@@ -369,7 +369,9 @@ Otherwise, falls back to `org-fill-paragraph' to reflow paragraphs."
           ((call-interactively #'org-fill-paragraph)))))
 
 
-;;; Folds
+;;
+;;; * Folds
+
 ;;;###autoload
 (defalias #'+org/toggle-fold #'+org-cycle-only-current-subtree-h)
 
@@ -432,7 +434,7 @@ another level of headings on each invocation."
 
 
 ;;
-;;; Hooks
+;;; * Hooks
 
 ;;;###autoload
 (defun +org-indent-maybe-h ()
@@ -549,3 +551,5 @@ All my (performant) foldings needs are met between this and `org-show-subtree'
   (when org-occur-highlights
     (org-remove-occur-highlights)
     t))
+
+;;; org.el ends here
