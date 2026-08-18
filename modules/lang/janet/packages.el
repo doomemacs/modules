@@ -8,7 +8,7 @@
 (when (and (modulep! +tree-sitter) (treesit-available-p))
   (package! janet-ts-mode
     :recipe (:host github :repo "sogaiu/janet-ts-mode")
-    :pin "f818754b06336b699ea4ac8a202f7999a44eaf49"))
+    :pin "b5f238e3889d400f790eb457f53fa267276ae529"))
 
 (when (modulep! :checkers syntax +flymake)
   (package! flymake-janet

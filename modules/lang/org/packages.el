@@ -42,7 +42,7 @@
                (insert-file-contents "org-loaddefs.el")
                (save-excursion (insert "\n"))
                (insert-file-contents afile))))
-  :pin "cdc16898fd46a30d7187c0a5830b2b898ffbd2de"  ; release_9.8.7
+  :pin "7427df2d96d264734e1ba2a943545faa1c8c763f"  ; release_9.8.9
   :env `((org--inhibit-version-check . t)))
 (package! org-contrib
   :recipe (:host github
@@ -73,10 +73,10 @@
 (when (modulep! +journal)
   (package! org-journal :pin "6460f6f2b0835b4b8aa87d5fdf40cac7deb319f5"))
 (when (modulep! +noter)
-  (package! org-noter :pin "ab9628e449d76af8b2e5a9d5fead4e03ca76a03d"))
+  (package! org-noter :pin "feae91ca4ee6fdc7fd2489fa751dd96bc1f3ddf2"))
 (when (modulep! +pretty)
   (package! org-modern :pin "1959cd4759d4abc8dd695a560563283d838e44e1")
-  (package! org-appear :pin "32ee50f8fdfa449bbc235617549c1bccb503cb09"))
+  (package! org-appear :pin "77d23efec5f5c25fc0798364d2b51a3ce3d8d518"))
 (when (modulep! +present)
   (package! centered-window
     :recipe (:host github :repo "nullvec/centered-window-mode")

@@ -23,8 +23,8 @@
   (package! chruby :pin "42bc6d521f832eca8e2ba210f30d03ad5529788f"))
 
 ;; Testing frameworks
-(package! rspec-mode :pin "29df3d081c6a1cbdf840cd13d45ea1c100c5bbaa")
-(package! minitest :pin "d278e94fb1874c584699e1d6fa1b34224c1f8550")
+(package! rspec-mode :pin "b5d48de9b56a0070d7a0d3e642b139992a1ce3f0")
+(package! minitest :pin "596cc885d3f4898d85c78d1686b22c379fe2acae")
 
 ;; Refactoring
 (package! ruby-json-to-hash :pin "383b22bb2e007289ac0dba146787d02ff99d4415")

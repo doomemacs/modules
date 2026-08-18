@@ -8,4 +8,4 @@
 (when (and (modulep! +tree-sitter) (treesit-available-p))
   (package! odin-ts-mode
     :recipe (:host github :repo "Sampie159/odin-ts-mode")
-    :pin "800134c4f104ab48b28ed33c8ebce1c8b8707add"))
+    :pin "138bf6871b5e703ba5ad3f1c3464e2b4ce0fa846"))

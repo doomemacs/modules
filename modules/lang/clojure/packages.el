@@ -10,20 +10,20 @@
 
 ;; HACK: Forward declare these clj-refactor/cider deps so that their deps are
 ;;   byte-compiled first.
-(package! parseclj :pin "6af22372e0fe14df882dd300b22b12ba2d7e00b0")
-(package! parseedn :pin "3407e4530a367b6c2b857dae261cdbb67a440aaa")
+(package! parseclj :pin "ca828c202c026e45bd60503984cf510d904cae50")
+(package! parseedn :pin "1a28a88e2aabd99b41e02f491d6b8874ec128d7d")
 
 ;;; Core packages
-(package! clojure-mode :pin "c3b039ecf85e343edbc67c5856322654381dbc3e")
+(package! clojure-mode :pin "3c68569738f04a22d52f1ca28f593c2ee733bf04")
 (when (and (modulep! +tree-sitter)
            (treesit-available-p)
            (> emacs-major-version 29))  ; requires 30+
-  (package! clojure-ts-mode :pin "ba6de87b0acb5aa5483f6012611b30f6bf0414f3"))
-(package! clj-refactor :pin "39c9688c79e1d00965621d04c04fe1ddde4b571f")
-(package! cider :pin "e71110778a002e10a7c9763e0e6618a958d0ddb4")
+  (package! clojure-ts-mode :pin "ab0fac4282bf6426f4a5bce0fec7bf40d18b2e1a"))
+(package! clj-refactor :pin "2805bd5f505fdb199a8c5a25fca398ec9c161e5b")
+(package! cider :pin "501e1686962ce2613f7478b2a3a0f63c546b812e")
 (when (modulep! :checkers syntax -flymake)
-  (package! flycheck-clj-kondo :pin "e38c67ba9db1ea1cbe1b61ab39b506c05efdcdbf"))
+  (package! flycheck-clj-kondo :pin "414a3ead1faefb234d658fd8a8ba121c95b71de2"))
 (package! jet :pin "c9a92675efd802f37df5e3eab7858dbbeced6ea4")
 (package! neil
   :recipe (:host github :repo "babashka/neil" :files ("*.el"))
-  :pin "f2b74b61c94fa668ab4517d4be3930cf64ebb446")
+  :pin "ea7cd2ec2794c1c5e4a924e7579dde7356ffee50")
