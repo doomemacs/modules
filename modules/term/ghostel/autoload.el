@@ -39,7 +39,7 @@ Returns the ghostel buffer."
             (delete-window window))))
       (if-let* ((win (get-buffer-window ghostel-buffer-name)))
           (delete-window win)
-        (with-current-buffer (ghostel t)
+        (with-current-buffer (ghostel)
           ;; Don't rename the buffer or the popup manager may lose track of it.
           (setq-local ghostel-buffer-name-function nil)
           (set-window-dedicated-p (get-buffer-window) t)
