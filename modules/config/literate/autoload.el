@@ -91,7 +91,7 @@
     (run-at-time nil nil (lambda () (message "Tangling config.org"))) ; ensure shown after a save message
     "Tangling config.org..."))
 
-(defun +literate-tangle--async-sentinel (process signal)
+(defun +literate-tangle--async-sentinel (process _signal)
   (cond
    ((and (eq 'exit (process-status process))
          (= 0 (process-exit-status process)))
