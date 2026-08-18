@@ -5,7 +5,7 @@
 (package! vc-annotate :built-in t)
 (package! smerge-mode :built-in t)
 
-(package! git-link :pin "3870ae57408dc72ae2215b0056d6661e2c198e75")
+(package! git-link :pin "ca01d013bd575710e2cd47001ee1ef6ee41667cf")
 (package! git-timemachine
   ;; The original lives on codeberg.org; which has uptime issues.
   :recipe (:host github :repo "emacsmirror/git-timemachine")

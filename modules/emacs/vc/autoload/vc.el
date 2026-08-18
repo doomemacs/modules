@@ -5,36 +5,25 @@
 ;;
 ;;; * Helpers
 
-;; HACK: all of `git-link's functions don't return nil if they fail; they return
-;;   the error message (???), so differentiating success (a link) from an error
-;;   requires this silliness.
-;; REVIEW: Fix this upstream! TODOs in `git-link' signal that they want it to
-;;   return nil on failure.
-(defun +vc--safe-git-call (fn args)
-  (when-let* ((url (apply fn args)))
-    (unless (string-match-p "^http" url)
-      (user-error url))
-    url))
-
 (defun +vc--git-link (&optional arg)
   (require 'git-link)
   (dlet ((git-link-use-commit
           (if arg (not git-link-use-commit) git-link-use-commit)))
-    (+vc--safe-git-call
-     #'git-link (cons (git-link--remote)
-                      (or (and (doom-region-active-p)
-                               (git-link--get-region))
-                          (list nil nil))))))
+    (apply #'git-link
+           (git-link--remote)
+           (or (and (doom-region-active-p)
+                    (git-link--get-region))
+               (list nil nil)))))
 
 (defun +vc--git-link-commit (&optional arg)
   (require 'git-link)
   (dlet ((git-link-use-commit
           (if arg (not git-link-use-commit) git-link-use-commit)))
-    (+vc--safe-git-call #'git-link-commit (list (git-link--select-remote)))))
+    (git-link-commit (git-link--select-remote))))
 
 (defun +vc--git-link-homepage ()
   (require 'git-link)
-  (+vc--safe-git-call #'git-link-homepage (list (git-link--remote))))
+  (git-link-homepage (git-link--remote)))
 
 
 ;;
