@@ -9,10 +9,10 @@
   "Refile current heading to elsewhere in the current buffer.
 If prefix ARG, copy instead of move."
   (interactive "P")
-  (let ((org-refile-targets `((,file :maxlevel . 10)))
-        (org-refile-use-outline-path 'file)
-        (org-refile-keep arg)
-        current-prefix-arg)
+  (dlet ((org-refile-targets `((,file :maxlevel . 10)))
+         (org-refile-use-outline-path 'file)
+         (org-refile-keep arg)
+         current-prefix-arg)
     (call-interactively #'org-refile)))
 
 ;;;###autoload
@@ -33,9 +33,9 @@ If prefix ARG, copy instead of move."
   "Refile current heading to an org buffer visible in another window.
 If prefix ARG, copy instead of move."
   (interactive "P")
-  (let ((org-refile-keep arg)
-        org-refile-targets
-        current-prefix-arg)
+  (dlet ((org-refile-keep arg)
+         org-refile-targets
+         current-prefix-arg)
     (dolist (win (delq (selected-window) (window-list)))
       (with-selected-window win
         (let ((file (buffer-file-name (buffer-base-buffer))))
@@ -50,9 +50,9 @@ If prefix ARG, copy instead of move."
   "Refile current heading to another, living org buffer.
 If prefix ARG, copy instead of move."
   (interactive "P")
-  (let ((org-refile-keep arg)
-        org-refile-targets
-        current-prefix-arg)
+  (dlet ((org-refile-keep arg)
+         org-refile-targets
+         current-prefix-arg)
     (dolist (buf (delq (current-buffer) (doom-buffers-in-mode 'org-mode)))
       (when-let* ((file (buffer-file-name (buffer-base-buffer buf))))
         (cl-pushnew (cons file (cons :maxlevel 10))
@@ -66,7 +66,7 @@ If prefix ARG, copy instead of move."
   (interactive "P")
   (unless (bound-and-true-p org-clock-current-task)
     (user-error "No active clock to refile to"))
-  (let ((org-refile-keep arg))
+  (dlet ((org-refile-keep arg))
     (org-refile 2)))
 
 ;;;###autoload
@@ -77,10 +77,10 @@ If prefix ARG, copy instead of move."
   (or (assoc (plist-get org-bookmark-names-plist :last-refile)
              bookmark-alist)
       (user-error "No saved location to refile to"))
-  (let ((org-refile-keep arg)
-        (completing-read-function
-         (lambda (_p _coll _pred _rm _ii _h default &rest _)
-           default)))
+  (dlet ((org-refile-keep arg)
+         (completing-read-function
+          (lambda (_p _coll _pred _rm _ii _h default &rest _)
+            default)))
     (org-refile)))
 
 ;; Inspired by org-teleport and alphapapa/alpha-org
