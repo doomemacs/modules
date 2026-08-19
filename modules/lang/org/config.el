@@ -318,7 +318,7 @@ Also adds support for a `:sync' parameter to override `:async'."
 
   (defadvice! +org--src-lazy-load-library-a (lang)
     "Lazy load a babel package to ensure syntax highlighting."
-    :before #'org-src--get-lang-mode
+    :before #'org-src-get-lang-mode
     (or (cdr (assoc lang org-src-lang-modes))
         (+org--babel-lazy-load lang)))
 
