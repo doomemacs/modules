@@ -297,6 +297,7 @@ Also adds support for a `:sync' parameter to override `:async'."
             (org-display-inline-images nil nil (min beg end) (max beg end))))))))
 
 
+;; REVIEW: PR this upstream!
 (defun +org-init-babel-lazy-loader-h ()
   "Load babel libraries lazily when babel blocks are executed."
   (defun +org--babel-lazy-load (lang &optional async)
@@ -410,6 +411,7 @@ I like:
       (when (bound-and-true-p org-capture-is-refiling)
         (save-buffer))))
 
+  ;; REVIEW: PR this upstream!
   (defadvice! +org--capture-expand-variable-file-a (file)
     "If a variable is used for a file path in `org-capture-template', it is used
 as is, and expanded relative to `default-directory'. This changes it to be
@@ -529,15 +531,17 @@ relative to `org-directory', unless it is an absolute path."
             (mathjax . t)
             (variable . "revealjs-url=https://revealjs.com"))))
 
+  ;; REVIEW: PR this upstream.
   (defadvice! +org--dont-trigger-save-hooks-a (fn &rest args)
     "Exporting and tangling trigger save hooks; inadvertantly triggering
 mutating hooks on exported output, like formatters."
-    :around '(org-export-to-file org-babel-tangle)
-    (dlet (before-save-hook after-save-hook)
-      (apply fn args)))
+    :around #'org-export-to-file
+    :around #'org-babel-tangle
+    (dlet (write-file-functions) (apply fn args)))
 
   (defadvice! +org--fix-async-export-a (fn &rest args)
-    :around '(org-export-to-file org-export-as)
+    :around #'org-export-to-file
+    :around #'org-export-as
     (let ((old-async-init-file org-export-async-init-file)
           (org-export-async-init-file (make-temp-file "doom-org-async-export")))
       (doom-file-write
@@ -581,9 +585,10 @@ mutating hooks on exported output, like formatters."
   (add-to-list 'org-file-apps '(directory . emacs))
   (add-to-list 'org-file-apps '(remote . emacs))
 
-  (defadvice! +org--strip-properties-from-outline-a (fn &rest args)
+  ;; REVIEW: PR this upstream!
+  (defadvice! +org--strip-properties-from-eldoc-breadcrumbs-a (fn &rest args)
     "Fix variable height faces in eldoc breadcrumbs."
-    :around #'org-format-outline-path
+    :around #'org-eldoc-get-breadcrumb
     (dlet ((org-level-faces
             (cl-loop for face in org-level-faces
                      collect `(:foreground ,(face-foreground face nil t)
@@ -627,21 +632,21 @@ these buffers they'll see a gimped, half-broken org buffer, so to avoid that,
 install a hook to restart `org-mode' when they're switched to so they can grow
 up to be fully-fledged org-mode buffers."
     :around #'org-get-agenda-file-buffer
-    (if-let* ((buf (org-find-base-buffer-visiting file)))
-        buf
-      (dlet ((recentf-exclude '(always))
-             (doom-inhibit-local-var-hooks t)
-             (org-inhibit-startup t)
-             so-long-target-modes
-             vc-handled-backends
-             enable-local-variables
-             find-file-hook)
-        (when-let* ((buf (delay-mode-hooks (funcall fn file))))
-          (with-current-buffer buf
-            (add-hook 'doom-switch-buffer-hook #'+org--restart-mode-h
-                      nil 'local))
-          buf))))
+    (or (org-find-base-buffer-visiting file)
+        (dlet ((recentf-exclude '(always))
+               (doom-inhibit-local-var-hooks t)
+               (org-inhibit-startup t)
+               so-long-target-modes
+               vc-handled-backends
+               enable-local-variables
+               find-file-hook)
+          (when-let* ((buf (delay-mode-hooks (funcall fn file))))
+            (with-current-buffer buf
+              (add-hook 'doom-switch-buffer-hook #'+org--restart-mode-h
+                        nil 'local))
+            buf))))
 
+  ;; REVIEW: PR this upstream!
   (defadvice! +org--fix-inconsistent-uuidgen-case-a (uuid)
     "Ensure uuidgen is always lowercase (consistent) regardless of system.
 See https://lists.gnu.org/archive/html/emacs-orgmode/2019-07/msg00081.html."
