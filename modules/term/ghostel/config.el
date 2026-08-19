@@ -30,7 +30,9 @@
   ;; HACK: See dakra/ghostel#456. Persp-mode stores buffers by name, so if
   ;;   ghostel renames a buffer, persp-mode will lose track of it.
   (when (modulep! :ui workspaces)
-    (setq ghostel-buffer-name-function nil))
+    ;; Ensure this runs as late as possible so that the user can't override us.
+    (with-eval-after-load 'ghostel
+      (setq ghostel-buffer-name-function nil)))
 
   ;; HACK: direnv will silently no-op in ghostel shells if direnv.el/envrc.el
   ;;   has already run, or if Emacs was launched from a direnv'ed environment,
