@@ -19,15 +19,15 @@ you will be prompted to select one.
 If there are conflicting keys across the two camps, the built-in ones are
 ignored. This makes it easy to override built-in snippets with private ones."
   (when (eq this-command 'yas-expand)
-    (let* ((gc-cons-threshold most-positive-fixnum)
-           (choices (condition-case _
-                        (cl-remove-duplicates choices :test #'+snippets--remove-p)
-                      (wrong-type-argument choices))))
-      (if (cdr choices)
-          (cl-loop for fn in (cdr (memq '+snippets-prompt-private yas-prompt-functions))
-                   if (funcall fn prompt choices display-fn)
-                   return it)
-        (car choices)))))
+    (with-delayed-gc!
+      (let ((choices (condition-case _
+                         (cl-remove-duplicates choices :test #'+snippets--remove-p)
+                       (wrong-type-argument choices))))
+        (if (cdr choices)
+            (cl-loop for fn in (cdr (memq '+snippets-prompt-private yas-prompt-functions))
+                     if (funcall fn prompt choices display-fn)
+                     return it)
+          (car choices))))))
 
 (defun +snippet--ensure-dir (dir)
   (unless (file-directory-p dir)
