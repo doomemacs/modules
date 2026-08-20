@@ -222,7 +222,7 @@
                  (cuda :url "https://github.com/tree-sitter-grammars/tree-sitter-cuda")
                  (css :url "https://github.com/tree-sitter/tree-sitter-css"
                       :rev ,(if (< (treesit-library-abi-version) 15) "v0.23.0" "v0.23.2"))
-                 (dart :url "https://github.com/ast-grep/tree-sitter-dart")
+                 (dart :url "https://github.com/UserNobody14/tree-sitter-dart")
                  (dockerfile :url "https://github.com/camdencheek/tree-sitter-dockerfile"
                              :commit "087daa20438a6cc01fa5e6fe6906d77c869d19fe")
                  (doxygen :url "https://github.com/tree-sitter-grammars/tree-sitter-doxygen"
