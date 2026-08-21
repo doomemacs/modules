@@ -5,25 +5,9 @@
 #+since:    21.12.0
 
 * Description :unfold:
-* Table of Contents :TOC_3:noexport:
-- [[#description][Description]]
-  - [[#maintainers][Maintainers]]
-  - [[#module-flags][Module flags]]
-  - [[#packages][Packages]]
-  - [[#hacks][Hacks]]
-- [[#installation][Installation]]
-- [[#usage][Usage]]
-  - [[#mathematical-symbols-replacement][Mathematical symbols replacement]]
-  - [[#coding-ligatures][Coding ligatures]]
-    - [[#details][Details]]
-- [[#configuration][Configuration]]
-  - [[#symbol-replacements-λ-for-lambda][Symbol replacements (λ for "lambda"...)]]
-  - [[#font-ligatures-turning--into-an-arrow][Font ligatures (turning "=>" into an arrow...)]]
-    - [[#setting-ligatures-for-specific-font-or-major-mode][Setting ligatures for specific font or major mode]]
-    - [[#overwriting-all-default-ligatures][Overwriting all default ligatures]]
-- [[#troubleshooting][Troubleshooting]]
-  - [[#some-symbols-are-not-rendering-correctly][Some symbols are not rendering correctly]]
-- [[#frequently-asked-questions][Frequently asked questions]]
+This module enables ligatures and arbitrary symbol substitutions with
+[[minor:mac-auto-operator-composition-mode]] (on supported macOS systems) or composition
+tables (harfbuzz on Emacs 28), falling back on [[minor:prettify-symbols-mode]] otherwise.
 
 ** Maintainers
 - [[github:gagbo]]
@@ -36,7 +20,7 @@
   lisps are replaced with ~λ~.
 
 ** Packages
-- [[https://github.com/mickeynp/ligature.el][ligature.el]] (on Emacs 28+ with Harfbuzz)
+- [[package:ligature]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -87,37 +71,37 @@ E.g.
 You can set these symbols out of the box:
 #+begin_src emacs-lisp
 (set-ligatures! 'MAJOR-MODE
-    ;; Functional
-    :lambda        "lambda keyword"
-    :def           "function keyword"
-    :composition   "composition"
-    :map           "map/dictionary keyword"
-    ;; Types
-    :null          "null type"
-    :true          "true keyword"
-    :false         "false keyword"
-    :int           "int keyword"
-    :float         "float keyword"
-    :str           "string keyword"
-    :bool          "boolean keyword"
-    :list          "list keyword"
-    ;; Flow
-    :not           "not operator"
-    :in            "in operator"
-    :not-in        "not in operator"
-    :and           "and keyword"
-    :or            "or keyword"
-    :for           "for keyword"
-    :some          "some keyword"
-    :return        "return"
-    :yield         "yeild"
-    ;; Other
-    :union         "Union keyword"
-    :intersect     "Intersect keyword"
-    :diff          "diff keyword"
-    :tuple         "Tuple Keyword "
-    :pipe          "Pipe Keyword"
-    :dot           "Dot operator")
+  ;; Functional
+  :lambda        "lambda keyword"
+  :def           "function keyword"
+  :composition   "composition"
+  :map           "map/dictionary keyword"
+  ;; Types
+  :null          "null type"
+  :true          "true keyword"
+  :false         "false keyword"
+  :int           "int keyword"
+  :float         "float keyword"
+  :str           "string keyword"
+  :bool          "boolean keyword"
+  :list          "list keyword"
+  ;; Flow
+  :not           "not operator"
+  :in            "in operator"
+  :not-in        "not in operator"
+  :and           "and keyword"
+  :or            "or keyword"
+  :for           "for keyword"
+  :some          "some keyword"
+  :return        "return"
+  :yield         "yeild"
+  ;; Other
+  :union         "Union keyword"
+  :intersect     "Intersect keyword"
+  :diff          "diff keyword"
+  :tuple         "Tuple Keyword "
+  :pipe          "Pipe Keyword"
+  :dot           "Dot operator")
 #+end_src
 
 If you have multiple versions of the same keyword you can set the symbol twice:
@@ -127,14 +111,13 @@ If you have multiple versions of the same keyword you can set the symbol twice:
   :null "None")
 #+end_src
 
-
 ** Coding ligatures
-This module includes configuration to compose combinations like =->= or =::=
+This module includes configuration to compose combinations like ~->~ or ~::~
 into prettier glyphs (called a ligature), specific for your font, or specific
 for the major modes that you want to use.
 
 As these ligatures come from the font itself instead of elisp symbols, we use
-=set-font-ligatures!=
+[[fns:set-font-ligatures!]]
 
 #+begin_src elisp
 (set-font-ligatures! '(haskell-mode clojure-mode) ">>=" ">>-")
@@ -161,66 +144,33 @@ Emacs 27.
 ** Symbol replacements (λ for "lambda"...)
 if you don't like the symbols chosen you can change them by using:
 #+begin_src emacs-lisp
-;; you don't need to include all of them you can pick and mix
-(plist-put! +ligatures-extra-symbols
-  ;; org
-  :name          "»"
-  :src_block     "»"
-  :src_block_end "«"
-  :quote         "“"
-  :quote_end     "”"
-  ;; Functional
-  :lambda        "λ"
-  :def           "ƒ"
-  :composition   "∘"
-  :map           "↦"
-  ;; Types
-  :null          "∅"
-  :true          "𝕋"
-  :false         "𝔽"
-  :int           "ℤ"
-  :float         "ℝ"
-  :str           "𝕊"
-  :bool          "𝔹"
-  :list          "𝕃"
-  ;; Flow
-  :not           "￢"
-  :in            "∈"
-  :not-in        "∉"
-  :and           "∧"
-  :or            "∨"
-  :for           "∀"
-  :some          "∃"
-  :return        "⟼"
-  :yield         "⟻"
-  ;; Other
-  :union         "⋃"
-  :intersect     "∩"
-  :diff          "∖"
-  :tuple         "⨂"
-  :pipe          ""
-  :dot           "•")  ;; you could also add your own if you want
+(plist-put +ligatures-extra-symbols :name "»")
+(plist-put +ligatures-extra-symbols :quote "“")
+(plist-put +ligatures-extra-symbols :true "𝕋")
 #+end_src
+
+See [[var:+ligatures-extra-symbols]] for documentation and available properties.
 
 ** Font ligatures (turning "=>" into an arrow...)
 *** Setting ligatures for specific font or major mode
 As the [[https://github.com/mickeynp/ligature.el][README]] for ligature.el states, you can manipulate the ligatures that you
 want to enable, specific for your font, or specific for the major modes that you
-want to use. =set-font-ligatures!= is a thin wrapper around =ligature.el= to control these.
+want to use. [[fns:set-font-ligatures!]] is a thin wrapper around [[pkg:ligature]] to
+control these.
 
 #+begin_src elisp
 (set-font-ligatures! '(haskell-mode clojure-mode) ">>=" ">>-")
 #+end_src
 
 This call will:
-- overwrite all preceding calls to =set-font-ligatures!=
-  for =haskell-mode= and =clojure-mode= specifically, but
-- keep the inheritance to ligatures set for all modes, or parent modes like =prog-mode=
+- Overwrite all preceding calls to [[fns:set-font-ligatures!]] for [[major:haskell-mode]] and
+  [[major:clojure-mode]] specifically, but...
+- Keep the inheritance to ligatures set for all modes, or parent modes like
+  [[major:prog-mode]].
 
 *** Overwriting all default ligatures
 If you want to "start from scratch" and get control over all ligatures that
-happen in all modes, you can use
-
+happen in all modes, you can use:
 #+begin_src elisp
 ;; Set all your custom ligatures for all prog-modes here.
 ;; This section is *outside* the `with-eval-after-load' block.
