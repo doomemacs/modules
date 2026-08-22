@@ -189,12 +189,12 @@ Continues comments if executed from a commented line."
 (define-key! help-map
   ;; new keybinds
   "'"    #'doom/describe-char
-  "u"    #'doom/help-autodefs
+  "u"    #'doom/describe-autodef
   "E"    #'doom/sandbox
   "M"    #'doom/describe-active-minor-mode
   "O"    #'+lookup/online
   "T"    #'doom/toggle-profiler
-  "V"    #'doom/help-custom-variable
+  "V"    #'doom/describe-option
   "W"    #'+default/man-or-woman
   "C-k"  #'describe-key-briefly
   "C-l"  #'describe-language-environment
@@ -212,6 +212,7 @@ Continues comments if executed from a commented line."
   "rp"   #'doom/reload-packages
   "rf"   #'doom/reload-font
   "re"   #'doom/reload-env
+  "rd"   #'doom/reload-docs
 
   ;; make `describe-bindings' available under the b prefix which it previously
   ;; occupied. Add more binding related commands under that prefix as well
@@ -225,23 +226,24 @@ Continues comments if executed from a commented line."
 
   ;; replaces `apropos-documentation' b/c `apropos' covers this
   "d"    `("doom" . ,(make-sparse-keymap))
+  "da"   #'doom/describe-autodef
   "db"   #'doom/report-bug
   "dc"   #'doom/open-private-config
   "dd"   #'doom-debug-mode
-  "df"   #'doom/help-faq
-  "dh"   #'doom/help
+  "df"   #'doom/docs-faq
+  "dh"   #'doom/docs
+  "di"   #'doom/info
   "dl"   #'doom/help-search-load-path
   "dL"   #'doom/help-search-loaded-files
-  "dm"   #'doom/help-modules
-  "dn"   #'doom/help-news
-  "dN"   #'doom/help-search-news
+  "dm"   #'doom/describe-module
+  "dM"   #'doom/docs-module
+  "dn"   #'doom/docs-news
   "dpc"  #'doom/help-package-config
   "dph"  #'doom/help-package-homepage
-  "dpp"  #'doom/help-packages
-  "ds"   #'doom/help-search-headings
-  "dS"   #'doom/help-search
+  "dpp"  #'doom/describe-package
+  "ds"   #'doom/docs-headings
+  "dS"   #'doom/docs-search
   "dt"   #'doom/toggle-profiler
-  "du"   #'doom/help-autodefs
   "dv"   #'doom/version
   "dx"   #'doom/sandbox
 
@@ -253,14 +255,15 @@ Continues comments if executed from a commented line."
   ;; replaces `Info-got-emacs-command-node' b/c redundant w/ `Info-goto-node'
   "F"    #'describe-face
   ;; replaces `view-hello-file' b/c annoying
-  "h"    nil
+  "h"    #'doom/help
+  "H"    #'doom/docs
   ;; replaces `view-emacs-news' b/c it's on C-n too
   "n"    #'doom/help-news
   ;; replaces `help-with-tutorial', b/c it's less useful than `load-theme'
   "t"    #'load-theme
   ;; replaces `finder-by-keyword' b/c not useful
-  "p"    #'doom/help-packages
-  ;; replaces `describe-package' b/c redundant w/ `doom/help-packages'
+  "p"    #'doom/describe-package
+  ;; replaces `describe-package' b/c `doom/help-packages' supercedes it
   "P"    #'find-library)
 
 
