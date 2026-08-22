@@ -14,9 +14,9 @@ This makes it consistent with hashes produced from git-timemachine and
 `git-link--last-commit'."
   (defvar magit-buffer-revision)
   (letf! ((defun rev-parse (rev)
-            (if (= 40 (string-width (or rev "")))
-                rev
-              (magit-rev-parse rev)))
+            (when rev
+              (if (= 40 (string-width rev))
+                  rev (magit-rev-parse rev))))
           (magit-buffer-revision
            (and (bound-and-true-p magit-buffer-revision)
                 (rev-parse magit-buffer-revision)))
