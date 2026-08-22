@@ -40,7 +40,7 @@ Instead, initialize it when it will be actually needed."
     "Try to initialize org-roam database at the last possible safe moment.
 In case of failure, fail gracefully."
     :before #'org-roam-db-query
-    (message "Initializing org-roam database...")
+    (doom-log "Initializing org-roam database...")
     (advice-remove 'org-roam-db-query #'+org-roam-try-init-db-a)
     (org-roam-db-sync))
 
