@@ -3,8 +3,8 @@
 ![Latest release](https://img.shields.io/github/tag/doomemacs/modules.svg?style=flat-square&label=release&color=58839b)
 ![Minimum supported version of Doom](https://img.shields.io/badge/Doom-v2.2.0+-blue.svg?style=flat-square)
 ![Minimum supported versions of Emacs](https://img.shields.io/badge/Emacs-v29.1+-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white) &nbsp; 
-[![Discord Server](https://img.shields.io/discord/406534637242810369?color=738adb&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://doomemacs.org/discord)
-[![Github Discussions](https://img.shields.io/github/discussions/doomemacs/community?style=flat-square&color=9cf&label=Discuss&logo=Github)](https://doomemacs.org/discuss)
+[![Discord Server](https://img.shields.io/discord/406534637242810369?color=738adb&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.doomemacs.org)
+[![Github Discussions](https://img.shields.io/github/discussions/doomemacs/community?style=flat-square&color=9cf&label=Discuss&logo=Github)](https://discuss.doomemacs.org)
 
 This repository houses [Doom Emacs](https://doomemacs.org)' official starter
 kit: a library of official modules that can serve as a foundation for your Emacs

@@ -75,10 +75,10 @@ your input hardware. If you run into issues, here are some things to try:
   common factors that can slow Emacs down in general (not specifically to do
   with scrolling) and what to do about them.
 
-If all else fails, let us know on [[https://discourse.doomemacs.org][Discourse]] or [[https://doomemacs.org/discord][Discord]]. Only file an issue if
-you have a good idea what's causing the problem or have an explicit error to
-report (performance issues, in general, tend to be the result of *many* factors
-and are the greatest source of false positives on our issue tracker).
+If all else fails, [[doom-report:][let us know]]. Only file an issue if you have a good idea
+what's causing the problem or have an explicit error to report (performance
+issues, in general, tend to be the result of *many* factors and are the greatest
+source of false positives on our issue tracker).
 
 ** High idle CPU usage with =+interpolate=
 This flag will increase Emacs' idle CPU usage. Some overhead is unavoidable with
