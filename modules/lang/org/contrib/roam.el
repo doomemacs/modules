@@ -34,7 +34,7 @@ of org-mode to properly utilize ID links.")
     "Setup `org-roam' but don't immediately initialize its database.
 Instead, initialize it when it will be actually needed."
     (letf! ((#'org-roam-db-sync #'ignore))
-      (org-roam-db-autosync-enable)))
+      (org-roam-db-autosync-mode +1)))
 
   (defadvice! +org-roam-try-init-db-a (&rest _)
     "Try to initialize org-roam database at the last possible safe moment.
