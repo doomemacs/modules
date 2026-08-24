@@ -67,6 +67,12 @@
            (non-essential t))
       (apply fn args)))
 
+  ;; HACK: Loudly complains about non-existant directories in
+  ;;   `yas-snippet-dirs', but some of those directories could legitimately not
+  ;;   exist (like $DOOMDIR/snippets), so leave those warnings out of the Echo
+  ;;   Area, at least (still logged to *Messages* though).
+  (advice-add #'yas--load-snippet-dirs :around #'doom-shut-up-a)
+
   (after! smartparens
     ;; tell smartparens overlays not to interfere with yasnippet keybinds
     (advice-add #'yas-expand :before #'sp-remove-active-pair-overlay))
