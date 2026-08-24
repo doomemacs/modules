@@ -47,61 +47,11 @@ Intended to replace `lisp-outline-level'."
 ;;
 ;;; Handlers
 
-(defun +emacs-lisp--module-at-point ()
-  "Return (CATEGORY MODULE FLAG) at point inside a `doom!' block."
-  (let ((origin (point))
-        (syntax (syntax-ppss)))
-    (when (and (> (ppss-depth syntax) 0) (not (ppss-string-terminator syntax)))
-      (save-excursion
-        (let ((parens (ppss-open-parens syntax))
-              (doom-depth 1))
-          (while (and parens (progn (goto-char (car parens))
-                                    (not (looking-at "(doom!\\_>"))))
-            (setq parens (cdr parens)
-                  doom-depth (1+ doom-depth)))
-          (when parens ;; Are we inside a `doom!' block?
-            (goto-char origin)
-            (let* ((doom-start (car parens))
-                   (bare-symbol
-                    (if (ppss-comment-depth syntax)
-                        (= (save-excursion (beginning-of-thing 'list)) doom-start)
-                      (null (cdr parens))))
-                   (sexp-start (if bare-symbol
-                                   (beginning-of-thing 'symbol)
-                                 (or (cadr parens) (beginning-of-thing 'list))))
-                   (match-start nil))
-              (goto-char sexp-start)
-              (while (and (not match-start)
-                          (re-search-backward
-                           "\\_<:\\(?:\\sw\\|\\s_\\)+\\_>" ;; Find a keyword.
-                           doom-start 'noerror))
-                (unless (looking-back "(" (pos-bol))
-                  (let ((kw-syntax (syntax-ppss)))
-                    (when (and (= (ppss-depth kw-syntax) doom-depth)
-                               (not (ppss-string-terminator kw-syntax))
-                               (not (ppss-comment-depth kw-syntax)))
-                      (setq match-start (point))))))
-              (when match-start
-                (let (category module flag)
-                  ;; `point' is already at `match-start'.
-                  (setq category (symbol-at-point))
-                  (goto-char origin)
-                  (if bare-symbol
-                      (setq module (symbol-at-point))
-                    (let ((symbol (symbol-at-point))
-                          (head (car (list-at-point))))
-                      (if (and (symbolp head) (not (keywordp head))
-                               (not (eq head symbol)))
-                          (setq module head
-                                flag symbol)
-                        (setq module symbol))))
-                  (list category module flag))))))))))
-
 ;;;###autoload
 (defun +emacs-lisp-lookup-definition (_thing)
   "Lookup definition of THING."
-  (if-let* ((module (+emacs-lisp--module-at-point)))
-      (doom/help-modules (car module) (cadr module) 'visit-dir)
+  (if-let* ((module (doom-module-at-point)))
+      (doom/docs-module module 'visit-dir)
     (call-interactively #'elisp-def)))
 
 (defun +emacs-lisp--describe-symbol (symbol)
@@ -117,22 +67,8 @@ Intended to replace `lisp-outline-level'."
 (defun +emacs-lisp-lookup-documentation (thing)
   "Lookup THING with `helpful-variable' if it's a variable, `helpful-callable'
 if it's callable, `apropos' otherwise."
-  (cond ((when-let* ((module (+emacs-lisp--module-at-point)))
-           (doom/help-modules (car module) (cadr module))
-           (when (eq major-mode 'org-mode)
-             (goto-char (point-min))
-             (with-demoted-errors "%s"
-               (re-search-forward
-                (if (caddr module)
-                    "^\\*+ Module flags"
-                  "^\\* Description"))
-               (when (caddr module)
-                 (re-search-forward (format "=\\%s=" (caddr module))
-                                    nil t))
-               (when (memq (get-char-property (line-end-position)
-                                              'invisible)
-                           '(outline org-fold-outline))
-                 (org-show-hidden-entry))))
+  (cond ((when-let* ((key (doom-module-at-point)))
+           (doom/docs-module key)
            'deferred))
         (thing
          (let ((thing (intern thing)))
