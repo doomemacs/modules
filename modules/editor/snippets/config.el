@@ -60,7 +60,7 @@
   ;; HACK: Suppress prompting when snippets are expended for completion or
   ;;   documentation popups (from corfu, company, etc).
   ;; REVIEW: Handle this upstream.
-  (defadvice! +corfu--suppress-prompts-during-completion-a (fn &rest args)
+  (defadvice! +snippets--suppress-prompts-during-completion-a (fn &rest args)
     :around #'yasnippet-capf--doc-buffer
     :around #'company-yasnippet--doc
     (dlet ((yas-prompt-functions '(yas-no-prompt))
