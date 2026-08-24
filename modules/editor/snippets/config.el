@@ -96,13 +96,6 @@
          "C-c C-e" #'+snippet--edit
          "C-c C-k" #'+snippet--abort))
 
-  ;; REVIEW: Fix doomemacs/core#2639: For some reason `yas--all-templates'
-  ;;   returns duplicates of some templates. Until I figure out the real cause
-  ;;   this fixes it.
-  (defadvice! +snippets--remove-duplicates-a (templates)
-    :filter-return #'yas--all-templates
-    (cl-delete-duplicates templates :test #'equal))
-
   ;; HACK: Smartparens will interfere with snippets expanded by `hippie-expand`,
   ;;   so temporarily disable smartparens during snippet expansion.
   (after! hippie-exp
