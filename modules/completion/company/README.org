@@ -14,8 +14,6 @@ to the Corfu module instead.
 This module provides code completion, powered by [[https://github.com/company-mode/company-mode][company-mode]]. Many of Doom's
 [[module::lang]] modules require it for "intellisense" functionality.
 
-https://assets.doomemacs.org/completion/company/overlay.png
-
 ** Maintainers
 - [[github:hlissner]]
 
