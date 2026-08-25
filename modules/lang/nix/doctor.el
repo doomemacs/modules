@@ -8,6 +8,5 @@
 (unless (executable-find "nix")
   (warn! "Couldn't find the nix package manager. nix-mode won't work."))
 
-(when (require 'nix-mode nil t)
-  (unless (executable-find nix-nixfmt-bin)
-    (warn! (concat "Couldn't find " nix-nixfmt-bin ". nix-format-buffer won't work."))))
+(unless (executable-find "nixfmt")
+  (warn! (concat "Couldn't find nixfmt. nix-format-buffer won't work.")))

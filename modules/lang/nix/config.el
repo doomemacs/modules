@@ -27,7 +27,6 @@
   (map! :localleader
         :map ,(intern (format "%s-map" mode))
         "f" #'nix-update-fetch
-        "p" #'nix-format-buffer
         "r" #'nix-repl-show
         "s" #'nix-shell
         "b" #'nix-build
