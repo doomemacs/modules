@@ -30,3 +30,8 @@ Modules here are carefully curated by Doom's author and core maintainers.
 
 Until Doom core v3 is released, this repo exists as a git submodule of
 doomemacs/core and doesn't need to be directly installed (yet).
+
+
+## LLM Policy
+
+See [doomemacs/core](https://github.com/doomemacs/core)'s README for our LLM policy.
