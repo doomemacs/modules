@@ -390,6 +390,12 @@ This will do nothing if the popup's `quit' window parameter is either nil or
       t)))
 
 ;;;###autoload
+(defun +popup/kill ()
+  "Close popup WINDOW, despite its :quit property."
+  (interactive)
+  (+popup/close nil t))
+
+;;;###autoload
 (defun +popup/close-all (&optional force-p)
   "Close all open popup windows.
 
