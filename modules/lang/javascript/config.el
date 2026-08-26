@@ -60,14 +60,14 @@
 
 (use-package! typescript-mode
   :unless (modulep! +tree-sitter)
-  :mode "\\.ts\\'"
+  :mode "\\.[cm]?ts\\'"
   :config
   (+javascript-common-config 'typescript-mode))
 
 
 (use-package! typescript-ts-mode  ; 29.1+ only
   :when (modulep! +tree-sitter)
-  :mode "\\.ts\\'"
+  :mode "\\.[cm]?ts\\'"
   :mode ("\\.[tj]sx\\'" . tsx-ts-mode)
   :init
   (set-tree-sitter! 'typescript-mode 'typescript-ts-mode 'typescript)
