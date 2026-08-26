@@ -64,11 +64,15 @@
   "`display-buffer-alist' handler that opens BUFFER in a direction.
 
 This differs from `display-buffer-in-direction' in one way: it will try to use a
-window that already exists in that direction. It will split otherwise."
+window that already exists in that direction. It will split otherwise.
+
+Dedicated windows are never reused, since `switch-to-buffer' below cannot
+switch buffers in one; such a window is left alone and we split instead."
   (let ((direction (or (alist-get 'direction alist)
                        +magit-open-windows-in-direction))
         (origin-window (selected-window)))
-    (if-let* ((window (window-in-direction direction)))
+    (if-let* ((window (window-in-direction direction))
+              ((not (window-dedicated-p window))))
         (unless magit-display-buffer-noselect
           (select-window window))
       (if-let* ((window (and (not (one-window-p))
@@ -77,7 +81,8 @@ window that already exists in that direction. It will split otherwise."
                                 (`right 'left)
                                 (`left 'right)
                                 ((or `up `above) 'down)
-                                ((or `down `below) 'up))))))
+                                ((or `down `below) 'up)))))
+                ((not (window-dedicated-p window))))
         (unless magit-display-buffer-noselect
           (select-window window))
         (let ((window (split-window nil nil direction)))
