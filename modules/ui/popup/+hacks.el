@@ -116,44 +116,38 @@ the command buffer."
 
 
 (after! help-mode
-  (defun +popup--switch-from-popup (location)
-    (let (origin enable-local-variables)
-      (save-popups!
-       (switch-to-buffer (car location) nil t)
-       (if (not (cdr location))
-           (message "Unable to find location in file")
-         (goto-char (cdr location))
-         (recenter)
-         (setq origin (selected-window))))
-      (select-window origin)))
-
-  ;; Help buffers use `pop-to-window' to decide where to open followed links,
-  ;; which can be unpredictable. It should *only* replace the original buffer we
-  ;; opened the popup from. To fix this these three button types need to be
-  ;; redefined to set aside the popup before following a link.
-  (define-button-type 'help-function-def
-    :supertype 'help-xref
-    'help-function
-    (lambda (fun file)
-      (require 'find-func)
-      (when (eq file 'C-source)
-        (setq file (help-C-file-name (indirect-function fun) 'fun)))
-      (+popup--switch-from-popup (find-function-search-for-symbol fun nil file))))
-
-  (define-button-type 'help-variable-def
-    :supertype 'help-xref
-    'help-function
-    (lambda (var &optional file)
-      (when (eq file 'C-source)
-        (setq file (help-C-file-name var 'var)))
-      (+popup--switch-from-popup (find-variable-noselect var file))))
-
-  (define-button-type 'help-face-def
-    :supertype 'help-xref
-    'help-function
-    (lambda (fun file)
-      (require 'find-func)
-      (+popup--switch-from-popup (find-function-search-for-symbol fun 'defface file)))))
+  ;; HACK: When following a function/variable/face link, they do not open in the
+  ;;   originating window (i.e. the window you opened help from), they open in a
+  ;;   (seemingly) arbitrary window, determined by pop-to-buffer. This enforces
+  ;;   that the originating window is used.
+  (letf! (defun follow (location)
+           (let (origin enable-local-variables)
+             (save-popups!
+              (switch-to-buffer (car location) nil t)
+              (if (not (cdr location))
+                  (message "Unable to find location in file")
+                (goto-char (cdr location))
+                (recenter)
+                (setq origin (selected-window))))
+             (select-window origin)))
+    (button-type-put
+     'help-function-def 'help-function
+     (lambda (fun file)
+       (require 'find-func)
+       (when (eq file 'C-source)
+         (setq file (help-C-file-name (indirect-function fun) 'fun)))
+       (follow (find-function-search-for-symbol fun nil file))))
+    (button-type-put
+     'help-variable-def 'help-function
+     (lambda (var &optional file)
+       (when (eq file 'C-source)
+         (setq file (help-C-file-name var 'var)))
+       (follow (find-variable-noselect var file))))
+    (button-type-put
+     'help-face-def 'help-function
+     (lambda (fun file)
+       (require 'find-func)
+       (follow (find-function-search-for-symbol fun 'defface file))))))
 
 
 ;;;###package helpful
