@@ -49,7 +49,7 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   (let ((modes '(emacs-lisp-mode lisp-interaction-mode lisp-data-mode)))
     (set-repl-handler! modes #'+emacs-lisp/open-repl)
     (set-eval-handler! modes #'+emacs-lisp-eval-fn)
-    (set-lookup-handlers! `(,@modes helpful-mode)
+    (set-lookup-handlers! `(,@modes help-mode helpful-mode)
       :definition    #'+emacs-lisp-lookup-definition
       :documentation #'+emacs-lisp-lookup-documentation)
     (set-docsets! modes "Emacs Lisp")
