@@ -253,28 +253,18 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   (global-set-key [remap describe-key]      #'helpful-key)
   ;; (global-set-key [remap describe-symbol]   #'helpful-symbol)
 
-  (defun doom-use-helpful-a (fn &rest args)
-    "Force FN to use helpful instead of the old describe-* commands."
-    (letf! ((#'describe-function #'helpful-function)
-            (#'describe-variable #'helpful-variable))
-      (apply fn args)))
-
+  ;; HACK: Patch apropos buttons to call helpful instead of help
   (after! apropos
-    ;; patch apropos buttons to call helpful instead of help
     (dolist (fun-bt '(apropos-function apropos-macro apropos-command))
       (button-type-put
-       fun-bt 'action
-       (lambda (button)
-         (helpful-callable (button-get button 'apropos-symbol)))))
+       fun-bt 'action (fn! (helpful-callable (button-get % 'apropos-symbol)))))
     (dolist (var-bt '(apropos-variable apropos-user-option))
       (button-type-put
-       var-bt 'action
-       (lambda (button)
-         (helpful-variable (button-get button 'apropos-symbol))))))
+       var-bt 'action (fn! (helpful-variable (button-get % 'apropos-symbol))))))
 
   ;; DEPRECATED: Remove when support for 29 is dropped.
   (when (= emacs-major-version 29)
-    (defadvice! doom--find-function-search-for-symbol-save-excursion-a (fn &rest args)
+    (defadvice! +emacs-lisp--find-function-search-for-symbol-save-excursion-a (fn &rest args)
       "Suppress cursor movement by `find-function-search-for-symbol'.
 
 Addresses an unwanted side-effect in `find-function-search-for-symbol' on Emacs
@@ -305,11 +295,16 @@ current buffer."
                counsel-describe-variable-function #'helpful-variable
                counsel-descbinds-function #'helpful-callable))
         ((modulep! :completion helm)
-         (dolist (fn '(helm-describe-variable helm-describe-function))
-           (advice-add fn :around #'doom-use-helpful-a))))
+         (setq helm-describe-function-function #'helpful-function
+               helm-describe-variable-function #'helpful-variable)))
 
-  ;; Open help:* links with helpful-* instead of describe-*
-  (advice-add #'org-link--open-help :around #'doom-use-helpful-a)
+  ;; HACK: Open help:* links with helpful-* instead of describe-*
+  ;; REVIEW: PR this upstream (use variables like other packages?)
+  (defadvice! +emacs-lisp--use-helpful-a (fn &rest args)
+    :around #'org-link--open-help
+    (letf! ((#'describe-function #'helpful-function)
+            (#'describe-variable #'helpful-variable))
+      (apply fn args)))
 
   ;; Keep a record of buffers so our next/previous commands work.
   (advice-add #'helpful--buffer :filter-return #'+emacs-lisp-record-new-buffers-a)
