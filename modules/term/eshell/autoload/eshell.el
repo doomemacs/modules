@@ -79,16 +79,20 @@
 ;;;###autoload
 (defun +eshell-lookup-documentation (cmd)
   "Show help for CMD (a shell command or elisp function)."
-  (cond ((eshell-find-alias-function cmd)
-         (always (helpful-callable (eshell-find-alias-function cmd))))
-        ((and (or (and (string-match-p "^\\*." cmd)
-                       (cl-callf substring cmd 1))
-                  (eshell-search-path cmd))
-              (zerop (car (doom-call-process manual-program cmd))))
-         (always (display-buffer (man cmd))))
-        ((functionp (intern cmd))
-         (helpful-callable (intern cmd)) t)
-        ((user-error "Couldn't find man pages or elisp documentation for %S" cmd))))
+  (letf! (defun help-callable (fn)
+           (if (fboundp #'helpful-callable)
+               (helpful-callable fn)
+             (describe-function fn)))
+    (cond ((eshell-find-alias-function cmd)
+           (always (help-callable (eshell-find-alias-function cmd))))
+          ((and (or (and (string-match-p "^\\*." cmd)
+                         (cl-callf substring cmd 1))
+                    (eshell-search-path cmd))
+                (zerop (car (doom-call-process manual-program cmd))))
+           (always (display-buffer (man cmd))))
+          ((functionp (intern cmd))
+           (help-callable (intern cmd)) t)
+          ((user-error "Couldn't find man pages or elisp documentation for %S" cmd)))))
 
 
 ;;
