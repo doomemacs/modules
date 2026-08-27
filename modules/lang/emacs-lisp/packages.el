@@ -9,11 +9,10 @@
 ;; Tools
 (package! helpful
   :recipe (:host github :repo "hlissner/helpful")
-  :pin "cbaa4d2673963ecb369cf1d2f3a20247703fad02")
+  :pin "22c33ac46d16ec9bc400c3961f1d30445a25a155")
 (package! macrostep :pin "d0928626b4711dcf9f8f90439d23701118724199")
 (package! overseer :pin "7fdcf1a6fba6b1569a09c1666b4e51bcde266ed9")
 (package! elisp-def :pin "2451ed6594807448a24a63c51c917727713ed19d")
-(package! elisp-demos :pin "1a108d1c5011f9ced58be2ca98bea1fbd4130a2f")
 (package! let-completion :pin "460cdd5a73d857d6d91469e28f84f02465db8dac")
 (when (modulep! :checkers syntax -flymake)
   (package! flycheck-package :pin "a52e4e95f3151898b36739dfdb4a98b368626fc0"))
