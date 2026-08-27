@@ -242,7 +242,6 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
 (use-package! helpful
   ;; a better *help* buffer
   :commands helpful--read-symbol
-  :hook (helpful-mode . visual-line-mode)
   :init
   ;; Make `apropos' et co search more extensively. They're more useful this way.
   (setq apropos-do-all t)
