@@ -17,7 +17,7 @@
 
 
 (use-package! sly
-  :hook (lisp-mode-local-vars . sly-editing-mode)
+  :hook ((lisp-ts-mode lisp-mode-local-vars) . sly-editing-mode)
   :init
   ;; I moved this hook to `lisp-mode-local-vars', so it only affects
   ;; `lisp-mode', and not every other derived lisp mode (like `fennel-mode').
@@ -26,11 +26,12 @@
   (after! (:or emacs sly)
     (remove-hook 'lisp-mode-hook #'sly-editing-mode))
 
-  (after! lisp-mode
-    (set-repl-handler! 'lisp-mode #'+lisp/open-repl)
-    (set-eval-handler! 'lisp-mode #'sly-eval-region)
-    (set-formatter! 'lisp-indent #'apheleia-indent-lisp-buffer :modes '(lisp-mode))
-    (set-lookup-handlers! 'lisp-mode
+  (after! (:or lisp-mode lisp-ts-mode)
+    (set-repl-handler! '(lisp-mode lisp-ts-mode) #'+lisp/open-repl)
+    (set-eval-handler! '(lisp-mode lisp-ts-mode) #'sly-eval-region)
+    (set-formatter! 'lisp-indent #'apheleia-indent-lisp-buffer
+      :modes '(lisp-mode lisp-ts-mode))
+    (set-lookup-handlers! '(lisp-mode lisp-ts-mode)
       :definition #'sly-edit-definition
       :documentation #'sly-describe-symbol))
 
@@ -193,3 +194,21 @@
   :defer t
   :init
   (add-to-list 'sly-contribs 'sly-stepper))
+
+(use-package! lisp-ts-mode
+  :when (modulep! +tree-sitter)
+  :defer t
+  :hook (lisp-ts-mode . lisp-ts-format-support-mode)
+  :init (set-tree-sitter! 'lisp-mode 'lisp-ts-mode
+          '((common-lisp
+             :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
+             :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
+             :source-dir "grammars/cl/src")
+            (cl-format
+             :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
+             :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
+             :source-dir "grammars/format/src")))
+  :config
+  (setf (alist-get 'lisp-ts-mode font-lock-ignore)
+        lisp-ts-mode-font-lock-ignore-keywords)
+  (setopt lisp-ts-mode-format-indent-tilde-relative 'end))
