@@ -32,7 +32,7 @@
   (setq-hook! 'ruby-mode-hook sp-max-pair-length 6)
 
   (map! :localleader
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         "[" #'ruby-toggle-block
         "{" #'ruby-toggle-block))
 
@@ -54,7 +54,7 @@
   :defer t
   :init
   (map! :after ruby-mode
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         :localleader
         "J" #'ruby-json-to-hash-parse-json
         "j" #'ruby-json-to-hash-toggle-let))
@@ -70,7 +70,7 @@
   (setq rake-completion-system 'default)
   (map! :after ruby-mode
         :localleader
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         :prefix ("k" . "rake")
         "k" #'rake
         "r" #'rake-rerun
@@ -82,7 +82,7 @@
   :init
   (map! :after ruby-mode
         :localleader
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         :prefix ("b" . "bundle")
         "c" #'bundle-check
         "C" #'bundle-console
@@ -177,7 +177,7 @@
   :defer t
   :init
   (map! :after ruby-mode
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         "C-c o" #'rails-routes-insert
         "C-c C-o" #'rails-routes-insert-no-cache
         "C-c ! o" #'rails-routes-jump)
@@ -192,7 +192,7 @@
   :defer t
   :init
   (map! :after ruby-mode
-        :map ruby-mode-map
+        :map ruby-base-mode-map
         "C-c i" #'rails-i18n-insert-with-cache)
   (map! :after web-mode
         :map web-mode-map
