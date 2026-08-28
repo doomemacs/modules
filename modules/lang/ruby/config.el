@@ -45,7 +45,8 @@
   (set-electric! 'ruby-ts-mode :words '("else" "end" "elsif"))
   (set-repl-handler! 'ruby-ts-mode #'inf-ruby)
   (when (modulep! +lsp)
-    (add-hook 'ruby-ts-mode-local-vars-hook #'lsp! 'append)))
+    (add-hook 'ruby-ts-mode-local-vars-hook #'lsp! 'append))
+  (set-keymap-parent ruby-ts-mode-map ruby-mode-map))
 
 (use-package! yard-mode
   :hook ruby-mode)
