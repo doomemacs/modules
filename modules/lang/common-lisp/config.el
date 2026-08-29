@@ -12,12 +12,104 @@
 ;;
 ;; packages
 
-;;;###package lisp-mode
-(defvar inferior-lisp-program "sbcl")
+(defun +common-lisp-sly-config (mode)
+  (set-repl-handler! mode #'+lisp/open-repl)
+  (set-eval-handler! mode #'sly-eval-region)
+
+  (set-lookup-handlers! mode
+    :definition #'sly-edit-definition
+    :documentation #'sly-describe-symbol)
+
+  (map! :map ,(intern (format "%s-map" mode))
+        :n "gb" #'sly-pop-find-definition-stack
+        :localleader
+        :desc "Sly"                       "'" #'sly
+        :desc "Sly (ask)"                 ";" (cmd!! #'sly '-)
+        :desc "Expand macro"              "m" #'macrostep-expand
+        :desc "Find local Quicklisp file" "f" #'+lisp/find-file-in-quicklisp
+        (:prefix ("c" . "compile")
+         :desc "Compile file"          "c" #'sly-compile-file
+         :desc "Compile/load file"     "C" #'sly-compile-and-load-file
+         :desc "Compile toplevel form" "f" #'sly-compile-defun
+         :desc "Load file"             "l" #'sly-load-file
+         :desc "Remove notes"          "n" #'sly-remove-notes
+         :desc "Compile region"        "r" #'sly-compile-region)
+        (:prefix ("e" . "evaluate")
+         :desc "Evaluate buffer"        "b" #'sly-eval-buffer
+         :desc "Evaluate defun"         "d" #'sly-overlay-eval-defun
+         :desc "Evaluate last"          "e" #'sly-eval-last-expression
+         :desc "Evaluate/print last"    "E" #'sly-eval-print-last-expression
+         :desc "Evaluate defun (async)" "f" #'sly-eval-defun
+         :desc "Undefine function"      "F" #'sly-undefine-function
+         :desc "Evaluate region"        "r" #'sly-eval-region)
+        (:prefix ("g" . "goto")
+         :desc "Go back"              "b" #'sly-pop-find-definition-stack
+         :desc "Go to"                "d" #'sly-edit-definition
+         :desc "Go to (other window)" "D" #'sly-edit-definition-other-window
+         :desc "Next note"            "n" #'sly-next-note
+         :desc "Previous note"        "N" #'sly-previous-note
+         :desc "Next sticker"         "s" #'sly-stickers-next-sticker
+         :desc "Previous sticker"     "S" #'sly-stickers-prev-sticker)
+        (:prefix ("h" . "help")
+         :desc "Who calls"               "<" #'sly-who-calls
+         :desc "Calls who"               ">" #'sly-calls-who
+         :desc "Lookup format directive" "~" #'hyperspec-lookup-format
+         :desc "Lookup reader macro"     "#" #'hyperspec-lookup-reader-macro
+         :desc "Apropos"                 "a" #'sly-apropos
+         :desc "Who binds"               "b" #'sly-who-binds
+         :desc "Disassemble symbol"      "d" #'sly-disassemble-symbol
+         :desc "Describe symbol"         "h" #'sly-describe-symbol
+         :desc "HyperSpec lookup"        "H" #'sly-hyperspec-lookup
+         :desc "Who macro-expands"       "m" #'sly-who-macroexpands
+         :desc "Apropos package"         "p" #'sly-apropos-package
+         :desc "Who references"          "r" #'sly-who-references
+         :desc "Who specializes"         "s" #'sly-who-specializes
+         :desc "Who sets"                "S" #'sly-who-sets)
+        (:prefix ("r" . "repl")
+         :desc "Clear REPL"         "c" #'sly-mrepl-clear-repl
+         :desc "Load System"        "l" #'sly-asdf-load-system
+         :desc "Quit connection"    "q" #'sly-quit-lisp
+         :desc "Restart connection" "r" #'sly-restart-inferior-lisp
+         :desc "Reload Project"     "R" #'+lisp/reload-project
+         :desc "Sync REPL"          "s" #'sly-mrepl-sync)
+        (:prefix ("s" . "stickers")
+         :desc "Toggle breaking stickers" "b" #'sly-stickers-toggle-break-on-stickers
+         :desc "Clear defun stickers"     "c" #'sly-stickers-clear-defun-stickers
+         :desc "Clear buffer stickers"    "C" #'sly-stickers-clear-buffer-stickers
+         :desc "Fetch stickers"           "f" #'sly-stickers-fetch
+         :desc "Replay stickers"          "r" #'sly-stickers-replay
+         :desc "Add/remove sticker"       "s" #'sly-stickers-dwim)
+        (:prefix ("t" . "test")
+         :desc "Test System" "s" #'sly-asdf-test-system)
+        (:prefix ("T" . "trace")
+         :desc "Toggle"         "t" #'sly-toggle-trace-fdefinition
+         :desc "Toggle (fancy)" "T" #'sly-toggle-fancy-trace
+         :desc "Untrace all"    "u" #'sly-untrace-all)))
+
+
+(use-package! lisp-mode
+  :defer t
+  :init
+  (defvar inferior-lisp-program "sbcl")
+  (after! sly (+common-lisp-sly-config 'lisp-mode)))
+
+
+(use-package! lisp-ts-mode
+  :when (modulep! +tree-sitter)
+  :hook (lisp-ts-mode . lisp-ts-format-support-mode)
+  :init
+  (set-tree-sitter! 'lisp-mode 'lisp-ts-mode '(common-lisp cl-format))
+  (after! sly (+common-lisp-sly-config 'lisp-ts-mode))
+  :config
+  (set-formatter! 'lisp-indent :modes '(lisp-ts-mode))
+  (setq lisp-ts-mode-format-indent-tilde-relative 'end)
+  (setf (alist-get 'lisp-ts-mode font-lock-ignore)
+        lisp-ts-mode-font-lock-ignore-keywords))
 
 
 (use-package! sly
   :hook (lisp-mode-local-vars . sly-editing-mode)
+  :hook (lisp-ts-mode-local-vars . sly-editing-mode)
   :init
   ;; I moved this hook to `lisp-mode-local-vars', so it only affects
   ;; `lisp-mode', and not every other derived lisp mode (like `fennel-mode').
@@ -25,14 +117,6 @@
   ;; load-time, so it must be removed twice.
   (after! (:or emacs sly)
     (remove-hook 'lisp-mode-hook #'sly-editing-mode))
-
-  (after! lisp-mode
-    (set-repl-handler! 'lisp-mode #'+lisp/open-repl)
-    (set-eval-handler! 'lisp-mode #'sly-eval-region)
-    (set-formatter! 'lisp-indent #'apheleia-indent-lisp-buffer :modes '(lisp-mode))
-    (set-lookup-handlers! 'lisp-mode
-      :definition #'sly-edit-definition
-      :documentation #'sly-describe-symbol))
 
   ;; This needs to be appended so it fires later than `sly-editing-mode'
   (add-hook 'lisp-mode-local-vars-hook #'sly-lisp-indent-compatibility-mode 'append)
@@ -106,74 +190,7 @@
          :n "K"  #'sly-inspector-describe-inspectee)
         (:map sly-xref-mode-map
          :n "gr" #'sly-recompile-xref
-         :n "gR" #'sly-recompile-all-xrefs)
-        (:map lisp-mode-map
-         :n "gb" #'sly-pop-find-definition-stack)
-
-        (:localleader
-         :map lisp-mode-map
-         :desc "Sly"                       "'" #'sly
-         :desc "Sly (ask)"                 ";" (cmd!! #'sly '-)
-         :desc "Expand macro"              "m" #'macrostep-expand
-         :desc "Find local Quicklisp file" "f" #'+lisp/find-file-in-quicklisp
-         (:prefix ("c" . "compile")
-          :desc "Compile file"          "c" #'sly-compile-file
-          :desc "Compile/load file"     "C" #'sly-compile-and-load-file
-          :desc "Compile toplevel form" "f" #'sly-compile-defun
-          :desc "Load file"             "l" #'sly-load-file
-          :desc "Remove notes"          "n" #'sly-remove-notes
-          :desc "Compile region"        "r" #'sly-compile-region)
-         (:prefix ("e" . "evaluate")
-          :desc "Evaluate buffer"        "b" #'sly-eval-buffer
-          :desc "Evaluate defun"         "d" #'sly-overlay-eval-defun
-          :desc "Evaluate last"          "e" #'sly-eval-last-expression
-          :desc "Evaluate/print last"    "E" #'sly-eval-print-last-expression
-          :desc "Evaluate defun (async)" "f" #'sly-eval-defun
-          :desc "Undefine function"      "F" #'sly-undefine-function
-          :desc "Evaluate region"        "r" #'sly-eval-region)
-         (:prefix ("g" . "goto")
-          :desc "Go back"              "b" #'sly-pop-find-definition-stack
-          :desc "Go to"                "d" #'sly-edit-definition
-          :desc "Go to (other window)" "D" #'sly-edit-definition-other-window
-          :desc "Next note"            "n" #'sly-next-note
-          :desc "Previous note"        "N" #'sly-previous-note
-          :desc "Next sticker"         "s" #'sly-stickers-next-sticker
-          :desc "Previous sticker"     "S" #'sly-stickers-prev-sticker)
-         (:prefix ("h" . "help")
-          :desc "Who calls"               "<" #'sly-who-calls
-          :desc "Calls who"               ">" #'sly-calls-who
-          :desc "Lookup format directive" "~" #'hyperspec-lookup-format
-          :desc "Lookup reader macro"     "#" #'hyperspec-lookup-reader-macro
-          :desc "Apropos"                 "a" #'sly-apropos
-          :desc "Who binds"               "b" #'sly-who-binds
-          :desc "Disassemble symbol"      "d" #'sly-disassemble-symbol
-          :desc "Describe symbol"         "h" #'sly-describe-symbol
-          :desc "HyperSpec lookup"        "H" #'sly-hyperspec-lookup
-          :desc "Who macro-expands"       "m" #'sly-who-macroexpands
-          :desc "Apropos package"         "p" #'sly-apropos-package
-          :desc "Who references"          "r" #'sly-who-references
-          :desc "Who specializes"         "s" #'sly-who-specializes
-          :desc "Who sets"                "S" #'sly-who-sets)
-         (:prefix ("r" . "repl")
-          :desc "Clear REPL"         "c" #'sly-mrepl-clear-repl
-          :desc "Load System"        "l" #'sly-asdf-load-system
-          :desc "Quit connection"    "q" #'sly-quit-lisp
-          :desc "Restart connection" "r" #'sly-restart-inferior-lisp
-          :desc "Reload Project"     "R" #'+lisp/reload-project
-          :desc "Sync REPL"          "s" #'sly-mrepl-sync)
-         (:prefix ("s" . "stickers")
-          :desc "Toggle breaking stickers" "b" #'sly-stickers-toggle-break-on-stickers
-          :desc "Clear defun stickers"     "c" #'sly-stickers-clear-defun-stickers
-          :desc "Clear buffer stickers"    "C" #'sly-stickers-clear-buffer-stickers
-          :desc "Fetch stickers"           "f" #'sly-stickers-fetch
-          :desc "Replay stickers"          "r" #'sly-stickers-replay
-          :desc "Add/remove sticker"       "s" #'sly-stickers-dwim)
-         (:prefix ("t" . "test")
-          :desc "Test System" "s" #'sly-asdf-test-system)
-         (:prefix ("T" . "trace")
-          :desc "Toggle"         "t" #'sly-toggle-trace-fdefinition
-          :desc "Toggle (fancy)" "T" #'sly-toggle-fancy-trace
-          :desc "Untrace all"    "u" #'sly-untrace-all)))
+         :n "gR" #'sly-recompile-all-xrefs))
 
   (when (modulep! :editor evil +everywhere)
     (add-hook 'sly-mode-hook #'evil-normalize-keymaps)))

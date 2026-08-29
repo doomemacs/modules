@@ -181,7 +181,12 @@
                  (awk :url "https://github.com/Beaglefoot/tree-sitter-awk")
                  (bibtex :url "https://github.com/latex-lsp/tree-sitter-bibtex")
                  (blueprint :url "https://github.com/huanie/tree-sitter-blueprint")
-                 (commonlisp :url "https://github.com/tree-sitter-grammars/tree-sitter-commonlisp")
+                 (cl-format :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
+                            :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
+                            :source-dir "grammars/format/src")
+                 (common-lisp :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
+                              :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
+                              :source-dir "grammars/cl/src")
                  (latex :url "https://github.com/latex-lsp/tree-sitter-latex"
                         :commit "a6c812704b3d3e1541b0853aa0d6d561301320e1") ; see latex-lsp/tree-sitter-latex#172
                  (make :url "https://github.com/tree-sitter-grammars/tree-sitter-make")

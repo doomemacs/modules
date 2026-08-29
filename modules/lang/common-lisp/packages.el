@@ -9,3 +9,8 @@
   (package! sly-macrostep :pin "5113e4e926cd752b1d0bcc1508b3ebad5def5fad")
   (package! sly-repl-ansi-color :pin "b9cd52d1cf927bf7e08582d46ab0bcf1d4fb5048")
   (package! sly-overlay :pin "345b554ad005421b447b2e64c34314ee79f5f8b9"))
+
+(when (and (modulep! +tree-sitter)
+           (treesit-available-p)
+           (version<= "30.2" emacs-version))
+  (package! lisp-ts-mode :pin "a6868638e7e46ca8e9a1e1825b7bbdc38c241fa8"))
