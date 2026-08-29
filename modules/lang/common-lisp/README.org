@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module provides support for [[https://lisp-lang.org/][Common Lisp]] and the [[pkg:Sly]] development
+This module provides support for [[https://lisp-lang.org/][Common Lisp]] and the [[pkg:sly]] development
 environment. Common Lisp is not a single language but a specification, with many
 competing compiler implementations. By default, [[http://www.sbcl.org/][Steel Bank Common Lisp]] (SBCL) is
 assumed to be installed, but this can be configured.
@@ -49,20 +49,20 @@ of what is normally expected of an LSP, plus tight integration with the REPL and
 Emacs.
 
 ** Sly
-Using this module is mostly a matter of using Sly. Please consider reading
-through [[http://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][the Sly Tour]].
+Using this module is mostly a matter of using Sly. Consider reading [[http://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][the Sly
+Tour]].
 
-A Sly session will be started when you open a =.lisp= file. Use [[kbd:][<localleader> ']]
-to switch to the REPL minibuffer.
+A Sly session will be started when you open a =.lisp= file. Use [[kbd:][<localleader> ']] to switch to the
+REPL minibuffer.
 
 ** org-mode
-This module also enables the evaluation of =lisp= source blocks in Org Mode.
-However, you will need a running Sly session for this to work. ~M-x sly~ starts
-such a session if you didn't have one open already.
+This module enables the evaluation of =lisp= source blocks in Org Mode. However, a
+Sly session must be running for this to work. Use M-x:sly to start one, if you
+haven't already.
 
 ** formatter
-By enabling [[module::editor format]], [[fn:apheleia-indent-lisp-buffer]] will be
-used to format the current buffer.
+By enabling [[module::editor format]], [[fns:apheleia-indent-lisp-buffer]] will be used to
+format the current buffer.
 
 Enable [[module::editor format +onsave]] to format the buffer on save.
 
@@ -71,8 +71,8 @@ Enable [[module::editor format +onsave]] to format the buffer on save.
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-If you don't want Sly to use SBCL, you can configure the variable
-~inferior-lisp-program~ to some other binary on your PATH.
+To get Sly to use something other than SBCL, set var:inferior-lisp-program to
+its path (or name, if it's in your =$PATH=).
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]
