@@ -49,23 +49,22 @@ easier to scroll through."
   ;; Large images are annoying to scroll through, because scrolling follows the
   ;; cursor, so we force shr to insert images in slices.
   (when +rss-enable-sliced-images
-    (setq-hook! 'elfeed-show-mode-hook
-      shr-put-image-function #'+rss-put-sliced-image-fn
-      shr-external-rendering-functions '((img . +rss-render-image-tag-without-underline-fn))))
+    (if (< emacs-major-version 31)
+        ;; DEPRECATED: Remove when 30.x support is dropped
+        (setq-hook! 'elfeed-show-mode-hook
+          shr-put-image-function #'+rss-put-sliced-image-fn
+          shr-external-rendering-functions '((img . +rss-render-image-tag-without-underline-fn))))
+    ;; Make shr's auto-slicing of large images more aggressive
+    (setq shr-sliced-image-height 0.3))  ; default: 0.9
 
-  ;; Keybindings
-  (after! elfeed-show
-    (define-key! elfeed-show-mode-map
-      [remap next-buffer]     #'+rss/next
-      [remap previous-buffer] #'+rss/previous))
-  (when (modulep! :editor evil +everywhere)
-    (map! (:map elfeed-search-mode-map
-           :n "q" #'kill-current-buffer
-           :n "r" #'revert-buffer
-           :n "M-RET" #'elfeed-search-browse-url)
-          (:map elfeed-show-mode-map
-           :n "gc" nil
-           :n "gc" #'+rss/copy-link)))
+  (map! :when (modulep! :editor evil +everywhere)
+        (:map elfeed-search-mode-map
+         :n "q" #'kill-current-buffer
+         :n "r" #'revert-buffer
+         :n "M-RET" #'elfeed-search-browse-url)
+        (:map elfeed-show-mode-map
+         :n "gc" nil
+         :n "gc" #'+rss/copy-link))
 
   ;; HACK: Fix visual-line mode (evil) selecting +1 line when executing
   ;;   elfeed-search operations on selected entries.
