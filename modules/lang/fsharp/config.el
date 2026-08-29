@@ -1,7 +1,8 @@
 ;;; lang/fsharp/config.el -*- lexical-binding: t; -*-
 
 (defun +fsharp-common-config (mode)
-  (set-formatter! 'fantomas '("fantomas" "--stdin") :modes (list mode))
+  (set-formatter! 'fantomas '("fantomas" "--out" filepath filepath)
+    :modes (list mode))
   (when (modulep! +lsp)
     (add-hook (intern (format "%s-local-vars-hook" mode)) #'lsp! 'append)))
 
