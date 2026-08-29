@@ -15,8 +15,7 @@ This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/cod
 - [[package:org-msg]] integration with [[module:+org]], which can be toggled per-message, with revamped
   style and an accent color.
 - Gmail integrations with the [[module:+gmail]] flag.
-- Email notifications with [[pkg:mu4e-alert]], and (on Linux) a customised notification
-  style.
+- Email notifications, using mu4e's built-in notification support.
 
 #+begin_quote aside
 I want to live in Emacs, but as we all know, living is incomplete without email.
@@ -337,13 +336,15 @@ compose or reply command ([[kbd:][SPC u]] with [[pkg:evil]], [[kbd:][C-u]] other
 The accent color that Doom uses can be customised by setting
 ~+org-msg-accent-color~ to a CSS color string.
 
-** mu4e-alert
-This provides notifications through the [[https://github.com/jwiegley/alert][alert]] library.
+** Notifications
+New-mail notifications are provided by mu4e itself (since mu4e 1.10), and this
+module enables them.
 
 If you don't like this use:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/packages.el
-(package! mu4e-alert :disable t)
+;; add to $DOOMDIR/config.el
+(after! mu4e
+  (setq mu4e-notification-support nil))
 #+end_src
 
 ** Enabling automatic email fetching
