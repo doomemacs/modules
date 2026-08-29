@@ -230,7 +230,7 @@ Continues comments if executed from a commented line."
   "db"   #'doom/report-bug
   "dc"   #'doom/open-private-config
   "dd"   #'doom-debug-mode
-  "df"   #'doom/docs-faq
+  "df"   #'doom/docs-find-file
   "dh"   #'doom/docs
   "di"   #'doom/info
   "dl"   #'doom/help-search-load-path
