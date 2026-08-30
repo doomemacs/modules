@@ -205,14 +205,9 @@
   :defer t
   :hook (lisp-ts-mode . lisp-ts-format-support-mode)
   :init (set-tree-sitter! 'lisp-mode 'lisp-ts-mode
-          '((common-lisp
-             :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
-             :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
-             :source-dir "grammars/cl/src")
-            (cl-format
-             :url "https://codeberg.org/zshaftel/tree-sitter-cl-syntax"
-             :commit "dd2290d2a2480f4d865c57ed541dc714645c386b"
-             :source-dir "grammars/format/src")))
+          ;; lisp-ts-mode.el adds these to `treesit-language-source-alist', no
+          ;; need to duplicate those settings here
+          '(common-lisp cl-format))
   :config
   (setf (alist-get 'lisp-ts-mode font-lock-ignore)
         lisp-ts-mode-font-lock-ignore-keywords)

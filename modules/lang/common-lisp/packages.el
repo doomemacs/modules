@@ -13,4 +13,5 @@
 (when (and (modulep! +tree-sitter)
            (treesit-available-p)
            (version<= "30.2" emacs-version))
-  (package! lisp-ts-mode :pin "d42a20f33c46d8eaa653440e134c0aa954dbbe98"))
+  (package! lisp-ts-mode :recipe (:host codeberg :repo "zshaftel/lisp-ts-mode")
+                         :pin "d42a20f33c46d8eaa653440e134c0aa954dbbe98"))
