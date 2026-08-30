@@ -5,6 +5,7 @@
   :hook (doom-first-input . ultra-scroll-mode)
   :hook (doom-first-file . ultra-scroll-mode)
   :config
+  (setq ultra-scroll-throttle-mode-line t)
   (add-hook 'ultra-scroll-hide-functions #'hl-todo-mode)
   (add-hook 'ultra-scroll-hide-functions #'diff-hl-flydiff-mode)
   (add-hook 'ultra-scroll-hide-functions #'jit-lock-mode)
