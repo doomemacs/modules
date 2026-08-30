@@ -83,6 +83,9 @@
                   python-ts-mode))  ; partially fixed in 31.1
     (advice-add mode :around #'+tree-sitter-ts-mode-inhibit-side-effects-a))
 
+  ;; So we can prevent double-prompting later.
+  (put 'treesit-auto-install-grammar 'permanent-local t)
+
   ;; HACK: Intercept all ts-mode major mode remappings so grammars can be
   ;;   dynamically checked and `treesit-auto-install-grammar' can be
   ;;   consistently respected (which isn't currently the case with the majority
@@ -137,7 +140,10 @@
                                                (y-or-n-p
                                                 (format "Missing tree-sitter grammars: %s\nInstall now?"
                                                         (mapconcat #'symbol-name grammars ", "))))))
-                                  (mapc #'treesit-install-language-grammar grammars)
+                                  (always
+                                   (cl-loop for grammar in grammars
+                                            do (treesit-install-language-grammar grammar)
+                                            finally do (setq-local treesit-auto-install-grammar t)))
                                 (message "Treesit grammars missing (%s), falling back to `%s'..."
                                          (mapconcat #'symbol-name grammars ", ")
                                          fallback-mode)
