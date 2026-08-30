@@ -18,11 +18,11 @@
 
 (defun +common-lisp--define-keys (map)
   "Add the Common Lisp specific keybindings to MAP."
-  (map! (:map map
+  (map! (:map ,map
          :n "gb" #'sly-pop-find-definition-stack)
 
         (:localleader
-         :map map
+         :map ,map
          :desc "Sly"                       "'" #'sly
          :desc "Sly (ask)"                 ";" (cmd!! #'sly '-)
          :desc "Expand macro"              "m" #'macrostep-expand
@@ -179,7 +179,7 @@
          :n "gr" #'sly-recompile-xref
          :n "gR" #'sly-recompile-all-xrefs))
 
-  (+common-lisp--define-keys lisp-mode-map)
+  (+common-lisp--define-keys 'lisp-mode-map)
 
   (when (modulep! :editor evil +everywhere)
     (add-hook 'sly-mode-hook #'evil-normalize-keymaps)))
@@ -212,4 +212,4 @@
   (setf (alist-get 'lisp-ts-mode font-lock-ignore)
         lisp-ts-mode-font-lock-ignore-keywords)
   (setopt lisp-ts-mode-format-indent-tilde-relative 'end)
-  (+common-lisp--define-keys lisp-ts-mode-map))
+  (+common-lisp--define-keys 'lisp-ts-mode-map))
