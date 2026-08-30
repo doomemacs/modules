@@ -164,6 +164,7 @@
   ;;   active profile).
   (let ((data-dir (doom-profile-data-dir t "tree-sitter")))
     (add-to-list 'treesit-extra-load-path data-dir)
+    (make-directory data-dir t)
     ;; Treesit's API saw major changes in 30.x.
     (if (< emacs-major-version 30)
         (defadvice! +tree-sitter--install-grammar-to-local-dir-a (fn out-dir &rest args)
