@@ -16,7 +16,6 @@
 
 (defvar +lookup-provider-url-alist
   (append '(("Doom issues"       "https://github.com/orgs/doomemacs/projects/2/views/30?filterQuery=%s")
-            ("Doom discourse"    "https://discourse.doomemacs.org/search?q=%s")
             ("Google"            +lookup--online-backend-google "https://google.com/search?q=%s")
             ("Google images"     "https://www.google.com/images?q=%s")
             ("Google maps"       "https://maps.google.com/maps?q=%s")
