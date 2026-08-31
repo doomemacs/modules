@@ -47,6 +47,11 @@
                   (doom-project-p))))
         t)
 
+  ;; HACK: Keep "Flycheck: no syntax checker for X-mode can run here; C-c ! v
+  ;;   shows why" warnings out of the echo-area (still logged to *Messages*
+  ;;   though).
+  (advice-add #'flycheck--report-no-checker :around #'doom-shut-up-a)
+
   ;; Don't commandeer input focus if the error message pops up (happens when
   ;; tooltips and childframes are disabled).
   (set-popup-rules!
