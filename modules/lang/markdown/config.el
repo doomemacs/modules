@@ -151,7 +151,7 @@ output buffer."
   :commands (markdown-ts-mode)
   :defer t
   :init
-  (set-tree-sitter! 'markdown-mode 'markdown-ts-mode '(markdown markdown-inline))
+  (set-tree-sitter! '(markdown-mode gfm-mode) 'markdown-ts-mode '(markdown markdown-inline))
   :config
   (+markdown-common-config 'markdown-ts-mode)
   (map! :map markdown-ts-mode-map
