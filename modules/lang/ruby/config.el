@@ -27,6 +27,8 @@
 
   (setq ruby-insert-encoding-magic-comment nil)
 
+  (add-to-list 'completion-ignored-extensions ".rbc")
+
   (after! inf-ruby
     ;; Switch to inf-ruby from compile if a breakpoint is detected
     (add-hook 'compilation-filter-hook #'inf-ruby-auto-enter))
