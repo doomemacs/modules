@@ -26,39 +26,24 @@
   ;; HACK: Reloading direnv doesn't restart the associated LSP/eglot clients, so
   ;;   this restarts them for you.
   (when (modulep! :tools lsp)
-    (defadvice! +direnv--restart-lsp-servers-a (env-dir)
-      :after #'envrc--update-env
-      (let (eglot-servers lsp-servers)
-        (dolist (buf (envrc--mode-buffers))
-          (with-current-buffer buf
-            (when (string= (envrc--find-env-dir) env-dir)
-              (when (bound-and-true-p lsp-mode)
-                (dolist (ws (lsp-workspaces))
-                  (cl-pushnew ws lsp-servers :test #'equal)))
-              (when (bound-and-true-p eglot--managed-mode)
-                (cl-pushnew (eglot-current-server) eglot-servers :test #'equal)))))
-        (when (or eglot-servers lsp-servers)
-          (mapc #'eglot-reconnect eglot-servers)
-          (mapc #'lsp-workspace-restart lsp-servers)
-          (message "Restarted %d lsp/eglot servers associated with direnv"
-                   (+ (length eglot-servers)
-                      (length lsp-servers)))))))
-
-  ;; ...However, the above hack causes envrc to trigger in its own, internal
-  ;; buffers, causing extra direnv errors.
-  (defadvice! +direnv--debounce-update-a (&rest _)
-    "Prevent direnv from running multiple times, consecutively in a buffer."
-    :before-while #'envrc--update
-    (not (string-prefix-p "*envrc" (buffer-name))))
-
-  (defadvice! +direnv--fail-gracefully-a (&rest _)
-    "Don't try to use direnv if the executable isn't present."
-    :before-while #'envrc-global-mode
-    (or (executable-find envrc-direnv-executable)
-        (ignore (doom-log "Failed to locate direnv executable; aborting envrc-global-mode"))))
+    (defadvice! +direnv--restart-lsp-servers-a (status)
+      :after #'envrc--direnv-set-status
+      (when (eq status 'success)
+        (let (eglot-servers lsp-servers)
+          (dolist (buf (envrc--mode-buffers))
+            (when (string= default-directory (buffer-local-value 'envrc--env-dir buf))
+              (with-current-buffer buf
+                (when (bound-and-true-p lsp-mode)
+                  (dolist (ws (lsp-workspaces))
+                    (cl-pushnew ws lsp-servers :test #'equal)))
+                (when (bound-and-true-p eglot--managed-mode)
+                  (cl-pushnew (eglot-current-server) eglot-servers :test #'equal)))))
+          (when (or eglot-servers lsp-servers)
+            (mapc #'eglot-reconnect eglot-servers)
+            (mapc #'lsp-workspace-restart lsp-servers)
+            (message "Restarted %d lsp/eglot servers associated with direnv"
+                     (+ (length eglot-servers)
+                        (length lsp-servers))))))))
 
   ;; Ensure babel's execution environment matches the host buffer's.
-  (advice-add #'org-babel-execute-src-block :around #'envrc-propagate-environment)
-
-  ;; Make sure any envrc changes are propagated after a `doom/reload'
-  (add-hook 'doom-after-reload-hook #'envrc-reload-all))
+  (advice-add #'org-babel-execute-src-block :around #'envrc-propagate-environment))

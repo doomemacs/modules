@@ -1,4 +1,4 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; tools/direnv/packages.el
 
-(package! envrc :pin "e4f9fd79a612c8f81b4ba5b12ee7261fc33568f0")
+(package! envrc :pin "c127d8fb1cfab37582eddb47ea28c8533de06f5b")
