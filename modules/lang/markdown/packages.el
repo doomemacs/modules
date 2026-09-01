@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/markdown/packages.el
 
-(package! markdown-mode :pin "f441e8bc9951e73b12c61e9198658488dd8e86e1")
+(package! markdown-mode :pin "76cb4ffecfdf95ee769e5cb4608e04202c3c1521")
 (package! markdown-toc :pin "ab4ba86e627ef83b7eec6706d66b81241c96f48c")
 
 ;; Required by `markdown-mode', or it will install it via package.el if it isn't

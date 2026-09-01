@@ -9,7 +9,7 @@
 ;; Tools
 (package! helpful
   :recipe (:host github :repo "hlissner/helpful")
-  :pin "22c33ac46d16ec9bc400c3961f1d30445a25a155")
+  :pin "e3e06eab5ee93470f009d68c5d398a9619d4c382")
 (package! macrostep :pin "d0928626b4711dcf9f8f90439d23701118724199")
 (package! overseer :pin "7fdcf1a6fba6b1569a09c1666b4e51bcde266ed9")
 (package! elisp-def :pin "2451ed6594807448a24a63c51c917727713ed19d")
