@@ -18,7 +18,6 @@
 - [[package:ansible-doc]]
 - [[package:company-ansible]] if [[module::completion company]]
 - [[package:jinja2-mode]]
-- [[package:yaml-mode]]
 
 ** Hacks
 /No hacks documented for this module./
