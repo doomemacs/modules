@@ -153,7 +153,11 @@ output buffer."
   :init
   (set-tree-sitter! 'markdown-mode 'markdown-ts-mode '(markdown markdown-inline))
   :config
-  (+markdown-common-config 'markdown-ts-mode))
+  (+markdown-common-config 'markdown-ts-mode)
+  (map! :map markdown-ts-mode-map
+        [remap markdown-toggle-inline-images] #'markdown-ts-toggle-inline-images
+        [remap markdown-toggle-markup-hiding] #'markdown-ts-toggle-hide-markup
+        [remap markdown-toggle-gfm-checkbox]  #'markdown-ts-toggle-checkbox))
 
 
 (use-package! evil-markdown
