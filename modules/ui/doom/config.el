@@ -8,7 +8,7 @@
 (use-package! doom-themes
   ;; improve integration w/ org-mode
   :hook (doom-load-theme . doom-themes-org-config)
-  :init (setq doom-theme 'doom-one)
+  :init (or doom-theme (setq doom-theme 'doom-one))
   ;; more Atom-esque file icons for neotree/treemacs
   ;; (when (modulep! :ui neotree)
   ;;   (add-hook 'doom-load-theme-hook #'doom-themes-neotree-config)
