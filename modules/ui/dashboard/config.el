@@ -169,7 +169,7 @@ dashboard reloading is inhibited.")
 ;;; Major mode
 
 (define-derived-mode +dashboard-mode special-mode
-  (format "DOOM v%s" doom-version)
+  (format "DOOM v%s" (doom-version))
   "Major mode for the DOOM dashboard buffer."
   :syntax-table nil
   :abbrev-table nil
