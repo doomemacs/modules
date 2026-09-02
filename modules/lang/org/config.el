@@ -946,7 +946,8 @@ between the two."
         org-clock-out-remove-zero-time-clocks t
         ;; The default value (5) is too conservative.
         org-clock-history-length 20)
-  (add-hook 'kill-emacs-hook #'org-clock-save))
+  (add-hook 'kill-emacs-hook #'org-clock-save)
+  (add-hook 'server-done-hook #'org-clock-save))
 
 
 (use-package! org-eldoc
