@@ -1,10 +1,10 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; completion/corfu/packages.el
 
-(package! corfu :pin "6477aac54fa1ea4865b23d7562e48b83a082a1e4")
-(package! cape :pin "bd827d913f487d2bb3815731ac20b60419b9cb03")
+(package! corfu :pin "c68f993d2df82bfab8a973c6f1af047dc3543093")
+(package! cape :pin "f0135abaf95a22b9fb2c951751a5d0733ce61bbd")
 (when (modulep! +icons)
-  (package! nerd-icons-corfu :pin "f821e953b1a3dc9b381bc53486aabf366bf11cb1"))
+  (package! nerd-icons-corfu :pin "e1197d6c1db673f4ec7ee20cb2c4297f479420e7"))
 (when (and (not (modulep! :completion vertico))
            (modulep! +orderless))
   ;; Enabling +orderless without vertico should be fairly niche enough that to

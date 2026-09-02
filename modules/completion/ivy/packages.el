@@ -14,7 +14,7 @@
 (if (modulep! +prescient)
     (package! ivy-prescient :pin "5649977fa7789e4615efeca09397ed7eccd06dfc")
   (when (modulep! +fuzzy)
-    (package! flx :pin "4b1346eb9a8a76ee9c9dede69738c63ad97ac5b6")))
+    (package! flx :pin "dc6e4cec66ab05d536ec2cc6f5f324c019e8f8c0")))
 
 (when (modulep! +childframe)
   (package! ivy-posframe :pin "ede7b2121f176ab543ce6b73fd96e3eafd6d1505"))
