@@ -199,6 +199,13 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
 (use-package! checkdoc  ; built-in
   :defer t
   :config
+  ;; HACK: Complaining that highlighted symbols are ambiguous (is it a variable,
+  ;;   function, option, etc?) is silly, and satisfying the checker involves
+  ;;   prefixing highlighted symbols with one of a hardcoded list of words like
+  ;;   "function", "variable", or "option". Silly. Rigid. Turn it off.
+  ;; REVIEW: Get rid of the check or improve/modularize the heuristics upstream.
+  (setq checkdoc--disambiguate-symbol-flag nil)
+
   ;; HACK: Checkdoc complains about *any* function that doesn't have a
   ;;   docstring. With `checkdoc-force-docstrings-flag' off, it still complains
   ;;   about interactive commands not having a docstring, but I want it to
