@@ -54,15 +54,6 @@ Intended to replace `lisp-outline-level'."
       (doom/docs-module module 'visit-dir)
     (call-interactively #'elisp-def)))
 
-(defun +emacs-lisp--describe-symbol (symbol)
-  (if (or (not (fboundp 'helpful-symbol))
-          (cl-some (lambda (x) (funcall (nth 1 x) symbol))
-                   describe-symbol-backends))
-      (progn
-        (describe-symbol symbol)
-        (pop-to-buffer (help-buffer)))
-    (helpful-symbol symbol)))
-
 ;;;###autoload
 (defun +emacs-lisp-lookup-documentation (thing)
   "Lookup THING with `helpful-variable' if it's a variable, `helpful-callable'
