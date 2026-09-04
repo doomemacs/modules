@@ -79,7 +79,7 @@ Inspired by Sublime Text's jump-to-anywhere, CtrlP/Unite in Vim, and Textmate's
 Command-T, this module provides similar functionality by bringing [[pkg:projectile]] and
 [[pkg:ivy]] together.
 
-https://assets.doomemacs.org/completion/ivy/projectile.png
+[[asset:https://assets.doomemacs.org/completion/ivy/projectile.png]]
 
 | Keybind          | Description                         |
 |------------------+-------------------------------------|
@@ -97,7 +97,7 @@ This module provides interactive text search and replace using ripgrep.
 | [[kbd:SPC s d]] | Search this directory    |
 | [[kbd:SPC s D]] | Search another directory |
 
-https://assets.doomemacs.org/completion/ivy/search.png
+[[asset:https://assets.doomemacs.org/completion/ivy/search.png]]
 
 Prefixing these keys with the universal argument (=SPC u= for evil users; =C-u=
 otherwise) changes the behavior of these commands, instructing the underlying
@@ -125,7 +125,7 @@ These keybindings are available while a search is active:
 Changes to the resulting wgrep buffer (opened by [[kbd:C-c C-e]]) can be committed with
 [[kbd:C-c C-c]] and aborted with [[kbd:C-c C-k]] (alternatively [[kbd:ZZ]] and [[kbd:ZQ]], for evil users).
 
-https://assets.doomemacs.org/completion/ivy/search-replace.png
+[[assets:https://assets.doomemacs.org/completion/ivy/search-replace.png]]
 
 ** In-buffer searching
 The [[pkg:swiper]] package provides an interactive buffer search powered by ivy. It
@@ -136,7 +136,7 @@ can be invoked with:
 - [[kbd:SPC s b]] (~swiper~)
 - ~:sw[iper] [QUERY]~
 
-https://assets.doomemacs.org/completion/ivy/swiper.png
+[[assets:https://assets.doomemacs.org/completion/ivy/swiper.png]]
 
 A wgrep buffer can be opened from swiper with [[kbd:C-c C-e]].
 

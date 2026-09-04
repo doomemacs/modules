@@ -94,7 +94,7 @@ due to Marginalia annotations.
 This module provides an interface to navigate within a project using
 [[pkg:projectile]]:
 
-https://assets.doomemacs.org/completion/vertico/projectile.png
+[[asset:https://assets.doomemacs.org/completion/vertico/projectile.png]]
 
 | Keybind                              | Description                         |
 |--------------------------------------+-------------------------------------|
@@ -112,7 +112,7 @@ This module provides interactive text search and replace using ripgrep.
 | [[kbd:<leader> s d]] | Search this directory    |
 | [[kbd:<leader> s D]] | Search another directory |
 
-https://assets.doomemacs.org/completion/vertico/search.png
+[[asset:https://assets.doomemacs.org/completion/vertico/search.png]]
 
 Prefixing these keys with the universal argument ([[kbd:SPC u]] for evil users; [[kbd:C-u]]
 otherwise) changes the behavior of these commands, instructing the underlying
@@ -135,7 +135,7 @@ editing the changes can be committed with [[kbd:C-c C-c]] and aborted with [[kbd
 (alternatively [[kbd:ZZ]] and [[kbd:ZQ]], for evil users). It uses [[pkg:wgrep]] for grep searches,
 [[pkg:wdired]] for file searches, and =occur= for buffer searches.
 
-https://assets.doomemacs.org/completion/vertico/search-replace.png
+[[asset:https://assets.doomemacs.org/completion/vertico/search-replace.png]]
 
 ** In-buffer searching
 This module provides some in buffer searching bindings:
@@ -144,7 +144,7 @@ This module provides some in buffer searching bindings:
 - [[kbd:SPC s S]] (~+vertico/search-symbol-at-point~ via ~consult-line~)
 - [[kbd:SPC s b]] (~consult-line~)
 
-https://assets.doomemacs.org/completion/vertico/buffer-search.png
+[[asset:https://assets.doomemacs.org/completion/vertico/buffer-search.png]]
 
 An ~occur-edit~ buffer can be opened from ~consult-line~ with [[kbd:C-c C-e]].
 
