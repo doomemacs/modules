@@ -393,7 +393,13 @@ This will do nothing if the popup's `quit' window parameter is either nil or
 (defun +popup/kill ()
   "Close popup WINDOW, despite its :quit property."
   (interactive)
-  (+popup/close nil t))
+  (cond ((+popup-window-p)
+         (+popup/close nil t))
+        ((+popup-buffer-p)
+         (dlet ((ignore-window-parameters t)
+                confirm-kill-processes)
+           (kill-current-buffer)))
+        ((user-error "Not a popup buffer"))))
 
 ;;;###autoload
 (defun +popup/close-all (&optional force-p)
