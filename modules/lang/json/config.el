@@ -1,12 +1,14 @@
 ;;; lang/json/config.el -*- lexical-binding: t; -*-
 
 (use-package! json-mode
-  :mode "\\.js\\(?:on\\|[hl]int\\(?:rc\\)?\\)\\'"
+  :mode ("\\.js\\(?:on\\|[hl]int\\(?:rc\\)?\\)\\'" . json-mode)
+  :mode ("\\.jsonc\\'" . jsonc-mode)
   :config
-  (set-electric! 'json-mode :chars '(?\n ?: ?{ ?}))
+  (set-electric! '(json-mode jsonc-mode) :chars '(?\n ?: ?{ ?}))
 
   (when (modulep! +lsp)
-    (add-hook 'json-mode-local-vars-hook #'lsp! 'append))
+    (add-hook 'json-mode-local-vars-hook #'lsp! 'append)
+    (add-hook 'jsonc-mode-local-vars-hook #'lsp! 'append))
 
   (map! :after json-mode
         :map json-mode-map
