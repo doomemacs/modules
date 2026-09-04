@@ -149,6 +149,7 @@
       ("^\\*sly-compilation" :vslot 3 :ttl nil)
       ("^\\*sly-traces"      :vslot 4 :ttl nil)
       ("^\\*sly-description" :vslot 5 :size 0.3 :ttl 0)
+      ("^\\*sly-error"       :vslot 6 :size 0.3 :ttl 0)
       ;; Do not display debugger or inspector buffers in a popup window. These
       ;; buffers are meant to be displayed with sufficient vertical space.
       ("^\\*sly-\\(?:db\\|inspector\\)" :ignore t)))
