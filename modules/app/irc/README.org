@@ -52,18 +52,18 @@ environment.systemPackages = [ pkgs.gnutls ];
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-To connect to IRC use ~M-x =irc~.
+To connect to IRC use M-x:=irc.
 
 When in a circe buffer these keybindings will be available:
-| command                     | key             | description                                  |
-|-----------------------------+-----------------+----------------------------------------------|
-| ~+irc/tracking-next-buffer~ | [[kbd:][<localleader> a]] | Switch to the next active buffer             |
-| ~circe-command-JOIN~        | [[kbd:][<localleader> j]] | Join a channel                               |
-| ~+irc/send-message~         | [[kbd:][<localleader> m]] | Send a private message                       |
-| ~circe-command-NAMES~       | [[kbd:][<localleader> n]] | List the names of the current channel        |
-| ~circe-command-PART~        | [[kbd:][<localleader> p]] | Part the current channel                     |
-| ~+irc/quit~                 | [[kbd:][<localleader> Q]] | Kill the current circe session and workgroup |
-| ~circe-reconnect~           | [[kbd:][<localleader> R]] | Reconnect the current server                 |
+| command                   | key             | description                                  |
+|---------------------------+-----------------+----------------------------------------------|
+| ~+irc/tracking-next-buffer~ | [[kbd:<localleader> a]] | Switch to the next active buffer             |
+| ~circe-command-JOIN~        | [[kbd:<localleader> j]] | Join a channel                               |
+| ~+irc/send-message~         | [[kbd:<localleader> m]] | Send a private message                       |
+| ~circe-command-NAMES~       | [[kbd:<localleader> n]] | List the names of the current channel        |
+| ~circe-command-PART~        | [[kbd:<localleader> p]] | Part the current channel                     |
+| ~+irc/quit~                 | [[kbd:<localleader> Q]] | Kill the current circe session and workgroup |
+| ~circe-reconnect~           | [[kbd:<localleader> R]] | Reconnect the current server                 |
 
 * TODO Configuration
 #+begin_quote wip

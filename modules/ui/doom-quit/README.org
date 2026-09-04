@@ -30,7 +30,7 @@ recognizing.
 /This module has no external requirements./
 
 * Usage
-Quit Emacs with [[kbd:][<leader> q q]] and watch it go. The prompt only happens if you
+Quit Emacs with [[kbd:<leader> q q]] and watch it go. The prompt only happens if you
 have (real) buffers open.
 
 #+begin_quote warning

@@ -95,8 +95,8 @@ When using [[module:+lsp]] and [[module::tools lsp +eglot]], [[pkg:lsp-mode]] is
 additional function to get inheritance type hierarchy is added:
 | Binding                    | Description                                    |
 |----------------------------+------------------------------------------------|
-| [[kbd:][<localleader> c t]]          | Display inheritance type hierarchy (upwards)   |
-| [[kbd:][<prefix> <localleader> c t]] | Display inheritance type hierarchy (downwards) |
+| [[kbd:<localleader> c t]]          | Display inheritance type hierarchy (upwards)   |
+| [[kbd:<prefix> <localleader> c t]] | Display inheritance type hierarchy (downwards) |
 
 * TODO Configure
 #+begin_quote wip

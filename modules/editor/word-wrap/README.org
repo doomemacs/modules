@@ -42,7 +42,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 Word wrapping is not enabled by default.
 
 Wrapping can be toggled in the current buffer with ~M-x +word-wrap-mode~. The
-default doom bindings bind this to [[kbd:][SPC t w]] for ~evil~ users.
+default doom bindings bind this to [[kbd:SPC t w]] for ~evil~ users.
 
 To enable wrapping in a specific mode, add it to the appropriate hook in
 ~$DOOMDIR/config.el~:

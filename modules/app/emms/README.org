@@ -35,20 +35,20 @@ These should be available through your OS package manager.
 #+end_quote
 
 ** Keybinds
-- [[kbd:][<localleader> l]] Toggles whether or not the player repeats the playlist.
-- [[kbd:][<localleader> m]] Mixes the playlist.
-- [[kbd:][<localleader> i]] Insert specific song
-- [[kbd:][<localleader> s]] Save the current playlist to a file
-- [[kbd:][<localleader> p]] Insert playlist save into current playlist
-- [[kbd:][g a]] Sort the browser by artists
-- [[kbd:][g b]] Sort the browser by genre
-- [[kbd:][X]] Stops the player
-- [[kbd:][x]] pauses the player
-- [[kbd:][D]] in the playlist window removes that item
-- [[kbd:][C]] clears the playlist
-- [[kbd:][>]] move five seconds forward in the current track
-- [[kbd:][<]] Opposite five back
-- [[kbd:][RET]] In browser adds the artist's songs to the playlist, in the playlist starts
+- [[kbd:<localleader> l]] Toggles whether or not the player repeats the playlist.
+- [[kbd:<localleader> m]] Mixes the playlist.
+- [[kbd:<localleader> i]] Insert specific song
+- [[kbd:<localleader> s]] Save the current playlist to a file
+- [[kbd:<localleader> p]] Insert playlist save into current playlist
+- [[kbd:g a]] Sort the browser by artists
+- [[kbd:g b]] Sort the browser by genre
+- [[kbd:X]] Stops the player
+- [[kbd:x]] pauses the player
+- [[kbd:D]] in the playlist window removes that item
+- [[kbd:C]] clears the playlist
+- [[kbd:>]] move five seconds forward in the current track
+- [[kbd:<]] Opposite five back
+- [[kbd:RET]] In browser adds the artist's songs to the playlist, in the playlist starts
   playlist.
   
 * TODO Configuration
@@ -60,7 +60,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 [[doom-report:][Report an issue?]]
 
 ** New music files not showing up in database
-Try [[kbd:][M-x +emms/mpd-restart-music-daemon]] then restart emacs.
+Try [[M-x:+emms/mpd-restart-music-daemon]] then restart emacs.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

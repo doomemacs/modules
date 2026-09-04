@@ -17,7 +17,7 @@ or Kakoune and tries to align them with regular Emacs conventions.
 ** Module flags
 - +manual ::
   Don't activate [[pkg:objed]] at startup, automatically, leaving it to the user to call
-  [[fn:objed-activate]] (bound to [[kbd:][M-SPC]] if using [[module::config default +bindings]]).
+  [[fn:objed-activate]] (bound to [[kbd:M-SPC]] if using [[module::config default +bindings]]).
   
 ** Packages
 - [[package:objed]]

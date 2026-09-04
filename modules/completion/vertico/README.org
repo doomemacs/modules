@@ -75,18 +75,18 @@ keybindings are available:
 
 | Keybind                               | Description                                                  |
 |---------------------------------------+--------------------------------------------------------------|
-| [[kbd:][C-k]]                         | (evil) Go to previous candidate                              |
-| [[kbd:][C-j]]                         | (evil) Go to next candidate                                  |
-| [[kbd:][C-M-k]]                       | (evil) Go to previous group                                  |
-| [[kbd:][C-M-j]]                       | (evil) Go to next group                                      |
-| [[kbd:][C-;]] or [[kbd:][<leader> a]] | Open an ~embark-act~ menu to chose a useful action             |
-| [[kbd:][C-c C-;]]                     | export the current candidate list to a buffer                |
-| [[kbd:][C-c C-l]]                     | ~embark-collect~ the current candidate list (collect verbatim) |
-| [[kbd:][C-SPC]]                       | Preview the current candidate                                |
+| [[kbd:C-k]]                         | (evil) Go to previous candidate                              |
+| [[kbd:C-j]]                         | (evil) Go to next candidate                                  |
+| [[kbd:C-M-k]]                       | (evil) Go to previous group                                  |
+| [[kbd:C-M-j]]                       | (evil) Go to next group                                      |
+| [[kbd:C-;]] or [[kbd:<leader> a]] | Open an ~embark-act~ menu to chose a useful action             |
+| [[kbd:C-c C-;]]                     | export the current candidate list to a buffer                |
+| [[kbd:C-c C-l]]                     | ~embark-collect~ the current candidate list (collect verbatim) |
+| [[kbd:C-SPC]]                       | Preview the current candidate                                |
 
 ~embark-act~ will prompt you with a =which-key= menu with useful commands on the
 selected candidate or candidate list, depending on the completion category. Note
-that you can press [[kbd:][C-h]] instead of choosing a command to filter through the
+that you can press [[kbd:C-h]] instead of choosing a command to filter through the
 options with a Vertico buffer, that also has slightly more detailed descriptions
 due to Marginalia annotations.
 
@@ -98,23 +98,23 @@ https://assets.doomemacs.org/completion/vertico/projectile.png
 
 | Keybind                              | Description                         |
 |--------------------------------------+-------------------------------------|
-| [[kbd:][SPC p f]], [[kbd:][SPC SPC]] | Jump to file in project             |
-| [[kbd:][SPC f f]], [[kbd:][SPC .]]   | Jump to file from current directory |
-| [[kbd:][SPC s i]]                    | Jump to symbol in file              |
+| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Jump to file in project             |
+| [[kbd:SPC f f]], [[kbd:SPC .]]   | Jump to file from current directory |
+| [[kbd:SPC s i]]                    | Jump to symbol in file              |
 
 ** Project search & replace
 This module provides interactive text search and replace using ripgrep.
 
 | Keybind                | Description              |
 |------------------------+--------------------------|
-| [[kbd:][<leader> s p]] | Search project           |
-| [[kbd:][<leader> s P]] | Search another project   |
-| [[kbd:][<leader> s d]] | Search this directory    |
-| [[kbd:][<leader> s D]] | Search another directory |
+| [[kbd:<leader> s p]] | Search project           |
+| [[kbd:<leader> s P]] | Search another project   |
+| [[kbd:<leader> s d]] | Search this directory    |
+| [[kbd:<leader> s D]] | Search another directory |
 
 https://assets.doomemacs.org/completion/vertico/search.png
 
-Prefixing these keys with the universal argument ([[kbd:][SPC u]] for evil users; [[kbd:][C-u]]
+Prefixing these keys with the universal argument ([[kbd:SPC u]] for evil users; [[kbd:C-u]]
 otherwise) changes the behavior of these commands, instructing the underlying
 search engine to include ignored files.
 
@@ -130,9 +130,9 @@ commands.
 -----
 
 On top of the usual Vertico keybindings, search commands also offer support for
-exporting the current candidate list to an editable buffer [[kbd:][C-c C-e]]. After
-editing the changes can be committed with [[kbd:][C-c C-c]] and aborted with [[kbd:][C-c C-k]]
-(alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for evil users). It uses [[pkg:wgrep]] for grep searches,
+exporting the current candidate list to an editable buffer [[kbd:C-c C-e]]. After
+editing the changes can be committed with [[kbd:C-c C-c]] and aborted with [[kbd:C-c C-k]]
+(alternatively [[kbd:ZZ]] and [[kbd:ZQ]], for evil users). It uses [[pkg:wgrep]] for grep searches,
 [[pkg:wdired]] for file searches, and =occur= for buffer searches.
 
 https://assets.doomemacs.org/completion/vertico/search-replace.png
@@ -140,50 +140,50 @@ https://assets.doomemacs.org/completion/vertico/search-replace.png
 ** In-buffer searching
 This module provides some in buffer searching bindings:
 
-- [[kbd:][SPC s s]] (~isearch~)
-- [[kbd:][SPC s S]] (~+vertico/search-symbol-at-point~ via ~consult-line~)
-- [[kbd:][SPC s b]] (~consult-line~)
+- [[kbd:SPC s s]] (~isearch~)
+- [[kbd:SPC s S]] (~+vertico/search-symbol-at-point~ via ~consult-line~)
+- [[kbd:SPC s b]] (~consult-line~)
 
 https://assets.doomemacs.org/completion/vertico/buffer-search.png
 
-An ~occur-edit~ buffer can be opened from ~consult-line~ with [[kbd:][C-c C-e]].
+An ~occur-edit~ buffer can be opened from ~consult-line~ with [[kbd:C-c C-e]].
 
 ** Vertico integration for various completing commands
 *** General
 | Keybind                        | Description                 |
 |--------------------------------+-----------------------------|
-| [[kbd:][M-x]], [[kbd:][SPC :]] | Enhanced M-x                |
-| [[kbd:][SPC ']]                | Resume last Vertico session |
+| [[kbd:M-x]], [[kbd:SPC :]] | Enhanced M-x                |
+| [[kbd:SPC ']]                | Resume last Vertico session |
 
 *** Jump to files, buffers or projects
 | Keybind                              | Description                           |
 |--------------------------------------+---------------------------------------|
-| [[kbd:][SPC RET]]                    | Find bookmark                         |
-| [[kbd:][SPC f f]], [[kbd:][SPC .]]   | Browse from current directory         |
-| [[kbd:][SPC p f]], [[kbd:][SPC SPC]] | Find file in project                  |
-| [[kbd:][SPC f r]]                    | Find recently opened file             |
-| [[kbd:][SPC p p]]                    | Open another project                  |
-| [[kbd:][SPC b b]], [[kbd:][SPC ,]]   | Switch to buffer in current workspace |
-| [[kbd:][SPC b B]], [[kbd:][SPC <]]   | Switch to buffer                      |
+| [[kbd:SPC RET]]                    | Find bookmark                         |
+| [[kbd:SPC f f]], [[kbd:SPC .]]   | Browse from current directory         |
+| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Find file in project                  |
+| [[kbd:SPC f r]]                    | Find recently opened file             |
+| [[kbd:SPC p p]]                    | Open another project                  |
+| [[kbd:SPC b b]], [[kbd:SPC ,]]   | Switch to buffer in current workspace |
+| [[kbd:SPC b B]], [[kbd:SPC <]]   | Switch to buffer                      |
 
-[[kbd:][SPC b b]] and [[kbd:][SPC ,]] support changing the workspace you're selecting a buffer from
+[[kbd:SPC b b]] and [[kbd:SPC ,]] support changing the workspace you're selecting a buffer from
 via [[https://github.com/minad/consult#narrowing-and-grouping][Consult narrowing]], e.g. if you're on the first workspace, you can switch to
-selecting a buffer from the third workspace by typing [[kbd:][3 SPC]] into the prompt, or
-the last workspace by typing [[kbd:][0 SPC]].
+selecting a buffer from the third workspace by typing [[kbd:3 SPC]] into the prompt, or
+the last workspace by typing [[kbd:0 SPC]].
 
-[[kbd:][SPC f f]] and [[kbd:][SPC .]] support exporting to a [[kbd:][wdired]] buffer using [[kbd:][C-c C-e]].
+[[kbd:SPC f f]] and [[kbd:SPC .]] support exporting to a [[kbd:wdired]] buffer using [[kbd:C-c C-e]].
 
 *** Search
 | Keybind           | Description                               |
 |-------------------+-------------------------------------------|
-| [[kbd:][SPC p t]] | List all TODO/FIXMEs in project           |
-| [[kbd:][SPC s b]] | Search the current buffer                 |
-| [[kbd:][SPC s d]] | Search this directory                     |
-| [[kbd:][SPC s D]] | Search another directory                  |
-| [[kbd:][SPC s i]] | Search for symbol in current buffer       |
-| [[kbd:][SPC s p]] | Search project                            |
-| [[kbd:][SPC s P]] | Search another project                    |
-| [[kbd:][SPC s s]] | Search the current buffer (incrementally) |
+| [[kbd:SPC p t]] | List all TODO/FIXMEs in project           |
+| [[kbd:SPC s b]] | Search the current buffer                 |
+| [[kbd:SPC s d]] | Search this directory                     |
+| [[kbd:SPC s D]] | Search another directory                  |
+| [[kbd:SPC s i]] | Search for symbol in current buffer       |
+| [[kbd:SPC s p]] | Search project                            |
+| [[kbd:SPC s P]] | Search another project                    |
+| [[kbd:SPC s s]] | Search the current buffer (incrementally) |
 
 *** File Path Completion
 Note that Emacs allows you to switch directories with shadow paths, for example
@@ -199,8 +199,8 @@ This module modifies the default keybindings used in
 ~consult-completing-read-multiple~:
 | Keybind       | Description                                                 |
 |---------------+-------------------------------------------------------------|
-| [[kbd:][TAB]] | Select or deselect current candidate                        |
-| [[kbd:][RET]] | Enters selected candidates (also toggles current candidate) |
+| [[kbd:TAB]] | Select or deselect current candidate                        |
+| [[kbd:RET]] | Enters selected candidates (also toggles current candidate) |
 
 *** Async search commands
 :PROPERTIES:
@@ -225,9 +225,9 @@ For more information [[https://github.com/minad/consult#asynchronous-search][see
 ** Marginalia
 | Keybind       | Description                     |
 |---------------+---------------------------------|
-| [[kbd:][M-A]] | Cycle between annotation levels |
+| [[kbd:M-A]] | Cycle between annotation levels |
 
-Marginalia annotations for symbols (e.g. [[kbd:][SPC h f]] and [[kbd:][SPC h v]]) come with extra
+Marginalia annotations for symbols (e.g. [[kbd:SPC h f]] and [[kbd:SPC h v]]) come with extra
 information the nature of the symbol. For the meaning of the annotations see
 ~marginalia--symbol-class~.
 
@@ -275,7 +275,7 @@ override the module's modifications, do:
 (consult-customize ...)
 #+end_src
 
-If you are changing the preview key (set to [[kbd:][C-SPC]]), remember to change the
+If you are changing the preview key (set to [[kbd:C-SPC]]), remember to change the
 binding on ~vertico-map~ as well, as the binding there gets previews to work to
 an extent on non-consult commands as well.
 

@@ -40,21 +40,21 @@ evil) that loosely take after multi-cursors in Atom or Sublime Text.
 #+end_quote
 
 ** evil-mc
-- The [[pkg:evil-mc]] keys are under the [[kbd:][gz]] prefix, e.g.
-  - [[kbd:][gzz]] to toggle new (frozen) cursors at point.
-  - [[kbd:][gzt]] to toggle mirroring on and off (or switch to insert mode to activate
+- The [[pkg:evil-mc]] keys are under the [[kbd:gz]] prefix, e.g.
+  - [[kbd:gzz]] to toggle new (frozen) cursors at point.
+  - [[kbd:gzt]] to toggle mirroring on and off (or switch to insert mode to activate
     them).
-  - [[kbd:][gzA]] to place cursors at the end of each selected line.
-  - [[kbd:][gzI]] will place them at the beginning.
+  - [[kbd:gzA]] to place cursors at the end of each selected line.
+  - [[kbd:gzI]] will place them at the beginning.
 - There's also the ex command ~:mc/REGEXP/FLAGS~, for laying down cursors by
   regex.
 
 ** evil-multiedit
 Designates "interactive edit" regions. Only the textual changes to them are mirrored.
 
-- [[kbd:][M-d]] to iedit the symbol at point. Again to iedit its next match.
-- [[kbd:][M-S-d]] to do it backwards.
-- [[kbd:][R]] (in visual mode) to iedit all matches of the selection at point in the
+- [[kbd:M-d]] to iedit the symbol at point. Again to iedit its next match.
+- [[kbd:M-S-d]] to do it backwards.
+- [[kbd:R]] (in visual mode) to iedit all matches of the selection at point in the
   buffer.
 - Or ~:iedit/REGEX~ to iedit all matches of REGEX.
 

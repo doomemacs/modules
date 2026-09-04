@@ -44,7 +44,7 @@ the shell and look for ~MODULES~ next to "features". If it isn't, you'll need to
 find another source to install Emacs from or recompile it with the appropriate
 build options.
 
-Alternatively, look for ~--with-modules~ in ~system-configuration-options~ ([[kbd:][SPC h v
+Alternatively, look for ~--with-modules~ in ~system-configuration-options~ ([[kbd:SPC h v
 system-configuration-options]]).
 
 Follow [[id:9570ba6a-50cc-4c46-a832-fb90192288af][our installation guide]] to ensure your build of Emacs includes dynamic
@@ -131,9 +131,9 @@ There are several ways to manually install the module:
 
 The following commands are available to open it:
 
-- ~+vterm/toggle~ ([[kbd:][<leader> o t]]) -- Toggle vterm pop up window in the current
+- ~+vterm/toggle~ ([[kbd:<leader> o t]]) -- Toggle vterm pop up window in the current
   project.
-- ~+vterm/here~ ([[kbd:][<leader> o T]]) -- Opens vterm in the current window.
+- ~+vterm/here~ ([[kbd:<leader> o T]]) -- Opens vterm in the current window.
 
 * TODO Configuration
 #+begin_quote wip

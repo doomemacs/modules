@@ -36,7 +36,7 @@ For [[module:+lsp]], [[https://github.com/idris-community/idris2-lsp][idris2-lsp
 #+end_quote
 
 In addition to ~idris-mode~ goodness, this module adds frequently used functions
-under the [[kbd:][<localleader>]] key.
+under the [[kbd:<localleader>]] key.
 
 * TODO Configuration
 #+begin_quote wip

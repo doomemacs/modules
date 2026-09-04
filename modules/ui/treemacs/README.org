@@ -47,12 +47,12 @@ status for files.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-The project bar can be opened using [[kbd:][SPC o p]].
+The project bar can be opened using [[kbd:SPC o p]].
 
 | Keybind | Description                                                      |
 |---------+------------------------------------------------------------------|
-| [[kbd:][o s]]     | Open a horizontal dired buffer on the currently highlighted node |
-| [[kbd:][o v]]     | Open a vertical dired buffer on the currently highlighted node   |
+| [[kbd:o s]]     | Open a horizontal dired buffer on the currently highlighted node |
+| [[kbd:o v]]     | Open a vertical dired buffer on the currently highlighted node   |
 
 * TODO Configuration
 #+begin_quote wip

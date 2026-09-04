@@ -56,7 +56,7 @@ project in Godot ~3.2.1~ or above for the GDScript language server to be
 available.
 
 ** Commands
-Press the localleader key ([[kbd:][SPC m]] for evil users, [[kbd:][C-c l]] otherwise) to explore
+Press the localleader key ([[kbd:SPC m]] for evil users, [[kbd:C-c l]] otherwise) to explore
 available commands.
 
 * TODO Configuration

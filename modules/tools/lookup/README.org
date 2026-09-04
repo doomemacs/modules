@@ -93,7 +93,7 @@ environment.systemPackages = with pkgs; [
 
 * Usage
 ** Jump to definition
-Use ~+lookup/definition~ (bound to [[kbd:][gd]] in normal mode) to jump to the definition
+Use ~+lookup/definition~ (bound to [[kbd:gd]] in normal mode) to jump to the definition
 of the symbol at point.
 
 This module provides a goto-definition implementation that will try the
@@ -110,7 +110,7 @@ following sources before giving up:
 If there are multiple results, you will be prompted to select one.
 
 ** Find references
-Use ~+lookup/references~ (bound to [[kbd:][gD]] in normal mode) to see a list of
+Use ~+lookup/references~ (bound to [[kbd:gD]] in normal mode) to see a list of
 references for the symbol at point from throughout your project.
 
 Like ~+lookup/definition~, this tries a number of sources before giving up. It
@@ -124,7 +124,7 @@ will try:
 If there are multiple results, you will be prompted to select one.
 
 ** Look up documentation
-~+lookup/documentation~ (bound to [[kbd:][K]] in normal mode) will open documentation for
+~+lookup/documentation~ (bound to [[kbd:K]] in normal mode) will open documentation for
 the symbol at point.
 
 Depending on your configuration, this will try a list of sources:
@@ -140,7 +140,7 @@ Depending on your configuration, this will try a list of sources:
 You can perform a documentation lookup on any backends directly:
 
 + Dash Docsets: ~+lookup/in-docsets~, or ~:dash QUERY~ for evil users.
-+ Online (generic): ~+lookup/online~ or ~+lookup/online-select~ (bound to [[kbd:][SPC /
++ Online (generic): ~+lookup/online~ or ~+lookup/online-select~ (bound to [[kbd:SPC /
   o]]), or ~:lo[okup] QUERY~ for evil users.
 
 ** Dash.app Docset integration

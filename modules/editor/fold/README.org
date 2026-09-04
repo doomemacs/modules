@@ -39,12 +39,12 @@ This module's hacks haven't been documented yet. [[doom-contrib-module:][Documen
 Emacs keybinds when [[module::editor evil +everywhere]] is disabled:
 | Keybind            | Description               |
 |--------------------+---------------------------|
-| [[kbd:][C-c C-f C-f]]        | Fold region               |
-| [[kbd:][C-c C-f C-u]] or [[kbd:][C `]] | Unfold region             |
-| [[kbd:][C-c C-f C-d]]        | Delete folded region      |
-| [[kbd:][C-c C-f C-a C-f]]    | Fold all regions          |
-| [[kbd:][C-c C-f C-a C-u]]    | Unfold all regions        |
-| [[kbd:][C-c C-a C-d]]        | Delete all folded regions |
+| [[kbd:C-c C-f C-f]]        | Fold region               |
+| [[kbd:C-c C-f C-u]] or [[kbd:C `]] | Unfold region             |
+| [[kbd:C-c C-f C-d]]        | Delete folded region      |
+| [[kbd:C-c C-f C-a C-f]]    | Fold all regions          |
+| [[kbd:C-c C-f C-a C-u]]    | Unfold all regions        |
+| [[kbd:C-c C-a C-d]]        | Delete all folded regions |
 
 * TODO Configuration
 #+begin_quote wip
@@ -52,8 +52,8 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 #+end_quote
 
 * Troubleshooting
-- Sometimes, an unfolded region won't fold back with [[kbd:][C-c C-f C-f]]. To bypass this
-  bug you must delete the folded region ([[kbd:][C-c C-f C-d]]) and then fold it ([[kbd:][C-c C-f
+- Sometimes, an unfolded region won't fold back with [[kbd:C-c C-f C-f]]. To bypass this
+  bug you must delete the folded region ([[kbd:C-c C-f C-d]]) and then fold it ([[kbd:C-c C-f
   C-f]]) again.
 
 * Frequently asked questions

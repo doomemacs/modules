@@ -46,18 +46,18 @@ Doom exposes these keybinds for gptel's commands:
 
 | Keybind        | Command                      | Description                                      |
 |----------------+------------------------------+--------------------------------------------------|
-| [[kbd:][<leader> o l a]] | [[cmd:gptel-add]]                | Add text to LLM context                          |
-| [[kbd:][<leader> o l e]] | [[cmd:gptel-quick]]              | Explain item or selection                        |
-| [[kbd:][<leader> o l f]] | [[cmd:gptel-add-file]]           | Add file to LLM context                          |
-| [[kbd:][<leader> o l l]] | [[cmd:gptel]]                    | Open gptel chat buffer                           |
-| [[kbd:][<leader> o l s]] | [[cmd:gptel-send]]               | Send text before ~(point)~ (or selection)          |
-| [[kbd:][<leader> o l m]] | [[cmd:gptel-menu]]               | Open configuration menu for gptel                |
-| [[kbd:][<leader> o l r]] | [[cmd:gptel-rewrite]]            | Rewrite, refactor, or change the selected region |
-| [[kbd:][<leader> o l o]] | [[cmd:gptel-org-set-topic]]      | Limit context to Org heading                     |
-| [[kbd:][<leader> o l O]] | [[cmd:gptel-org-set-properties]] | Store gptel config as org properties             |
+| [[kbd:<leader> o l a]] | [[cmd:gptel-add]]                | Add text to LLM context                          |
+| [[kbd:<leader> o l e]] | [[cmd:gptel-quick]]              | Explain item or selection                        |
+| [[kbd:<leader> o l f]] | [[cmd:gptel-add-file]]           | Add file to LLM context                          |
+| [[kbd:<leader> o l l]] | [[cmd:gptel]]                    | Open gptel chat buffer                           |
+| [[kbd:<leader> o l s]] | [[cmd:gptel-send]]               | Send text before ~(point)~ (or selection)          |
+| [[kbd:<leader> o l m]] | [[cmd:gptel-menu]]               | Open configuration menu for gptel                |
+| [[kbd:<leader> o l r]] | [[cmd:gptel-rewrite]]            | Rewrite, refactor, or change the selected region |
+| [[kbd:<leader> o l o]] | [[cmd:gptel-org-set-topic]]      | Limit context to Org heading                     |
+| [[kbd:<leader> o l O]] | [[cmd:gptel-org-set-properties]] | Store gptel config as org properties             |
 
 This module also adds a "pre-generated message" option to magit-commit's
-transient menu. Alternatively, press [[kbd:][M-g]] to generate a message in a commit
+transient menu. Alternatively, press [[kbd:M-g]] to generate a message in a commit
 buffer.
 
 * Configuration

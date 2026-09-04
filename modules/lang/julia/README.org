@@ -109,16 +109,16 @@ described above.
 
 ** Snail
 
-| Keybind                     | Command                           |
-|-----------------------------+-----------------------------------|
-| [[kbd:][<localleader> ']]   | ~julia-snail~                     |
-| [[kbd:][<localleader> a]]   | ~julia-snail-package-activate~    |
-| [[kbd:][<localleader> r]]   | ~julia-snail-update-module-cache~ |
-| [[kbd:][<localleader> d]]   | ~julia-snail-doc-lookup~          |
-| [[kbd:][<localleader> e b]] | ~julia-snail-send-buffer-file~    |
-| [[kbd:][<localleader> e l]] | ~julia-snail-send-line~           |
-| [[kbd:][<localleader> e r]] | ~julia-snail-send-region~         |
-| [[kbd:][<localleader> e e]] | ~julia-snail-send-dwim~           |
+| Keybind           | Command                         |
+|-------------------+---------------------------------|
+| [[kbd:<localleader> ']]   | ~julia-snail~                     |
+| [[kbd:<localleader> a]]   | ~julia-snail-package-activate~    |
+| [[kbd:<localleader> r]]   | ~julia-snail-update-module-cache~ |
+| [[kbd:<localleader> d]]   | ~julia-snail-doc-lookup~          |
+| [[kbd:<localleader> e b]] | ~julia-snail-send-buffer-file~    |
+| [[kbd:<localleader> e l]] | ~julia-snail-send-line~           |
+| [[kbd:<localleader> e r]] | ~julia-snail-send-region~         |
+| [[kbd:<localleader> e e]] | ~julia-snail-send-dwim~           |
 
 * TODO Configuration
 #+begin_quote wip

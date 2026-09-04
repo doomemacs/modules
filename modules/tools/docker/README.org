@@ -51,19 +51,19 @@ Optionally, this module also uses the following programs:
 Use ~M-x docker~, select a resource, and then mark or unmark items using the
 following keybindings (for more marking possibilities, check out
 [[github:politza/tablist][politza/tablist]]):
-| Binding   | Description          |
-|-----------+----------------------|
-| [[kbd:][?]]       | List actions         |
-| [[kbd:][l]]       | Configure listing    |
-| [[kbd:][m]]       | Mark item            |
-| [[kbd:][u]]       | Unmark item          |
-| [[kbd:][t]]       | Toggle marks         |
-| [[kbd:][U]]       | Unmark all           |
-| [[kbd:][s]]       | Sort                 |
-| [[kbd:][* r]]     | Mark items by regexp |
-| [[kbd:][<]]       | Shrink column        |
-| [[kbd:][>]]       | Enlarge column       |
-| [[kbd:][C-c C-e]] | Export to csv        |
+| Binding | Description          |
+|---------+----------------------|
+| [[kbd:?]]       | List actions         |
+| [[kbd:l]]       | Configure listing    |
+| [[kbd:m]]       | Mark item            |
+| [[kbd:u]]       | Unmark item          |
+| [[kbd:t]]       | Toggle marks         |
+| [[kbd:U]]       | Unmark all           |
+| [[kbd:s]]       | Sort                 |
+| [[kbd:* r]]     | Mark items by regexp |
+| [[kbd:<]]       | Shrink column        |
+| [[kbd:>]]       | Enlarge column       |
+| [[kbd:C-c C-e]] | Export to csv        |
 
 *** Supported commands
 - ~docker container~: ~attach~, ~cp~, ~diff~, ~inspect~, ~kill~, ~logs~,

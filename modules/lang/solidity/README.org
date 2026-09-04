@@ -9,7 +9,7 @@ This module adds [[https://github.com/ethereum/solidity][Solidity]] support to D
 
 - Syntax-checking ([[pkg:flycheck]])
 - Code completion ([[pkg:company-solidity]])
-- Gas estimation ([[kbd:][C-c C-g]])
+- Gas estimation ([[kbd:C-c C-g]])
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]

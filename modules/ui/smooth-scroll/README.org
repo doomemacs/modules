@@ -9,7 +9,7 @@ This module enables multiple kinds of smooth scrolling in Emacs. Its primary
 function is to make input scrolling (on trackpads and scroll wheels)
 pixel-smooth. With the =+interpolate= flag, it performs interpolated scrolling on
 a growing list of scroll commands that traverse larger distances, smoothly
-scrolling from point A to B on PgUp or PgDown (or [[kbd:][C-d]]/[[kbd:][C-u]] for Evil users).
+scrolling from point A to B on PgUp or PgDown (or [[kbd:C-d]]/[[kbd:C-u]] for Evil users).
 
 #+begin_quote warning
 This module requires Emacs 29.1 or newer.

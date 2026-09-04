@@ -69,25 +69,25 @@ documents with ~#+begin_src scad~ ... ~#+end_src~. Results default to a file out
 *** Scad mode
 | Binding         | Description  |
 |-----------------+--------------|
-| [[kbd:][<localleader> e]] | ~scad-export~  |
-| [[kbd:][<localleader> o]] | ~scad-open~    |
-| [[kbd:][<localleader> p]] | ~scad-preview~ |
-| [[kbd:][C-c C-c]]         | ~scad-preview~ |
-| [[kbd:][C-c C-o]]         | ~scad-open~    |
-| [[kbd:][C-c C-e]]         | ~scad-export~  |
+| [[kbd:<localleader> e]] | ~scad-export~  |
+| [[kbd:<localleader> o]] | ~scad-open~    |
+| [[kbd:<localleader> p]] | ~scad-preview~ |
+| [[kbd:C-c C-c]]         | ~scad-preview~ |
+| [[kbd:C-c C-o]]         | ~scad-open~    |
+| [[kbd:C-c C-e]]         | ~scad-export~  |
 
 *** Preview mode
 | Binding | Description       |
 |---------+-------------------|
-| [[kbd:][[]]       | Increase distance |
-| [[kbd:][]]]       | Decrease distance |
-| [[kbd:][p]]       | Toggle projection |
-| [[kbd:][h]] / [[kbd:][l]]   | Translate X axis  |
-| [[kbd:][j]] / [[kbd:][k]]   | Translate Y axis  |
-| [[kbd:][n]] / [[kbd:][m]]   | Translate Z axis  |
-| [[kbd:][H]] / [[kbd:][L]]   | Rotate X axis     |
-| [[kbd:][J]] / [[kbd:][K]]   | Rotate Y axis     |
-| [[kbd:][N]] / [[kbd:][M]]   | Rotate Z axis     |
+| [[kbd:\[]]       | Increase distance |
+| [[kbd:\]]]       | Decrease distance |
+| [[kbd:p]]       | Toggle projection |
+| [[kbd:h]] / [[kbd:l]]   | Translate X axis  |
+| [[kbd:j]] / [[kbd:k]]   | Translate Y axis  |
+| [[kbd:n]] / [[kbd:m]]   | Translate Z axis  |
+| [[kbd:H]] / [[kbd:L]]   | Rotate X axis     |
+| [[kbd:J]] / [[kbd:K]]   | Rotate Y axis     |
+| [[kbd:N]] / [[kbd:M]]   | Rotate Z axis     |
 
 * TODO Configuration
 #+begin_quote wip

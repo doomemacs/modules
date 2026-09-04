@@ -40,7 +40,7 @@ This holy module brings the Vim editing model to Emacs.
 ** Hacks
 - The o/O keys will respect and continue commented lines (can be disabled by
   setting ~+evil-want-o/O-to-continue-comments~ to ~nil~).
-- In visual mode, [[kbd:][*]] and [[kbd:][#]] will search for the current selection instead of the
+- In visual mode, [[kbd:*]] and [[kbd:#]] will search for the current selection instead of the
   word-at-point.
 - The ~:g[lobal]~ ex command has been modified to highlight matches.
 - More of vim's filename modifiers are supported in ex commands (like ~:p~,
@@ -63,11 +63,11 @@ The following vim plugins have been ported to evil:
 
 | Vim Plugin            | Emacs Plugin                   | Keybind(s)                     |
 |-----------------------+--------------------------------+--------------------------------|
-| vim-commentary        | evil-nerd-commenter            | omap [[kbd:][gc]]                        |
-| vim-easymotion        | evil-easymotion                | omap [[kbd:][gs]]                        |
-| vim-lion              | evil-lion                      | omap [[kbd:][gl]] / [[kbd:][gL]]                   |
-| vim-seek or vim-sneak | evil-snipe                     | mmap [[kbd:][s]] / [[kbd:][S]], omap [[kbd:][z]] / [[kbd:][Z]] & [[kbd:][x]] / [[kbd:][X]] |
-| vim-surround          | evil-embrace and evil-surround | vmap [[kbd:][S]], omap [[kbd:][ys]]                |
+| vim-commentary        | evil-nerd-commenter            | omap [[kbd:gc]]                        |
+| vim-easymotion        | evil-easymotion                | omap [[kbd:gs]]                        |
+| vim-lion              | evil-lion                      | omap [[kbd:gl]] / [[kbd:gL]]                   |
+| vim-seek or vim-sneak | evil-snipe                     | mmap [[kbd:s]] / [[kbd:S]], omap [[kbd:z]] / [[kbd:Z]] & [[kbd:x]] / [[kbd:X]] |
+| vim-surround          | evil-embrace and evil-surround | vmap [[kbd:S]], omap [[kbd:ys]]                |
 | vim-unimpaired        | (provided by Doom)             | [[https://github.com/doomemacs/modules/blob/master/modules/editor/evil/config.el#L413-L460][see the list]]                   |
 
 This module has also ported vim-unimpaired keybinds to Emacs.
@@ -83,28 +83,28 @@ In other modules:
 This module provides a couple extra text objects, along with the built-in ones.
 For posterity, here are the built-in ones:
 
-- [[kbd:][w W]] words
-- [[kbd:][s]] sentences
-- [[kbd:][p]] paragraphs
-- [[kbd:][b]] parenthesized blocks
-- [[kbd:][b ( ) { } [ ] < >]] braces, parentheses and brackets
-- [[kbd:][' " `]] quotes
-- [[kbd:][t]] tags
-- [[kbd:][o]] symbols
+- [[kbd:w W]] words
+- [[kbd:s]] sentences
+- [[kbd:p]] paragraphs
+- [[kbd:b]] parenthesized blocks
+- [[kbd:b ( ) { } [ ] < >]] braces, parentheses and brackets
+- [[kbd:' " `]] quotes
+- [[kbd:t]] tags
+- [[kbd:o]] symbols
 
 And these are text objects added by this module:
-- [[kbd:][a]] C-style function arguments (provided by ~evil-args~)
-- [[kbd:][B]] any block delimited by braces, parentheses or brackets (provided by
+- [[kbd:a]] C-style function arguments (provided by ~evil-args~)
+- [[kbd:B]] any block delimited by braces, parentheses or brackets (provided by
   ~evil-textobj-anyblock~)
-- [[kbd:][c]] Comments
-- [[kbd:][f]] For functions (but relies on the major mode to have sane definitions for
+- [[kbd:c]] Comments
+- [[kbd:f]] For functions (but relies on the major mode to have sane definitions for
   ~beginning-of-defun-function~ and ~end-of-defun-function~)
-- [[kbd:][g]] The entire buffer
-- [[kbd:][i j k]] by indentation ([[kbd:][k]] includes one line above; [[kbd:][j]] includes one line above and
+- [[kbd:g]] The entire buffer
+- [[kbd:i j k]] by indentation ([[kbd:k]] includes one line above; [[kbd:j]] includes one line above and
   below) (provided by ~evil-indent-plus~)
-- [[kbd:][q]] For quotes (any kind)
-- [[kbd:][u]] For URLs
-- [[kbd:][x]] XML attributes (provided by ~exato~)
+- [[kbd:q]] For quotes (any kind)
+- [[kbd:u]] For URLs
+- [[kbd:x]] XML attributes (provided by ~exato~)
 
 ** Custom Ex Commands
 | Ex Command             | Description                                                                        |
@@ -163,10 +163,10 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 * Troubleshooting
 [[doom-report:][Report an issue?]]
 
-** Can't access the universal argument key ([[kbd:][C-u]])
+** Can't access the universal argument key ([[kbd:C-u]])
 For maximum Vim emulation, this module commandeers the C-u key for scrolling (as
-it does in Vim). The same goes for [[kbd:][C-u]] in insert mode (which deletes to BOL). In
-both cases the universal argument has been moved to [[kbd:][<leader> u]].
+it does in Vim). The same goes for [[kbd:C-u]] in insert mode (which deletes to BOL). In
+both cases the universal argument has been moved to [[kbd:<leader> u]].
 
 To undo this, use:
 #+begin_src emacs-lisp
@@ -175,8 +175,8 @@ To undo this, use:
         evil-want-C-u-delete nil)
 #+end_src
 
-** The [[kbd:][s]]/[[kbd:][S]] keys behave differently from Vim
-Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[pkg:evil-snipe]] package (a port of
+** The [[kbd:s]]/[[kbd:S]] keys behave differently from Vim
+Doom replaces the [[kbd:s]] and [[kbd:S]] keys with the [[pkg:evil-snipe]] package (a port of
 vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
@@ -185,12 +185,12 @@ To disable evil-snipe on s/S, you can either:
 2. Or disable [[pkg:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
    added to =$DOOMDIR/packages.el=, but this will also disable incremental
    highlighting for the f/F/t/T motions keys.
-3. Or use [[kbd:][cl]] and [[kbd:][cc]], respectively; they do the same thing.
+3. Or use [[kbd:cl]] and [[kbd:cc]], respectively; they do the same thing.
 
-** The [[kbd:][Y]] key behaves differently from Vim (should yank the whole line)
-Doom changes the behavior of the [[kbd:][Y]] key in normal mode to yank-to-EOL (equivalent
-to [[kbd:][y$]]). This was to make it consistent with the [[kbd:][C]] and [[kbd:][D]] capital operators, and
-because it was redundant with [[kbd:][yy]], which is easier to type than [[kbd:][y$]].
+** The [[kbd:Y]] key behaves differently from Vim (should yank the whole line)
+Doom changes the behavior of the [[kbd:Y]] key in normal mode to yank-to-EOL (equivalent
+to [[kbd:y$]]). This was to make it consistent with the [[kbd:C]] and [[kbd:D]] capital operators, and
+because it was redundant with [[kbd:yy]], which is easier to type than [[kbd:y$]].
 
 If you prefer the old behavior, it can be reversed with:
 #+begin_src emacs-lisp
@@ -209,7 +209,7 @@ If you prefer the old behavior, it can be reversed with:
 2. Run ~$ doom sync~ to clean up lingering dependencies and regenerate your
    autoloads files.
 3. [OPTIONAL] Change ~doom-leader-alt-key~ and ~doom-localleader-alt-key~. These
-   are bound to [[kbd:][C-c]] and [[kbd:][C-c l]] by default.
+   are bound to [[kbd:C-c]] and [[kbd:C-c l]] by default.
 
 #+begin_quote warning
 Ignore ~doom-leader-key~ and ~doom-localleader-key~, they don't apply to non-evil
@@ -246,7 +246,7 @@ In vim, operations that put or delete text (kill and yank in Emacs terminology)
 act on the unnamed register by default. The unnamed register unrelated the
 system clipboard. Evil uses the kill ring instead of the unnamed register. As
 the kill ring is synchronized with the system clipboard by default, operations
-like [[kbd:][dd]] or [[kbd:][cw]] place the killed text in the system clipboard, surprisingly so for
+like [[kbd:dd]] or [[kbd:cw]] place the killed text in the system clipboard, surprisingly so for
 users who are used to the vim behavior.
 
 The synchronization between the system clipboard and kill ring can be disabled,
@@ -255,5 +255,5 @@ making these operations behave closer to their vim counterparts:
 (setq select-enable-clipboard nil)
 #+end_src
 
-Like in vim, the clipboard can still be accessed by using the [[kbd:][+]] register, e.g.
-[[kbd:]["+dd]] or [[kbd:]["+cw]].
+Like in vim, the clipboard can still be accessed by using the [[kbd:+]] register, e.g.
+[[kbd:"+dd]] or [[kbd:"+cw]].

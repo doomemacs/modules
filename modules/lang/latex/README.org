@@ -126,7 +126,7 @@ tool, for instance:
 ** Using cdlatex's snippets despite having yasnippet
 [[pkg:cdlatex]] has a snippet insertion capability which is disabled in favor of
 [[pkg:yasnippet]] when using [[module::editor snippets]]. If you still wanna use it, simply rebind
-the [[kbd:][TAB]] key for cdlatex, which takes care of snippet-related stuff:
+the [[kbd:TAB]] key for cdlatex, which takes care of snippet-related stuff:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (map! :map cdlatex-mode-map

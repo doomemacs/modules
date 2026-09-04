@@ -164,10 +164,10 @@ looked up in the ~apheleia-mode-alist~ hash table (with [[kbd:<help> v]]).
 
 ** One-off ~save-buffer~ without auto-formatting
 To save the buffer without formatting just once, pass the universal argument to
-~save-buffer~ ([[kbd:][SPC u]] for evil users, [[kbd:][C-u]] for non-evil users). For example:
+~save-buffer~ ([[kbd:SPC u]] for evil users, [[kbd:C-u]] for non-evil users). For example:
 
-- Evil: [[kbd:][SPC u SPC f s]]
-- Without evil: [[kbd:][C-u C-x C-s]]
+- Evil: [[kbd:SPC u SPC f s]]
+- Without evil: [[kbd:C-u C-x C-s]]
 
 ** Using ~lsp-mode~ or ~eglot~'s formatter
 If you have a buffer open with [[pkg:lsp-mode]] or [[pkg:eglot]]

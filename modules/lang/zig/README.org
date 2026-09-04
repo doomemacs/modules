@@ -48,12 +48,12 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
 #+end_quote
 
 ** Keybinds
-| Binding           | Description         |
-|-------------------+---------------------|
-| [[kbd:][<localleader> b]] | ~zig-compile~       |
-| [[kbd:][<localleader> f]] | ~zig-format-buffer~ |
-| [[kbd:][<localleader> r]] | ~zig-run~           |
-| [[kbd:][<localleader> t]] | ~zig-test-buffer~   |
+| Binding         | Description       |
+|-----------------+-------------------|
+| [[kbd:<localleader> b]] | ~zig-compile~       |
+| [[kbd:<localleader> f]] | ~zig-format-buffer~ |
+| [[kbd:<localleader> r]] | ~zig-run~           |
+| [[kbd:<localleader> t]] | ~zig-test-buffer~   |
 
 * TODO Configuration
 #+begin_quote wip

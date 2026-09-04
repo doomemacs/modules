@@ -46,7 +46,7 @@ This module requires:
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-Start magit with [[kbd:][<leader> g g]] (~M-x magit-status~).
+Start magit with [[kbd:<leader> g g]] (~M-x magit-status~).
 
 If you are new to Magit, see the [[https://github.com/magit/magit#getting-started][Getting Started]] section of its project readme.
 

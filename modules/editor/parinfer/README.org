@@ -34,8 +34,8 @@ This module requires [[https://github.com/justinbarclay/parinfer-rust-mode#parin
 ** Keybindings
 | Binding         | Description                               |
 |-----------------+-------------------------------------------|
-| [[kbd:][<localleader> p]] | Toggle between different inference modes. |
-| [[kbd:][<localleader> P]] | Temporarily disable parinfer.             |
+| [[kbd:<localleader> p]] | Toggle between different inference modes. |
+| [[kbd:<localleader> P]] | Temporarily disable parinfer.             |
 
 * TODO Configuration
 #+begin_quote wip

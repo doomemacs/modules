@@ -56,15 +56,15 @@ This module requires:
 #+end_quote
 
 ** Keybindings
-| Binding         | Description          |
-|-----------------+----------------------|
-| [[kbd:][<localleader> b]] | ~nix-build~          |
-| [[kbd:][<localleader> f]] | ~nix-update-fetch~   |
-| [[kbd:][<localleader> o]] | ~+nix/lookup-option~ |
-| [[kbd:][<localleader> p]] | ~nix-format-buffer~  |
-| [[kbd:][<localleader> r]] | ~nix-repl-show~      |
-| [[kbd:][<localleader> s]] | ~nix-repl-shell~     |
-| [[kbd:][<localleader> u]] | ~nix-unpack~         |
+| Binding         | Description        |
+|-----------------+--------------------|
+| [[kbd:<localleader> b]] | ~nix-build~          |
+| [[kbd:<localleader> f]] | ~nix-update-fetch~   |
+| [[kbd:<localleader> o]] | ~+nix/lookup-option~ |
+| [[kbd:<localleader> p]] | ~nix-format-buffer~  |
+| [[kbd:<localleader> r]] | ~nix-repl-show~      |
+| [[kbd:<localleader> s]] | ~nix-repl-shell~     |
+| [[kbd:<localleader> u]] | ~nix-unpack~         |
 
 * TODO Configuration
 #+begin_quote wip

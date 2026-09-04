@@ -53,13 +53,13 @@ Documentation is accessible through the normal [[pkg:company]] show documentatio
 functionality, thanks to [[pkg:company-terraform]].
 
 ** Executing Terraform commands
-[[module::tools terraform]] provides commands under [[kbd:][<localleader>]] to run the most common
+[[module::tools terraform]] provides commands under [[kbd:<localleader>]] to run the most common
 Terraform operations:
-| key             | description              |
-|-----------------+--------------------------|
-| [[kbd:][<localleader> i]] | Runs ~$ terraform init~  |
-| [[kbd:][<localleader> p]] | Runs ~$ terraform plan~  |
-| [[kbd:][<localleader> a]] | Runs ~$ terraform apply~ |
+| key             | description            |
+|-----------------+------------------------|
+| [[kbd:<localleader> i]] | Runs ~$ terraform init~  |
+| [[kbd:<localleader> p]] | Runs ~$ terraform plan~  |
+| [[kbd:<localleader> a]] | Runs ~$ terraform apply~ |
 
 * TODO Configuration
 #+begin_quote wip

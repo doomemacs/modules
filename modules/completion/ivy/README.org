@@ -83,19 +83,19 @@ https://assets.doomemacs.org/completion/ivy/projectile.png
 
 | Keybind          | Description                         |
 |------------------+-------------------------------------|
-| [[kbd:][SPC p f]], [[kbd:][SPC SPC]] | Jump to file in project             |
-| [[kbd:][SPC f f]], [[kbd:][SPC .]]   | Jump to file from current directory |
-| [[kbd:][SPC s i]]          | Jump to symbol in file              |
+| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Jump to file in project             |
+| [[kbd:SPC f f]], [[kbd:SPC .]]   | Jump to file from current directory |
+| [[kbd:SPC s i]]          | Jump to symbol in file              |
 
 ** Project search & replace
 This module provides interactive text search and replace using ripgrep.
 
 | Keybind | Description              |
 |---------+--------------------------|
-| [[kbd:][SPC s p]] | Search project           |
-| [[kbd:][SPC s P]] | Search another project   |
-| [[kbd:][SPC s d]] | Search this directory    |
-| [[kbd:][SPC s D]] | Search another directory |
+| [[kbd:SPC s p]] | Search project           |
+| [[kbd:SPC s P]] | Search another project   |
+| [[kbd:SPC s d]] | Search this directory    |
+| [[kbd:SPC s D]] | Search another directory |
 
 https://assets.doomemacs.org/completion/ivy/search.png
 
@@ -104,8 +104,8 @@ otherwise) changes the behavior of these commands, instructing the underlying
 search engine to include ignored files.
 
 This module also provides Ex Commands for evil users:
-| Ex command             | Description                                                      |
-|------------------------+------------------------------------------------------------------|
+| Ex command           | Description                                                    |
+|----------------------+----------------------------------------------------------------|
 | ~:pg[rep][!] [QUERY]~  | Search project (if ~!~, include hidden files)                    |
 | ~:pg[rep]d[!] [QUERY]~ | Search from current directory (if ~!~, don't search recursively) |
 
@@ -117,13 +117,13 @@ commands.
 These keybindings are available while a search is active:
 | Keybind | Description                                   |
 |---------+-----------------------------------------------|
-| [[kbd:][C-c C-o]] | Open a buffer with your search results        |
-| [[kbd:][C-c C-e]] | Open a writable buffer of your search results |
-| [[kbd:][C-SPC]]   | Preview the current candidate                 |
-| [[kbd:][C-RET]]   | Open the selected candidate in other-window   |
+| [[kbd:C-c C-o]] | Open a buffer with your search results        |
+| [[kbd:C-c C-e]] | Open a writable buffer of your search results |
+| [[kbd:C-SPC]]   | Preview the current candidate                 |
+| [[kbd:C-RET]]   | Open the selected candidate in other-window   |
 
-Changes to the resulting wgrep buffer (opened by [[kbd:][C-c C-e]]) can be committed with
-[[kbd:][C-c C-c]] and aborted with [[kbd:][C-c C-k]] (alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for evil users).
+Changes to the resulting wgrep buffer (opened by [[kbd:C-c C-e]]) can be committed with
+[[kbd:C-c C-c]] and aborted with [[kbd:C-c C-k]] (alternatively [[kbd:ZZ]] and [[kbd:ZQ]], for evil users).
 
 https://assets.doomemacs.org/completion/ivy/search-replace.png
 
@@ -131,44 +131,44 @@ https://assets.doomemacs.org/completion/ivy/search-replace.png
 The [[pkg:swiper]] package provides an interactive buffer search powered by ivy. It
 can be invoked with:
 
-- [[kbd:][SPC s s]] (~swiper-isearch~)
-- [[kbd:][SPC s S]] (~swiper-isearch-thing-at-point~)
-- [[kbd:][SPC s b]] (~swiper~)
+- [[kbd:SPC s s]] (~swiper-isearch~)
+- [[kbd:SPC s S]] (~swiper-isearch-thing-at-point~)
+- [[kbd:SPC s b]] (~swiper~)
 - ~:sw[iper] [QUERY]~
 
 https://assets.doomemacs.org/completion/ivy/swiper.png
 
-A wgrep buffer can be opened from swiper with [[kbd:][C-c C-e]].
+A wgrep buffer can be opened from swiper with [[kbd:C-c C-e]].
 
 ** Ivy integration for various completing commands
 *** General
 | Keybind    | Description               |
 |------------+---------------------------|
-| [[kbd:][M-x]], [[kbd:][SPC :]] | Smarter, smex-powered M-x |
-| [[kbd:][SPC ']]      | Resume last ivy session   |
+| [[kbd:M-x]], [[kbd:SPC :]] | Smarter, smex-powered M-x |
+| [[kbd:SPC ']]      | Resume last ivy session   |
 
 *** Jump to files, buffers or projects
 | Keybind          | Description                           |
 |------------------+---------------------------------------|
-| [[kbd:][SPC RET]]          | Find bookmark                         |
-| [[kbd:][SPC f f]], [[kbd:][SPC .]]   | Browse from current directory         |
-| [[kbd:][SPC p f]], [[kbd:][SPC SPC]] | Find file in project                  |
-| [[kbd:][SPC f r]]          | Find recently opened file             |
-| [[kbd:][SPC p p]]          | Open another project                  |
-| [[kbd:][SPC b b]], [[kbd:][SPC ,]]   | Switch to buffer in current workspace |
-| [[kbd:][SPC b B]], [[kbd:][SPC <]]   | Switch to buffer                      |
+| [[kbd:SPC RET]]          | Find bookmark                         |
+| [[kbd:SPC f f]], [[kbd:SPC .]]   | Browse from current directory         |
+| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Find file in project                  |
+| [[kbd:SPC f r]]          | Find recently opened file             |
+| [[kbd:SPC p p]]          | Open another project                  |
+| [[kbd:SPC b b]], [[kbd:SPC ,]]   | Switch to buffer in current workspace |
+| [[kbd:SPC b B]], [[kbd:SPC <]]   | Switch to buffer                      |
 
 *** Search
 | Keybind | Description                               |
 |---------+-------------------------------------------|
-| [[kbd:][SPC p t]] | List all TODO/FIXMEs in project           |
-| [[kbd:][SPC s b]] | Search the current buffer                 |
-| [[kbd:][SPC s d]] | Search this directory                     |
-| [[kbd:][SPC s D]] | Search another directory                  |
-| [[kbd:][SPC s i]] | Search for symbol in current buffer       |
-| [[kbd:][SPC s p]] | Search project                            |
-| [[kbd:][SPC s P]] | Search another project                    |
-| [[kbd:][SPC s s]] | Search the current buffer (incrementally) |
+| [[kbd:SPC p t]] | List all TODO/FIXMEs in project           |
+| [[kbd:SPC s b]] | Search the current buffer                 |
+| [[kbd:SPC s d]] | Search this directory                     |
+| [[kbd:SPC s D]] | Search another directory                  |
+| [[kbd:SPC s i]] | Search for symbol in current buffer       |
+| [[kbd:SPC s p]] | Search project                            |
+| [[kbd:SPC s P]] | Search another project                    |
+| [[kbd:SPC s s]] | Search the current buffer (incrementally) |
 
 * TODO Configuration
 #+begin_quote wip

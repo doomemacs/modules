@@ -70,10 +70,10 @@ environment.systemPackages = with pkgs; [
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-| Keymap          | Command            | Description                                   |
-|-----------------+--------------------+-----------------------------------------------|
-| [[kbd:][<localleader> u]] | ~+notmuch/update~  | Download, sync, and index emails with notmuch |
-| [[kbd:][<localleader> c]] | ~+notmuch/compose~ | Compose new email                             |
+| Keymap          | Command          | Description                                   |
+|-----------------+------------------+-----------------------------------------------|
+| [[kbd:<localleader> u]] | ~+notmuch/update~  | Download, sync, and index emails with notmuch |
+| [[kbd:<localleader> c]] | ~+notmuch/compose~ | Compose new email                             |
 
 * TODO Configuration
 #+begin_quote wip
@@ -160,9 +160,9 @@ It is possible to change the =*notmuch-hello*= buffer if you want to.
 
 ** Changing the =notmuch= landing page
 You may want to forego the =*notmuch-hello*= buffer by having ~M-x =notmuch~ or
-[[kbd:][<leader> o m]] take you straight to a search page.
+[[kbd:<leader> o m]] take you straight to a search page.
 
-When using [[kbd:][<leader> o m]] the ~+notmuch-home-function~ is called. By default it
+When using [[kbd:<leader> o m]] the ~+notmuch-home-function~ is called. By default it
 uses the ~notmuch~ function and so has the same familiar behavior of running a
 vanilla install of notmuch-emacs. But, by overwriting this function you can run
 a custom search as your landing page.

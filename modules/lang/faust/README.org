@@ -42,16 +42,16 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
 
 | Binding           | Description          |
 |-------------------+----------------------|
-| [[kbd:][<localleader> b]]   | build                |
-| [[kbd:][<localleader> c]]   | syntax check         |
-| [[kbd:][<localleader> d]]   | diagram              |
-| [[kbd:][<localleader> h]]   | online dock          |
-| [[kbd:][<localleader> RET]] | mdoc                 |
-| [[kbd:][<localleader> o]]   | toggle output buffer |
-| [[kbd:][<localleader> s]]   | source code          |
-| [[kbd:][<localleader> r]]   | run                  |
-| [[kbd:][<localleader> S-b]] | build all            |
-| [[kbd:][<localleader> S-d]] | diagram all          |
+| [[kbd:<localleader> b]]   | build                |
+| [[kbd:<localleader> c]]   | syntax check         |
+| [[kbd:<localleader> d]]   | diagram              |
+| [[kbd:<localleader> h]]   | online dock          |
+| [[kbd:<localleader> RET]] | mdoc                 |
+| [[kbd:<localleader> o]]   | toggle output buffer |
+| [[kbd:<localleader> s]]   | source code          |
+| [[kbd:<localleader> r]]   | run                  |
+| [[kbd:<localleader> S-b]] | build all            |
+| [[kbd:<localleader> S-d]] | diagram all          |
 
 * TODO Configuration
 #+begin_quote wip

@@ -49,12 +49,12 @@ occur in code comments:
 - =XXX=: For warning about a problematic or misguiding code.
 
 ** Keybindings
-| keybind | description                      |
-|---------+----------------------------------|
-| [[kbd:][]t]]      | go to next TODO item             |
-| [[kbd:][[t]]      | go to previous TODO item         |
-| [[kbd:][SPC s p]] | search project for a string      |
-| [[kbd:][SPC s b]] | search buffer for string         |
+| keybind | description                 |
+|---------+-----------------------------|
+| [[kbd:\] t]]     | go to next TODO item        |
+| [[kbd:\[ t]]     | go to previous TODO item    |
+| [[kbd:SPC s p]] | search project for a string |
+| [[kbd:SPC s b]] | search buffer for string    |
 
 * TODO Configuration
 #+begin_quote wip

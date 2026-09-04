@@ -8,7 +8,7 @@
 This module provides a set of reasonable defaults, including:
 
 - A Spacemacs-inspired keybinding scheme
-- A configuration for (almost) universally repeating searches with [[kbd:][;]] and [[kbd:][,]]
+- A configuration for (almost) universally repeating searches with [[kbd:;]] and [[kbd:,]]
 - A [[pkg:smartparens]] configuration for smart completion of certain delimiters, like
   ~/* */~ command blocks in C-languages, ~<?php ?>~ tags in PHP, or ~def end~ in
   Ruby/Crystal/etc.

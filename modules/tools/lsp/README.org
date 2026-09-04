@@ -79,8 +79,8 @@ Without the [[module:+eglot]] flag, and when [[module::completion ivy]], [[modul
 server:
 | Keybind | Description                         |
 |---------+-------------------------------------|
-| [[kbd:][SPC c j]] | Jump to symbol in current workspace |
-| [[kbd:][SPC c J]] | Jump to symbol in any workspace     |
+| [[kbd:SPC c j]] | Jump to symbol in current workspace |
+| [[kbd:SPC c J]] | Jump to symbol in any workspace     |
 
 ** Differences between eglot and lsp-mode
 The two projects are large and actively developed, so without writing a novel,

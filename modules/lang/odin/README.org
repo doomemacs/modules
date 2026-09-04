@@ -46,10 +46,10 @@ that, benefits from having the following executables in your ~$PATH~:
 #+end_quote
 
 ** Keybinds
-| Binding           | Description |
-|-------------------+-------------|
-| [[kbd:][<localleader> b]]   | ~odin-build~  |
-| [[kbd:][<localleader> t]]   | ~odin-test~   |
+| Binding         | Description |
+|-----------------+-------------|
+| [[kbd:<localleader> b]] | ~odin-build~  |
+| [[kbd:<localleader> t]] | ~odin-test~   |
 
 * TODO Configuration
 #+begin_quote wip

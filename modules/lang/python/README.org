@@ -167,24 +167,24 @@ format]].
 ** Keybindings
 | Binding           | Description                 |
 |-------------------+-----------------------------|
-| [[kbd:][<localleader> c c]] | ~Compile Cython buffer~       |
-| [[kbd:][<localleader> i i]] | ~Insert missing imports~      |
-| [[kbd:][<localleader> i r]] | ~Remove unused imports~       |
-| [[kbd:][<localleader> i s]] | ~Sort imports~                |
-| [[kbd:][<localleader> i o]] | ~Optimize imports~            |
-| [[kbd:][<localleader> t r]] | ~nosetests-again~             |
-| [[kbd:][<localleader> t a]] | ~nosetests-all~               |
-| [[kbd:][<localleader> t s]] | ~nosetests-one~               |
-| [[kbd:][<localleader> t v]] | ~nosetests-module~            |
-| [[kbd:][<localleader> t A]] | ~nosetests-pdb-all~           |
-| [[kbd:][<localleader> t O]] | ~nosetests-pdb-one~           |
-| [[kbd:][<localleader> t V]] | ~nosetests-pdb-module~        |
-| [[kbd:][<localleader> t f]] | ~python-pytest-file~          |
-| [[kbd:][<localleader> t k]] | ~python-pytest-file-dwim~     |
-| [[kbd:][<localleader> t t]] | ~python-pytest-function~      |
-| [[kbd:][<localleader> t m]] | ~python-pytest-function-dwim~ |
-| [[kbd:][<localleader> t r]] | ~python-pytest-repeat~        |
-| [[kbd:][<localleader> t p]] | ~python-pytest-popup~         |
+| [[kbd:<localleader> c c]] | ~Compile Cython buffer~       |
+| [[kbd:<localleader> i i]] | ~Insert missing imports~      |
+| [[kbd:<localleader> i r]] | ~Remove unused imports~       |
+| [[kbd:<localleader> i s]] | ~Sort imports~                |
+| [[kbd:<localleader> i o]] | ~Optimize imports~            |
+| [[kbd:<localleader> t r]] | ~nosetests-again~             |
+| [[kbd:<localleader> t a]] | ~nosetests-all~               |
+| [[kbd:<localleader> t s]] | ~nosetests-one~               |
+| [[kbd:<localleader> t v]] | ~nosetests-module~            |
+| [[kbd:<localleader> t A]] | ~nosetests-pdb-all~           |
+| [[kbd:<localleader> t O]] | ~nosetests-pdb-one~           |
+| [[kbd:<localleader> t V]] | ~nosetests-pdb-module~        |
+| [[kbd:<localleader> t f]] | ~python-pytest-file~          |
+| [[kbd:<localleader> t k]] | ~python-pytest-file-dwim~     |
+| [[kbd:<localleader> t t]] | ~python-pytest-function~      |
+| [[kbd:<localleader> t m]] | ~python-pytest-function-dwim~ |
+| [[kbd:<localleader> t r]] | ~python-pytest-repeat~        |
+| [[kbd:<localleader> t p]] | ~python-pytest-popup~         |
 
 * TODO Configuration
 #+begin_quote wip

@@ -55,7 +55,7 @@ Emacs.
 Using this module is mostly a matter of using Sly. Consider reading [[http://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][the Sly
 Tour]].
 
-A Sly session will be started when you open a =.lisp= file. Use [[kbd:][<localleader> ']] to switch to the
+A Sly session will be started when you open a =.lisp= file. Use [[kbd:<localleader> ']] to switch to the
 REPL minibuffer.
 
 ** org-mode

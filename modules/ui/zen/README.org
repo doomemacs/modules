@@ -60,9 +60,9 @@ These modes are:
 * Usage
 This module provides two entry points:
 
-- ~M-x +zen/toggle~ (on [[kbd:][<leader> t z]]): toggles ~writeroom-mode~ (restricted to
+- ~M-x +zen/toggle~ (on [[kbd:<leader> t z]]): toggles ~writeroom-mode~ (restricted to
   the current buffer).
-- ~M-x +zen/toggle-fullscreen~ (on [[kbd:][<leader> t Z]]): toggles zen mode in
+- ~M-x +zen/toggle-fullscreen~ (on [[kbd:<leader> t Z]]): toggles zen mode in
   full-screen mode (deletes other windows and full screens the Emacs frame).
 
 Invoke either command again to undo the change.

@@ -96,7 +96,7 @@ switch languages instead of changing the system keyboard language. If you use a
 non-qwerty layout, you will need extra configuration to keep the input method
 consistent, see [[https://github.com/ymarco/doom-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/dvorak-config.el#L3-L18][here]] for an example for dvorak.
 
-Toggling the input method bound to [[kbd:][C-\]]. It prompts you to choose an input method
+Toggling the input method bound to [[kbd:C-\]]. It prompts you to choose an input method
 the first time you do this in a session, but you bypass this by setting the
 default input method:
 #+begin_src emacs-lisp

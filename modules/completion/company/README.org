@@ -24,8 +24,8 @@ This module provides code completion, powered by [[https://github.com/company-mo
   Display completion candidates in a [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Child-Frames.html][childframe]] rather than an overlay or
   tooltip. *Requires GUI Emacs.*
 - +tng ::
-  Invoke completion on [[kbd:][TAB]] instad of [[kbd:][C-SPC]]. When company is active, [[kbd:][TAB]] and
-  [[kbd:][S-TAB]] will navigate the completion candidates.
+  Invoke completion on [[kbd:TAB]] instad of [[kbd:C-SPC]]. When company is active, [[kbd:TAB]] and
+  [[kbd:S-TAB]] will navigate the completion candidates.
 
 ** Packages
 - [[package:company-box]] if [[module:+childframe]]
@@ -50,37 +50,37 @@ find out if you're missing any dependencies.
 
 ** Code completion
 By default, completion is triggered after a short idle period or with the
-[[kbd:][C-SPC]] key. While the popup is visible, the following keys are available:
+[[kbd:C-SPC]] key. While the popup is visible, the following keys are available:
 
 | Keybind | Description                              |
 |---------+------------------------------------------|
-| [[kbd:][C-n]]     | Go to next candidate                     |
-| [[kbd:][C-p]]     | Go to previous candidate                 |
-| [[kbd:][C-j]]     | (evil) Go to next candidate              |
-| [[kbd:][C-k]]     | (evil) Go to previous candidate          |
-| [[kbd:][C-h]]     | Display documentation (if available)     |
-| [[kbd:][C-u]]     | Move to previous page of candidates      |
-| [[kbd:][C-d]]     | Move to next page of candidates          |
-| [[kbd:][C-s]]     | Filter candidates                        |
-| [[kbd:][C-S-s]]   | Search candidates with helm/ivy          |
-| [[kbd:][C-SPC]]   | Complete common                          |
-| [[kbd:][TAB]]     | Complete common or select next candidate |
-| [[kbd:][S-TAB]]   | Select previous candidate                |
+| [[kbd:C-n]]     | Go to next candidate                     |
+| [[kbd:C-p]]     | Go to previous candidate                 |
+| [[kbd:C-j]]     | (evil) Go to next candidate              |
+| [[kbd:C-k]]     | (evil) Go to previous candidate          |
+| [[kbd:C-h]]     | Display documentation (if available)     |
+| [[kbd:C-u]]     | Move to previous page of candidates      |
+| [[kbd:C-d]]     | Move to next page of candidates          |
+| [[kbd:C-s]]     | Filter candidates                        |
+| [[kbd:C-S-s]]   | Search candidates with helm/ivy          |
+| [[kbd:C-SPC]]   | Complete common                          |
+| [[kbd:TAB]]     | Complete common or select next candidate |
+| [[kbd:S-TAB]]   | Select previous candidate                |
 
 ** Vim-esque omni-completion prefix (C-x)
 In the spirit of Vim's omni-completion, the following insert mode keybinds are
 available to evil users to access specific company backends:
 | Keybind | Description                       |
 |---------+-----------------------------------|
-| [[kbd:][C-x C-]]​] | Complete etags                    |
-| [[kbd:][C-x C-f]] | Complete file path                |
-| [[kbd:][C-x C-k]] | Complete from dictionary/keyword  |
-| [[kbd:][C-x C-l]] | Complete full line                |
-| [[kbd:][C-x C-o]] | Invoke complete-at-point function |
-| [[kbd:][C-x C-n]] | Complete next symbol at point     |
-| [[kbd:][C-x C-p]] | Complete previous symbol at point |
-| [[kbd:][C-x C-s]] | Complete snippet                  |
-| [[kbd:][C-x s]]   | Complete spelling suggestions     |
+| [[kbd:C-x C-]]​] | Complete etags                    |
+| [[kbd:C-x C-f]] | Complete file path                |
+| [[kbd:C-x C-k]] | Complete from dictionary/keyword  |
+| [[kbd:C-x C-l]] | Complete full line                |
+| [[kbd:C-x C-o]] | Invoke complete-at-point function |
+| [[kbd:C-x C-n]] | Complete next symbol at point     |
+| [[kbd:C-x C-p]] | Complete previous symbol at point |
+| [[kbd:C-x C-s]] | Complete snippet                  |
+| [[kbd:C-x s]]   | Complete spelling suggestions     |
 
 ** Searching with multiple keywords
 If the =vertico= module is enabled, users can perform code completion with multiple search keywords with an ampersand =&=.
@@ -134,7 +134,7 @@ Doom expects every mode to have an explicit list of ~company-backends~ (and as
 short a list as possible). This may mean you aren't getting all the completion
 you want or any at all.
 
-Check the value of ~company-backends~ ([[kbd:][SPC h v company-backends]]) from that mode
+Check the value of ~company-backends~ ([[kbd:SPC h v company-backends]]) from that mode
 to see what backends are available. Check the [[*Assigning company backend(s) to modes][Configuration section]] for details
 on changing what backends are available for that mode.
 

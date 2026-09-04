@@ -91,31 +91,31 @@ Only languages with parsers in Emacs have text object support at the moment.
 Currently text objects are bound to:
 | key | text object         |
 |-----+---------------------|
-| [[kbd:][A]]   | parameter list      |
-| [[kbd:][f]]   | function definition |
-| [[kbd:][F]]   | function call       |
-| [[kbd:][C]]   | class               |
-| [[kbd:][c]]   | comment             |
-| [[kbd:][v]]   | conditional         |
-| [[kbd:][l]]   | loop                |
+| [[kbd:A]]   | parameter list      |
+| [[kbd:f]]   | function definition |
+| [[kbd:F]]   | function call       |
+| [[kbd:C]]   | class               |
+| [[kbd:c]]   | comment             |
+| [[kbd:v]]   | conditional         |
+| [[kbd:l]]   | loop                |
 
-They are used in a container context (not [[kbd:][vf]], but [[kbd:][vaf]] or [[kbd:][vif]]).
+They are used in a container context (not [[kbd:vf]], but [[kbd:vaf]] or [[kbd:vif]]).
 
 ** Goto certain nodes
-To jump to the next/previous node, type in a buffer by using [[kbd:][[g]] or [[kbd:][]g]]
+To jump to the next/previous node, type in a buffer by using [[kbd:\[ g]] or [[kbd:\] g]]
 respectfully, the following key will correspond to the text object you want to
 jump to.
 
 Currently keys are bound to:
 | key | text object    |
 |-----+----------------|
-| [[kbd:][a]]   | parameter list |
-| [[kbd:][f]]   | function       |
-| [[kbd:][F]]   | function call  |
-| [[kbd:][c]]   | comment        |
-| [[kbd:][C]]   | class          |
-| [[kbd:][v]]   | conditional    |
-| [[kbd:][l]]   | loop           |
+| [[kbd:a]]   | parameter list |
+| [[kbd:f]]   | function       |
+| [[kbd:F]]   | function call  |
+| [[kbd:c]]   | comment        |
+| [[kbd:C]]   | class          |
+| [[kbd:v]]   | conditional    |
+| [[kbd:l]]   | loop           |
 
 * TODO Configuration
 #+begin_quote wip

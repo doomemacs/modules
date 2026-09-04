@@ -170,17 +170,17 @@ commands:
 
 | Binding             | Function                        |
 |---------------------+---------------------------------|
-| [[kbd:][<localleader> m c c]] | ~composer~                        |
-| [[kbd:][<localleader> m c i]] | ~composer-install~                |
-| [[kbd:][<localleader> m c r]] | ~composer-require~                |
-| [[kbd:][<localleader> m c u]] | ~composer-update~                 |
-| [[kbd:][<localleader> m c d]] | ~composer-dump-autoload~          |
-| [[kbd:][<localleader> m c s]] | ~composer-run-scripts~            |
-| [[kbd:][<localleader> m c v]] | ~composer-run-vendor-bin-command~ |
-| [[kbd:][<localleader> m c o]] | ~composer-find-json-file~         |
-| [[kbd:][<localleader> m c l]] | ~composer-view-lock-file~         |
+| [[kbd:<localleader> m c c]] | ~composer~                        |
+| [[kbd:<localleader> m c i]] | ~composer-install~                |
+| [[kbd:<localleader> m c r]] | ~composer-require~                |
+| [[kbd:<localleader> m c u]] | ~composer-update~                 |
+| [[kbd:<localleader> m c d]] | ~composer-dump-autoload~          |
+| [[kbd:<localleader> m c s]] | ~composer-run-scripts~            |
+| [[kbd:<localleader> m c v]] | ~composer-run-vendor-bin-command~ |
+| [[kbd:<localleader> m c o]] | ~composer-find-json-file~         |
+| [[kbd:<localleader> m c l]] | ~composer-view-lock-file~         |
 
-These are all executed via [[kbd:][M-x]] too.
+These are all executed via [[kbd:M-x]] too.
 
 * TODO Configuration
 #+begin_quote wip

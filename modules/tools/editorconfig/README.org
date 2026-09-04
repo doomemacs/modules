@@ -60,7 +60,7 @@ their indentation variables. To add coffee-mode to it:
   (add-to-list 'editorconfig-indentation-alist '(coffee-mode coffee-tab-width)))
 #+end_src
 
-But what if you don't know the correct indentation variable(s). Use [[kbd:][SPC h v]] ([[kbd:][C-h
+But what if you don't know the correct indentation variable(s). Use [[kbd:SPC h v]] ([[kbd:C-h
 v]] for non-evil users) to peruse all the available variables in your current
 session of Emacs. Look for variables that have the words =indent=, =offset= or
 =tab-width= in them. They will be prefixed with the plugin they belong to (e.g.

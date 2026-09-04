@@ -60,23 +60,23 @@ words. Snippets may also appear in the candidate list if available.
 #+end_quote
 
 By default, completion gets triggered after typing 2 non-space consecutive
-characters, by means of [[kbd:][C-SPC]] at any moment or [[kbd:][TAB]] on a line with proper
+characters, by means of [[kbd:C-SPC]] at any moment or [[kbd:TAB]] on a line with proper
 indentation. Many styles of completion are documented below, which can be
 composed to suit the user. The following keybindings are generally available:
 
 | Keybind | Description                                |
 |---------+--------------------------------------------|
-| [[kbd:][C-n]]     | Go to next candidate                       |
-| [[kbd:][C-p]]     | Go to previous candidate                   |
-| [[kbd:][C-S-n]]   | Go to next doc line                        |
-| [[kbd:][C-S-p]]   | Go to previous doc line                    |
-| [[kbd:][C-S-s]]   | Export to minibuffer                       |
-| [[kbd:][TAB]]     | (when not completing) Indent or complete   |
-| [[kbd:][C-SPC]]   | (when not completing) Complete             |
-| [[kbd:][C-u]]     | (evil) Go to next candidate page           |
-| [[kbd:][C-d]]     | (evil) Go to previous candidate page       |
-| [[kbd:][C-h]]     | (evil) Toggle documentation (if available) |
-| [[kbd:][M-t]]     | (emacs) (when not completing) Complete     |
+| [[kbd:C-n]]     | Go to next candidate                       |
+| [[kbd:C-p]]     | Go to previous candidate                   |
+| [[kbd:C-S-n]]   | Go to next doc line                        |
+| [[kbd:C-S-p]]   | Go to previous doc line                    |
+| [[kbd:C-S-s]]   | Export to minibuffer                       |
+| [[kbd:TAB]]     | (when not completing) Indent or complete   |
+| [[kbd:C-SPC]]   | (when not completing) Complete             |
+| [[kbd:C-u]]     | (evil) Go to next candidate page           |
+| [[kbd:C-d]]     | (evil) Go to previous candidate page       |
+| [[kbd:C-h]]     | (evil) Toggle documentation (if available) |
+| [[kbd:M-t]]     | (emacs) (when not completing) Complete     |
 
 Bindings in the following sections are additive, and unless otherwise noted, are
 enabled by default with configurable behavior. Additionally, for users of evil,
@@ -100,19 +100,19 @@ to be only visual or for there to be no preview, configure
 (setq corfu-preview-current nil)
 #+end_src
 
-** Commit on [[kbd:][RET]] with pass-through
-A lot of people like to use [[kbd:][RET]] to commit, so here we bind it to Corfu's
+** Commit on [[kbd:RET]] with pass-through
+A lot of people like to use [[kbd:RET]] to commit, so here we bind it to Corfu's
 insertion function. Note that Corfu allows "no candidate" to be selected, and in
 that case, we have a custom binding to quit completion and pass-through. To make
 it less obtrusive by default, the popup starts in this unselected state. See
 [[var:corfu-preselect]] to alter the initial behavior; it can start with the first
 one selected, for instance. Then, you have to move one candidate backwards to
-pass-through The exact action of [[kbd:][RET]] can be changed via
+pass-through The exact action of [[kbd:RET]] can be changed via
 [[var:+corfu-want-ret-to-confirm]].
 
 | Keybind | Description           |
 |---------+-----------------------|
-| [[kbd:][RET]]     | Insert candidate DWIM |
+| [[kbd:RET]]     | Insert candidate DWIM |
 
 ** Cycle directionally
 If you'd rather think in directions rather than next/previous, arrow keys and vi
@@ -121,22 +121,22 @@ You may unbind them by setting to nil, see ~map!~'s documentation.
 
 | Keybind  | Description                     |
 |----------+---------------------------------|
-| [[kbd:][<down>]]   | Go to next candidate            |
-| [[kbd:][<up>]]     | Go to previous candidate        |
-| [[kbd:][C-j]]      | (evil) Go to next candidate     |
-| [[kbd:][C-k]]      | (evil) Go to previous candidate |
-| [[kbd:][C-<down>]] | Go to next doc line             |
-| [[kbd:][C-<up>]]   | Go to previous doc line         |
-| [[kbd:][C-S-j]]    | (evil) Go to next doc line      |
-| [[kbd:][C-S-k]]    | (evil) Go to previous doc line  |
+| [[kbd:<down>]]   | Go to next candidate            |
+| [[kbd:<up>]]     | Go to previous candidate        |
+| [[kbd:C-j]]      | (evil) Go to next candidate     |
+| [[kbd:C-k]]      | (evil) Go to previous candidate |
+| [[kbd:C-<down>]] | Go to next doc line             |
+| [[kbd:C-<up>]]   | Go to previous doc line         |
+| [[kbd:C-S-j]]    | (evil) Go to next doc line      |
+| [[kbd:C-S-k]]    | (evil) Go to previous doc line  |
 
-** Cycle with [[kbd:][TAB]]
-[[kbd:][TAB]]-based cycling alternatives are also bound according to the table below:
+** Cycle with [[kbd:TAB]]
+[[kbd:TAB]]-based cycling alternatives are also bound according to the table below:
 
 | Keybind | Description              |
 |---------+--------------------------|
-| [[kbd:][TAB]]     | Go to next candidate     |
-| [[kbd:][S-TAB]]   | Go to previous candidate |
+| [[kbd:TAB]]     | Go to next candidate     |
+| [[kbd:S-TAB]]   | Go to previous candidate |
 
 ** Searching with multiple keywords (~+orderless~)
 If the [[module::completion corfu +orderless]] flag is enabled, users can
@@ -144,7 +144,7 @@ perform code completion with multiple search keywords by use of space as the
 separator. More information can be found [[https://github.com/oantolin/orderless#company][here]]. Pressing [[kdb:][C-SPC]] again while
 completing inserts a space as separator. This allows searching with
 space-separated terms; each piece will match individually and in any order, with
-smart casing. Pressing just [[kbd:][SPC]] acts as normal and quits completion, so that
+smart casing. Pressing just [[kbd:SPC]] acts as normal and quits completion, so that
 when typing sentences it doesn't try to complete the whole sentence instead of
 just the word. Pressing [[kdb:][C-SPC]] with point after a separator escapes it with a
 backslash, including the space in the search term, and pressing it with an
@@ -153,16 +153,16 @@ you accidentaly press more than needed.
 
 | Keybind | Description                                     |
 |---------+-------------------------------------------------|
-| [[kbd:][C-SPC]]   | (evil) (when completing) Insert separator DWIM  |
-| [[kbd:][M-SPC]]   | (emacs) (when completing) Insert separator DWIM |
-| [[kbd:][SPC]]     | (when completing) Quit autocompletion           |
-| [[kbd:][SPC]]     | (when completing with separators) Self-insert   |
+| [[kbd:C-SPC]]   | (evil) (when completing) Insert separator DWIM  |
+| [[kbd:M-SPC]]   | (emacs) (when completing) Insert separator DWIM |
+| [[kbd:SPC]]     | (when completing) Quit autocompletion           |
+| [[kbd:SPC]]     | (when completing with separators) Self-insert   |
 
 ** Exporting to the minibuffer
 The entries shown in the completion popup can be exported to a ~completing-read~
 minibuffer, giving access to all the manipulations that suite allows. Using
 Vertico for instance, one could use this to export with [[pkg:embark]] via
-[[kbd:][C-c C-l]] and get a buffer with all candidates.
+[[kbd:C-c C-l]] and get a buffer with all candidates.
 
 * Configuration
 A few variables may be set to change behavior of this module:
@@ -190,9 +190,9 @@ A few variables may be set to change behavior of this module:
 - [[var:corfu-preview-current]] ::
   Configures current candidate preview.
 - [[var:+corfu-want-ret-to-confirm]] ::
-  Controls the behavior of [[kbd:][RET]] when the popup is visible - whether it confirms
-  the selected candidate, and whether [[kbd:][RET]] is passed through (ie. the normal
-  behavior of [[kbd:][RET]] is performed). The default value of ~t~ enables confirmation
+  Controls the behavior of [[kbd:RET]] when the popup is visible - whether it confirms
+  the selected candidate, and whether [[kbd:RET]] is passed through (ie. the normal
+  behavior of [[kbd:RET]] is performed). The default value of ~t~ enables confirmation
   and disables pass-through. Other variations are ~nil~ for pass-through and no
   confirmation and ~both~ for confirmation followed by pass-through. Finally,
   the value of ~minibuffer~ will both confirm and pass-through (like ~both~)
@@ -205,13 +205,13 @@ A few variables may be set to change behavior of this module:
   additional tweaks.
 - [[var:+corfu-want-tab-prefer-expand-snippets]] ::
   Whether to prefer expanding snippets over cycling candidates when pressing
-  [[kbd:][TAB]].
+  [[kbd:TAB]].
 - [[var:+corfu-want-tab-prefer-navigating-snippets]] ::
   Whether to prefer navigating snippets over cycling candidates when pressing
-  [[kbd:][TAB]] and [[kbd:][S-TAB]].
+  [[kbd:TAB]] and [[kbd:S-TAB]].
 - [[var:+corfu-want-tab-prefer-navigating-org-tables]] ::
   Whether to prefer navigating org tables over cycling candidates when pressing
-  [[kbd:][TAB]] and [[kbd:][S-TAB]].
+  [[kbd:TAB]] and [[kbd:S-TAB]].
 
 ** Turning off auto-completion
 To disable idle (as-you-type) completion, unset ~corfu-auto~:

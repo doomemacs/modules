@@ -42,8 +42,8 @@ ways:
 It is recommended that you add a keybinding for this.
 
 From here, you can edit away to your hearts content in the created frame, then
-return to the original window and paste the content with [[kbd:][C-c C-c]] or [[kbd:][SPC q f]]. To
-exit without pasting, use [[kbd:][C-c C-k]].
+return to the original window and paste the content with [[kbd:C-c C-c]] or [[kbd:SPC q f]]. To
+exit without pasting, use [[kbd:C-c C-k]].
 
 * Configuration
 [[pkg:emacs-everywhere]] likes to guess if you triggered it from an application which

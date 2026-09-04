@@ -35,7 +35,7 @@ File templates are automatically expanded when opening empty files who match one
 of the rules in the ~+file-templates-alist~ variable.
 
 These templates are simply yasnippet snippets, which can also be expanded by
-typing their trigger and pressing [[kbd:][TAB]]. By convention, the triggers for file
+typing their trigger and pressing [[kbd:TAB]]. By convention, the triggers for file
 templates are prefixed with two underscores ~__~ (the trigger for the default
 file template of a major mode is almost always ~__~).
 
@@ -59,7 +59,7 @@ New file templates can be added to
 covers [[https://joaotavora.github.io/yasnippet/snippet-development.html][how to write a snippet]]. You can map a snippet to a file path, major mode,
 or another arbitrary predicate using [[fn:set-file-template!]].
 
-Look into its documentation with [[kbd:][<help> f set-file-template\!]].
+Look into its documentation with [[kbd:<help> f set-file-template\!]].
 
 ** Adding new OSS licenses
 Add snippet files to =$DOOMDIR/snippets/text-mode/= with the =__licenses-=

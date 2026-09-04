@@ -33,7 +33,7 @@ keywords or text patterns at point, like ~true~ and ~false~, or ~public~,
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-For evil users: [[kbd:][[r]] and [[kbd:][]r]] will cycle back and forward (respectively) through
+For evil users: [[kbd:\[ r]] and [[kbd:\] r]] will cycle back and forward (respectively) through
 specified patterns for the text at point. Patterns will wrap around as you cycle
 through them.
 

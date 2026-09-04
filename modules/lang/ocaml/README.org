@@ -65,18 +65,18 @@ This module requires the following packages available through [[http://opam.ocam
   parent directory) and =ocamlmerlin= executable is present
 - Line-based auto-indentation is provided by =ocp-indent=, if it is available.
 
-| Command                      | Key             | Description                                               |
-|------------------------------+-----------------+-----------------------------------------------------------|
-| ~merlin-type-enclosing~      | [[kbd:][<localleader> t]] | display type under point                                  |
-| ~tuareg-find-alternate-file~ | [[kbd:][<localleader> a]] | switch between =.ml= and =.mli=                           |
-| ~merlin-locate~              | [[kbd:][g d]]             | lookup definition                                         |
-| ~merlin-occurences~          | [[kbd:][SPC c D]]         | lookup references                                         |
-| ~merlin-document~            | [[kbd:][K]]               | lookup documentation                                      |
-| ~merlin-imenu~               | [[kbd:][SPC s i]]         | symbol lookup in file                                     |
-| ~merlin-iedit-occurrences~   | [[kbd:][v R]]             | visual refactor identifier under point (multiple cursors) |
-| ~utop~                       | [[kbd:][SPC o r]]         | open =utop= as REPL                                       |
-| ~utop-eval-region~           | [[kbd:][SPC c e]]         | evaluate selected region in =utop=                        |
-| ~opam-switch-set-switch~     | [[kbd:][<localleader> w]] | evaluate selected region in =utop=                        |
+| Command                    | Key             | Description                                               |
+|----------------------------+-----------------+-----------------------------------------------------------|
+| ~merlin-type-enclosing~      | [[kbd:<localleader> t]] | display type under point                                  |
+| ~tuareg-find-alternate-file~ | [[kbd:<localleader> a]] | switch between =.ml= and =.mli=                               |
+| ~merlin-locate~              | [[kbd:g d]]             | lookup definition                                         |
+| ~merlin-occurences~          | [[kbd:SPC c D]]         | lookup references                                         |
+| ~merlin-document~            | [[kbd:K]]               | lookup documentation                                      |
+| ~merlin-imenu~               | [[kbd:SPC s i]]         | symbol lookup in file                                     |
+| ~merlin-iedit-occurrences~   | [[kbd:v R]]             | visual refactor identifier under point (multiple cursors) |
+| ~utop~                       | [[kbd:SPC o r]]         | open =utop= as REPL                                         |
+| ~utop-eval-region~           | [[kbd:SPC c e]]         | evaluate selected region in =utop=                          |
+| ~opam-switch-set-switch~     | [[kbd:<localleader> w]] | evaluate selected region in =utop=                          |
 
 * TODO Configuration
 #+begin_quote wip
@@ -93,7 +93,7 @@ This module requires the following packages available through [[http://opam.ocam
   there is an =.ocamlformat= file present then ~format-all-buffer~ is bound to
   =ocamlformat=, otherwise to =ocp-indent=
 - If [[module::editor multiple-cursors]] is enabled then identifiers can be refactored with
-  [[kbd:][v R]] and multiple cursors (this correctly matches identifier occurrences
+  [[kbd:v R]] and multiple cursors (this correctly matches identifier occurrences
   according to scope, it is not purely a textual match)
 
 Run ~$ doom sync~ to install all packages and ~$ doom doctor~ to diagnose

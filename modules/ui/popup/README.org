@@ -12,7 +12,7 @@ once they have served their purpose, like code output or a help buffer. Others I
 want to stick around, like a scratch buffer or org-capture popup.
 
 More than that, popups ought to be the second class citizens of my editor;
-spawned off to the side, discarded with the push of a button (e.g. [[kbd:][ESC]] or [[kbd:][C-g]]),
+spawned off to the side, discarded with the push of a button (e.g. [[kbd:ESC]] or [[kbd:C-g]]),
 and easily restored if I want to see them again. Of course, this system should
 clean up after itself and kill off buffers I mark as transient.
 
@@ -75,7 +75,7 @@ This module has two functions for defining your own rules for popups:
 
 ~PREDICATE~ is a predicate function or regexp string to match against the
 buffer's name. You'll find comprehensive documentation on the other keywords in
-~set-popup-rule!~'s docstring ([[kbd:][SPC h f set-popup-rule!]]).
+~set-popup-rule!~'s docstring ([[kbd:SPC h f set-popup-rule!]]).
 
 #+begin_quote tip
 Popup rules end up in var:display-buffer-alist, which instructs

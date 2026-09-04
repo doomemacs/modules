@@ -50,7 +50,7 @@ can overcome this by using ~buffer-list~.
 ** Automatic workspaces
 A workspace is automatically created (and switched to) when you:
 
-- Create a new frame (with =make-frame=; bound to [[kbd:][M-N]] by default).
+- Create a new frame (with =make-frame=; bound to [[kbd:M-N]] by default).
 - Switch to a project using ~projectile-switch-project~.
 
 ** Session persistence
@@ -71,20 +71,20 @@ Here is a list of available commands, their default keybindings (defined in
 [[../../config/default/+evil-bindings.el][config/default/+bindings.el]]), and corresponding ex commands (if any -- defined
 in [[../../editor/evil/+commands.el][config/default/+evil-commands.el]]).
 
-| command                           | key / ex command     | description                                                |
-|-----------------------------------+----------------------+------------------------------------------------------------|
-| ~+workspace/new~                  | [[kbd:][SPC TAB n]]            | Create a new, blank workspace                              |
-| ~+workspace/display~              | [[kbd:][SPC TAB TAB]]          | Display open workspaces in the mode-line                   |
-| ~+workspace/load~                 | [[kbd:][SPC TAB l]]            | Load a saved workspace into the current session            |
-| ~+workspace/restore-last-session~ | [[kbd:][SPC TAB R]]            | Restore last session                                       |
-| ~+workspace/rename~               | [[kbd:][SPC TAB r]]            | Rename the current workspace                               |
-| ~+workspace/save~                 | [[kbd:][SPC TAB s]]            | Save the current workspace to a file                       |
-| ~+workspace/switch-to~            | [[kbd:][SPC TAB .]]            | Switch to an open workspace                                |
-| ~+workspace/other~                | [[kbd:][SPC TAB `]]            | Switch to last workspace                                   |
-| ~+workspace/switch-left~          | [[kbd:][SPC TAB []] / [[kbd:][[ w]] / [[kbd:][gT]] | Switch to previous workspace                               |
-| ~+workspace/switch-right~         | [[kbd:][SPC TAB ]]] / [[kbd:][] w]] / [[kbd:][gt]] | Switch to next workspace                                   |
-| ~+workspace/kill~                 | [[kbd:][SPC TAB d]]            | Delete the current workspace                               |
-| ~+workspace/kill-session~         | [[kbd:][SPC TAB x]] / [[kbd:][:sclear]]  | Clears the current session (kills all windows and buffers) |
+| command                         | key / ex command     | description                                                |
+|---------------------------------+----------------------+------------------------------------------------------------|
+| ~+workspace/new~                  | [[kbd:SPC TAB n]]            | Create a new, blank workspace                              |
+| ~+workspace/display~              | [[kbd:SPC TAB TAB]]          | Display open workspaces in the mode-line                   |
+| ~+workspace/load~                 | [[kbd:SPC TAB l]]            | Load a saved workspace into the current session            |
+| ~+workspace/restore-last-session~ | [[kbd:SPC TAB R]]            | Restore last session                                       |
+| ~+workspace/rename~               | [[kbd:SPC TAB r]]            | Rename the current workspace                               |
+| ~+workspace/save~                 | [[kbd:SPC TAB s]]            | Save the current workspace to a file                       |
+| ~+workspace/switch-to~            | [[kbd:SPC TAB .]]            | Switch to an open workspace                                |
+| ~+workspace/other~                | [[kbd:SPC TAB `]]            | Switch to last workspace                                   |
+| ~+workspace/switch-left~          | [[kbd:SPC TAB \[]] / [[kbd:\[ w]] / [[kbd:gT]] | Switch to previous workspace                               |
+| ~+workspace/switch-right~         | [[kbd:SPC TAB ]]] / [[kbd:\] w]] / [[kbd:gt]] | Switch to next workspace                                   |
+| ~+workspace/kill~                 | [[kbd:SPC TAB d]]            | Delete the current workspace                               |
+| ~+workspace/kill-session~         | [[kbd:SPC TAB x]] / [[kbd::sclear]]  | Clears the current session (kills all windows and buffers) |
 
 * TODO Configuration
 #+begin_quote wip

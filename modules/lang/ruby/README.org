@@ -68,27 +68,27 @@ Formatting is handled using the [[module::editor format]] module via [[https://p
 
 ** Commands
 *** projectile-rails
-The projectile-rails prefix is [[kbd:][<localleader> r]]:
-| command                       | key / ex command  | description                                       |
-|-------------------------------+-------------------+---------------------------------------------------|
-| ~projectile-rails-console~    | [[kbd:][<localleader> r r]] | Open Rails console                                |
-| ~projectile-rails-server~     | [[kbd:][<localleader> r R]] | Open Rails server                                 |
-| ~projectile-rails-find-model~ | [[kbd:][<localleader> r m]] | Find any model of the project                     |
-| ~projectile-rails-find-model~ | [[kbd:][<localleader> r M]] | Find the model related of currently open resource |
+The projectile-rails prefix is [[kbd:<localleader> r]]:
+| command                     | key / ex command  | description                                       |
+|-----------------------------+-------------------+---------------------------------------------------|
+| ~projectile-rails-console~    | [[kbd:<localleader> r r]] | Open Rails console                                |
+| ~projectile-rails-server~     | [[kbd:<localleader> r R]] | Open Rails server                                 |
+| ~projectile-rails-find-model~ | [[kbd:<localleader> r m]] | Find any model of the project                     |
+| ~projectile-rails-find-model~ | [[kbd:<localleader> r M]] | Find the model related of currently open resource |
 
 *** bundler
-The bundler prefix is [[kbd:][<localleader> b]]:
-| command          | key / ex command  | description         |
-|------------------+-------------------+---------------------|
-| ~bundle-install~ | [[kbd:][<localleader> b i]] | Runs bundle install |
-| ~bundle-update~  | [[kbd:][<localleader> b u]] | Runs bundle update  |
+The bundler prefix is [[kbd:<localleader> b]]:
+| command        | key / ex command  | description         |
+|----------------+-------------------+---------------------|
+| ~bundle-install~ | [[kbd:<localleader> b i]] | Runs bundle install |
+| ~bundle-update~  | [[kbd:<localleader> b u]] | Runs bundle update  |
 
 *** rspec-mode
-The rspec-mode prefix is [[kbd:][<localleader> t]]:
-| command               | key / ex command | description                       |
-|-----------------------+------------------+-----------------------------------|
-| ~rspec-verify~        | =SPC m t v=      | Runs rspec on current file        |
-| ~rspec-verify-method~ | =SPC m t s=      | Runs rspec for the item on cursor |
+The rspec-mode prefix is [[kbd:<localleader> t]]:
+| command             | key / ex command | description                       |
+|---------------------+------------------+-----------------------------------|
+| ~rspec-verify~        | =SPC m t v=        | Runs rspec on current file        |
+| ~rspec-verify-method~ | =SPC m t s=        | Runs rspec for the item on cursor |
 
 * TODO Configuration
 #+begin_quote wip

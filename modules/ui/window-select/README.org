@@ -6,15 +6,15 @@
 
 * Description :unfold:
 This module provides several methods for selecting windows without the use of
-the mouse or spatial navigation (e.g. [[kbd:][C-w {h,j,k,l}]]).
+the mouse or spatial navigation (e.g. [[kbd:C-w {h,j,k,l}]]).
 
 The command ~other-window~ is remapped to either [[pkg:switch-window]] or [[pkg:ace-window]],
-depending on which backend you've enabled. It is bound to [[kbd:][C-x o]] (and [[kbd:][C-w C-w]] for
+depending on which backend you've enabled. It is bound to [[kbd:C-x o]] (and [[kbd:C-w C-w]] for
 evil users).
 
 It also provides numbered windows and selection with the [[pkg:winum]] package, if
-desired. Evil users can jump to window N in [[kbd:][C-w <N>]] (where N is a number between
-0 and 9). Non evil users have [[kbd:][C-x w <N>]] instead.
+desired. Evil users can jump to window N in [[kbd:C-w <N>]] (where N is a number between
+0 and 9). Non evil users have [[kbd:C-x w <N>]] instead.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]

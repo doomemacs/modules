@@ -70,10 +70,10 @@ keybindings:
 
 | Keybinding      | Description                                 |
 |-----------------+---------------------------------------------|
-| [[kbd:][<localleader> b]] | Build the current cabal project             |
-| [[kbd:][<localleader> c]] | Visit the =.cabal= file of the current buffer |
-| [[kbd:][<localleader> h]] | Toggle visibility of the form at point      |
-| [[kbd:][<localleader> H]] | hides all top level functions               |
+| [[kbd:<localleader> b]] | Build the current cabal project             |
+| [[kbd:<localleader> c]] | Visit the =.cabal= file of the current buffer |
+| [[kbd:<localleader> h]] | Toggle visibility of the form at point      |
+| [[kbd:<localleader> H]] | hides all top level functions               |
 
 * TODO Configuration
 #+begin_quote wip

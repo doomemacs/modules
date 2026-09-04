@@ -45,27 +45,27 @@ find out if you're missing any dependencies.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-Most of flycheck's features are under [[kbd:][C-c !]], regardless of whether evil mode is
+Most of flycheck's features are under [[kbd:C-c !]], regardless of whether evil mode is
 used.
 
 | Keybind | Description                 |
 |---------+-----------------------------|
-| [[kbd:][C-c ! ?]] | Describe Checker            |
-| [[kbd:][C-c ! c]] | Check syntax in buffer      |
-| [[kbd:][C-c ! l]] | List errors                 |
-| [[kbd:][C-c ! n]] | Next Error                  |
-| [[kbd:][C-c ! p]] | Previous error              |
-| [[kbd:][C-c ! C]] | Clear all errors in buffer  |
-| [[kbd:][C-c ! e]] | Explain error at point      |
-| [[kbd:][C-c ! h]] | Display all errors at point |
+| [[kbd:C-c ! ?]] | Describe Checker            |
+| [[kbd:C-c ! c]] | Check syntax in buffer      |
+| [[kbd:C-c ! l]] | List errors                 |
+| [[kbd:C-c ! n]] | Next Error                  |
+| [[kbd:C-c ! p]] | Previous error              |
+| [[kbd:C-c ! C]] | Clear all errors in buffer  |
+| [[kbd:C-c ! e]] | Explain error at point      |
+| [[kbd:C-c ! h]] | Display all errors at point |
 
 Evil Specific:
 | Keybind | Description     |
 |---------+-----------------|
-| [[kbd:][SPC t f]] | Toggle Flycheck |
-| [[kbd:][SPC c x]] | List errors     |
-| [[kbd:][] e]]     | Next error      |
-| [[kbd:][[ e]]     | Prevous error   |
+| [[kbd:SPC t f]] | Toggle Flycheck |
+| [[kbd:SPC c x]] | List errors     |
+| [[kbd:\] e]]     | Next error      |
+| [[kbd:\[ e]]     | Prevous error   |
 
 * TODO Configuration
 #+begin_quote wip

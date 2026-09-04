@@ -56,7 +56,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 Please refer to ~ledger-mode~'s documentation for information on how to
-configure it. You can do so within emacs with [[kbd:][C-h i]]
+configure it. You can do so within emacs with [[kbd:C-h i]]
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]
