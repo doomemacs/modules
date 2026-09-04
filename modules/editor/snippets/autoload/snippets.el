@@ -222,8 +222,7 @@ be prompted for the mode for which to create the snippet."
         (set-visited-file-name snippet-file-name)
         (yas-expand-snippet (concat "# -*- mode: snippet -*-\n"
                                     "# name: $1\n"
-                                    "# uuid: $2\n"
-                                    "# key: ${3:" snippet-key "}${4:\n"
+                                    "# key: ${2:" snippet-key "}${3:\n"
                                     "# condition: t}\n"
                                     "# --\n"
                                     "$0"))
