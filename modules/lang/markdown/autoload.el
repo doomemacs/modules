@@ -63,7 +63,10 @@ Returns its exit code."
   "Compiles markdown with the pandoc program, if available.
 Returns its exit code."
   (when (executable-find "pandoc")
-    (call-process-region beg end "pandoc" nil output-buffer nil
+    ;; Keep stderr out of OUTPUT-BUFFER: a bare buffer destination merges it
+    ;; with stdout, so pandoc warnings (3.11 deprecates --mathjax, for one)
+    ;; would end up inside the HTML.
+    (call-process-region beg end "pandoc" nil (list output-buffer nil) nil
                          "-f" "markdown"
                          "-t" "html"
                          "--mathjax")))
