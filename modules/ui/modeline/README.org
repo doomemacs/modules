@@ -65,9 +65,9 @@ I rarely need to know what minor modes are active, so I removed them. ~M-x
 doom/describe-active-minor-mode~ was written to substitute for it.
 
 ** Icons in my modeline look strange
-1. Check whether ~nerd-icons~ are installed. Run ~M-x
-   nerd-icons-install-fonts~ to install the resource fonts. Note that
-   ~nerd-icons~ only support GUI. See [[https://github.com/domtronn/nerd-icons.el][nerd-icons]] for details.
+1. Check whether ~nerd-icons~ are installed. Run ~M-x nerd-icons-install-fonts~ 
+   to install the resource fonts. Note that
+   ~nerd-icons~ only support GUI. See [[https://github.com/rainstormstudio/nerd-icons.el][nerd-icons]] for details.
 
 2. ~cnfonts~ will conflict with ~nerd-icons~. You can refer the following
    workaround:
