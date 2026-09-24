@@ -37,7 +37,12 @@ package to be installed."
 
 If they don't exist, they will be ignored. Recognized viewers are skim, evince,
 sumatrapdf, zathura, okular and pdf-tools."
-  :type '(repeat (choice skim evince sumatrapdf zathura okular pdf-tools))
+  :type '(repeat (choice (const skim)
+                         (const evince)
+                         (const sumatrapdf)
+                         (const zathura)
+                         (const okular)
+                         (const pdf-tools)))
   :group '+latex)
 
 ;;
