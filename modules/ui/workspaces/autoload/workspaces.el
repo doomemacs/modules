@@ -103,9 +103,13 @@ retrieve perspectives that were explicitly saved with `+workspace-save'.
 Returns t if successful, nil otherwise."
   (when (+workspace-exists-p name)
     (user-error "A workspace named '%s' already exists." name))
-  (persp-load-from-file-by-names
+  ;; A saved workspace is an explicit snapshot, not an autosave target. Loading
+  ;; it with `persp-load-from-file-by-names' sets its `persp-file' parameter,
+  ;; which makes later session autosaves overwrite this file (possibly from a
+  ;; smaller TTY frame that cannot display the original window layout).
+  (persp-load-state-from-file
    (expand-file-name +workspaces-data-file persp-save-dir)
-   *persp-hash* (list name))
+   *persp-hash* (regexp-opt (list name)))
   (+workspace-exists-p name))
 
 ;;;###autoload
@@ -118,6 +122,9 @@ Returns t on success, nil otherwise."
   (unless (+workspace-exists-p name)
     (error "'%s' is an invalid workspace" name))
   (let ((fname (expand-file-name +workspaces-data-file persp-save-dir)))
+    ;; `persp-save-to-file-by-names' serializes the cached window state; refresh
+    ;; it first so repeated saves include the current splits and their sizes.
+    (persp-save-state (+workspace-get name))
     (persp-save-to-file-by-names fname *persp-hash* (list name) t)
     (and (member name (persp-list-persp-names-in-file fname))
          t)))
