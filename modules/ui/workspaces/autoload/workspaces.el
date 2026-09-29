@@ -96,6 +96,21 @@ PERSP can be a string (name of a workspace) or a workspace (satisfies
 
 ;;; Actions
 ;;;###autoload
+(defun +workspaces-window-state-put (state &optional frame root)
+  "Restore STATE in FRAME, adapting graphical pixel dimensions to a TTY.
+The pixel dimensions in a saved graphical state describe the old font and
+frame, not the minimum dimensions of a terminal window.  Keep character sizes
+and normalized proportions so `window-state-put' can reflow the splits."
+  (let ((window (or root (frame-root-window (or frame (selected-frame))))))
+    (window-state-put
+     (if (display-graphic-p (window-frame window))
+         state
+       (cl-remove-if (lambda (item)
+                       (memq (car-safe item) '(pixel-width pixel-height)))
+                     state))
+     window t)))
+
+;;;###autoload
 (defun +workspace-load (name)
   "Loads a single workspace (named NAME) into the current session. Can only
 retrieve perspectives that were explicitly saved with `+workspace-save'.

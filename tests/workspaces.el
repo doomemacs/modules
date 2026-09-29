@@ -73,5 +73,24 @@
       (persp-mode -1)
       (delete-directory persp-save-dir t))))
 
+(ert-deftest workspaces-tty-restores-gui-window-state ()
+  (let* ((window (frame-root-window))
+         (original (window-state-get window t)))
+    (unwind-protect
+        (progn
+          (split-window-right)
+          (split-window-below)
+          (let* ((state (copy-tree (window-state-get (frame-root-window) t)))
+                 (expected (length (window-list)))
+                 (persp-window-state-put-function #'+workspaces-window-state-put))
+            ;; Simulate pixel constraints from a GUI font in a TTY frame.
+            (setcdr (assq 'pixel-height state) 1000)
+            (setcdr (assq 'min-pixel-height-ignore (car state)) 200)
+            (delete-other-windows)
+            (funcall persp-window-state-put-function state (selected-frame))
+            (should (= (length (window-list)) expected))))
+      (delete-other-windows)
+      (window-state-put original (frame-root-window) t))))
+
 (ert-run-tests-batch-and-exit)
 ;;; workspaces.el ends here
