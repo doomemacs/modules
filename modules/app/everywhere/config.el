@@ -17,7 +17,7 @@
   ;; Support for Hyprland and Niri
   (add-to-list 'emacs-everywhere-system-configs
                '((wayland . Hyprland)
-                 :focus-command ("hyprctl" "dispatch" "focuswindow" "address:%w")
+                 :focus-command ("hyprctl" "dispatch" "hl.dsp.focus({ window = \"address:%w\" })")
                  :info-function +everywhere-app-info-hyprland))
   (add-to-list 'emacs-everywhere-system-configs
                '((wayland . niri)
