@@ -156,6 +156,12 @@ You should use `set-eshell-alias!' to change this.")
           (append eshell-command-aliases-list
                   +eshell-aliases))))
 
+(after! esh-mode ; built-in
+  ;; HACK: force a load of `eshell' to ensure that direct users of `eshell-mode'
+  ;; (like Doom's `+eshell/toggle') trigger code evaluated after `eshell' is
+  ;; loaded before `eshell-mode' initializes. Without this, `eshell' may not be
+  ;; autoloaded before `eshell-mode-hook' runs.
+  (require 'eshell))
 
 (after! esh-mode
   (map! :map eshell-mode-map
