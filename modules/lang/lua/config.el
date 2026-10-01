@@ -20,6 +20,7 @@
 
 (use-package! lua-mode
   :interpreter "\\<lua\\(?:jit\\)?"
+  :mode "\\.luau\\'"
   :init
   (setq lua-indent-level 2)  ; default is 3; madness!
   :config
