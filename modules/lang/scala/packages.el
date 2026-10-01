@@ -5,7 +5,7 @@
 (package! scala-mode :pin "50bcafa181baec7054e27f4bca55d5f9277c6350")
 
 (when (and (modulep! +tree-sitter) (treesit-available-p))
-  (package! scala-ts-mode :pin "c7671e10419261ef70b1820d3b970ad39f6fcfe2"))
+  (package! scala-ts-mode :pin "e14bc7c6a2a7404111ee124b83b4acf55c80321e"))
 
 (when (and (modulep! +lsp)
            (modulep! :tools lsp -eglot))
