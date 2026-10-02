@@ -27,7 +27,7 @@
     :definition      #'xref-find-definitions
     :references      #'xref-find-references
     :implementations #'eglot-find-implementation
-    :type-definition #'eglot-find-typeDefinition
+    :type-definition #'eglot-find-type-definition
     :documentation   #'+eglot-lookup-documentation)
 
   (and (modulep! :checkers syntax -flymake)

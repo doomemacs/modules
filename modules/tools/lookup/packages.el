@@ -28,7 +28,7 @@
 
 (when (modulep! +dictionary)
   (if (featurep :system 'macos)
-      (package! osx-dictionary :pin "8e6897844c4d6ff6039b31569058273632afea16")
+      (package! osx-dictionary :pin "655bca5cea78440a1ac41f9cd78711b9c8aff8f3")
     (package! define-word :pin "31a8c67405afa99d0e25e7c86a4ee7ef84a808fe")
     ;; REVIEW: This fork fixes SavchenkoValeriy/emacs-powerthesaurus#40.
     (package! powerthesaurus
