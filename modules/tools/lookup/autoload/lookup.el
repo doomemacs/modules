@@ -424,9 +424,9 @@ Otherwise, falls back on `find-file-at-point'."
 (defun +lookup/dictionary-definition (identifier &optional arg)
   "Look up the definition of the word at point (or selection)."
   (interactive
-   (list (or (doom-thing-at-point-or-region 'word)
-             (if (equal major-mode 'pdf-view-mode)
+   (list (or (if (equal major-mode 'pdf-view-mode)
                  (car (pdf-view-active-region-text)))
+             (doom-thing-at-point-or-region 'word)
              (read-string "Look up in dictionary: "))
          current-prefix-arg))
   (message "Looking up dictionary definition for %S" identifier)
