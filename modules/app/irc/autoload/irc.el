@@ -51,8 +51,8 @@ workspace for it."
   (interactive)
   (unless (y-or-n-p "Really kill IRC session?")
     (user-error "Aborted"))
-  (let (circe-channel-killed-confirmation
-        circe-server-killed-confirmation)
+  (dlet (circe-channel-killed-confirmation
+         circe-server-killed-confirmation)
     (when +irc--defer-timer
       (cancel-timer +irc--defer-timer))
     (when (fboundp #'disable-circe-notifications)

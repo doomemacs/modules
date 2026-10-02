@@ -186,7 +186,7 @@ Fixes doomemacs/core#3939: unsortable dired entries on Windows."
                                if (window-dedicated-p w)
                                if (with-current-buffer (window-buffer w) (dirvish-curr))
                                return it)))
-        (let (dirvish-reuse-session)
+        (dlet (dirvish-reuse-session)
           (with-selected-window (dv-root-window dv)
             (dirvish-quit)))))))
 

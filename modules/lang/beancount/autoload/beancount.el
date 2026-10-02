@@ -108,7 +108,7 @@ If REVERSE (the prefix arg) is non-nil, sort the transactions in reverst order."
         (setq new-end (point))
         (narrow-to-region new-beg new-end)
         (goto-char new-beg)
-        (let ((inhibit-field-text-motion t))
+        (dlet ((inhibit-field-text-motion t))
           (sort-subr
            reverse
            #'+beancount--navigate-next-xact
@@ -232,11 +232,11 @@ If DISABLE? (universal arg), reveal hidden accounts without prompting."
 (defun +beancount/next-transaction (&optional count)
   "Jump to the start of the next COUNT-th transaction."
   (interactive "p")
-  (let ((beancount-transaction-regexp
-         ;; Don't skip over timestamped directives (like balance or event
-         ;; declarations).
-         (concat beancount-timestamped-directive-regexp
-                 "\\|" beancount-transaction-regexp)))
+  (dlet ((beancount-transaction-regexp
+          ;; Don't skip over timestamped directives (like balance or event
+          ;; declarations).
+          (concat beancount-timestamped-directive-regexp
+                  "\\|" beancount-transaction-regexp)))
     (dotimes (_ (or count 1))
       (beancount-goto-next-transaction))))
 

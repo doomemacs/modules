@@ -86,7 +86,7 @@ In the GUI, this is the same as `ivy-format-function-line'."
 ;; Library
 
 (defun +ivy--switch-buffer-preview ()
-  (let (ivy-use-virtual-buffers ivy--virtual-buffers)
+  (dlet (ivy-use-virtual-buffers ivy--virtual-buffers)
     (counsel--switch-buffer-update-fn)))
 
 (defalias '+ivy--switch-buffer-preview-all #'counsel--switch-buffer-update-fn)
@@ -169,7 +169,7 @@ If ARG (universal argument), open selection in other-window."
                                  (if caller (concat " " (prin1-to-string caller)) "")
                                  ivy-text))))
             (with-current-buffer buffer
-              (let ((inhibit-read-only t))
+              (dlet ((inhibit-read-only t))
                 (erase-buffer)
                 (funcall occur-fn))
               (setf (ivy-state-text ivy-last) ivy-text)
@@ -220,7 +220,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
   ;; Spoof the command so that ivy/counsel will display the (well fleshed-out)
   ;; actions list for `counsel-find-file' on C-o. The actions list for the other
   ;; commands aren't as well configured or are empty.
-  (let ((this-command 'counsel-find-file))
+  (dlet ((this-command 'counsel-find-file))
     (call-interactively
      (cond ((or (file-equal-p default-directory "~")
                 (file-equal-p default-directory "/")

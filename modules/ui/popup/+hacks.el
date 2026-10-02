@@ -32,7 +32,7 @@
 To reduce fewer edge cases and improve performance when `display-buffer-alist'
 grows larger."
   :around #'display-buffer-assq-regexp
-  (let (case-fold-search)
+  (dlet (case-fold-search)
     (apply fn args)))
 
 ;; Don't try to resize popup windows
@@ -57,7 +57,7 @@ to this commmand."
 ;;;###package company
 (defadvice! +popup--dont-select-me-a (fn &rest args)
   :around #'company-show-doc-buffer
-  (let ((+popup--inhibit-select t))
+  (dlet ((+popup--inhibit-select t))
     (apply fn args)))
 
 
@@ -239,8 +239,8 @@ to tame (i.e. to get the popup manager to handle it)."
     :around #'org-goto-location
     (if +popup-mode
         (letf! (defadvice internal-temp-output-buffer-show (:around (fn buffer))
-                 (let ((temp-buffer-show-function
-                        (doom-rpartial #'+popup-display-buffer-stacked-side-window-fn nil)))
+                 (dlet ((temp-buffer-show-function
+                         (doom-rpartial #'+popup-display-buffer-stacked-side-window-fn nil)))
                    (with-current-buffer buffer
                      (+popup-buffer-mode +1))
                    (funcall fn buffer)))

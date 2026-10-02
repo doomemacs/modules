@@ -4,8 +4,8 @@
 (cl-defun +graphviz-formatter (&key _buffer scratch callback &allow-other-keys)
   "Format graphviz graphs."
   (with-current-buffer scratch
-    (let ((inhibit-message t)
-          (message-log-max nil))
+    (dlet ((inhibit-message t)
+           (message-log-max nil))
       (goto-char (point-min))
       (graphviz-dot-indent-graph))
     (funcall callback)))

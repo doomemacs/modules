@@ -29,9 +29,9 @@ will theirs, recursively)."
                 (when recursive?
                   (with-temp-buffer
                     (insert-file-contents file)
-                    (let ((default-directory
-                           (directory-file-name
-                            (file-name-directory file))))
+                    (dlet ((default-directory
+                            (directory-file-name
+                             (file-name-directory file))))
                       (cl-callf nconc files (+beancount--included-files 'nested context)))))))))
         (if nested?
             files

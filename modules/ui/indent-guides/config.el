@@ -103,8 +103,8 @@ be enabled. If any function returns non-nil, the mode will not be activated."
   (let ((hide
          (lambda (beg end)
            (save-excursion
-             (let ((indent-bars--display-function #'ignore)
-                   (indent-bars--display-blank-lines-function #'ignore))
+             (dlet ((indent-bars--display-function #'ignore)
+                    (indent-bars--display-blank-lines-function #'ignore))
                (indent-bars--fontify beg (1+ end) nil)))))
         (restore
          (lambda (beg end)

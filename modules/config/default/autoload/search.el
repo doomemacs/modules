@@ -5,7 +5,7 @@
   "Conduct a text search in files under the current folder.
 If prefix ARG is set, prompt for a directory to search from."
   (interactive "P")
-  (let ((default-directory
+  (dlet ((default-directory
           (if arg
               (read-directory-name "Search directory: ")
             default-directory)))
@@ -25,7 +25,7 @@ If prefix ARG is set, prompt for a directory to search from."
 (defun +default/search-emacsd ()
   "Conduct a text search in files under `doom-emacs-dir'."
   (interactive)
-  (let ((default-directory doom-emacs-dir))
+  (dlet ((default-directory doom-emacs-dir))
     (call-interactively
      (cond ((modulep! :completion ivy)     #'+ivy/project-search-from-cwd)
            ((modulep! :completion helm)    #'+helm/project-search-from-cwd)
@@ -99,7 +99,7 @@ If prefix ARG is set, include ignored/hidden files."
 If prefix ARG is set, prompt for a known project to search from."
   (interactive
    (list (or (doom-thing-at-point-or-region) "")
-         (let ((projectile-project-root nil))
+         (dlet ((projectile-project-root nil))
            (if current-prefix-arg
                (if-let* ((projects (projectile-relevant-known-projects)))
                    (completing-read "Search project: " projects nil t)

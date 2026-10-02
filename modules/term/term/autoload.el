@@ -15,12 +15,12 @@ If popup is visible but unselected, select it.
 If prefix ARG, recreate the term buffer."
   (interactive "P")
   (require 'multi-term)
-  (let ((multi-term-dedicated-select-after-open-p t)
-        (multi-term-dedicated-buffer-name
-         (format "doom:term-popup:%s"
-                 (if (bound-and-true-p persp-mode)
-                     (safe-persp-name (get-current-persp))
-                   "main"))))
+  (dlet ((multi-term-dedicated-select-after-open-p t)
+         (multi-term-dedicated-buffer-name
+          (format "doom:term-popup:%s"
+                  (if (bound-and-true-p persp-mode)
+                      (safe-persp-name (get-current-persp))
+                    "main"))))
     (let* ((buffer (multi-term-get-buffer nil t))
            (window (get-buffer-window buffer)))
       (when arg

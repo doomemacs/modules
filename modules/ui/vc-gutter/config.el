@@ -105,7 +105,7 @@ Respects `diff-hl-disable-on-remote'."
   ;; REVIEW: PR a better default upstream?
   (defadvice! +vc-gutter--silence-temp-file-prompts-a (fn &rest args)
     :around #'diff-hl-diff-buffer-with-reference
-    (let ((tramp-allow-unsafe-temporary-files t))
+    (dlet ((tramp-allow-unsafe-temporary-files t))
       (apply fn args)))
 
   ;; UX: Update diffs when it makes sense too, without being too slow

@@ -41,7 +41,7 @@ property lists and names starting with 'default'."
                     (> (length function) 1)
                     ;; XXX: string-match -> string-match-p
                     (string-match-p "\\`:" function))
-               (let ((lisp-body-indent 1))
+               (dlet ((lisp-body-indent 1))
                  (lisp-indent-defform state indent-point)))
               ((integerp method)
                (lisp-indent-specform method state indent-point normal-indent))

@@ -374,7 +374,7 @@ This should already be the case yet it does not always seem to be."
     "Non-nil if org-msg is currently exporting the org buffer to HTML.")
   (defadvice! +org-msg--now-exporting-a (fn &rest args)
     :around #'org-msg-org-to-xml
-    (let ((+org-msg-currently-exporting t))
+    (dlet ((+org-msg-currently-exporting t))
       (apply fn args)))
 
   ;; HACK: ...

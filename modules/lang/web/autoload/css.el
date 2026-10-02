@@ -29,7 +29,7 @@
 (defun +css/toggle-inline-or-block ()
   "Toggles between a bracketed block and inline block."
   (interactive)
-  (let ((inhibit-modification-hooks t))
+  (dlet ((inhibit-modification-hooks t))
     (cl-destructuring-bind (&key beg end op cl &allow-other-keys)
         (save-excursion
           (when (and (eq (char-after) ?\{)
@@ -52,7 +52,7 @@ Meant for `comment-line-break-function' in `css-mode' and `scss-mode'."
   (cond ((or (not (doom-point-in-comment-p))
              (and comment-use-syntax
                   (not (save-excursion (comment-beginning)))))
-         (let (comment-line-break-function)
+         (dlet (comment-line-break-function)
            (newline-and-indent)))
 
         ((save-match-data

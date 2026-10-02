@@ -52,13 +52,13 @@ workspace."
   (unless (executable-find "rg")
     (user-error "Couldn't find ripgrep in your PATH"))
   (require 'helm-rg)
-  (let ((this-command 'helm-rg)
-        (helm-rg-default-directory (or in (doom-project-root) default-directory))
-        (helm-rg-default-extra-args
-         (delq nil (append (list (when all-files "-z -uu")
-                                 (unless recursive "--maxdepth 1")
-                                 "--hidden" "-g" "!.git")
-                           args))))
+  (dlet ((this-command 'helm-rg)
+         (helm-rg-default-directory (or in (doom-project-root) default-directory))
+         (helm-rg-default-extra-args
+          (delq nil (append (list (when all-files "-z -uu")
+                                  (unless recursive "--maxdepth 1")
+                                  "--hidden" "-g" "!.git")
+                            args))))
     (setq deactivate-mark t)
     (helm-rg (or query
                  (when (use-region-p)

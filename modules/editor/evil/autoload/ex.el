@@ -45,10 +45,10 @@
       (+evil--ex-match-init hl-name)
       (cl-destructuring-bind (&optional arg flags)
           (evil-delimited-arguments arg 2)
-        (let ((evil-ex-substitute-global
-               (if invert
-                   (not evil-ex-substitute-global)
-                 evil-ex-substitute-global)))
+        (dlet ((evil-ex-substitute-global
+                (if invert
+                    (not evil-ex-substitute-global)
+                  evil-ex-substitute-global)))
           (+evil--ex-buffer-match
            arg hl-name (string-to-list flags)))))))
 
@@ -110,7 +110,7 @@ If BANG is non-nil, open compilation output in a comint buffer.
 If BANG, then run ARGUMENTS as a full command. This command understands vim file
 modifiers (like %:p:h). See `+evil-replace-filename-modifiers-a' for details."
   (interactive "<sh><!>")
-  (let ((compile-command "make"))
+  (dlet ((compile-command "make"))
     (+evil:compile (if (stringp arguments)
                        (evil-ex-replace-special-filenames arguments)
                      "")
@@ -164,7 +164,7 @@ buffers."
   "Handle an ex command"
   :collection
   (lambda (string pred action)
-    (let (evil-ex-complete-emacs-commands)
+    (dlet (evil-ex-complete-emacs-commands)
       (complete-with-action action (evil-ex-completion-table) string pred))))
 
 (evil-define-interactive-code "<ex>"

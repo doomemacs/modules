@@ -6,12 +6,12 @@ When available, use process hierarchy information via pstree for
 local shells.  Otherwise, we ask comint if the point is after a
 prompt."
   (with-current-buffer buf
-    (let ((comint-says-idle (and
-                             (> (point) 1) ;; if point > 1
-                             ;; see if previous char has the prompt face
-                             (equal '(comint-highlight-prompt)
-                                    (get-text-property
-                                     (- (point) 1) 'font-lock-face)))))
+    (dlet ((comint-says-idle (and
+                              (> (point) 1) ;; if point > 1
+                              ;; see if previous char has the prompt face
+                              (equal '(comint-highlight-prompt)
+                                     (get-text-property
+                                      (- (point) 1) 'font-lock-face)))))
       (if (file-remote-p default-directory)
           ;; for remote shells we have to rely on comint
           comint-says-idle
@@ -69,7 +69,7 @@ If popup is focused, kill it."
                     "main"))))
         (dir default-directory))
     (if-let* ((win (get-buffer-window buffer)))
-        (let (confirm-kill-processes)
+        (dlet (confirm-kill-processes)
           (set-process-query-on-exit-flag (get-buffer-process buffer) nil)
           (delete-window win)
           (ignore-errors (kill-buffer buffer)))

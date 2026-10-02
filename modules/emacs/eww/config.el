@@ -35,7 +35,7 @@
     :around #'eww
     (if (called-interactively-p 'any)
         (apply fn args)
-      (let (display-buffer-alist)
+      (dlet (display-buffer-alist)
         (apply fn args))))
 
   ;; HACK: Rename the eww buffer to match the open page's title or URL.

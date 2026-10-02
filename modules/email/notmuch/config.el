@@ -99,7 +99,7 @@ to update the notmuch-saved-searches variable accordingly."
   (defadvice! +notmuch-dont-confirm-on-kill-process-a (fn &rest args)
     "Don't prompt for confirmation when killing notmuch sentinel."
     :around #'notmuch-start-notmuch-sentinel
-    (let (confirm-kill-processes)
+    (dlet (confirm-kill-processes)
       (apply fn args)))
 
   ;; modeline doesn't have much use in these modes

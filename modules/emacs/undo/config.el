@@ -43,7 +43,7 @@
   ;; TODO: PR this upstream; should be a universal issue
   (defadvice! +undo-fu-make-hashed-session-file-name-a (file)
     :override #'undo-fu-session--make-file-name
-    (concat (let ((backup-directory-alist `(("." . ,undo-fu-session-directory))))
+    (concat (dlet ((backup-directory-alist `(("." . ,undo-fu-session-directory))))
               (make-backup-file-name-1 file))
             (undo-fu-session--file-name-ext))))
 
@@ -110,14 +110,14 @@
   (defadvice! +undo-tree--show-visualizer-diff-safely-a (&optional node)
     :override #'undo-tree-visualizer-show-diff
     (setq undo-tree-visualizer-diff t)
-    (let ((buff (with-current-buffer undo-tree-visualizer-parent-buffer
-                  (undo-tree-diff node)))
-          (display-buffer-mark-dedicated 'soft)
-          (win (split-window (get-buffer-window undo-tree-visualizer-parent-buffer))))
-      (with-current-buffer buff
-        (mode-line-invisible-mode +1))
-      (set-window-buffer win buff)
-      (shrink-window-if-larger-than-buffer win)))
+    (dlet ((display-buffer-mark-dedicated 'soft))
+      (let ((buff (with-current-buffer undo-tree-visualizer-parent-buffer
+                    (undo-tree-diff node)))
+            (win (split-window (get-buffer-window undo-tree-visualizer-parent-buffer))))
+        (with-current-buffer buff
+          (mode-line-invisible-mode +1))
+        (set-window-buffer win buff)
+        (shrink-window-if-larger-than-buffer win))))
 
   (defadvice! +undo-tree--suppress-balance-windows-a (fn &rest args)
     :around #'undo-tree-visualizer-update-diff

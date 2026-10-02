@@ -259,8 +259,8 @@ dashboard reloading is inhibited.")
 ;;   `doom-first-buffer-hook' later, when switching to it.
 (when (and (doom-context-p 'startup)
            (equal (buffer-name) "*scratch*"))
-  (let (buffer-list-update-hook
-        doom-first-buffer-hook)
+  (dlet (buffer-list-update-hook
+         doom-first-buffer-hook)
     (switch-to-buffer +dashboard-name)))
 
 
@@ -300,7 +300,7 @@ if the buffer is real. See `doom-real-buffer-p' for an explanation for what
 
 If this is the dashboard buffer, reload it completely."
   (cond ((+dashboard-buffer-p (current-buffer))
-         (let (+dashboard-inhibit-refresh)
+         (dlet (+dashboard-inhibit-refresh)
            (ignore-errors (+dashboard-reload))))
         ((and (not (file-remote-p default-directory))
               (doom-real-buffer-p (current-buffer)))
@@ -317,9 +317,9 @@ whose dimensions may not be fully initialized by the time this is run."
 
 (defun +dashboard-resize-h (&rest _)
   "Recenter the dashboard, and reset its margins and fringes."
-  (let (buffer-list-update-hook
-        window-configuration-change-hook
-        window-size-change-functions)
+  (dlet (buffer-list-update-hook
+         window-configuration-change-hook
+         window-size-change-functions)
     (when-let* ((windows (get-buffer-window-list (doom-fallback-buffer) nil t)))
       (dolist (w windows)
         (unless (= (window-start w)
@@ -473,7 +473,7 @@ Applies line-prefix and indent-prefix text properties to respect
 (defun +dashboard-insert-centered (&rest lines)
   "Insert LINES into the dashboard buffer, centered with text properties."
   (declare (obsolete "Use `+dashboard-insert' and `+dashboard-anchor' instead" "26.05"))
-  (let ((+dashboard-anchor (cons (car-safe +dashboard-anchor) 'center)))
+  (dlet ((+dashboard-anchor (cons (car-safe +dashboard-anchor) 'center)))
     (apply #'+dashboard-insert lines)))
 
 (defun +dashboard--pwd ()

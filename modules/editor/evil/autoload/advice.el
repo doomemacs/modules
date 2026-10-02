@@ -18,7 +18,7 @@ more information on modifiers."
   (let ((origin-buffer (current-buffer))
         case-fold-search)
     (with-temp-buffer
-      (let ((buffer-file-name (buffer-file-name origin-buffer)))
+      (dlet ((buffer-file-name (buffer-file-name origin-buffer)))
         (save-excursion (insert file-name))
         (while (re-search-forward "\\(^\\|[^\\\\]\\)\\(\\([%#]\\)\\(:\\([PphtreS~.]\\|g?s\\)\\)*\\)" nil t)
           (if (null buffer-file-name)
@@ -124,7 +124,7 @@ more information on modifiers."
           (evil-emacs-state-p))
       (funcall fn count)
     (letf! (defun! evil-insert-newline-below () (+evil--insert-newline))
-      (let ((evil-auto-indent evil-auto-indent))
+      (dlet ((evil-auto-indent evil-auto-indent))
         (funcall fn count)))))
 
 ;;;###autoload
@@ -135,7 +135,7 @@ more information on modifiers."
           (evil-emacs-state-p))
       (funcall fn count)
     (letf! (defun! evil-insert-newline-above () (+evil--insert-newline 'above))
-      (let ((evil-auto-indent evil-auto-indent))
+      (dlet ((evil-auto-indent evil-auto-indent))
         (funcall fn count)))))
 
 ;;;###autoload (autoload '+evil-window-split-a "editor/evil/autoload/advice" nil t)

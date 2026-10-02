@@ -233,8 +233,8 @@ This backend prefers \"just working\" over accuracy."
   (and (require 'dumb-jump nil t)
        ;; See: https://github.com/jacktasia/dumb-jump/issues/353
        ;; This is a workaround for a workaround to actually both fall back to dumb-jump and use the xref integration for it.
-       (let ((xref-backend-functions '(dumb-jump-xref-activate))
-             (stop-infinite-dumb-jump-recursion t))
+       (dlet ((xref-backend-functions '(dumb-jump-xref-activate))
+              (stop-infinite-dumb-jump-recursion t))
          (+lookup-xref-definitions-backend-fn identifier))))
 
 (defun +lookup-project-search-backend-fn (identifier)
@@ -315,8 +315,8 @@ the browser."
           (bug-reference-bug-regexp bug-reference-bug-regexp))
       (bug-reference-try-setup-from-vc)
       (unwind-protect
-          (let ((bug-reference-mode t)
-                (bug-reference-prog-mode nil))
+          (dlet ((bug-reference-mode t)
+                 (bug-reference-prog-mode nil))
             (catch 'found
               (bug-reference-fontify (line-beginning-position) (line-end-position))
               (dolist (o (overlays-at (point)))

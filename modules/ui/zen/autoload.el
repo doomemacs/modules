@@ -9,8 +9,8 @@
 Invoke again to revert to the window configuration before it was activated."
   (interactive)
   (require 'writeroom-mode)
-  (let ((writeroom-global-effects +zen--old-writeroom-global-effects)
-        (writeroom-maximize-window t))
+  (dlet ((writeroom-global-effects +zen--old-writeroom-global-effects)
+         (writeroom-maximize-window t))
     (if writeroom-mode
         (progn
           (set-frame-parameter
@@ -24,7 +24,7 @@ Invoke again to revert to the window configuration before it was activated."
       (modify-frame-parameters
        nil `((fullscreen . fullboth)
              (fullscreen-restore . ,(frame-parameter nil 'fullscreen)))))
-    (let ((writeroom-global-effects (remq 'writeroom-set-fullscreen writeroom-global-effects)))
+    (dlet ((writeroom-global-effects (remq 'writeroom-set-fullscreen writeroom-global-effects)))
       (call-interactively #'+zen/toggle))))
 
 ;;; autoload.el ends here

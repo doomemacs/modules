@@ -98,8 +98,8 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
   (defadvice! +syntax--fix-elisp-flymake-load-path (orig-fn &rest args)
     "Set load path for elisp byte compilation Flymake backend"
     :around #'elisp-flymake-byte-compile
-    (let ((elisp-flymake-byte-compile-load-path
-           (append elisp-flymake-byte-compile-load-path load-path)))
+    (dlet ((elisp-flymake-byte-compile-load-path
+            (append elisp-flymake-byte-compile-load-path load-path)))
       (apply orig-fn args)))
 
   ;; Enhance elisp syntax highlighting, by highlighting Doom-specific

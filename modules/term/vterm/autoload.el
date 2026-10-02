@@ -58,7 +58,7 @@ Returns the vterm buffer."
      ;; HACK: Force vterm to redraw to fix artefacting in tty.
      (save-window-excursion
        (pop-to-buffer "*scratch*"))
-     (let (display-buffer-alist)
+     (dlet (display-buffer-alist)
        (vterm vterm-buffer-name)))))
 
 (defun +vterm--configure-project-root-and-display (arg display-fn)

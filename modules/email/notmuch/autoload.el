@@ -33,8 +33,8 @@
                          (when (member "unread" (notmuch-show-get-tags))
                            (setq unread t))))
     (when unread
-      (let ((notmuch-show-hook
-             (remq '+notmuch-show-expand-only-unread-h notmuch-show-hook)))
+      (dlet ((notmuch-show-hook
+              (remq '+notmuch-show-expand-only-unread-h notmuch-show-hook)))
         (notmuch-show-filter-thread "tag:unread")))))
 
 (defun +notmuch-get-sync-command ()
@@ -79,19 +79,19 @@
 (defun +notmuch/update ()
   "Sync notmuch emails with server."
   (interactive)
-  (let ((compilation-buffer-name-function (lambda (_) (format "*notmuch update*"))))
-   (with-current-buffer (compile (+notmuch-get-sync-command))
-     (add-hook
-      'compilation-finish-functions
-      (lambda (buf status)
-        (if (equal status "finished\n")
-            (progn
-              (delete-windows-on buf)
-              (bury-buffer buf)
-              (notmuch-refresh-all-buffers)
-              (message "Notmuch sync successful"))
-          (user-error "Failed to sync notmuch data")))
-      nil 'local))))
+  (dlet ((compilation-buffer-name-function (lambda (_) (format "*notmuch update*"))))
+    (with-current-buffer (compile (+notmuch-get-sync-command))
+      (add-hook
+       'compilation-finish-functions
+       (lambda (buf status)
+         (if (equal status "finished\n")
+             (progn
+               (delete-windows-on buf)
+               (bury-buffer buf)
+               (notmuch-refresh-all-buffers)
+               (message "Notmuch sync successful"))
+           (user-error "Failed to sync notmuch data")))
+       nil 'local))))
 
 ;;;###autoload
 (defun +notmuch/search-delete ()

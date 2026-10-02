@@ -144,7 +144,7 @@ C-x C-l."
   (interactive)
   (require 'company-dict)
   (require 'company-keywords)
-  (let ((company-backends '((company-keywords company-dict))))
+  (dlet ((company-backends '((company-keywords company-dict))))
     (call-interactively #'company-complete)))
 
 ;;;###autoload
@@ -152,7 +152,7 @@ C-x C-l."
   "TODO"
   (interactive)
   (require 'company-dabbrev)
-  (let ((company-selection-wrap-around t))
+  (dlet ((company-selection-wrap-around t))
     (call-interactively #'+company/dabbrev)
     (company-select-previous-or-abort)))
 

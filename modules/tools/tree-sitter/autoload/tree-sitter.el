@@ -74,7 +74,7 @@ pre-Emacs 31."
 ;;;###autoload
 (defun +tree-sitter-ts-mode-inhibit-side-effects-a (fn &rest args)
   "Suppress changes to `auto-mode-alist' and `interpreter-mode-alist'."
-  (let (auto-mode-alist interpreter-mode-alist)
+  (dlet (auto-mode-alist interpreter-mode-alist)
     (apply fn args)))
 
 ;;;###autoload

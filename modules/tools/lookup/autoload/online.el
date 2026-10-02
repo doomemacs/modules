@@ -62,7 +62,7 @@ QUERY must be a string, and PROVIDER must be a key of
 (defun +lookup/online-select ()
   "Run `+lookup/online', but always prompt for the provider to use."
   (interactive)
-  (let ((current-prefix-arg t))
+  (dlet ((current-prefix-arg t))
     (call-interactively #'+lookup/online)))
 
 

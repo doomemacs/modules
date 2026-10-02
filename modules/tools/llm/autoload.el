@@ -4,5 +4,5 @@
 (defun +llm/open-in-same-window ()
   "Open gptel buffer in the selected buffer."
   (interactive)
-  (let ((gptel-display-buffer-action '(display-buffer-same-window)))
+  (dlet ((gptel-display-buffer-action '(display-buffer-same-window)))
     (call-interactively #'gptel)))

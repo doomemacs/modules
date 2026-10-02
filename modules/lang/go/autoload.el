@@ -119,7 +119,7 @@ non-nil."
   (interactive "P")
   (if-let*
       ((proot
-        (let ((projectile-require-project-root 'prompt))
+        (dlet ((projectile-require-project-root 'prompt))
           (projectile-ensure-project (unless arg (doom-project-root))))))
       (+go--generate (file-truename proot) "./...")
     (user-error "Not in a valid project")))

@@ -13,17 +13,17 @@
 (defun +popup--kill-buffer (buffer ttl)
   "Tries to kill BUFFER, as was requested by a transient timer. If it fails, eg.
 the buffer is visible, then set another timer and try again later."
-  (let ((inhibit-quit t))
+  (dlet ((inhibit-quit t))
     (cond ((not (buffer-live-p buffer)))
           ((not (get-buffer-window buffer t))
            (with-demoted-errors "Error killing transient buffer: %s"
              (with-current-buffer buffer
-               (let ((kill-buffer-hook (remq '+popup-kill-buffer-hook-h kill-buffer-hook))
-                     confirm-kill-processes)
+               (dlet ((kill-buffer-hook (remq '+popup-kill-buffer-hook-h kill-buffer-hook))
+                      confirm-kill-processes)
                  (when-let* ((process (get-buffer-process buffer)))
                    (when (eq (process-type process) 'real)
                      (kill-process process)))
-                 (let (kill-buffer-query-functions)
+                 (dlet (kill-buffer-query-functions)
                    ;; HACK: The debugger backtrace buffer, when killed, called
                    ;;   `top-level'. This causes jumpiness when the popup
                    ;;   manager tries to clean it up.
@@ -57,7 +57,7 @@ the buffer is visible, then set another timer and try again later."
                  ((functionp autosave)
                   (funcall autosave buffer))))
          (with-current-buffer buffer (save-buffer)))
-    (let ((ignore-window-parameters t))
+    (dlet ((ignore-window-parameters t))
       (if-let* ((wconf (window-parameter window 'saved-wconf)))
           (set-window-configuration wconf)
         (delete-window window)))
@@ -84,7 +84,7 @@ the buffer is visible, then set another timer and try again later."
 (defun +popup--delete-other-windows (window)
   "Fixes `delete-other-windows' when used from a popup window."
   (when-let* ((window (ignore-errors (+popup/raise window))))
-    (let ((ignore-window-parameters t))
+    (dlet ((ignore-window-parameters t))
       (delete-other-windows window)))
   nil)
 
@@ -133,7 +133,7 @@ the buffer is visible, then set another timer and try again later."
                       (window-list nil 0 window))
              unless (+popup-window-p win)
              return (setq window win)))
-  (let ((ignore-window-parameters t))
+  (dlet ((ignore-window-parameters t))
     (split-window window size side)))
 
 (defun +popup--maybe-select-window (window origin)
@@ -325,7 +325,7 @@ Any non-nil value besides the above will be used as the raw value for
   "TODO"
   (when-let* ((window (get-buffer-window)))
     (when (+popup-window-p window)
-      (let ((+popup--inhibit-transient t))
+      (dlet ((+popup--inhibit-transient t))
         (+popup--delete-window window)))))
 
 
@@ -339,16 +339,16 @@ Any non-nil value besides the above will be used as the raw value for
 (defun +popup/buffer ()
   "Open this buffer in a popup window."
   (interactive)
-  (let ((+popup-default-display-buffer-actions
-         '(+popup-display-buffer-stacked-side-window-fn))
-        (display-buffer-alist (copy-sequence +popup--display-buffer-alist))
-        (buffer (current-buffer)))
-    (unless (display-buffer-assq-regexp (buffer-name)
-                                        display-buffer-alist
-                                        +popup-default-display-buffer-actions)
-      (push (+popup-make-rule "." +popup-defaults) display-buffer-alist))
-    (bury-buffer)
-    (pop-to-buffer buffer)))
+  (dlet ((+popup-default-display-buffer-actions
+          '(+popup-display-buffer-stacked-side-window-fn))
+         (display-buffer-alist (copy-sequence +popup--display-buffer-alist)))
+    (let ((buffer (current-buffer)))
+      (unless (display-buffer-assq-regexp (buffer-name)
+                                          display-buffer-alist
+                                          +popup-default-display-buffer-actions)
+        (push (+popup-make-rule "." +popup-defaults) display-buffer-alist))
+      (bury-buffer)
+      (pop-to-buffer buffer))))
 
 ;;;###autoload
 (defun +popup/other ()
@@ -424,7 +424,7 @@ This window parameter is ignored if FORCE-P is non-nil."
   "Toggle any visible popups.
 If no popups are available, display the *Messages* buffer in a popup window."
   (interactive)
-  (let ((+popup--inhibit-transient t))
+  (dlet ((+popup--inhibit-transient t))
     (cond ((+popup-windows) (+popup/close-all t))
           ((ignore-errors (+popup/restore)))
           ((display-buffer (get-buffer "*Messages*"))))))
@@ -474,7 +474,7 @@ If prefix ARG, the popup is raised into `other-window' instead."
         (+popup--inhibit-transient t)
         +popup--remember-last)
     (+popup/close window 'force)
-    (let (display-buffer-alist)
+    (dlet (display-buffer-alist)
       (if arg
           (pop-to-buffer buffer)
         (switch-to-buffer buffer)))

@@ -7,7 +7,7 @@
 ;;;###autoload
 (defadvice! +magit--ignore-version-a (fn &rest args)
   :around #'magit-version
-  (let ((inhibit-message (not (called-interactively-p 'any))))
+  (dlet ((inhibit-message (not (called-interactively-p 'any))))
     (apply fn args)))
 
 ;;;###autoload
@@ -121,7 +121,7 @@ switch buffers in one; such a window is left alone and we split instead."
       (save-restriction
         (cl-incf magit-auto-revert-counter)
         (when (bound-and-true-p vc-mode)
-          (let ((vc-follow-symlinks t))
+          (dlet ((vc-follow-symlinks t))
             (vc-refresh-state))
           (when (fboundp '+vc-gutter-update-h)
             (+vc-gutter-update-h)))

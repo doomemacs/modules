@@ -50,7 +50,7 @@
       "Use a different, more primitive method of locating todo keywords."
       (set (make-local-variable 'hl-todo-keywords)
            '(((lambda (limit)
-                (let (case-fold-search)
+                (dlet (case-fold-search)
                   (and (re-search-forward hl-todo-regexp limit t)
                        (memq 'font-lock-comment-face (ensure-list (get-text-property (point) 'face))))))
               (1 (hl-todo-get-face) t t))))

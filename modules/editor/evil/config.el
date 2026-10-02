@@ -211,7 +211,7 @@ directives. By default, this only recognizes C directives."
                    (bound-and-true-p evil-local-mode)))
           (if (char-equal register ?=)   ; last expression register input
               evil-last-=-register-input
-            (let (+evil--use-evil-registers)
+            (dlet (+evil--use-evil-registers)
               (evil-get-register register t)))
         (funcall fn register)))
 
@@ -221,12 +221,12 @@ directives. By default, this only recognizes C directives."
       :around #'register-buffer-to-file-query
       :around #'register-read-with-preview-fancy
       :around #'list-registers
-      (let ((register-alist
-             (if (and +evil--use-evil-registers
-                      (or (bound-and-true-p evil-mode)
-                          (bound-and-true-p evil-local-mode)))
-                 (evil-register-list)
-               register-alist)))
+      (dlet ((register-alist
+              (if (and +evil--use-evil-registers
+                       (or (bound-and-true-p evil-mode)
+                           (bound-and-true-p evil-local-mode)))
+                  (evil-register-list)
+                register-alist)))
         (apply fn args))))
 
   ;; Make ESC (from normal mode) the universal escaper. See `doom-escape-hook'.
@@ -306,7 +306,7 @@ don't offer any/enough real value to users.")
 
   (defadvice! +evil-collection-disable-blacklist-a (fn)
     :around #'evil-collection-vterm-toggle-send-escape  ; allow binding to ESC
-    (let (evil-collection-key-blacklist)
+    (dlet (evil-collection-key-blacklist)
       (funcall-interactively fn))))
 
 
@@ -657,7 +657,7 @@ don't offer any/enough real value to users.")
         "a" (evilem-create #'evil-forward-arg)
         "A" (evilem-create #'evil-backward-arg)
         "s" #'evil-avy-goto-char-2
-        "SPC" (cmd! (let ((current-prefix-arg t)) (evil-avy-goto-char-timer)))
+        "SPC" (cmd! (dlet ((current-prefix-arg t)) (evil-avy-goto-char-timer)))
         "/" #'evil-avy-goto-char-timer))
 
       ;; evil-snipe

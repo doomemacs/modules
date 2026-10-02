@@ -119,7 +119,7 @@ server getting expensively restarted when reverting buffers."
                      (or (cl-some #'lsp-buffer-live-p
                                   (lsp--workspace-buffers ws))
                          (with-lsp-workspace ws
-                           (let ((lsp-restart 'ignore))
+                           (dlet ((lsp-restart 'ignore))
                              (funcall fn))))))
              lsp--buffer-workspaces))))
 

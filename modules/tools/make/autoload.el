@@ -15,7 +15,7 @@ you'll be prompted to select one."
                              return file)))
       (unless makefile
         (user-error "Cannot find a makefile in the current project"))
-      (let ((default-directory (file-name-directory makefile)))
+      (dlet ((default-directory (file-name-directory makefile)))
         (makefile-executor-execute-target makefile)))))
 
 ;;;###autoload

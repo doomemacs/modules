@@ -9,7 +9,7 @@
 (defun +kotlin/run-gradlew (command)
   "Run gradlew in this project."
   (interactive "sCommand: ")
-  (let ((default-directory (+kotlin-locate-gradlew-file))
-        (compilation-read-command nil)
-        (compile-command (format "sh gradlew %s" command)))
+  (dlet ((default-directory (+kotlin-locate-gradlew-file))
+         (compilation-read-command nil)
+         (compile-command (format "sh gradlew %s" command)))
     (call-interactively #'compile)))

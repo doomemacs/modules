@@ -162,7 +162,7 @@
                      return t)
       (dolist (conn (sly--purge-connections))
         (sly-quit-lisp-internal conn 'sly-quit-sentinel t))
-      (let (kill-buffer-hook kill-buffer-query-functions)
+      (dlet (kill-buffer-hook kill-buffer-query-functions)
         (mapc #'kill-buffer
               (cl-loop for buf in (delq (current-buffer) (buffer-list))
                        if (buffer-local-value 'sly-mode buf)
@@ -176,7 +176,7 @@
             ((executable-find (car (if (listp inferior-lisp-program)
                                        inferior-lisp-program
                                      (split-string inferior-lisp-program))))
-             (let ((sly-auto-start 'always))
+             (dlet ((sly-auto-start 'always))
                (sly-auto-start)
                (add-hook 'kill-buffer-hook #'+common-lisp--cleanup-sly-maybe-h nil t)))
             ((message "WARNING: Couldn't find `inferior-lisp-program' (%s)"

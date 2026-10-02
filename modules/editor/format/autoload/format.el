@@ -101,7 +101,7 @@ formatted."
               (indent 0))
     (unwind-protect
         (with-current-buffer cur-buffer
-          (let ((+format-region-range (cons start end)))
+          (dlet ((+format-region-range (cons start end)))
             (apheleia-format-buffer
              command
              (lambda ()
@@ -149,14 +149,14 @@ may not always work. Keep your undo keybind handy!"
 (defun +format/save-buffer-no-reformat ()
   "`save-buffer', but don't trigger `apheleia's save-on-format behavior."
   (interactive)
-  (let (apheleia-mode)
+  (dlet (apheleia-mode)
     (basic-save-buffer)))
 
 ;;;###autoload
 (defun +format/save-buffer (arg)
   "`save-buffer', but the prefix ARG also inhibits format-on-save behavior."
   (interactive "P")
-  (let ((apheleia-mode (and apheleia-mode (memq arg '(nil 1)))))
+  (dlet ((apheleia-mode (and apheleia-mode (memq arg '(nil 1)))))
     (call-interactively #'save-buffer)))
 
 ;;; format.el ends here

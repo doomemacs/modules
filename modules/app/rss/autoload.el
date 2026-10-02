@@ -76,8 +76,8 @@
 (defun +rss-elfeed-wrap-h ()
   "Enhances an elfeed entry's readability by wrapping it to a width of
 `fill-column'."
-  (let ((inhibit-read-only t)
-        (inhibit-modification-hooks t))
+  (dlet ((inhibit-read-only t)
+         (inhibit-modification-hooks t))
     (setq-local truncate-lines nil)
     (setq-local shr-use-fonts nil)
     (setq-local shr-width 85)
@@ -87,7 +87,7 @@
   "Run `elfeed-db-compact'. See `+rss-cleanup-h'."
   ;; `delete-file-projectile-remove-from-cache' slows down `elfeed-db-compact'
   ;; tremendously, so we disable the projectile cache:
-  (let (projectile-enable-caching)
+  (dlet (projectile-enable-caching)
     (elfeed-db-compact)))
 
 ;;;###autoload

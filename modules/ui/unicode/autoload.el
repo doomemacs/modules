@@ -20,8 +20,8 @@ If doom-symbol-font is set, add it as a preferred font for all Unicode blocks."
         (let ((doom-symbol-font-family (plist-get (font-face-attributes doom-symbol-font) :family)))
           (dolist (unicode-block unicode-fonts-block-font-mapping)
             (push doom-symbol-font-family (cadr unicode-block)))))
-      (let ((inhibit-redisplay nil)
-            (inhibit-message nil))
+      (dlet ((inhibit-redisplay nil)
+             (inhibit-message nil))
         ;; font-utils says "`font-family-list' often gives truncated results
         ;; before Emacs is fully initialized". That is irrelevant when
         ;; `unicode-fonts' is testing for the existence of fonts in a loop, all

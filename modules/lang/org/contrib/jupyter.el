@@ -8,7 +8,7 @@
   ;; HACK: Don't use treesit ts-modes for syntax highlighting (is brittle).
   (defadvice! +org-jupyter--suppress-major-mode-remapping-a (fn &rest args)
     :around #'jupyter-kernel-language-mode-properties
-    (let (major-mode-remap-alist major-mode-remap-defaults)
+    (dlet (major-mode-remap-alist major-mode-remap-defaults)
       (apply fn args)))
 
   ;; HACK: And un-remap the major mode when associating a repl with the current
@@ -16,10 +16,10 @@
   ;;   remapped) modes.
   (defadvice! +org-jupyter--unremap-major-mode-when-associating-buffer-a (fn &rest args)
     :around #'jupyter-repl-associate-buffer
-    (let ((major-mode
-           (or (car (rassq major-mode (append major-mode-remap-alist
-                                              major-mode-remap-defaults)))
-               major-mode)))
+    (dlet ((major-mode
+            (or (car (rassq major-mode (append major-mode-remap-alist
+                                               major-mode-remap-defaults)))
+                major-mode)))
       (apply fn args)))
 
   ;; HACK: If the user is anywhere but the last prompt, typing should move them

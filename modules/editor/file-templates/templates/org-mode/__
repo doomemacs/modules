@@ -6,7 +6,7 @@
  (mapcar #'capitalize
          ;; Replace -,_... with space
          (split-string
-          (let (case-fold-search)
+          (dlet (case-fold-search)
             ;; Seperating lower from upper: hello|World
             (replace-regexp-in-string
              "\\([[:lower:]]\\)\\([[:upper:]]\\)" "\\1 \\2"

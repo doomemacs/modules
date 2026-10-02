@@ -258,8 +258,8 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                         ;; Appease the byte-compiler by loading Doom
                         "-L" ,doom-core-dir
                         "--eval" ,(prin1-to-string
-                                   `(let ((gc-cons-threshold most-positive-fixnum)
-                                          (gc-cons-percentage 1.0))
+                                   `(dlet ((gc-cons-threshold most-positive-fixnum)
+                                           (gc-cons-percentage 1.0))
                                       (require 'doom)
                                       (doom-initialize ,(doom-profile->id doom-profile))
                                       (setq byte-compile-warnings ',+emacs-lisp-linter-warnings)
@@ -312,12 +312,12 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
       flycheck-disabled-checkers)
     (setq-local flycheck-emacs-lisp-check-form
                 (prin1-to-string
-                 `(let ((enable-local-eval nil)
-                        (enable-local-variables :safe))
+                 `(dlet ((enable-local-eval nil)
+                         (enable-local-variables :safe))
                     (setq no-native-compile t)
                     (condition-case e
-                        (let ((gc-cons-threshold most-positive-fixnum)
-                              (gc-cons-percentage 1.0))
+                        (dlet ((gc-cons-threshold most-positive-fixnum)
+                               (gc-cons-percentage 1.0))
                           (require 'doom)
                           (doom-initialize ,(doom-profile->id doom-profile))
                           (setq byte-compile-warnings ',+emacs-lisp-linter-warnings)
@@ -598,16 +598,16 @@ Adapted from URL `https://www.reddit.com/r/emacs/comments/d7x7x8/finally_fixing_
                           (goto-char (1+ containing-sexp))
                           (parse-partial-sexp (point) calculate-lisp-indent-last-sexp 0 t)
                           (point)))
-                     (let ((parse-sexp-ignore-comments t)
-                           indent)
-                       (goto-char calculate-lisp-indent-last-sexp)
-                       (or (and (looking-at ":")
-                                (setq indent (current-column)))
-                           (and (< (line-beginning-position)
-                                   (prog2 (backward-sexp) (point)))
-                                (looking-at ":")
-                                (setq indent (current-column))))
-                       indent))
+                     (dlet ((parse-sexp-ignore-comments t))
+                       (let (indent)
+                         (goto-char calculate-lisp-indent-last-sexp)
+                         (or (and (looking-at ":")
+                                  (setq indent (current-column)))
+                             (and (< (line-beginning-position)
+                                     (prog2 (backward-sexp) (point)))
+                                  (looking-at ":")
+                                  (setq indent (current-column))))
+                         indent)))
                 ;; another symbols or constants not preceded by a constant as
                 ;; defined above.
                 normal-indent))

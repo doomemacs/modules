@@ -32,12 +32,12 @@ falling back on searching your PATH."
     (let ((dedicated (bound-and-true-p python-shell-dedicated)))
       (if-let* ((pipenv (+python-executable-find "pipenv"))
                 (pipenv-project (pipenv-project-p)))
-          (let ((default-directory pipenv-project)
-                (python-shell-interpreter-args
-                 (format "run %s %s"
-                         python-shell-interpreter
-                         python-shell-interpreter-args))
-                (python-shell-interpreter pipenv))
+          (dlet ((default-directory pipenv-project)
+                 (python-shell-interpreter-args
+                  (format "run %s %s"
+                          python-shell-interpreter
+                          python-shell-interpreter-args))
+                 (python-shell-interpreter pipenv))
             (run-python nil dedicated t))
         (run-python nil dedicated t))))))
 
@@ -46,11 +46,11 @@ falling back on searching your PATH."
   "Open an IPython REPL."
   (interactive)
   (require 'python)
-  (let ((python-shell-interpreter
-         (or (+python-executable-find (car +python-ipython-command))
-             "ipython"))
-        (python-shell-interpreter-args
-         (string-join (cdr +python-ipython-command) " ")))
+  (dlet ((python-shell-interpreter
+          (or (+python-executable-find (car +python-ipython-command))
+              "ipython"))
+         (python-shell-interpreter-args
+          (string-join (cdr +python-ipython-command) " ")))
     (+python/open-repl)))
 
 ;;;###autoload
@@ -59,9 +59,9 @@ falling back on searching your PATH."
   (interactive)
   (require 'python)
   (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
-  (let ((python-shell-interpreter
-         (or (+python-executable-find (car +python-jupyter-command))
-             "jupyter"))
-        (python-shell-interpreter-args
-         (string-join (cdr +python-jupyter-command) " ")))
+  (dlet ((python-shell-interpreter
+          (or (+python-executable-find (car +python-jupyter-command))
+              "jupyter"))
+         (python-shell-interpreter-args
+          (string-join (cdr +python-jupyter-command) " ")))
     (+python/open-repl)))

@@ -15,7 +15,7 @@
 certs, rather than reject them silently."
     :around #'restclient-http-do
     (require 'gnutls)
-    (let (gnutls-verify-error)
+    (dlet (gnutls-verify-error)
       (apply fn args)))
 
   (map! :map restclient-mode-map

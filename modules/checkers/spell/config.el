@@ -48,7 +48,7 @@
 
      (defun +spell-init-ispell-extra-args-a (orig-fun &rest args)
        :around '(ispell-word flyspell-auto-correct-word)
-       (let ((ispell-extra-args (remove "--run-together" ispell-extra-args)))
+       (dlet ((ispell-extra-args (remove "--run-together" ispell-extra-args)))
          (ispell-kill-ispell t)
          (apply orig-fun args)
          (ispell-kill-ispell t))))

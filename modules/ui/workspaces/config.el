@@ -70,7 +70,7 @@ stored in `persp-save-dir'.")
     (defun +workspaces-init-first-workspace-h (&rest _)
       "Ensure a main workspace exists."
       (when persp-mode
-        (let (persp-before-switch-functions)
+        (dlet (persp-before-switch-functions)
           (unless (or (persp-get-by-name +workspaces-main)
                       ;; Start from 2 b/c persp-mode counts the nil workspace
                       (> (hash-table-count *persp-hash*) 2))

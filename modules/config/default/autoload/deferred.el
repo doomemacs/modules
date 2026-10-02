@@ -8,7 +8,7 @@
   (require 'lsp-mode)
   (map! :leader "c l" lsp-command-map)
   (dolist (leader-key (list doom-leader-key doom-leader-alt-key))
-    (let ((lsp-keymap-prefix (concat leader-key " c l")))
+    (dlet ((lsp-keymap-prefix (concat leader-key " c l")))
       (lsp-enable-which-key-integration)))
   (setq prefix-arg current-prefix-arg
         unread-command-events

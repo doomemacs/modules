@@ -79,7 +79,7 @@ buffer rather than an overlay on the line at point or the minibuffer."
     :before #'quickrun
     :before #'quickrun-region
     (when-let* ((win (get-buffer-window quickrun--buffer-name)))
-      (let ((inhibit-message t))
+      (dlet ((inhibit-message t))
         (quickrun--kill-running-process)
         (message ""))
       (delete-window win)))
@@ -89,7 +89,7 @@ buffer rather than an overlay on the line at point or the minibuffer."
       "Shrink the quickrun output window once code evaluation is complete."
       (when-let* ((win (get-buffer-window quickrun--buffer-name)))
         (with-selected-window win
-          (let ((ignore-window-parameters t))
+          (dlet ((ignore-window-parameters t))
             (shrink-window-if-larger-than-buffer)))))
     (defun +eval-quickrun-scroll-to-bof-h ()
       "Ensures cursor is at beginning of output window when displayed."

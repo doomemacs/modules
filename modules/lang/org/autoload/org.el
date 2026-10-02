@@ -84,7 +84,7 @@
          ;; lower level than work around all the quirks in org's API.
          (pcase direction
            (`below
-            (let (org-insert-heading-respect-content)
+            (dlet (org-insert-heading-respect-content)
               (goto-char (line-end-position))
               (org-end-of-subtree)
               (insert "\n" (make-string level ?*) " ")))
@@ -478,13 +478,13 @@ Made for `org-tab-first-hook'."
   (when (and (modulep! :editor snippets)
              (require 'yasnippet nil t)
              (bound-and-true-p yas-minor-mode))
-    (let ((major-mode (if (org-in-src-block-p t)
-                          (org-src-get-lang-mode (org-eldoc-get-src-lang))
-                        major-mode))
-          (org-src-tab-acts-natively nil) ; causes breakages
-          ;; Smart indentation doesn't work with yasnippet, and painfully slow
-          ;; in the few cases where it does.
-          (yas-indent-line 'fixed))
+    (dlet ((major-mode (if (org-in-src-block-p t)
+                           (org-src-get-lang-mode (org-eldoc-get-src-lang))
+                         major-mode))
+           (org-src-tab-acts-natively nil) ; causes breakages
+           ;; Smart indentation doesn't work with yasnippet, and painfully slow
+           ;; in the few cases where it does.
+           (yas-indent-line 'fixed))
       (cond ((and (or (not (bound-and-true-p evil-local-mode))
                       (evil-insert-state-p)
                       (evil-emacs-state-p))

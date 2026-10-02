@@ -98,8 +98,8 @@ overrides `completion-styles' during company completion sessions.")
     "Highlight company matches correctly and try default styles before
 orderless."
     :around #'company-capf--candidates
-    (let ((orderless-match-faces [completions-common-part])
-          (completion-styles +vertico-company-completion-styles))
+    (dlet ((orderless-match-faces [completions-common-part])
+           (completion-styles +vertico-company-completion-styles))
       (apply fn args))))
 
 
@@ -218,11 +218,11 @@ orderless."
                collect (format "/%s:%s:/" host (car (last cand)))))
 
     (defun +vertico--consult-dir-podman-hosts ()
-      (let ((+vertico-consult-dir-container-executable "podman"))
+      (dlet ((+vertico-consult-dir-container-executable "podman"))
         (+vertico--consult-dir-container-hosts "podman")))
 
     (defun +vertico--consult-dir-docker-hosts ()
-      (let ((+vertico-consult-dir-container-executable "docker"))
+      (dlet ((+vertico-consult-dir-container-executable "docker"))
         (+vertico--consult-dir-container-hosts "docker")))
 
     (defvar +vertico--consult-dir-source-tramp-podman

@@ -151,8 +151,8 @@ Otherwise return t on success, nil otherwise."
   (let ((persp (persp-add-new name))
         (+popup--inhibit-transient t))
     (save-window-excursion
-      (let ((ignore-window-parameters t)
-            (+popup--inhibit-transient t))
+      (dlet ((ignore-window-parameters t)
+             (+popup--inhibit-transient t))
         (persp-delete-other-windows))
       (switch-to-buffer (doom-fallback-buffer))
       (setf (persp-window-conf persp)
@@ -308,7 +308,7 @@ Can only selete workspaces saved with `+workspace/save' or `+workspace-save'."
   (let ((windows (length (window-list)))
         (persps (length (+workspace-list-names)))
         (buffers 0))
-    (let ((persp-autokill-buffer-on-remove t))
+    (dlet ((persp-autokill-buffer-on-remove t))
       (unless (cl-every #'+workspace-kill (+workspace-list-names))
         (+workspace-error "Could not clear session")))
     (+workspace-switch +workspaces-main t)
@@ -321,7 +321,7 @@ Can only selete workspaces saved with `+workspace/save' or `+workspace-save'."
 (defun +workspace/kill-session-and-quit ()
   "Kill emacs without saving anything."
   (interactive)
-  (let ((persp-auto-save-opt 0))
+  (dlet ((persp-auto-save-opt 0))
     (kill-emacs)))
 
 ;;;###autoload
@@ -508,7 +508,7 @@ the next."
 (defun +workspace/display ()
   "Display a list of workspaces (like tabs) in the echo area."
   (interactive)
-  (let (message-log-max)
+  (dlet (message-log-max)
     (message "%s" (+workspace--tabline))))
 
 
@@ -536,7 +536,7 @@ created."
           (+workspace-switch +workspaces-main t)
         (+workspace-switch (format "#%s" (+workspace--generate-id)) t))
       (unless (doom-real-buffer-p (current-buffer))
-        (let (switch-to-buffer-obey-display-actions) ; see #46
+        (dlet (switch-to-buffer-obey-display-actions) ; see #46
           (switch-to-buffer (doom-fallback-buffer))))
       (set-frame-parameter frame 'workspace (+workspace-current-name))
       ;; ensure every buffer has a buffer-predicate

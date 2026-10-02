@@ -38,5 +38,5 @@
   ;;   errors can ensue, but `rust-mode' is defined *after* it `provide's the
   ;;   `rust-mode' package, so (after! rust-mode ...) isn't sufficient. Sigh.
   (after! (:or rust-prog-mode rust-mode-treesitter)
-    (let (auto-mode-alist)
+    (dlet (auto-mode-alist)
       (require 'rustic nil t))))

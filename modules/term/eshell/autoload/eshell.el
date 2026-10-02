@@ -27,7 +27,7 @@
     (when (eq major-mode 'eshell-mode)
       (switch-to-buffer (doom-fallback-buffer)))
     (when +eshell-enable-new-shell-on-split
-      (let ((default-directory directory))
+      (dlet ((default-directory directory))
         (when-let* ((win (get-buffer-window (+eshell/here))))
           (set-window-dedicated-p win dedicated-p))))))
 
@@ -118,7 +118,7 @@
           (fundamental-mode)
           (erase-buffer))))
     (if-let* ((win (get-buffer-window eshell-buffer)))
-        (let (confirm-kill-processes)
+        (dlet (confirm-kill-processes)
           (delete-window win)
           (ignore-errors (kill-buffer eshell-buffer)))
       (with-current-buffer eshell-buffer
@@ -220,23 +220,23 @@ delete."
 (defun +eshell/split-below ()
   "Create a new eshell window below the current one."
   (interactive)
-  (let ((ignore-window-parameters t)
-        (dedicated-p (window-dedicated-p))
-        (+eshell-enable-new-shell-on-split
-         (or +eshell-enable-new-shell-on-split (frame-parameter nil 'saved-wconf))))
-    (select-window (split-window-vertically))
-    (+eshell--bury-buffer dedicated-p)))
+  (let ((dedicated? (window-dedicated-p)))
+    (dlet ((ignore-window-parameters t)
+           (+eshell-enable-new-shell-on-split
+            (or +eshell-enable-new-shell-on-split (frame-parameter nil 'saved-wconf))))
+      (select-window (split-window-vertically))
+      (+eshell--bury-buffer dedicated?))))
 
 ;;;###autoload
 (defun +eshell/split-right ()
   "Create a new eshell window to the right of the current one."
   (interactive)
-  (let* ((ignore-window-parameters t)
-         (dedicated-p (window-dedicated-p))
-         (+eshell-enable-new-shell-on-split
-          (or +eshell-enable-new-shell-on-split (frame-parameter nil 'saved-wconf))))
-    (select-window (split-window-horizontally))
-    (+eshell--bury-buffer dedicated-p)))
+  (let ((dedicated? (window-dedicated-p)))
+    (dlet ((ignore-window-parameters t)
+           (+eshell-enable-new-shell-on-split
+            (or +eshell-enable-new-shell-on-split (frame-parameter nil 'saved-wconf))))
+      (select-window (split-window-horizontally))
+      (+eshell--bury-buffer dedicated?))))
 
 ;;;###autoload
 (defun +eshell/switch-to-next ()
@@ -289,7 +289,7 @@ delete."
   (interactive)
   (unless (eq major-mode 'eshell-mode)
     (user-error "Not in an eshell buffer"))
-  (let ((+eshell-kill-window-on-exit t))
+  (dlet ((+eshell-kill-window-on-exit t))
     (kill-current-buffer)))
 
 

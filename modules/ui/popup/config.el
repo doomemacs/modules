@@ -100,8 +100,8 @@ that window has been changed or closed."
   "Evaluate BODY with popup RULES. RULES is a list of popup rules. Each rule
 should match the arguments of `+popup-define' or the :popup setting."
   (declare (indent defun))
-  `(let ((+popup--display-buffer-alist +popup--old-display-buffer-alist)
-         display-buffer-alist)
+  `(dlet ((+popup--display-buffer-alist +popup--old-display-buffer-alist)
+          display-buffer-alist)
      (set-popup-rules! ,rules)
      (when (bound-and-true-p +popup-mode)
        (setq display-buffer-alist +popup--display-buffer-alist))
@@ -117,7 +117,7 @@ prevent the popup(s) from messing up the UI (or vice versa)."
           +popup--last)
      (when popups
        (+popup--remember popups)
-       (let (+popup--remember-last)
+       (dlet (+popup--remember-last)
          (dolist (p popups)
            (+popup/close p 'force))))
      (unwind-protect

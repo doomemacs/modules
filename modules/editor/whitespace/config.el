@@ -104,7 +104,7 @@ or if the current buffer is read-only or not file-visiting."
                 (and (not +whitespace-guess-in-projects)
                      (doom-project-root)))
       ;; Don't display messages in the echo area, but still log them
-      (let ((inhibit-message (not init-file-debug)))
+      (dlet ((inhibit-message (not init-file-debug)))
         (dtrt-indent-mode +1))))
 
   ;; Enable dtrt-indent even in smie modes so that it can update `tab-width',
@@ -127,7 +127,7 @@ or if the current buffer is read-only or not file-visiting."
     "Some smie modes throw errors when trying to guess their indentation, like
 `nim-mode'. This prevents them from leaving Emacs in a broken state."
     :around #'dtrt-indent-mode
-    (let ((dtrt-indent-run-after-smie dtrt-indent-run-after-smie))
+    (dlet ((dtrt-indent-run-after-smie dtrt-indent-run-after-smie))
       (letf! ((defadvice symbol-config--guess (:around (fn beg end))
                 (funcall fn beg (min end 10000)))
               (defadvice smie-config-guess (:around (fn))

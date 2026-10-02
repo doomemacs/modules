@@ -42,7 +42,7 @@
 By default, this replaces the selection with what's in the clipboard without
 replacing its contents."
   (interactive)
-  (let ((evil-kill-on-visual-paste (not evil-kill-on-visual-paste)))
+  (dlet ((evil-kill-on-visual-paste (not evil-kill-on-visual-paste)))
     (call-interactively #'evil-paste-after)))
 
 (defun +evil--window-swap (direction &optional invert-wrap?)
@@ -120,7 +120,7 @@ is non-nil, move the window to the other end of the frame. Inverts
   "Split current window horizontally, then focus new window.
 If `evil-split-window-below' is non-nil, the new window isn't focused."
   (interactive)
-  (let ((evil-split-window-below (not evil-split-window-below)))
+  (dlet ((evil-split-window-below (not evil-split-window-below)))
     (call-interactively #'evil-window-split)))
 
 ;;;###autoload
@@ -128,7 +128,7 @@ If `evil-split-window-below' is non-nil, the new window isn't focused."
   "Split current window vertically, then focus new window.
 If `evil-vsplit-window-right' is non-nil, the new window isn't focused."
   (interactive)
-  (let ((evil-vsplit-window-right (not evil-vsplit-window-right)))
+  (dlet ((evil-vsplit-window-right (not evil-vsplit-window-right)))
     (call-interactively #'evil-window-vsplit)))
 
 ;;;###autoload (autoload '+evil:apply-macro "editor/evil/autoload/evil" nil t)

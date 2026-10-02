@@ -16,9 +16,9 @@
     (user-error "No completion active"))
   (pcase-let ((`(,beg ,end ,table ,pred ,extras)
                completion-in-region--data))
-    (let ((completion-extra-properties extras)
-          completion-cycle-threshold
-          completion-cycling)
+    (dlet ((completion-extra-properties extras)
+           completion-cycle-threshold
+           completion-cycling)
       (cond ((and (modulep! :completion vertico)
                   (fboundp #'consult-completion-in-region))
              (consult-completion-in-region beg end table pred))
@@ -55,7 +55,7 @@
   "Like `cape-dabbrev', but only scans current buffer."
   (interactive)
   (require 'cape)
-  (let ((cape-dabbrev-buffer-function #'current-buffer))
+  (dlet ((cape-dabbrev-buffer-function #'current-buffer))
     (cape-dabbrev t)))
 
 ;;;###autoload
@@ -81,10 +81,10 @@ Intended to mimic `evil-complete-next', unless the popup is already open."
   (if corfu--candidates
       (corfu-next arg)
     (require 'cape)
-    (let ((cape-dabbrev-buffer-function
-           (if (bound-and-true-p evil-complete-all-buffers)
-               #'cape-same-mode-buffers
-             #'current-buffer)))
+    (dlet ((cape-dabbrev-buffer-function
+            (if (bound-and-true-p evil-complete-all-buffers)
+                #'cape-same-mode-buffers
+              #'current-buffer)))
       (cape-dabbrev t)
       (when (> corfu--total 0)
         (corfu--goto (or arg 0))))))
@@ -98,10 +98,10 @@ Intended to mimic `evil-complete-previous', unless the popup is already open."
   (if corfu--candidates
       (corfu-previous arg)
     (require 'cape)
-    (let ((cape-dabbrev-buffer-function
-           (if (bound-and-true-p evil-complete-all-buffers)
-               #'cape-same-mode-buffers
-             #'current-buffer)))
+    (dlet ((cape-dabbrev-buffer-function
+            (if (bound-and-true-p evil-complete-all-buffers)
+                #'cape-same-mode-buffers
+              #'current-buffer)))
       (cape-dabbrev t)
       (when (> corfu--total 0)
         (corfu--goto (- corfu--total (or arg 1)))))))

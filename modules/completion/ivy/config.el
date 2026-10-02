@@ -190,7 +190,7 @@ results buffer.")
   ;;   it to fail to find the file we want.
   (defadvice! +ivy--run-from-ivy-directory-a (fn &rest args)
     :around #'counsel-projectile-find-file-action
-    (let ((default-directory (ivy-state-directory ivy-last)))
+    (dlet ((default-directory (ivy-state-directory ivy-last)))
       (apply fn args)))
 
   ;; Don't use ^ as initial input. Set this here because `counsel' defines more
@@ -393,7 +393,7 @@ workable results ripgrep produces, despite the error."
           counsel-outline counsel-org-goto counsel-jq)
         ivy-prescient-retain-classic-highlighting t)
   (defun +ivy-prescient-non-fuzzy (str)
-    (let ((prescient-filter-method '(literal regexp)))
+    (dlet ((prescient-filter-method '(literal regexp)))
       (ivy-prescient-re-builder str)))
 
   ;; Prescient config duplicated with `company':

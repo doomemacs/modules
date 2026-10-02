@@ -15,7 +15,7 @@
 
   ;; REVIEW: Remove when projectile is replaced with project.el
   (defun +debugger-dape-cwd-function-fn ()
-    (or (let (projectile-require-project-root)
+    (or (dlet (projectile-require-project-root)
           (projectile-project-root))
         (dape--default-cwd)))
 
