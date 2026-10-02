@@ -66,7 +66,7 @@ Won't forward the buffer to chained formatters if successful."
                                (lsp--make-document-range-formatting-params
                                 (or beg (point-min)) (or end (point-max)))))
                  ;; try next chained formatter(s)
-                 ((cl-return (ignore (funcall callback)))))))
+                 ((cl-return-from +format--with-lsp-mode (ignore (funcall callback)))))))
       (unless (seq-empty-p edits)
         (with-current-buffer scratch
           (lsp--apply-text-edits edits 'format)))
