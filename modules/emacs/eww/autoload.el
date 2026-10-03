@@ -66,13 +66,12 @@ too, so strings take the form: \"POSITION ~ LABEL @ URL\"."
             (push text heading-stack)))
           (push (cons
                  (concat
-                  (let ((preceeding-heading-stack (remove nil (cdr heading-stack))))
-                    (when preceeding-heading-stack
-                      (propertize
-                       (concat
-                        (string-join (reverse preceeding-heading-stack) "/")
-                        "/")
-                       'face 'shadow)))
+                  (when-let* ((preceeding-heading-stack (remove nil (cdr heading-stack))))
+                    (propertize
+                     (concat
+                      (string-join (reverse preceeding-heading-stack) "/")
+                      "/")
+                     'face 'shadow))
                   (car heading-stack))
                  start-point-prop)
                 headings))))
