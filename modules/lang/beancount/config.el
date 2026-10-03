@@ -77,7 +77,10 @@ behavior).")
   ;;
   ;;      Used to silence the linter in multi-file beancount projects without
   ;;      dealing with multiple-include errors and redundancies.
-  ;; REVIEW: PR features 1 and 2 upstream! 3 needs discussing.
+  ;;   4. Don't fail flymake so loudly when a newer check steps on an older
+  ;;      check, causing "Obsolete report from backend" on nearly every re-check
+  ;;      of a large ledger.
+  ;; REVIEW: PR features 1, 2 and 4 upstream! 3 needs discussing.
   (advice-add #'flymake-bean-check--run :override #'+beancount--flymake-bean-check--run-a)
 
   ;; HACK: This enhances completion for beancount-mode in the following ways:
