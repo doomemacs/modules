@@ -38,16 +38,6 @@
                     (+beancount--navigate-start-xact-or-directive-p)))
       (forward-line))))
 
-(defun +beancount--navigate-next-xact ()
-  "Move point to beginning of next xact."
-  ;; make sure we actually move to the next xact, even if we are the
-  ;; beginning of one now.
-  (if (looking-at +beancount--payee-any-status-regex)
-      (forward-line))
-  (if (re-search-forward  +beancount--payee-any-status-regex nil t)
-      (goto-char (match-beginning 0))
-    (goto-char (point-max))))
-
 (defun +beancount--navigate-beginning-of-xact ()
   "Move point to the beginning of the current xact."
   ;; need to start at the beginning of a line in case we are in the first line of an xact already.
