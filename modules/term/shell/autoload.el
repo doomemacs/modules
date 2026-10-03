@@ -17,12 +17,12 @@ prompt."
           comint-says-idle
         ;; for local shells, we can potentially do better using pgrep
         (condition-case nil
-            (case (call-process ;; look at the exit code of pgrep -P <pid>
-                   "pgrep" nil nil nil "-P"
-                   (number-to-string (process-id (get-buffer-process buf))))
+            (pcase (call-process ;; look at the exit code of pgrep -P <pid>
+                    "pgrep" nil nil nil "-P"
+                    (number-to-string (process-id (get-buffer-process buf))))
               (0 nil) ;; child procxesses found, not idle
               (1 t)   ;; not running any child processes, it's idle
-              (t comint-says-idle)) ;; anything else, fall back on comint.
+              (_ comint-says-idle)) ;; anything else, fall back on comint.
           (error comint-says-idle)))))) ;; comint fallback if execution failed
 
 (defun +shell-unused-buffer ()
