@@ -12,7 +12,10 @@ hierarchies or with massive beancount files.
 
 If set to `nil', only the current buffer is considered (the original
 behavior).")
-(put '+beancount-files 'safe-local-variable #'stringp)
+(put '+beancount-files 'safe-local-variable
+     (lambda (x) (or (memq x '(auto nil))
+                     (and (listp x)
+                          (cl-every #'stringp x)))))
 
 
 ;;
