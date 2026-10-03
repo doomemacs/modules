@@ -121,7 +121,9 @@ If REVERSE (the prefix arg) is non-nil, sort the transactions in reverst order."
                                     "HAVING not empty(sum(position)) "
                                     "ORDER BY account")
                             (if all-accounts
-                                "" (format "WHERE account ~ \"^(Assets|Liabilities)\"" ))))))
+                                ""
+                              (format "WHERE account ~ \"^(%s|%s)\""
+                                      beancount-assets beancount-liabilities))))))
 
 (defun +beancount-transaction-at-point ()
   (let ((transaction
