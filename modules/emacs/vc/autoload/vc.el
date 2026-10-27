@@ -97,7 +97,7 @@ If prefix ARG is given, do the opposite of the default setting of
 ;;;###autoload
 (defun +vc/git-link-kill-homepage ()
   "Copy homepage URL of current project to clipboard."
-  (interactive "P")
+  (interactive)
   (let ((link (+vc--git-link-homepage)))
     (kill-new link)
     (message "Copied to clipboard: %S" link)))
