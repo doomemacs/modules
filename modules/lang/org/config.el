@@ -487,7 +487,10 @@ relative to `org-directory', unless it is an absolute path."
                     '(warning org-link))))
 
   ;; Additional custom links for convenience
-  (dolist (abbrev '(("github"     . "https://github.com/%s")
+  (defun +org--org-link-abbrev (path)
+    (abbreviate-file-name (expand-file-name path org-directory)))
+  (dolist (abbrev `(("org"        . ,#'+org--org-link-abbrev)
+                    ("github"     . "https://github.com/%s")
                     ("youtube"    . "https://youtube.com/watch?v=%s")
                     ("google"     . "https://google.com/search?q=")
                     ("gimages"    . "https://google.com/images?q=%s")
