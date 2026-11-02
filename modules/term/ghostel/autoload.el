@@ -46,6 +46,20 @@ Returns the ghostel buffer."
           (current-buffer))))))
 
 ;;;###autoload
-(defalias '+ghostel/here #'ghostel)
+(defun +ghostel/here (arg)
+  "Open a terminal buffer in the current window at project root.
+
+If prefix ARG is non-nil, cd into `default-directory' instead of project root.
+
+Returns the ghostel buffer."
+  (interactive "P")
+  (let* ((project-root (or (doom-project-root) default-directory))
+         (default-directory
+          (if arg default-directory project-root)))
+    ;; we call ghostel with a non-numeric arg here
+    ;; so that it always creates a new terminal
+    ;; (by default it will merely bring up an existing
+    ;;  terminal)
+    (ghostel "new-terminal")))
 
 ;;; autoload.el ends here
