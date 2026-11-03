@@ -5,8 +5,8 @@
 (package! opam-switch-mode :pin "1069e56a662f23ea09d4e05611bdedeb99257012")
 (package! ocp-indent :pin "4044209c45fccd81b2e78333eebc9aeda04d6fbe")
 (package! dune
-  :recipe (:host github :repo "ocaml/dune" :files ("editor-integration/emacs/*.el"))
-  :pin "19325e58d58ddc47b1ec9666288792a6c0574f1a")
+  :recipe (:host github :repo "emacsmirror/dune")
+  :pin "deb6ac2281bbe81c35acec0b8f78b0f57694c25b")
 
 (unless (modulep! +lsp)
   (package! merlin :pin "a46ee0b7abad3079ec9eccbfcc3dc1ce14d4ce61")
