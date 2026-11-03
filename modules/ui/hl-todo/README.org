@@ -5,8 +5,8 @@
 #+since:    1.3
 
 * Description :unfold:
-This module adds syntax highlighting for various tags in code comments, such as
-=TODO=, =FIXME=, and =NOTE=, among others.
+This module highlights certain, common comment annotations, such as =TODO=, =FIXME=,
+and =NOTE=, among others.
 
 ** Maintainers
 - [[github:hlissner]]
@@ -36,17 +36,16 @@ By enabling this module, the following keywords will be highlighted if they
 occur in code comments:
 
 - =TODO=: For things that need to be done, just not today.
-- =HACK=: For tidbits that are unconventional and not intended uses of the
-  constituent parts, and may break in a future update.
-- =FIXME=: For problems that will become bigger problems later if not fixed
-  ASAP.
-- =REVIEW=: for things that were done hastily and/or hasn't been thoroughly
-  tested. it may not even be necessary!
-- =NOTE=: For especially important gotchas with a given implementation, directed
-  at another user other than the author.
-- =DEPRECATED=: For things that just gotta go and will soon be gone.
+- =HACK=: For brittle code that could easily break in a future update.
+- =FIXME=: For broken code paths that shouldn't be forgotten.
+- =REVIEW=: For impromptu code or decisions that need revisiting later (or be PRed
+  upstream), usually intended to patch a temporary issue.
+- =NOTE=: A comment about a code omission or the larger project (i.e. doesn't have
+  much to do with the nearby code).
+- =DEPRECATED=: For things that will soon be gone.
+- =XXX=: There's no agreed-upon meaning for this tag. Use it however you like.
+  Doom uses it to point out code differences in elisp advice.
 - =BUG=: For a known bug that needs a workaround.
-- =XXX=: For warning about a problematic or misguiding code.
 
 ** Keybindings
 | keybind | description                 |
@@ -61,13 +60,12 @@ occur in code comments:
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-To add your own ITEMS you would need to configure them using
-~hl-todo-keyword-faces~:
+To add your own annotations, add them to [[var:hl-todo-keyword-faces]]:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (with-eval-after-load 'hl-todo
   (setq hl-todo-keyword-faces
-        `(("FOO"  . ,(face-foreground "MY COLOUR HEX CODE"))
+        `(("FOO" . ,(face-foreground "MY COLOUR HEX CODE"))
           ("BAR" . ,(face-foreground 'my-colour-var)))))
 #+end_src
 
