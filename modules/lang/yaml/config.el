@@ -8,6 +8,7 @@
     ;;   `indent-relative'), so borrow `yaml-mode's. See
     ;;   https://debbugs.gnu.org/cgi/bugreport.cgi?bug=77094.
     (setq-hook! 'yaml-ts-mode-hook indent-line-function #'yaml-indent-line))
+  :commands yaml-indent-line
   :config
   (when (modulep! +lsp)
     (add-hook 'yaml-mode-local-vars-hook #'lsp! 'append)))
