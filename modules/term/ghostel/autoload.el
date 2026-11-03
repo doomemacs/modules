@@ -46,6 +46,16 @@ Returns the ghostel buffer."
           (current-buffer))))))
 
 ;;;###autoload
-(defalias '+ghostel/here #'ghostel)
+(defun +ghostel/here (arg)
+  "Open a new ghostel buffer in the current window.
+
+If prefix ARG is non-nil, cd into `default-directory' instead of project root.
+
+Returns the ghostel buffer."
+  (interactive "P")
+  (let ((default-directory
+         (if arg default-directory
+           (or (doom-project-root) default-directory))))
+    (ghostel-new)))
 
 ;;; autoload.el ends here
