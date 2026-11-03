@@ -42,7 +42,7 @@
                (insert-file-contents "org-loaddefs.el")
                (save-excursion (insert "\n"))
                (insert-file-contents afile))))
-  :pin "7427df2d96d264734e1ba2a943545faa1c8c763f"  ; release_9.8.9
+  :pin "930cc9078be5eac066af448017466f51d814926a"  ; release_9.8.12
   :env `((org--inhibit-version-check . t)))
 (package! org-contrib
   :recipe (:host github
@@ -66,27 +66,27 @@
 (when (modulep! +dragndrop)
   (package! org-download :pin "c8be2611786d1d8d666b7b4f73582de1093f25ac"))
 (when (modulep! +gnuplot)
-  (package! gnuplot :pin "81e3cb30297f0d12df41b865d2a76c8ba179089c")
+  (package! gnuplot :pin "3b6110a00f2bb5fcdcf5a7ea86e6ee15eec7a21d")
   (package! gnuplot-mode :pin "601f6392986f0cba332c87678d31ae0d0a496ce7"))
 (when (modulep! +jupyter)
   (package! jupyter :pin "242fdc709ce0faa3b9ee81dcc48cfd791898e6b8" :freeze t))
 (when (modulep! +journal)
   (package! org-journal :pin "6460f6f2b0835b4b8aa87d5fdf40cac7deb319f5"))
 (when (modulep! +noter)
-  (package! org-noter :pin "feae91ca4ee6fdc7fd2489fa751dd96bc1f3ddf2"))
+  (package! org-noter :pin "525f978cbc9cec3f2c1e23dbc3388c670667cb80"))
 (when (modulep! +pretty)
-  (package! org-modern :pin "1959cd4759d4abc8dd695a560563283d838e44e1")
+  (package! org-modern :pin "d106d02cf045cc968c09989e9c48e0f2b44c574c")
   (package! org-appear :pin "77d23efec5f5c25fc0798364d2b51a3ce3d8d518"))
 (when (modulep! +present)
   (package! centered-window
     :recipe (:host github :repo "nullvec/centered-window-mode")
     :pin "701f56cd1d2b68352d29914f05ca1b0037bb2595")
   (package! org-tree-slide :pin "e2599a106a26ce5511095e23df4ea04be6687a8a")
-  (package! org-re-reveal :pin "9f09f2100a77e0dabe2c0d89bb62b29d96ab0206")
+  (package! org-re-reveal :pin "69ff09f46a74645601d92bfa637d6c87b417b633")
   (package! revealjs
     :recipe (:host github :repo "hakimel/reveal.js"
              :files ("css" "dist" "js" "plugin"))
-    :pin "a3b940695648aa1c5b0680bc9a5b905cf43020e5"))
+    :pin "e240e175232fa2de660a02bc0d7bf5f655b159bb"))
 (when (or (modulep! +roam)
           (modulep! +roam2))
   (package! org-roam :pin "903bd4ec56d29247990d005ed9052c201e18b812"))

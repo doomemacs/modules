@@ -47,7 +47,7 @@
        ;; REVIEW: Fix this upstream?
        :post-build
        (copy-file "org-loaddefs.el" (straight--autoloads-file "org"))
-       :tag "release_9.8.4"
+       :tag "release_9.8.12"
        :env `((org--inhibit-version-check . t)))
   (org-contrib :host github
                :repo "emacsmirror/org-contrib"
