@@ -24,9 +24,10 @@
                    (list vimish-fold-indication-mode
                          'empty-line
                          'vimish-fold-fringe))))
-    (overlay-put
-     ov 'display (propertize +fold-ellipsis
-                             'face '+fold-hideshow-folded-face))))
+    (unless (boundp 'hs-display-lines-hidden)  ; Emacs 31.1+
+      (overlay-put
+       ov 'display (propertize +fold-ellipsis
+                               'face '+fold-hideshow-folded-face)))))
 
 
 ;;

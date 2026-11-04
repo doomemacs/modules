@@ -3,7 +3,8 @@
 (defcustom +fold-ellipsis " [...] "
   "The ellipsis to show for ellided regions (folds).
 
-`org-ellipsis' and `truncate-string-ellipsis' are set to this."
+`org-ellipsis' is set to this. Used for `hideshow' folds only on Emacs <31.1
+\(newer versions render their own ellipsis; see `hs-display-lines-hidden')."
   :type 'string
   :group '+fold)
 
@@ -47,17 +48,32 @@
              hs-hide-level
              hs-show-all
              hs-hide-all)
+  :init
+  ;; Emacs 31.1+: prefer the built-in indentation folding over the
+  ;; `hs-special-modes-alist' entry below.
+  (when (fboundp 'hs-indentation-mode)
+    (add-hook! '(yaml-mode-hook yaml-ts-mode-hook) #'hs-indentation-mode))
   :config
   (setq hs-hide-comments-when-hiding-all nil
         ;; Nicer code-folding overlays (with fringe indicators)
         hs-set-up-overlay #'+fold-hideshow-set-up-overlay-fn)
+  (when (boundp 'hs-display-lines-hidden) ; Emacs 31.1+
+    (setq hs-display-lines-hidden t))
 
   (defadvice! +fold--hideshow-ensure-mode-a (&rest _)
     "Ensure `hs-minor-mode' is enabled when we need it, no sooner or later."
-    :before '(hs-toggle-hiding hs-hide-block hs-hide-level hs-show-all hs-hide-all)
+    :before #'hs-toggle-hiding
+    :before #'hs-hide-block
+    :before #'hs-hide-level
+    :before #'hs-show-all
+    :before #'hs-hide-all
+    :before #'hs-cycle
+    :before #'hs-toggle-all
     (+fold--ensure-hideshow-mode))
 
   ;; extra folding support for more languages
+  ;; DEPRECATED: Remove once Emacs 30.x support is dropped, migrate these to the
+  ;;   buffer-local hs-* variables via mode hooks.
   (unless (assq 't hs-special-modes-alist)
     (setq hs-special-modes-alist
           (append

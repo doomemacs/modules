@@ -35,8 +35,12 @@ Return non-nil if successful in doing so."
   (when (+fold--ensure-hideshow-mode)
     (save-excursion
       (ignore-errors
-        (or (funcall hs-looking-at-block-start-p-func)
-            (funcall hs-find-block-beginning-func)
+        (or (funcall (if (boundp 'hs-looking-at-block-start-predicate)
+                         hs-looking-at-block-start-predicate ; Emacs 31.1+
+                       hs-looking-at-block-start-p-func))
+            (funcall (if (boundp 'hs-find-block-beginning-function)
+                         hs-find-block-beginning-function ; Emacs 31.1+
+                       hs-find-block-beginning-func))
             (unless (eolp)
               (end-of-line)
               (+fold--hideshow-fold-p)))))))
