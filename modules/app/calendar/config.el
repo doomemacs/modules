@@ -76,8 +76,7 @@
 (use-package! calfw-org
   :commands (calfw-org-open-calendar
              calfw-org-create-source
-             calfw-org-create-file-source
-             calfw-open-org-calendar-withkevin))
+             calfw-org-create-file-source))
 
 
 (use-package! calfw-cal
