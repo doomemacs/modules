@@ -126,13 +126,11 @@
                 helm-boring-file-regexp-list)))
 
 
-(defvar helm-generic-files-map (make-sparse-keymap))
 (after! helm-locate
   (when (and (featurep :system 'macos)
              (null helm-locate-command)
              (executable-find "mdfind"))
-    (setq helm-locate-command "mdfind -name %s"))
-  (set-keymap-parent helm-generic-files-map helm-map))
+    (setq helm-locate-command "mdfind -name %s")))
 
 
 (use-package! helm-org
@@ -149,11 +147,7 @@
   :commands (helm-projectile-find-file
              helm-projectile-recentf
              helm-projectile-switch-project
-             helm-projectile-switch-to-buffer)
-  :init
-  (defvar helm-projectile-find-file-map (make-sparse-keymap))
-  :config
-  (set-keymap-parent helm-projectile-find-file-map helm-map))
+             helm-projectile-switch-to-buffer))
 
 
 (use-package! swiper-helm

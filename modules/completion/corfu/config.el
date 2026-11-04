@@ -184,7 +184,7 @@ See `+corfu-want-minibuffer-completion'."
       (add-hook 'completion-at-point-functions #'cape-elisp-block 0 t)))
   ;; Enable Dabbrev completion basically everywhere as a fallback.
   (when (modulep! +dabbrev)
-    (setq cape-dabbrev-check-other-buffers t)
+    (setq cape-dabbrev-buffer-function #'+corfu-dabbrev-buffers-fn)
     ;; Set up `cape-dabbrev' options.
     (add-hook! '(prog-mode-hook
                  text-mode-hook

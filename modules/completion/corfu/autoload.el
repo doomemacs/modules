@@ -4,6 +4,23 @@
 (defun +corfu-dabbrev-friend-buffer-p (other-buffer)
   (< (buffer-size other-buffer) +corfu-buffer-scanning-size-limit))
 
+;;;###autoload
+(defun +corfu-dabbrev-buffers-fn ()
+  "Return buffers for `cape-dabbrev' to scan.
+
+Respects `dabbrev-friend-buffer-function', `dabbrev-ignored-buffer-modes',
+`dabbrev-ignored-buffer-names' and `dabbrev-ignored-buffer-regexps'."
+  (require 'dabbrev)
+  (cons (current-buffer)
+        (cl-remove-if-not
+         (lambda (buf)
+           (and (funcall dabbrev-friend-buffer-function buf)
+                (not (dabbrev--ignore-buffer-p buf))
+                (not (apply #'provided-mode-derived-p
+                            (buffer-local-value 'major-mode buf)
+                            dabbrev-ignored-buffer-modes))))
+         (delq (current-buffer) (buffer-list)))))
+
 
 ;;
 ;;; Commands
@@ -67,7 +84,7 @@
       (when corfu-mode
         (if corfu-auto
             (remove-hook 'post-command-hook #'corfu-auto--post-command 'local)
-          (add-hook 'post-command-hook #'corfu-auto--post-command nil 'local)))))
+          (add-hook 'post-command-hook #'corfu-auto--post-command 10 'local)))))
   (when interactive
     (message "Corfu auto-complete %s" (if corfu-auto "disabled" "enabled")))
   (setq corfu-auto (not corfu-auto)))

@@ -89,8 +89,7 @@ overrides `completion-styles' during company completion sessions.")
         completion-category-defaults nil
         ;; note that despite override in the name orderless can still be used in
         ;; find-file etc.
-        completion-category-overrides '((file (styles orderless partial-completion)))
-        orderless-component-separator #'orderless-escapable-split-on-space)
+        completion-category-overrides '((file (styles orderless partial-completion))))
   ;; ...otherwise find-file gets different highlighting than other commands
   (set-face-attribute 'completions-first-difference nil :inherit nil)
 
@@ -324,7 +323,15 @@ orderless."
 
 (use-package! vertico-posframe
   :when (modulep! +childframe)
-  :hook (vertico-mode . vertico-posframe-mode))
+  :hook (vertico-mode . vertico-posframe-mode)
+  :config
+  ;; HACK: Upstream deletes the overlay but keeps a reference to it, and a
+  ;;   deleted overlay still satisfies `overlayp', so every later
+  ;;   `activate-mark' / `deactivate-mark' force a `redisplay'.
+  ;; REVIEW: PR upstream
+  (defadvice! +vertico--posframe-forget-region-overlay-a (&rest _)
+    :after #'vertico-posframe--reset-region-highlight
+    (setq vertico-posframe--region-highlight nil)))
 
 
 ;; From https://github.com/minad/vertico/wiki#candidate-display-transformations-custom-candidate-highlighting
