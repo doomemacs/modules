@@ -61,7 +61,7 @@
       (citar-indicator-create
        :symbol (nerd-icons-faicon
                 "nf-fa-circle_o"
-                :face 'nerd-icon-green)
+                :face 'nerd-icons-green)
        :function #'citar-is-cited
        :padding "  "
        :tag "is:cited"))
