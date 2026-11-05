@@ -14,9 +14,10 @@ engine."
   "Look up QUERY in your dash docsets. If BANG, prompt to select a docset (and
 install it if necessary)."
   (interactive "<a><!>")
+  (require 'dash-docs)
   (let (selected)
     (when bang
-      (setq selected (helm-dash-read-docset "Select docset" (helm-dash-official-docsets)))
+      (setq selected (dash-docs-read-docset "Select docset" (dash-docs-official-docsets)))
       (unless (dash-docs-docset-path selected)
-        (+lookup/install-docset selected)))
-    (+lookup/in-docsets query selected)))
+        (dash-docs-install-docset selected)))
+    (+lookup/in-docsets nil query (and selected (list selected)))))
