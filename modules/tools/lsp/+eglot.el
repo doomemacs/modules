@@ -18,8 +18,9 @@
                     '(company)))
         ;; Margin indicator may increase line height due to glyph display
         ;; failures or emoji font height differences; I also think the eldoc
-        ;; hint is enough.
-        eglot-code-action-indications '(eldoc-hint))
+        ;; hint is enough. (Eglot 1.25+ delegates this to `refactor'; its old
+        ;; `eglot-code-action-indications' alias discards values set this early.)
+        refactor-indications '(eldoc-hint))
 
   :config
   (set-popup-rule! "^\\*eglot-help" :size 0.3 :quit t :select t)

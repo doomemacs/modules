@@ -3,9 +3,10 @@
 
 (if (modulep! +eglot)
     (progn
-      (package! eglot :pin "28884319c6326adc6dd02ecfee4f5a64e6aa6d29")
-      (package! jsonrpc :pin "d8143c52679eaeebcca26dd41e015dc73d167b49")
-      (package! xref :pin "9d7789ab2d66eba7beaa350cdccfa5f318a98acf")  ; needed by eglot
+      (package! eglot :pin "e21a9a3ed7ecf3280e8adb927d986642f5ce382a")
+      (package! jsonrpc :pin "1a6e75547ea866d525faf1b36bc005702cd4de71")
+      (package! xref :pin "f8a7db5c8e85aa1c4c4fc8afa35ed50afac86f20")  ; needed by eglot
+      (package! refactor :pin "0a862099d44b87a394f6d5a08388ce91e28cf4d4")  ; needed by eglot
       (when (modulep! :completion vertico)
         (package! consult-eglot :pin "3e4d9a40911b897c0a2c5d20199d0f7c30bfc1c2"))
       ;; DEPRECATED: Remove when 29 support is dropped
@@ -19,7 +20,7 @@
   (eval-and-compile (defvar lsp-use-plists t))
 
   (package! lsp-mode
-    :pin "5f36bd4da7bef0a01e9d067f992ea4c4ac9c7314"
+    :pin "aebc8755d1cf6667382799e5168a67b6a6289a27"
     :env `(("LSP_USE_PLISTS" . ,(and lsp-use-plists "1"))))
   (package! lsp-ui :pin "176eca71d1c5498ed6258b5b27d73293ff7cd7ed")
   (when (modulep! :completion ivy)

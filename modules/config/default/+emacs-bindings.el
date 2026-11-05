@@ -62,11 +62,10 @@
          :desc "References tree"                     "R"   (cmd!! #'lsp-treemacs-references t)
          :desc "Symbols"                             "S"   #'lsp-treemacs-symbols))
        (:when (modulep! :tools lsp +eglot)
-        :desc "LSP Execute code action"              "a" #'eglot-code-actions
-        :desc "LSP Rename"                           "r" #'eglot-rename
-        :desc "LSP Find declaration"                 "j" #'eglot-find-declaration
+        :desc "LSP Execute code action"              "a"   #'eglot-code-actions
+        :desc "LSP Rename"                           "r"   #'eglot-rename
         (:when (modulep! :completion vertico)
-         :desc "Jump to symbol in current workspace" "j" #'consult-eglot-symbols)))
+         :desc "Jump to symbol in current workspace" "j"   #'consult-eglot-symbols)))
 
       ;;; <leader> f --- file
       (:prefix-map ("f" . "file")

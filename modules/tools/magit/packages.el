@@ -5,14 +5,14 @@
 ;;   of only pinning primary packages, but an exception is made because the
 ;;   Magit ecosystem seems prone to breakage.
 
-(package! transient :pin "0cacc84ff0c7df126e194666ff8b8a1e6082e796") ; 0.13.8
+(package! transient :pin "08d85042ced662a73da813a143785f135f66a769") ; 0.13.9
 (package! cond-let :pin "09292a77001434f59ab55c775dec2b98cb18d028")  ; 1.1.5
 
 (package! magit :pin "659f89955cf60fe3d4326d881c412df06c69680d")     ; 4.7.1
 (when (modulep! +forge)
-  (package! closql :pin "48955ae02cfc7dad93b6bdc9ffd8d4b760dfb62b")  ; 2.4.2
+  (package! closql :pin "d87a2718c2fe45ff98258a2c7f3821b3f7b24f29")  ; 2.5.0
   (package! forge :pin "7dc4855437315cb932cbc1d6a903f7d2de03ec5f")   ; 0.6.9
-  (package! ghub :pin "01e2bc064ab4965d332efa11fafeda2a43f338d1")    ; 5.3.3
+  (package! ghub :pin "0ce466e35af5c1a6d743a6481a9d4e33cd7a40c3")    ; 5.4.0
   (package! code-review
     :recipe (:host github
              :repo "doomelpa/code-review"

@@ -3,4 +3,4 @@
 
 (package! dape
   :recipe (:host github :repo "svaante/dape")
-  :pin "a5dcf2d086a91fbe6e600b6de482d8f680f4410c")
+  :pin "1d45904b40bfdbdbe0e29546a13d7859a478f710")

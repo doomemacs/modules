@@ -101,7 +101,7 @@ Won't forward the buffer to chained formatters if successful."
     (unless (seq-empty-p edits)
       (with-current-buffer scratch
         (with-demoted-errors "%s"
-          (eglot--apply-text-edits edits))))
+          (eglot--apply-lsp-edits edits))))
     t))
 
 ;;; lsp.el ends here
