@@ -7,9 +7,6 @@
   (setq eglot-sync-connect 0
         eglot-autoshutdown t
         eglot-max-file-watches 5000  ; default is 10000
-        ;; NOTE: We disable eglot-auto-display-help-buffer because :select t in
-        ;;   its popup rule causes eglot to steal focus too often.
-        eglot-auto-display-help-buffer nil
         ;; Leave it to our modules and user config to initialize these.
         eglot-stay-out-of
         (append (if (modulep! :checkers syntax -flymake)
