@@ -31,15 +31,15 @@ Nothing more needs to be done once the module is activated. Tildes will become
 visible in all buffers, after EOB.
 
 * Configuration
-By default, doom activates ~vi-tilde-fringe-mode~ for ~prog-mode~, ~text-mode~
-and ~conf-mode~. To change this to your liking, you can remove any of the modes
-from the list:
+By default, doom activates [[minor:vi-tilde-fringe-mode]] for [[major:prog-mode]], [[major:text-mode]] and
+[[major:conf-mode]]. To change this to your liking, you can remove any of the modes from
+the list:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (remove-hook 'text-mode-hook #'vi-tilde-fringe-mode)
 #+end_src
 
-Or add new modes where you would like ~vi-tilde-fringe-mode~ enabled:
+Or add new modes where you would like [[minor:vi-tilde-fringe-mode]] enabled:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (add-hook 'org-mode-hook #'vi-tilde-fringe-mode)

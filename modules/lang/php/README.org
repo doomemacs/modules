@@ -11,7 +11,7 @@ This module adds support for PHP 5.3+ (including PHP8) to Doom Emacs.
 - eldoc support ([[pkg:ac-php]] and [[pkg:php-extras]])
 - REPL ([[pkg:psysh]])
 - Code refactoring commands ([[minor:php-refactor-mode]])
-- Unit-test commands (~phpunit~)
+- Unit-test commands ([[pkg:phpunit]])
 - Support for Laravel and Composer projects (with project-specific snippets)
 - LSP support (via the [[module:+lsp]] flag)
 - [[../../editor/file-templates/templates/php-mode][File templates]]
@@ -116,9 +116,9 @@ The others have to be installed manually and added to your =$PATH=.
 ** Dependencies
 - ~pysh~ (REPL)
 - ~phpctags~ (better code completion)
-- ~phpunit~ (unit test commands)
+- [[pkg:phpunit]] (unit test commands)
 - ~phpcbf~, provided by ~squizlabs/php_codesniffer~ (for code formatting)
-+ ~phpactor~ (for LSP if intelephense isn't desired)
++ [[pkg:phpactor]] (for LSP if intelephense isn't desired)
 
 #+begin_src sh
 composer global require \
@@ -136,7 +136,7 @@ executables are visible to Emacs:
 export PATH="~/.composer/vendor/bin:$PATH"
 #+end_src
 
-You may also need to regenerate your envvar file by running ~$ doom sync --env~ on
+You may also need to regenerate your envvar file by running [[sh:doom sync --env]] on
 the command line.
 
 *NOTE* phpactor doesn't have to be installed via =composer=, just has to exist in
@@ -159,7 +159,7 @@ detailed below. By default, it loads configuration from the root ~phpunit.xml~.
 
 If for some reason, the default ~phpunit.xml~ is in a different location (or you
 use the ~phpunit.xml.dist~ convention), the path can be changed via
-=phpunit-configuration-file=:
+[[var:phpunit-configuration-file]]:
 #+begin_src emacs-lisp
 (setq phpunit-configuration-file "phpunit.xml")
 #+end_src
@@ -168,17 +168,17 @@ use the ~phpunit.xml.dist~ convention), the path can be changed via
 This module provides several convenience methods for triggering composer
 commands:
 
-| Binding             | Function                        |
-|---------------------+---------------------------------|
-| [[kbd:<localleader> m c c]] | ~composer~                        |
-| [[kbd:<localleader> m c i]] | ~composer-install~                |
-| [[kbd:<localleader> m c r]] | ~composer-require~                |
-| [[kbd:<localleader> m c u]] | ~composer-update~                 |
-| [[kbd:<localleader> m c d]] | ~composer-dump-autoload~          |
-| [[kbd:<localleader> m c s]] | ~composer-run-scripts~            |
-| [[kbd:<localleader> m c v]] | ~composer-run-vendor-bin-command~ |
-| [[kbd:<localleader> m c o]] | ~composer-find-json-file~         |
-| [[kbd:<localleader> m c l]] | ~composer-view-lock-file~         |
+| Binding             | Function                            |
+|---------------------+-------------------------------------|
+| [[kbd:<localleader> m c c]] | ~composer~                            |
+| [[kbd:<localleader> m c i]] | [[cmd:composer-install]]                |
+| [[kbd:<localleader> m c r]] | [[cmd:composer-require]]                |
+| [[kbd:<localleader> m c u]] | [[cmd:composer-update]]                 |
+| [[kbd:<localleader> m c d]] | [[cmd:composer-dump-autoload]]          |
+| [[kbd:<localleader> m c s]] | [[cmd:composer-run-scripts]]            |
+| [[kbd:<localleader> m c v]] | [[cmd:composer-run-vendor-bin-command]] |
+| [[kbd:<localleader> m c o]] | [[cmd:composer-find-json-file]]         |
+| [[kbd:<localleader> m c l]] | [[cmd:composer-view-lock-file]]         |
 
 These are all executed via [[kbd:M-x]] too.
 
@@ -213,11 +213,11 @@ such requires a license for extended features. Once purchased, this can be
 (setq lsp-intelephense-licence-key "<key>")
 #+end_src
 
-A more recommended approach would be to utilise Emacs' own ~auth-sources~ for
+A more recommended approach would be to utilise Emacs' own [[var:auth-sources]] for
 storing authentication info, which can also be encrypted.
 
 Create a file in your home directory (which can optionally be encrypted, verify
-your ~auth-sources~ has the correct values) called ~~/.authinfo~:
+your [[var:auth-sources]] has the correct values) called ~~/.authinfo~:
 #+begin_src
 machine * login intelephense password <key>
 #+end_src

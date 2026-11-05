@@ -21,8 +21,8 @@ Includes:
 
 ** Module flags
 - +lsp ::
-  Enable an LSP hook for ~nix-mode~. Requires [[module::tools lsp]] and a
-  language server (one of either ~nil~ or ~rnix-lsp~).
+  Enable an LSP hook for [[major:nix-mode]]. Requires [[module::tools lsp]] and a language server
+  (one of either ~nil~ or ~rnix-lsp~).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires Emacs 29.1+ and [[module::tools tree-sitter]].
@@ -56,15 +56,15 @@ This module requires:
 #+end_quote
 
 ** Keybindings
-| Binding         | Description        |
-|-----------------+--------------------|
-| [[kbd:<localleader> b]] | ~nix-build~          |
-| [[kbd:<localleader> f]] | ~nix-update-fetch~   |
-| [[kbd:<localleader> o]] | ~+nix/lookup-option~ |
-| [[kbd:<localleader> p]] | ~nix-format-buffer~  |
-| [[kbd:<localleader> r]] | ~nix-repl-show~      |
-| [[kbd:<localleader> s]] | ~nix-repl-shell~     |
-| [[kbd:<localleader> u]] | ~nix-unpack~         |
+| Binding         | Description            |
+|-----------------+------------------------|
+| [[kbd:<localleader> b]] | [[cmd:nix-build]]          |
+| [[kbd:<localleader> f]] | [[cmd:nix-update-fetch]]   |
+| [[kbd:<localleader> o]] | [[cmd:+nix/lookup-option]] |
+| [[kbd:<localleader> p]] | [[cmd:nix-format-buffer]]  |
+| [[kbd:<localleader> r]] | [[fns:nix-repl-show]]      |
+| [[kbd:<localleader> s]] | [[cmd:nix-repl-shell]]     |
+| [[kbd:<localleader> u]] | [[cmd:nix-unpack]]         |
 
 * TODO Configuration
 #+begin_quote wip

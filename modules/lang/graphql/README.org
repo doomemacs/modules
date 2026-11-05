@@ -25,7 +25,7 @@ It includes:
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~graphql-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:graphql-mode]]. Requires [[module::tools lsp]] and a langserver
   ([[https://github.com/graphql/graphiql/tree/main/packages/graphql-language-service-cli#readme][graphql-language-service-cli]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -38,8 +38,8 @@ It includes:
 - [[package:graphql-doc]]
 
 ** Hacks
-- Added a convenience function [[fn:+graphql-doc-open-config]] to open schema docs from
-  a [[https://github.com/jimkyndemeyer/graphql-config-examples][.graphqlconfig]] file.
+- Added a convenience function [[fns:+graphql-doc-open-config]] to open schema docs
+  from a [[https://github.com/jimkyndemeyer/graphql-config-examples][.graphqlconfig]] file.
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -56,7 +56,7 @@ Formatting is handled using the [[module::editor format]] module via [[https://p
 * Usage
 ** Sending queries
 When visiting a graphql buffer, you have access to the ability to send the
-current query with =C-c C-c= which will prompt you for an optional variables file,
+current query with [[kbd:C-c C-c]] which will prompt you for an optional variables file,
 then execute the query and return a buffer of the results.
 
 It's also possible to send queries using org-babel using a block such as the
@@ -90,19 +90,21 @@ query GetContinents($continentCode: String!) {
 
 ** Viewing docs
 With this module, there are 3 ways to view schemas:
-+ =+graphql-doc-open-config= which uses a local [[https://github.com/jimkyndemeyer/graphql-config-examples][=.graphqlconfig=]] file to seed endpoints to query
-+ =graphql-doc= which prompts you to select an endpoint based on ones added manually by =graphql-doc-add-api=
-+ =graphql-doc-open-url= which prompts to manually enter an endpoint url
++ [[cmd:+graphql-doc-open-config]] which uses a local [[https://github.com/jimkyndemeyer/graphql-config-examples][=.graphqlconfig=]] file to seed
+  endpoints to query
++ [[pkg:graphql-doc]] which prompts you to select an endpoint based on ones added
+  manually by [[cmd:graphql-doc-add-api]]
++ [[cmd:graphql-doc-open-url]] which prompts to manually enter an endpoint url
 
 When using the doc viewer, there are a few bindings for navigating around.
 
-| Key         | Command             | Description                       |
-|-------------+---------------------+-----------------------------------|
-| =C-j=         | =forward-button=      | Follow a forward button           |
-| =C-k=         | =backward-button=     | Follow a backward button          |
-| =<backspace>= | =graphql-doc-go-back= | Go back to a previous page        |
-| =mouse-1=     | -                   | Follow the next label under =point= |
-| =RET=         | -                   | Follow the next label under =point= |
+| Key         | Command                 | Description                       |
+|-------------+-------------------------+-----------------------------------|
+| [[kbd:C-j]]         | [[cmd:forward-button]]      | Follow a forward button           |
+| [[kbd:C-k]]         | [[cmd:backward-button]]     | Follow a backward button          |
+| [[kbd:<backspace>]] | [[cmd:graphql-doc-go-back]] | Go back to a previous page        |
+| =mouse-1=     | -                       | Follow the next label under =point= |
+| [[kbd:RET]]         | -                       | Follow the next label under =point= |
 
 * Configuration
 Most of the "magic" in the module relies on a properly configured [[https://github.com/jimkyndemeyer/graphql-config-examples][.graphqlconfig]]

@@ -12,7 +12,7 @@ This module provides an Emacs interface to [[https://www.passwordstore.org/][Pas
 
 ** Module flags
 - +auth ::
-  Allow Emacs to use pass for authentication (via ~auth-source-pass~).
+  Allow Emacs to use pass for authentication (via [[pkg:auth-source-pass]]).
 
 ** Packages
 - [[package:helm-pass]] if [[module::completion helm]]
@@ -34,15 +34,15 @@ This module requires [[https://www.passwordstore.org/][pass]], [[https://gnupg.o
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-Start using this module with ~M-x pass~.
+Start using this module with [[M-x:pass]].
 
-| keybinding | command                   |
-|------------+---------------------------|
-| =j=        | ~pass-next-entry~         |
-| =k=        | ~pass-previous-entry~     |
-| =d=        | ~pass-kill~               |
-| =C-j=      | ~pass-next-directory~     |
-| =C-k=      | ~pass-previous-directory~ |
+| keybinding | command                     |
+|------------+-----------------------------|
+| [[kbd:j]]          | [[cmd:pass-next-entry]]         |
+| [[kbd:k]]          | [[cmd:pass-previous-entry]]     |
+| [[kbd:d]]          | [[cmd:pass-kill]]               |
+| [[kbd:C-j]]        | [[cmd:pass-next-directory]]     |
+| [[kbd:C-k]]        | [[cmd:pass-previous-directory]] |
 
 * TODO Configuration
 #+begin_quote wip

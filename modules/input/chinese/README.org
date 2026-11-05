@@ -28,8 +28,9 @@ methods: Pinyin and Wubi.
 - [[package:pyim]] unless [[module:+wubi]]
 
 ** Hacks
-- ~org-html-paragraph~ has been modified to join consecutive Chinese lines into
-  a single long line without wanted spaced (when exporting org-mode to html).
+- [[fns:org-html-paragraph]] has been modified to join consecutive Chinese lines
+  into a single long line without wanted spaced (when exporting org-mode to
+  html).
 
 * TODO Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -56,7 +57,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 ** Using fcitx5
-Modify ~fcitx-remote-command~ to change the default:
+Modify [[var:fcitx-remote-command]] to change the default:
 
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el

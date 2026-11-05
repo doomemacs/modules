@@ -42,9 +42,9 @@ documentation of their respective [[module::lang]] module for instructions.
 
 ** Inline Code Evaluation
 Quickrun can be invoked via:
-- ~M-x +eval/buffer~ (or [[kbd:gR]], or [[kbd:M-r]])
-- ~M-x +eval/region~
-- ~M-x +eval/region-and-replace~
+- [[M-x:+eval/buffer]] (or [[kbd:gR]], or [[kbd:M-r]])
+- [[M-x:+eval/region]]
+- [[M-x:+eval/region-and-replace]]
 - Evil users can use the [[kbd:gr]] operator to select and run a region.
 
 ** REPLs
@@ -52,9 +52,9 @@ Invoked via:
 - [[kbd:SPC o r]] or ~:repl~ will open a REPL in a popup window. [[kbd:SPC o R]] or ~:repl!~
   will open a REPL in the current window. If a REPL is already open and a
   selection is active, it will be sent to the REPL.
-- ~M-x +eval/open-repl-other-window~ ([[kbd:SPC o r]])
-- ~M-x +eval/open-repl-same-window~ ([[kbd:SPC o R]])
-- ~M-x +eval/buffer-or-region-in-repl~ ([[kbd:SPC c s]]) while a selection (and REPL) is
+- [[M-x:+eval/open-repl-other-window]] ([[kbd:SPC o r]])
+- [[M-x:+eval/open-repl-same-window]] ([[kbd:SPC o R]])
+- [[M-x:+eval/buffer-or-region-in-repl]] ([[kbd:SPC c s]]) while a selection (and REPL) is
   active
 
 * TODO Configuration
@@ -66,12 +66,12 @@ Invoked via:
 REPLs are defined for most languages Doom supports. Check that language module's
 README.org to see if it does (and if it requires additional setup).
 
-To use them, you may use ~M-x +eval/open-repl-other-window~, ~M-x
-+eval/open-repl-same-window~, ~:repl~ (for evil users) or the default binding:
+To use them, you may use [[M-x:+eval/open-repl-other-window]],
+[[M-x:+eval/open-repl-same-window]] , ~:repl~ (for evil users) or the default binding:
 [[kbd:SPC o r]]. These will open a REPL in a popup window.
 
 #+begin_quote tip
-You can simply call that mode's REPL command manually. e.g. ~M-x ielm~, but this
+You can simply call that mode's REPL command manually. e.g. [[M-x:ielm]], but this
 will bar you from the benefits of Doom's REPL system (like send-to-repl
 functionality).
 #+end_quote
@@ -94,7 +94,7 @@ ignored, then the REPL is opened in a popup window. E.g.
 #+end_src
 
 ** Change how code is evaluated in a major mode
-Run regions or entire buffers with [[https://github.com/syohex/emacs-quickrun][Quickrun]]. Output is show in a popup window.
+Run regions or entire buffers with [[pkg:quickrun]]. Output is show in a popup window.
 
 Quickrun includes support for many languages, usually by sending text directly
 to interpreters or compilers. However, occasionally, you'll find a language

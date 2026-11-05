@@ -104,6 +104,8 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
 
   ;; Enhance elisp syntax highlighting, by highlighting Doom-specific
   ;; constructs, defined symbols, and truncating :pin's in `package!' calls.
+  ;; (when (boundp 'elisp-fontify-semantically)
+  ;;   (setq elisp-fontify-semantically +emacs-lisp-enable-extra-fontification))
   (dolist (mode '(emacs-lisp-mode lisp-data-mode lisp-interaction-mode))
     (font-lock-add-keywords
      mode (append `(;; custom Doom cookies
@@ -115,7 +117,10 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
                   ;; highlight defined, special variables & functions
                   (when +emacs-lisp-enable-extra-fontification
                     `((+emacs-lisp-highlight-vars-and-faces . +emacs-lisp--face))))))
- 
+
+  ;; Provide fontification & documentation for CLI APIs
+  (require 'doom-cli)
+
   (defadvice! +emacs-lisp-append-value-to-eldoc-a (fn sym)
     "Display variable value next to documentation in eldoc."
     :around #'elisp-get-var-docstring
@@ -219,6 +224,19 @@ Use `+emacs-lisp/change-working-buffer' to change this. Only applies to
                  (not (nth 1 fp))  ; not a variable
                  (not (string-match-p "--" (nth 0 fp))))))
       (apply fn args))))
+
+
+;; (defadvice! +emacs-lisp--checkdoc-defun-info-a (fn &rest args)
+;;   :around #'checkdoc-this-string-valid
+;;   (dlet ((checkdoc--interactive-docstring-flag
+;;           checkdoc--interactive-docstring-flag))
+;;     (letf! (defadvice checkdoc-defun-info (:before ())
+;;              (setq checkdoc--interactive-docstring-flag
+;;                    (and checkdoc--interactive-docstring-flag
+;;                         (not (nth 1 fp))  ; not a variable
+;;                         (not (string-match-p "--" (nth 0 fp))))))
+;;       (apply fn args))))
+
 
 
 (use-package! package-lint

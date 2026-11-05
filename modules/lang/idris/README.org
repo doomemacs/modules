@@ -12,8 +12,7 @@ This module adds rudimentary [[https://www.idris-lang.org/][Idris]] support to D
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~idris-mode~. Requires [[module::tools lsp]] and
-  [[https://github.com/idris-community/idris2-lsp][idris2-lsp]].
+  Enable LSP support for [[pkg:idris-mode]]. Requires [[module::tools lsp]] and [[https://github.com/idris-community/idris2-lsp][idris2-lsp]].
 
 ** Packages
 - [[package:idris-mode]]
@@ -35,7 +34,7 @@ For [[module:+lsp]], [[https://github.com/idris-community/idris2-lsp][idris2-lsp
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-In addition to ~idris-mode~ goodness, this module adds frequently used functions
+In addition to [[pkg:idris-mode]] goodness, this module adds frequently used functions
 under the [[kbd:<localleader>]] key.
 
 * TODO Configuration

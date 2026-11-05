@@ -7,7 +7,7 @@
 * Description :unfold:
 This module adds [[https://coq.inria.fr][coq]] support, powered by [[https://proofgeneral.github.io][Proof General]].
 
-- Code completion ([[https://github.com/cpitclaudel/company-coq][company-coq]])
+- Code completion ([[pkg:company-coq]])
 - [[https://github.com/hlissner/doom-snippets/tree/master/coq-mode][Snippets]]
 
 ** Maintainers
@@ -28,7 +28,7 @@ This module adds [[https://coq.inria.fr][coq]] support, powered by [[https://pro
 + To use the completion features of company-coq you need to enable ~(:completion company)~
 + Make sure you have Coq installed and that the ~coqtop~ command is available. This comes with a standard installation of Coq.
   You can use your linux distribution's Coq package or one of the methods given on the [[https://coq.inria.fr/download][Coq website]].
-  
+
 * TODO Usage
 #+begin_quote wip
 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]

@@ -22,7 +22,7 @@ This module adds [[https://ocaml.org/][OCaml]] support to Doom Emacs, powered by
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~tuareg-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[major:tuareg-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/freebroccolo/ocaml-language-server][ocaml-language-server]]).
 
 ** Packages
@@ -39,10 +39,11 @@ This module adds [[https://ocaml.org/][OCaml]] support to Doom Emacs, powered by
   - [[package:merlin-eldoc]]
 
 ** Hacks
-- ~set-ligatures!~ is called with the full tuareg prettify symbol list, this can
-  cause columns to change as certain keywords are shortened (e.g. =fun= becomes
-  \lambda).
-- ~opam-switch-set-switch~ is called the first time [[pkg:tuareg]] and subsequently [[pkg:opam-switch-mode]] are loaded
+- [[fns:set-ligatures!]] is called with the full tuareg prettify symbol list, this
+  can cause columns to change as certain keywords are shortened (e.g. =fun=
+  becomes \lambda).
+- [[cmd:opam-switch-set-switch]] is called the first time [[pkg:tuareg]] and subsequently
+  [[pkg:opam-switch-mode]] are loaded
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -61,22 +62,22 @@ This module requires the following packages available through [[http://opam.ocam
 
 - The following files should have syntax highlighting support: ~.ml{i,p,y,}~,
   ~.eliom{i,}~, ~jbuild~, ~dune~, ~opam~
-- ~merlin-mode~ is activated whenever a =.merlin= file is found (including in a
+- [[minor:merlin-mode]] is activated whenever a =.merlin= file is found (including in a
   parent directory) and =ocamlmerlin= executable is present
 - Line-based auto-indentation is provided by =ocp-indent=, if it is available.
 
-| Command                    | Key             | Description                                               |
-|----------------------------+-----------------+-----------------------------------------------------------|
-| ~merlin-type-enclosing~      | [[kbd:<localleader> t]] | display type under point                                  |
-| ~tuareg-find-alternate-file~ | [[kbd:<localleader> a]] | switch between =.ml= and =.mli=                               |
-| ~merlin-locate~              | [[kbd:g d]]             | lookup definition                                         |
-| ~merlin-occurences~          | [[kbd:SPC c D]]         | lookup references                                         |
-| ~merlin-document~            | [[kbd:K]]               | lookup documentation                                      |
-| ~merlin-imenu~               | [[kbd:SPC s i]]         | symbol lookup in file                                     |
-| ~merlin-iedit-occurrences~   | [[kbd:v R]]             | visual refactor identifier under point (multiple cursors) |
-| ~utop~                       | [[kbd:SPC o r]]         | open =utop= as REPL                                         |
-| ~utop-eval-region~           | [[kbd:SPC c e]]         | evaluate selected region in =utop=                          |
-| ~opam-switch-set-switch~     | [[kbd:<localleader> w]] | evaluate selected region in =utop=                          |
+| Command                        | Key             | Description                                               |
+|--------------------------------+-----------------+-----------------------------------------------------------|
+| [[cmd:merlin-type-enclosing]]      | [[kbd:<localleader> t]] | display type under point                                  |
+| [[fns:tuareg-find-alternate-file]] | [[kbd:<localleader> a]] | switch between =.ml= and =.mli=                               |
+| [[cmd:merlin-locate]]              | [[kbd:g d]]             | lookup definition                                         |
+| [[cmd:merlin-occurrences]]         | [[kbd:SPC c D]]         | lookup references                                         |
+| [[cmd:merlin-document]]            | [[kbd:K]]               | lookup documentation                                      |
+| [[cmd:merlin-imenu]]               | [[kbd:SPC s i]]         | symbol lookup in file                                     |
+| [[cmd:merlin-iedit-occurrences]]   | [[kbd:v R]]             | visual refactor identifier under point (multiple cursors) |
+| [[cmd:utop]]                       | [[kbd:SPC o r]]         | open =utop= as REPL                                         |
+| [[cmd:utop-eval-region]]           | [[kbd:SPC c e]]         | evaluate selected region in =utop=                          |
+| [[cmd:opam-switch-set-switch]]     | [[kbd:<localleader> w]] | evaluate selected region in =utop=                          |
 
 * TODO Configuration
 #+begin_quote wip
@@ -90,14 +91,13 @@ This module requires the following packages available through [[http://opam.ocam
 - Spell checking is activated in comments if [[module::checkers spell]] is active
 - A REPL is provided if [[pkg:utop]] is installed and [[module::tools eval]] is active
 - If [[module::editor format]] is enabled, the =ocamlformat= executable is available and
-  there is an =.ocamlformat= file present then ~format-all-buffer~ is bound to
+  there is an =.ocamlformat= file present then [[cmd:format-all-buffer]] is bound to
   =ocamlformat=, otherwise to =ocp-indent=
 - If [[module::editor multiple-cursors]] is enabled then identifiers can be refactored with
   [[kbd:v R]] and multiple cursors (this correctly matches identifier occurrences
   according to scope, it is not purely a textual match)
 
-Run ~$ doom sync~ to install all packages and ~$ doom doctor~ to diagnose
-missing tools.
+Run [[sh:doom sync]] to install all packages and [[sh:doom doctor]] to diagnose missing tools.
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

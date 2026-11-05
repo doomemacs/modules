@@ -35,8 +35,8 @@ This modules enables the following features:
 - [[package:ledger-mode]]
 
 ** Hacks
-- This module sets ~ledger-clear-whole-transactions~ to ~t~ (default value is
-  ~nil~). This results in ~ledger-toggle-current~ toggling the clear status of
+- This module sets [[var:ledger-clear-whole-transactions]] to ~t~ (default value is
+  ~nil~). This results in [[cmd:ledger-toggle-current]] toggling the clear status of
   the whole transaction instead of toggling just the current posting.
 
 * Installation
@@ -55,8 +55,8 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-Please refer to ~ledger-mode~'s documentation for information on how to
-configure it. You can do so within emacs with [[kbd:C-h i]]
+Please refer to [[pkg:ledger-mode]]'s documentation for information on how to configure
+it. You can do so within emacs with [[kbd:C-h i]]
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

@@ -5,7 +5,7 @@
 #+since:    26.07.0
 
 * Description :unfold:
-This module provides support for [[https://github.com/dakra/ghostel][ghostel]], an Emacs terminal emulator powered by
+This module provides support for [[pkg:ghostel]], an Emacs terminal emulator powered by
 =libghostty-vt=.
 
 #+begin_quote tip
@@ -44,18 +44,18 @@ Optional prerequisites:
   pre-built binary).
 
 ** Dynamic Module support
-To check if your build of Emacs has dynamic module support, run ~$ doom info~ in
-the shell and look for ~MODULES~ next to "features". If it isn't, you'll need to
-find another source to install Emacs from or recompile it with the appropriate
-build options.
+To check if your build of Emacs has dynamic module support, run [[sh:doom info]] in the
+shell and look for ~MODULES~ next to "features". If it isn't, you'll need to find
+another source to install Emacs from or recompile it with the appropriate build
+options.
 
 ** Native module
-ghostel ships a native dynamic module written in Zig. The first time you run =M-x
-ghostel=, it offers to download a pre-built binary for your platform
+ghostel ships a native dynamic module written in Zig. The first time you run
+[[M-x:ghostel]] , it offers to download a pre-built binary for your platform
 automatically. Pre-built binaries are available for =aarch64-macos=, =x86_64-macos=,
 =x86_64-linux=, =aarch64-linux=, and =x86_64-freebsd=.
 
-Auto-install behavior is controlled by [[var:][ghostel-module-auto-install]] (default
+Auto-install behavior is controlled by [[var:ghostel-module-auto-install]] (default
 =ask=); set it to ~'download~, ~'compile~, or ~nil~ to change the prompt:
 #+begin_src emacs-lisp :eval no
 ;;; add to $DOOMDIR/config.el

@@ -8,7 +8,7 @@
 This module allows you to manipulate Docker images, containers, and more from
 Emacs.
 
-Provides a major ~dockerfile-mode~ to edit =Dockerfiles=. Additional convenience
+Provides a major [[pkg:dockerfile-mode]] to edit =Dockerfiles=. Additional convenience
 functions allow images to be built easily.
 
 ** Maintainers
@@ -35,8 +35,8 @@ This module assumes the =docker= and =docker-compose= binaries are installed and
 accessible from your PATH.
 
 Optionally, this module also uses the following programs:
-- =docker-langserver= (for LSP users): ~$ npm install -g
-  dockerfile-language-server-nodejs~
+- =docker-langserver= (for LSP users): [[sh:npm install -g
+  dockerfile-language-server-nodejs]]
 - =dockfmt= for [[module::editor format]]: https://github.com/jessfraz/dockfmt#installation
 
 * TODO Usage
@@ -45,9 +45,9 @@ Optionally, this module also uses the following programs:
 #+end_quote
 
 ** Docker control
-Use ~M-x docker~, select a resource, and then mark or unmark items using the
+Use [[M-x:docker]], select a resource, and then mark or unmark items using the
 following keybindings (for more marking possibilities, check out
-[[github:politza/tablist][politza/tablist]]):
+[[github:politza/tablist]]):
 | Binding | Description          |
 |---------+----------------------|
 | [[kbd:?]]       | List actions         |
@@ -71,7 +71,7 @@ following keybindings (for more marking possibilities, check out
 - ~docker-compose~: ~build~, ~config~, ~create~, ~down~, ~exec~, ~logs~, ~pull~,
   ~push~, ~remove~, ~restart~, ~run~, ~start~, ~stop~, ~up~
 
-  You can also enter =dired= or open a file inside a container or volume.
+  You can also enter [[cmd:dired]] or open a file inside a container or volume.
 
 ** TRAMP
 [[https://www.gnu.org/software/tramp/][TRAMP]] (built into Emacs 29.1+) offers the =docker= method to access running
@@ -97,15 +97,15 @@ example, here is how to change the default arguments for =docker run=:
 #+end_src
 
 *** Other useful variables
-| Variable                            | Description                           | Default          |
-|-------------------------------------+---------------------------------------+------------------|
-| ~docker-command~                    | The docker binary to use              | ~docker~         |
-| ~docker-container-default-sort-key~ | Sort key for docker containers        | ~("Image")~      |
-| ~docker-container-shell-file-name~  | Shell to use when entering containers | ~/bin/bash~      |
-| ~docker-image-default-sort-key~     | Sort key for docker images            | ~("Repository")~ |
-| ~docker-network-default-sort-key~   | Sort key for docker networks          | ~("Name")~       |
-| ~docker-run-as-root~                | Run docker as root                    | ~nil~            |
-| ~docker-volume-default-sort-key~    | Sort key for docker volumes           | ~("Driver")~     |
+| Variable                              | Description                           | Default        |
+|---------------------------------------+---------------------------------------+----------------|
+| [[var:docker-command]]                    | The docker binary to use              | ~docker~         |
+| [[var:docker-container-default-sort-key]] | Sort key for docker containers        | ~("Image")~      |
+| [[var:docker-container-shell-file-name]]  | Shell to use when entering containers | ~/bin/bash~      |
+| [[var:docker-image-default-sort-key]]     | Sort key for docker images            | ~("Repository")~ |
+| [[var:docker-network-default-sort-key]]   | Sort key for docker networks          | ~("Name")~       |
+| [[var:docker-run-as-root]]                | Run docker as root                    | ~nil~            |
+| [[var:docker-volume-default-sort-key]]    | Sort key for docker volumes           | ~("Driver")~     |
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

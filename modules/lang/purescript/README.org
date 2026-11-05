@@ -12,7 +12,7 @@ This module adds [[https://www.purescript.org/][Purescript]] support to Doom Ema
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~purescript-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:purescript-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/nwolverson/purescript-language-server][purescript-language-server]]).
 
 ** Packages

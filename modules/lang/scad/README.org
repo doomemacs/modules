@@ -11,8 +11,8 @@
 This module adds [[https://openscad.org/][OpenSCAD]] support to Doom Emacs.
 
 - Syntax highlighting ([[pkg:scad-mode]] or [[pkg:scad-ts-mode]] with tree-sitter)
-- Preview rendered models (~scad-preview~)
-- Export to STL, SVG, PNG, etc. (~scad-export~)
+- Preview rendered models ([[cmd:scad-preview]])
+- Export to STL, SVG, PNG, etc. ([[cmd:scad-export]])
 - Flymake integration for inline error/warning display
 - Code completion via LSP (requires ~openscad-lsp~)
 - Org-babel support for literate OpenSCAD
@@ -62,19 +62,19 @@ evil to ensure camera controls work correctly.
 ** Org-babel
 This module registers ~scad~ as an org-babel language. Use it in your org
 documents with ~#+begin_src scad~ ... ~#+end_src~. Results default to a file output
-(:results file) and code is exported (:exports code). When
-[[module:+tree-sitter]] is active, source blocks are edited in ~scad-ts-mode~.
+(:results file) and code is exported (:exports code). When [[module:+tree-sitter]] is
+active, source blocks are edited in [[pkg:scad-ts-mode]].
 
 ** Keybinds
 *** Scad mode
-| Binding         | Description  |
-|-----------------+--------------|
-| [[kbd:<localleader> e]] | ~scad-export~  |
-| [[kbd:<localleader> o]] | ~scad-open~    |
-| [[kbd:<localleader> p]] | ~scad-preview~ |
-| [[kbd:C-c C-c]]         | ~scad-preview~ |
-| [[kbd:C-c C-o]]         | ~scad-open~    |
-| [[kbd:C-c C-e]]         | ~scad-export~  |
+| Binding         | Description      |
+|-----------------+------------------|
+| [[kbd:<localleader> e]] | [[cmd:scad-export]]  |
+| [[kbd:<localleader> o]] | [[cmd:scad-open]]    |
+| [[kbd:<localleader> p]] | [[cmd:scad-preview]] |
+| [[kbd:C-c C-c]]         | [[cmd:scad-preview]] |
+| [[kbd:C-c C-o]]         | [[cmd:scad-open]]    |
+| [[kbd:C-c C-e]]         | [[cmd:scad-export]]  |
 
 *** Preview mode
 | Binding | Description       |

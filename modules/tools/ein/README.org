@@ -6,7 +6,7 @@
 
 #+begin_quote warning
 *This module is deprecated* and will be replaced with a new module based on
-[[https://github.com/astoff/code-cells.el][code-cells.el]]. Consider looking in that if you need an alternative.
+[[pkg:code-cells]]. Consider looking in that if you need an alternative.
 #+end_quote
 
 * Description :unfold:

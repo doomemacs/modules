@@ -31,22 +31,24 @@ It includes:
 /This module doesn't install any packages./
 
 ** Hacks
-- ~treesit-auto-install-grammar~, ~treesit-ensure-installed~, ~treesit-enabled-modes~,
-  and ~treesit-major-mode-remap-alist~ have been backported from Emacs 30/31.
-- ~treesit~ has been advised to install grammars to the current Doom profile's
+- [[var:treesit-auto-install-grammar]], [[fns:treesit-ensure-installed]],
+  [[var:treesit-enabled-modes]], and [[var:treesit-major-mode-remap-alist]] have been
+  backported from Emacs 30/31.
+- [[pkg:treesit]] has been advised to install grammars to the current Doom profile's
   data folder, rather than in ~$EMACSDIR/treesit/~ (to keep ~$EMACSDIR~ clean and so
   each profile can have their own grammars; in case of version conflicts).
 - Because *-ts-modes are inconsistent in how they handle missing language
-  grammars (some error out, some respect ~treesit-auto-install-grammar~ as of 30+,
-  some fall back to the non-ts-mode), ~major-mode-remap~ is advised to provide
-  consistent and graceful failure these cases (falling back to the non-ts-mode
-  in all cases, with a logged warning).
-- Some *-ts-modes modify ~auto-mode-alist~ and/or ~interpreter-mode-alist~ with
-  hardcoded entries whenever they are activated, potentially overriding user (or
-  Doom module) configuration. They have been advised to suppress this behavior.
-- Autoloaded ~*-ts-mode~/~*-ts-mode-maybe~ entries in ~auto-mode-alist~ and
-  ~interpreter-mode-alist~ are proactively removed so we can consistently rely on
-  ~major-mode-remap-{alist,defaults}~ instead (which is more predictable and
+  grammars (some error out, some respect [[var:treesit-auto-install-grammar]] as of
+  30+, some fall back to the non-ts-mode), [[fns:major-mode-remap]] is advised to
+  provide consistent and graceful failure these cases (falling back to the
+  non-ts-mode in all cases, with a logged warning).
+- Some *-ts-modes modify [[var:auto-mode-alist]] and/or [[var:interpreter-mode-alist]]
+  with hardcoded entries whenever they are activated, potentially overriding
+  user (or Doom module) configuration. They have been advised to suppress this
+  behavior.
+- Autoloaded ~*-ts-mode~/~*-ts-mode-maybe~ entries in [[var:auto-mode-alist]] and
+  [[var:interpreter-mode-alist]] are proactively removed so we can consistently rely
+  on ~major-mode-remap-{alist,defaults}~ instead (which is more predictable and
   harder for users/modules to carelessly override)
 
 * Installation
@@ -67,13 +69,13 @@ requires two additional steps:
    your first file for any tree-sitter-enabled language, you'll be prompted to
    install the associated grammars if they are missing.
 
-   This can be done manually by executing ~M-x treesit-install-language-grammar~
+   This can be done manually by executing [[M-x:treesit-install-language-grammar]]
    (or installing them through your OS package manager, though be aware of
    version constraints; newer versions of some grammars may not work with older
    versions of Emacs).
 
-To test whether tree-sitter is functioning in the current buffer, execute ~M-x
-+tree-sitter/doctor~.
+To test whether tree-sitter is functioning in the current buffer, execute
+[[M-x:+tree-sitter/doctor]].
 
 * TODO Usage
 #+begin_quote wip
@@ -124,8 +126,8 @@ Currently keys are bound to:
 
 ** Rebind text objects
 Rebinding keys works the same as rebinding any other key, but text-object keys
-must be bound on one or both of the ~+tree-sitter-inner-text-object-map~ or
-~+tree-sitter-outer-text-object-map~ keymaps:
+must be bound on one or both of the [[var:+tree-sitter-inner-text-object-map]] or
+[[var:+tree-sitter-outer-text-object-map]] keymaps:
 #+begin_src emacs-lisp
 (map! (:map +tree-sitter-outer-text-objects-map
        "f" (evil-textobj-tree-sitter-get-textobj "call.inner")
@@ -146,9 +148,9 @@ outer}-text-objects-map~:
 #+end_src
 
 ** Configuring Tree sitter highlighting
-Doom increases ~treesit-font-lock-level~ from its upstream default of ~3~ to ~4~ for
-maximum syntax highlighting. If this is too busy or slow for you, try reducing
-it:
+Doom increases [[var:treesit-font-lock-level]] from its upstream default of ~3~ to ~4~
+for maximum syntax highlighting. If this is too busy or slow for you, try
+reducing it:
 
 #+begin_src elisp
 ;;; add to $DOOMDIR/config.el

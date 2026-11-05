@@ -21,7 +21,7 @@ This module adds support for the Ada and SPARK programming languages.
 ** Module flags
 # Flags should be in alphanumerical order.
 - +lsp ::
-  Enable LSP support for ~ada-mode~ / ~ada-ts-mode~, ~gpr-mode~ / ~gpr-ts-mode~.
+  Enable LSP support for [[pkg:ada-mode]] / [[pkg:ada-ts-mode]], [[pkg:gpr-mode]] / [[pkg:gpr-ts-mode]].
   Requires [[module::tools lsp]] and a langserver (supports [[https://github.com/AdaCore/ada_language_server][ada_language_server]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -34,9 +34,9 @@ This module adds support for the Ada and SPARK programming languages.
 - [[package:gpr-ts-mode]] if [[module:+tree-sitter]]
 
 ** Hacks
-- ~ada-ts-mode~ has been advised not to set ~treesit-language-source-alist~ and
-  ~eglot-server-programs~ buffer-locally, because this overrides global settings
-  (by the user or Doom modules) in a non-standard way.
+- [[pkg:ada-ts-mode]] has been advised not to set [[var:treesit-language-source-alist]] and
+  [[var:eglot-server-programs]] buffer-locally, because this overrides global
+  settings (by the user or Doom modules) in a non-standard way.
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]

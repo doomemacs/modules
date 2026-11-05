@@ -37,7 +37,7 @@ This module requires one of three setups for ligatures to work:
 
   /This module does not have specific installation instructions/
 
-  ~doom doctor~ will tell you if the module is incompatible with your current
+  [[sh:doom doctor]] will tell you if the module is incompatible with your current
   Emacs version, and what you can do to remediate.
 
 * Usage
@@ -47,7 +47,7 @@ This module requires one of three setups for ligatures to work:
 
 ** Mathematical symbols replacement
 If you want to set symbol replacements for modules that don't have them by
-default you can use the ~set-ligatures!~ function in your config.el file
+default you can use the [[fns:set-ligatures!]] function in your config.el file
 #+BEGIN_SRC emacs-lisp
 (with-eval-after-load 'PACKAGE
   (set-ligatures! 'MAJOR-MODE
@@ -131,7 +131,7 @@ are obtained automatically depending on the capabilities of the font, and no
 font-specific configuration is necessary.
 
 Emacs-mac port implements the same method natively in [[https://bitbucket.org/mituharu/emacs-mac/src/26c8fd9920db9d34ae8f78bceaec714230824dac/lisp/term/mac-win.el?at=master#lines-345:805][its code]], nothing is
-necessary on Doom side; otherwise, Doom uses the [[https://github.com/mickeynp/ligature.el][ligature.el]] package that
+necessary on Doom side; otherwise, Doom uses the [[pkg:ligature]] package that
 implements this method for Emacs 28+ built with Harfbuzz support. Therefore, the
 module will not work with Emacs 27 or previous.
 
@@ -153,7 +153,7 @@ See [[var:+ligatures-extra-symbols]] for documentation and available properties.
 
 ** Font ligatures (turning "=>" into an arrow...)
 *** Setting ligatures for specific font or major mode
-As the [[https://github.com/mickeynp/ligature.el][README]] for ligature.el states, you can manipulate the ligatures that you
+As the [[github:mickeynp/ligature.el][README]] for ligature.el states, you can manipulate the ligatures that you
 want to enable, specific for your font, or specific for the major modes that you
 want to use. [[fns:set-font-ligatures!]] is a thin wrapper around [[pkg:ligature]] to
 control these.

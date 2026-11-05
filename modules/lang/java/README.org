@@ -5,16 +5,16 @@
 #+since:    1.3
 
 * Description :unfold:
-This module adds [[https://www.java.com][Java]] support to Doom Emacs, including ~android-mode~ and
-~groovy-mode~.
+This module adds [[https://www.java.com][Java]] support to Doom Emacs, including [[pkg:android-mode]] and
+[[pkg:groovy-mode]].
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~java-mode~. Requires [[module::tools lsp]] and a
-  langserver (supports eclipse.jdt.ls).
+  Enable LSP support for [[major:java-mode]]. Requires [[module::tools lsp]] and a langserver
+  (supports eclipse.jdt.ls).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]].
@@ -86,8 +86,8 @@ PATH_add ~/.jabba/jdk/adopt@1.11.0-3
 JAVA_HOME=~/.jabba/jdk/adopt@1.11.0-3
 #+end_src
 
-And then run ~$ direnv allow .~ in the project directory. The [[module::tools direnv]]
-module will automatically source this environment before activating LSP servers.
+And then run [[sh:direnv allow .]] in the project directory. The [[module::tools direnv]] module
+will automatically source this environment before activating LSP servers.
 
 ** Formatter
 [[module::editor format]] uses [[https://github.com/google/google-java-format][google-java-format]] to handle formatting.
@@ -106,7 +106,7 @@ java -jar /path/to/google-java-format-all-deps.jar
 #+end_quote
 
 ** [[module:+lsp]] features
-According to [[https://github.com/emacs-lsp/lsp-java]], you get:
+According to [[pkg:lsp-java]], you get:
 - As you type reporting of parsing and compilation errors (via [[pkg:flycheck]] or
   [[pkg:lsp-ui]])
 - Code completion ([[pkg:company-lsp]] or complete-at-point)
@@ -130,15 +130,15 @@ According to [[https://github.com/emacs-lsp/lsp-java]], you get:
 #+end_quote
 
 ** [[module:+lsp]]
-Install the eclipse server by executing ~M-x lsp-install-server~ and selecting
+Install the eclipse server by executing [[M-x:lsp-install-server]] and selecting
 =jdtls=. After that any newly opened =java= files should start the LSP server
 automatically.
 
 To update the server, perform ~SPC u M-x lsp-install-server~.
 
 Note that if you change Java version you may need to remove the LSP server and
-install it again. You can do this with ~M-x +lsp/uninstall-server~ followed by
-~M-x lsp-install-server~.
+install it again. You can do this with [[M-x:+lsp/uninstall-server]] followed by
+[[M-x:lsp-install-server]].
 
 Enable the [[module::tools debugger +lsp]] module to get test runner support.
 

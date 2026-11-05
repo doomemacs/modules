@@ -8,7 +8,7 @@
 This module enables support for a literate config.
 
 A literate config consists of a =$DOOMDIR/config.org=. All src blocks within are
-tangled =$DOOMDIR/config.el=, by default, when ~$ doom sync~ is executed.
+tangled =$DOOMDIR/config.el=, by default, when [[sh:doom sync]] is executed.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
@@ -26,7 +26,7 @@ tangled =$DOOMDIR/config.el=, by default, when ~$ doom sync~ is executed.
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module only requires a =$DOOMDIR/config.org=, which will be tangled into
-=$DOOMDIR/config.el= when you run ~$ doom sync~.
+=$DOOMDIR/config.el= when you run [[sh:doom sync]].
 
 #+begin_quote warning
 *Be careful!* Enabling this module will overwrite =$DOOMDIR/config.el=! If you are
@@ -47,8 +47,8 @@ only trying out the module, *back up this file first!*
 #+end_quote
 
 ** Change the location of config.org
-The ~+literate-config-file~ variable controls where to look for your config.org.
-To change this it must be modified early -- in =$DOOMDIR/init.el= or
+The [[var:+literate-config-file]] variable controls where to look for your
+config.org. To change this it must be modified early -- in =$DOOMDIR/init.el= or
 =$DOOMDIR/cli.el=.
 
 Source blocks needs to be in some language to be automatically tangled, for
@@ -99,11 +99,11 @@ support [[https://orgmode.org/manual/Working-with-Source-Code.html][in the Org m
 ** How do I tangle to =$DOOMDIR/init.el=?
 If your literate needs are more complex (e.g. you want to make your init.el
 literate), this module won't cut it. =init.el= files in modules are loaded long
-before =config.org= is tangled in the ~$ doom sync~ process.
+before =config.org= is tangled in the [[sh:doom sync]] process.
 
 However, Doom comes with a [[file:../../../bin/org-tangle][bin/org-tangle]] script which can be used to tangle
 arbitrary org files from the command line. Use it to create your own compilation
-workflows. This is /much/ faster than using ~org-babel-load-file~ directly to
+workflows. This is /much/ faster than using [[cmd:org-babel-load-file]] directly to
 load your literate config every time Doom is started.
 
 ** How do I disable tangle-on-save?

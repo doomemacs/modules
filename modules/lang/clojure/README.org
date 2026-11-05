@@ -7,10 +7,10 @@
 * Description :unfold:
 This module adds support for the Clojure(Script) language.
 
-- Interactive development environment (~cider~): REPL, compilation, debugging,
+- Interactive development environment ([[pkg:cider]]): REPL, compilation, debugging,
   running tests, definitions & documentation lookup, code completion, and much
   more
-- Refactoring (~clj-refactor~)
+- Refactoring ([[pkg:clj-refactor]])
 - Linting (~clj-kondo~), requires [[module::checkers syntax]]
 - LSP support (~clojure-lsp~), required [[module:+lsp]]
 
@@ -19,8 +19,8 @@ This module adds support for the Clojure(Script) language.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~clojure-mode~ (alongside Cider). Requires [[module::tools lsp]]
-  and a langserver (supports [[https://clojure-lsp.io/][clojure-lsp]]).
+  Enable LSP support for [[major:clojure-mode]] (alongside Cider). Requires [[module::tools lsp]] and
+  a langserver (supports [[https://clojure-lsp.io/][clojure-lsp]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]] and Emacs 30.1 or newer.
@@ -54,7 +54,7 @@ This module optionally requires:
 
 * Usage
 
-Below is a listing of the various keybinds provided by the module. 
+Below is a listing of the various keybinds provided by the module.
 
 ** REPL management
 For the most part, general usage should fall into:
@@ -64,90 +64,92 @@ For the most part, general usage should fall into:
 
 As such, these bindings are most likely to be used.
 
-| Keybind           | Command                                            |
-|-------------------+----------------------------------------------------|
-| [[kbd:<localleader> ']]   | ~cider-jack-in-clj~                                  |
-| [[kbd:<localleader> c]]   | ~cider-connect-clj~                                  |
-| [[kbd:<localleader> C]]   | ~cider-connect-cljs~                                 |
-| [[kbd:<localleader> m "]] | ~cider-jack-in-cljs~                                 |
-| [[kbd:<localleader> r R]] | ~cider-restart~                                      |
-| [[kbd:<localleader> r q]] | ~cider-quit~                                         |
-| [[kbd:<localleader> r B]] | ~+clojure/cider-switch-to-repl-buffer-and-switch-ns~ |
-| [[kbd:<localleader> r L]] | ~cider-load-buffer-and-switch-to-repl-buffer~        |
-| [[kbd:<localleader> r b]] | ~cider-switch-to-repl-buffer~                        |
-| [[kbd:<localleader> r c]] | ~cider-find-and-clear-repl-output~                   |
-| [[kbd:<localleader> r l]] | ~cider-load-buffer~                                  |
-| [[kbd:<localleader> r n]] | ~cider-repl-set-ns~                                  |
-| [[kbd:<localleader> r r]] | ~cider-ns-refresh~                                   |
+| Keybind           | Command                                                |
+|-------------------+--------------------------------------------------------|
+| [[kbd:<localleader> ']]   | [[cmd:cider-jack-in-clj]]                                  |
+| [[kbd:<localleader> c]]   | [[cmd:cider-connect-clj]]                                  |
+| [[kbd:<localleader> C]]   | [[cmd:cider-connect-cljs]]                                 |
+| [[kbd:<localleader> m "]] | [[cmd:cider-jack-in-cljs]]                                 |
+| [[kbd:<localleader> r R]] | [[cmd:cider-restart]]                                      |
+| [[kbd:<localleader> r q]] | [[cmd:cider-quit]]                                         |
+| [[kbd:<localleader> r B]] | [[cmd:+clojure/cider-switch-to-repl-buffer-and-switch-ns]] |
+| [[kbd:<localleader> r L]] | [[cmd:cider-load-buffer-and-switch-to-repl-buffer]]        |
+| [[kbd:<localleader> r b]] | [[cmd:cider-switch-to-repl-buffer]]                        |
+| [[kbd:<localleader> r c]] | [[cmd:cider-find-and-clear-repl-output]]                   |
+| [[kbd:<localleader> r l]] | [[cmd:cider-load-buffer]]                                  |
+| [[kbd:<localleader> r n]] | [[cmd:cider-repl-set-ns]]                                  |
+| [[kbd:<localleader> r r]] | [[cmd:cider-ns-refresh]]                                   |
 
 ** Tests
 The module also provides support for running tests through cider, including a nicely formatted output.
 
-| Keybind           | Command                              |
-|-------------------+--------------------------------------|
-| [[kbd:<localleader> t a]] | ~cider-test-rerun-test~                |
-| [[kbd:<localleader> t l]] | ~cider-test-run-loaded-tests~          |
-| [[kbd:<localleader> t n]] | ~cider-test-run-ns-tests~              |
-| [[kbd:<localleader> t p]] | ~cider-test-run-project-tests~         |
-| [[kbd:<localleader> t r]] | ~cider-test-rerun-failed-tests~        |
-| [[kbd:<localleader> t s]] | ~cider-test-run-ns-tests-with-filters~ |
-| [[kbd:<localleader> t t]] | ~cider-test-run-test~                  |
+| Keybind           | Command                                  |
+|-------------------+------------------------------------------|
+| [[kbd:<localleader> t a]] | [[cmd:cider-test-rerun-test]]                |
+| [[kbd:<localleader> t l]] | [[cmd:cider-test-run-loaded-tests]]          |
+| [[kbd:<localleader> t n]] | [[cmd:cider-test-run-ns-tests]]              |
+| [[kbd:<localleader> t p]] | [[cmd:cider-test-run-project-tests]]         |
+| [[kbd:<localleader> t r]] | [[cmd:cider-test-rerun-failed-tests]]        |
+| [[kbd:<localleader> t s]] | [[cmd:cider-test-run-ns-tests-with-filters]] |
+| [[kbd:<localleader> t t]] | [[cmd:cider-test-run-test]]                  |
 
 
 ** Search/navigation
 Some useful bindings for navigating around namespaces and symbols. When using [[module:+lsp]], the bindings in [[module::tools lsp]] are supported.
 
-| Keybind           | Command             |
-|-------------------+---------------------|
-| [[kbd:<localleader> g b]] | ~cider-pop-back~      |
-| [[kbd:<localleader> g g]] | ~cider-find-var~      |
-| [[kbd:<localleader> g n]] | ~cider-find-ns~       |
-| [[kbd:<localleader> h n]] | ~cider-find-ns~       |
-| [[kbd:<localleader> n N]] | ~cider-browse-ns-all~ |
-| [[kbd:<localleader> n n]] | ~cider-browse-ns~     |
-| [[kbd:<localleader> h a]] | ~cider-apropos~       |
+| Keybind           | Command                 |
+|-------------------+-------------------------|
+| [[kbd:<localleader> g b]] | [[fns:cider-pop-back]]      |
+| [[kbd:<localleader> g g]] | [[cmd:cider-find-var]]      |
+| [[kbd:<localleader> g n]] | [[cmd:cider-find-ns]]       |
+| [[kbd:<localleader> h n]] | [[cmd:cider-find-ns]]       |
+| [[kbd:<localleader> n N]] | [[cmd:cider-browse-ns-all]] |
+| [[kbd:<localleader> n n]] | [[cmd:cider-browse-ns]]     |
+| [[kbd:<localleader> h a]] | [[cmd:cider-apropos]]       |
 
 ** Evaluation
 Outside of the [[kbd:SPC m e]] bindings for evaluating forms, the following are also available; including some to pretty-print the results.
 
-| Keybind           | Command                                |
-|-------------------+----------------------------------------|
-| [[kbd:<localleader> e D]] | ~cider-insert-defun-in-repl~             |
-| [[kbd:<localleader> e E]] | ~cider-insert-last-sexp-in-repl~         |
-| [[kbd:<localleader> e R]] | ~cider-insert-region-in-repl~            |
-| [[kbd:<localleader> e b]] | ~cider-eval-buffer~                      |
-| [[kbd:<localleader> e d]] | ~cider-eval-defun-at-point~              |
-| [[kbd:<localleader> e e]] | ~cider-eval-last-sexp~                   |
-| [[kbd:<localleader> e r]] | ~cider-eval-region~                      |
-| [[kbd:<localleader> p d]] | ~cider-pprint-eval-defun-at-point~       |
-| [[kbd:<localleader> p D]] | ~cider-pprint-eval-defun-to-comment~     |
-| [[kbd:<localleader> p p]] | ~cider-pprint-eval-last-sexp~            |
-| [[kbd:<localleader> p P]] | ~cider-pprint-eval-last-sexp-to-comment~ |
-| [[kbd:<localleader> p r]] | ~cider-pprint-eval-last-sexp-to-repl~    |
+| Keybind           | Command                                    |
+|-------------------+--------------------------------------------|
+| [[kbd:<localleader> e D]] | [[cmd:cider-insert-defun-in-repl]]             |
+| [[kbd:<localleader> e E]] | [[cmd:cider-insert-last-sexp-in-repl]]         |
+| [[kbd:<localleader> e R]] | [[cmd:cider-insert-region-in-repl]]            |
+| [[kbd:<localleader> e b]] | [[fns:cider-eval-buffer]]                      |
+| [[kbd:<localleader> e d]] | [[cmd:cider-eval-defun-at-point]]              |
+| [[kbd:<localleader> e e]] | [[cmd:cider-eval-last-sexp]]                   |
+| [[kbd:<localleader> e r]] | [[cmd:cider-eval-region]]                      |
+| [[kbd:<localleader> p d]] | [[cmd:cider-pprint-eval-defun-at-point]]       |
+| [[kbd:<localleader> p D]] | [[cmd:cider-pprint-eval-defun-to-comment]]     |
+| [[kbd:<localleader> p p]] | [[cmd:cider-pprint-eval-last-sexp]]            |
+| [[kbd:<localleader> p P]] | [[cmd:cider-pprint-eval-last-sexp-to-comment]] |
+| [[kbd:<localleader> p r]] | [[cmd:cider-pprint-eval-last-sexp-to-repl]]    |
 
 ** Debugging
-A number of bindings to provide useful overlays that help during debugging. ~cider-enlighten-mode~ is a mode that will highlight the results of a function evaluation, /including the locals/. See a demo [[https://www.youtube.com/watch?v=tCu2AewBTR4][here]].
+A number of bindings to provide useful overlays that help during debugging.
+[[minor:cider-enlighten-mode]] is a mode that will highlight the results of a function
+evaluation, /including the locals/. See a demo [[https://www.youtube.com/watch?v=tCu2AewBTR4][here]].
 
-| Keybind           | Command                   |
-|-------------------+---------------------------|
-| [[kbd:<localleader> M]]   | ~cider-macroexpand-all~     |
-| [[kbd:<localleader> R]]   | ~hydra-cljr-help-menu/body~ |
-| [[kbd:<localleader> e u]] | ~cider-undef~               |
-| [[kbd:<localleader> i e]] | ~cider-enlighten-mode~      |
-| [[kbd:<localleader> i i]] | ~cider-inspect~             |
-| [[kbd:<localleader> i r]] | ~cider-inspect-last-result~ |
-| [[kbd:<localleader> m]]   | ~cider-macroexpand-1~       |
+| Keybind           | Command                       |
+|-------------------+-------------------------------|
+| [[kbd:<localleader> M]]   | [[cmd:cider-macroexpand-all]]     |
+| [[kbd:<localleader> R]]   | [[cmd:hydra-cljr-help-menu/body]] |
+| [[kbd:<localleader> e u]] | [[cmd:cider-undef]]               |
+| [[kbd:<localleader> i e]] | [[minor:cider-enlighten-mode]]          |
+| [[kbd:<localleader> i i]] | [[cmd:cider-inspect]]             |
+| [[kbd:<localleader> i r]] | [[cmd:cider-inspect-last-result]] |
+| [[kbd:<localleader> m]]   | [[cmd:cider-macroexpand-1]]       |
 
 ** Help
 Several bindings used for viewing documentation for various functions, both inside and outside of both a REPL and Emacs ([[kbd:K]] for example uses the sources and a cached version of clojuredocs)
 
-| Keybind           | Command               |
-|-------------------+-----------------------|
-| [[kbd:<localleader> h c]] | ~cider-clojuredocs~     |
-| [[kbd:<localleader> h d]] | ~cider-doc~             |
-| [[kbd:<localleader> h j]] | ~cider-javadoc~         |
-| [[kbd:<localleader> h w]] | ~cider-clojuredocs-web~ |
-| [[kbd:K]]                 | ~+lookup/documentation~ |
+| Keybind           | Command                   |
+|-------------------+---------------------------|
+| [[kbd:<localleader> h c]] | [[cmd:cider-clojuredocs]]     |
+| [[kbd:<localleader> h d]] | [[cmd:cider-doc]]             |
+| [[kbd:<localleader> h j]] | [[cmd:cider-javadoc]]         |
+| [[kbd:<localleader> h w]] | [[cmd:cider-clojuredocs-web]] |
+| [[kbd:K]]                 | [[cmd:+lookup/documentation]] |
 
 
 * Configuration

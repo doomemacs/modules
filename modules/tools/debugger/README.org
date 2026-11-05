@@ -30,15 +30,15 @@ with.
 #+begin_quote warning
 Dape's documentation will instruct you to install debug adapters to
 =$EMACSDIR/debug-adapters/=, but Doom uses =$DOOMDIR/debug-adapters/= instead! Alter
-[[var:][dape-adapter-dir]] to change this.
+[[var:dape-adapter-dir]] to change this.
 #+end_quote
 
 * Usage
-Start the debugger with ~M-x +debugger/start~ (bound to [[kbd:<leader> o d]]). You'll be
+Start the debugger with [[M-x:+debugger/start]] (bound to [[kbd:<leader> o d]]). You'll be
 prompted to enter a debugger configuration to launch (use [[kbd:<up>]]/[[kbd:<down>]] to
 traverse your history of debugger configs).
 
-Once the session is started, it can be terminated by ~M-x +debugger/quit~.
+Once the session is started, it can be terminated by [[M-x:+debugger/quit]].
 
 * TODO Configuration
 #+begin_quote wip

@@ -6,8 +6,8 @@
 
 * Description :unfold:
 This module adds text rotation to Doom Emacs. I.e. The ability to cycle through
-keywords or text patterns at point, like ~true~ and ~false~, or ~public~,
-~protected~, and ~private~ (in ~c++-mode~).
+keywords or text patterns at point, like ~true~ and ~false~, or ~public~, ~protected~,
+and ~private~ (in [[major:c++-mode]]).
 
 ** Maintainers
 - [[github:hlissner]]

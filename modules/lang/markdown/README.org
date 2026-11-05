@@ -32,7 +32,7 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
 
 ** Module flags
 - +lsp ::
-  Enable an LSP hook for ~markdown-mode~, ~gfm-mode~, and ~markdown-ts-mode~. Requires
+  Enable an LSP hook for [[major:markdown-mode]], [[major:gfm-mode]], and [[major:markdown-ts-mode]]. Requires
   [[module::tools lsp]] and a language server (e.g. unified-language-server,
   remark-language-server, marksman, vscode-markdown-language-server).
 - +grip ::
@@ -70,20 +70,20 @@ Out of the box, flycheck recognizes these checkers for markdown-mode and
 gfm-mode:
 
 - Markdown-specific
-  - [[https://github.com/DavidAnson/markdownlint][markdownlint]] (~$ npm install markdownlint~)
-  - [[https://github.com/markdownlint/markdownlint][mdl]] (~$ gem install mdl~)
+  - [[https://github.com/DavidAnson/markdownlint][markdownlint]] ([[sh:npm install markdownlint]])
+  - [[https://github.com/markdownlint/markdownlint][mdl]] ([[sh:gem install mdl]])
 - General (natural language)
   - [[http://proselint.com/][proselint]]
-    - ~$ pip install proselint~
+    - [[sh:pip install proselint]]
     - Or through your OS package manager
-      - MacOS: ~$ brew install proselint~
+      - MacOS: [[sh:brew install proselint]]
       - Arch Linux: [[https://aur.archlinux.org/packages/proselint][proselint in AUR]]
-      - Debian & Ubuntu: ~$ apt-get install python3-proselint~
-      - Fedora: ~$ dnf install proselint~
-  - [[https://github.com/textlint/textlint][textlint]] (~$ npm install textlint~)
+      - Debian & Ubuntu: [[sh:apt-get install python3-proselint]]
+      - Fedora: [[sh:dnf install proselint]]
+  - [[https://github.com/textlint/textlint][textlint]] ([[sh:npm install textlint]])
 
 ** Markdown compiler
-This module requires a markdown compiler in order for ~markdown-preview~ to
+This module requires a markdown compiler in order for [[cmd:markdown-preview]] to
 work. It will recognize and use one of the following executables, in this order
 (you only need one):
 
@@ -106,15 +106,15 @@ npm install -g marked
 Pandoc is the universal markup transpiler. It should be available through your
 system package manager. For example:
 
-+ MacOS: ~$ brew install pandoc~
-+ Arch Linux: ~$ pacman -S pandoc~
++ MacOS: [[sh:brew install pandoc]]
++ Arch Linux: [[sh:pacman -S pandoc]]
 
 *** Markdown
 The C implementation of Markdown.pl, called =discount=, is available through
 your OS's package manager:
 
-+ MacOS: ~$ brew install discount~
-+ Arch Linux: ~$ pacman -S discount~
++ MacOS: [[sh:brew install discount]]
++ Arch Linux: [[sh:pacman -S discount]]
 
 The original perl script that discount is inspired from can be found on [[https://daringfireball.net/projects/markdown/][John
 Gruber's website]].
@@ -123,7 +123,7 @@ Gruber's website]].
 See [[https://fletcher.github.io/MultiMarkdown-6/introduction.html][its documentation]] for details on what MultiMarkdown is. The compiler can be
 installed through your OS's package manager:
 
-+ MacOS: ~$ brew install multimarkdown~
++ MacOS: [[sh:brew install multimarkdown]]
 + Arch Linux: [[https://aur.archlinux.org/packages/multimarkdown/][multimarkdown]] is available on the AUR
 
 ** Formatter
@@ -136,10 +136,10 @@ Formatting is handled using the [[module::editor format]] module via [[https://p
 #+end_quote
 
 ** Markdown preview
-~markdown-preview~ is bound to [[kbd:<localleader> p]]. This will open a preview of your
-compiled markdown document in your browser.
+[[cmd:markdown-preview]] is bound to [[kbd:<localleader> p]]. This will open a preview of
+your compiled markdown document in your browser.
 
-Alternatively, you can use ~grip-mode~ through [[module:+grip]].
+Alternatively, you can use [[pkg:grip-mode]] through [[module:+grip]].
 
 * Configuration
 #+begin_quote wip
@@ -147,13 +147,13 @@ Alternatively, you can use ~grip-mode~ through [[module:+grip]].
 #+end_quote
 
 ** Changing how markdown is compiled
-When ~markdown-preview~ is invoked ([[kbd:<localleader> p]]) it consults
-~markdown-command~. Its default value (~#'+markdown-compile~) will consult
-~+markdown-compile-functions~: a list of functions that take three arguments:
+When [[cmd:markdown-preview]] is invoked ([[kbd:<localleader> p]]) it consults
+[[var:markdown-command]]. Its default value (~#'+markdown-compile~) will consult
+[[var:+markdown-compile-functions]]: a list of functions that take three arguments:
 the start and end point in the current buffer to use as input, and an output
 buffer to insert the result in.
 
-By default, the value of ~+markdown-compile-functions~ is:
+By default, the value of [[var:+markdown-compile-functions]] is:
 #+begin_src lisp
 '(+markdown-compile-marked
   +markdown-compile-pandoc
@@ -171,7 +171,7 @@ if available. Changing this variable will control how markdown is compiled:
 (remove-hook '+markdown-compile-functions #'+markdown-compile-markdown)
 #+end_src
 
-Otherwise, you can change ~markdown-command~ directly:
+Otherwise, you can change [[var:markdown-command]] directly:
 #+begin_src emacs-lisp
 (setq markdown-command "markdown | smartypants")
 #+end_src

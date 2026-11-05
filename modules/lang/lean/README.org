@@ -14,8 +14,8 @@ for Lean 3 behind a [[module:+v3]] flag.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~nael-mode~ (Lean 4). Requires [[module::tools lsp]] and
-  an LSP server (e.g. [[https://github.com/leanprover/lean4/tree/master/src/lake][Lake]]). There no LSP support for Lean 3.
+  Enable LSP support for [[major:nael-mode]] (Lean 4). Requires [[module::tools lsp]] and an LSP
+  server (e.g. [[https://github.com/leanprover/lean4/tree/master/src/lake][Lake]]). There no LSP support for Lean 3.
 - +v3 ::
   Include Lean 3 support, powered by [[pkg:lean-mode]].
 

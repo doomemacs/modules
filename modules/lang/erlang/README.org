@@ -17,7 +17,7 @@ Includes:
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~erlang-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[major:erlang-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/erlang/sourcer][sourcer]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -33,7 +33,7 @@ Includes:
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-This module requires Erlang be installed (which includes ~erlang-mode~). Check
+This module requires Erlang be installed (which includes [[major:erlang-mode]]). Check
 your distribution's package manager or a version management tool such as [[https://github.com/kerl/kerl][kerl]].
 
 - [[https://github.com/erlang/sourcer][sourcer]] when [[module::tools lsp]] & [[module:+lsp]]

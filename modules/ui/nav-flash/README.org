@@ -32,10 +32,10 @@ Tremendously helpful on large, 1600p+ or 4K displays.
 /This module has no external requirements./
 
 * Usage
-By default, [[pkg:nav-flash]] will be triggered whenever [[fn:recenter]] is called or an entry
-is added to the jump-list (managed by [[pkg:better-jumper]]).
+By default, [[pkg:nav-flash]] will be triggered whenever [[fns:recenter]] is called or an
+entry is added to the jump-list (managed by [[pkg:better-jumper]]).
 
-[[fn:recenter]] is called after many hooks and commands, such as:
+[[fns:recenter]] is called after many hooks and commands, such as:
 - [[var:better-jumper-post-jump-hook]]
 - [[var:org-follow-link-hook]]
 - [[var:imenu-after-jump-hook]]

@@ -44,47 +44,47 @@ This module's hacks haven't been documented yet. [[doom-contrib-module:][Documen
 #+end_quote
 
 ** Isolated buffer-list
-When persp-mode is active, ~doom-buffer-list~ becomes workspace-restricted. You
-can overcome this by using ~buffer-list~.
+When persp-mode is active, [[fns:doom-buffer-list]] becomes workspace-restricted.
+You can overcome this by using [[fns:buffer-list]].
 
 ** Automatic workspaces
 A workspace is automatically created (and switched to) when you:
 
-- Create a new frame (with =make-frame=; bound to [[kbd:M-N]] by default).
-- Switch to a project using ~projectile-switch-project~.
+- Create a new frame (with [[cmd:make-frame]]; bound to [[kbd:M-N]] by default).
+- Switch to a project using [[cmd:projectile-switch-project]].
 
 ** Session persistence
 By default, your session is autosaved when you quit Emacs (or disable
-~persp-mode~). You can load a previous session with ~M-x
-+workspace/load-session~ or ~:sl[oad]~ (ex command).
+[[minor:persp-mode]]). You can load a previous session with [[M-x:+workspace/load-session]] or
+~:sl[oad]~ (ex command).
 
 You can supply either a name to load a specific session to replace your current
 one.
 
 ** Workspace persistence
-If you'd like to save a specific workspace, use ~M-x +workspace/save~, which can
-be loaded into the current session (as another workspace) with ~M-x
-+workspace/load~.
+If you'd like to save a specific workspace, use [[M-x:+workspace/save]], which can
+be loaded into the current session (as another workspace) with
+[[M-x:+workspace/load]].
 
 ** Commands & Keybindings
 Here is a list of available commands, their default keybindings (defined in
 [[../../config/default/+evil-bindings.el][config/default/+bindings.el]]), and corresponding ex commands (if any -- defined
 in [[../../editor/evil/+commands.el][config/default/+evil-commands.el]]).
 
-| command                         | key / ex command     | description                                                |
-|---------------------------------+----------------------+------------------------------------------------------------|
-| ~+workspace/new~                  | [[kbd:SPC TAB n]]            | Create a new, blank workspace                              |
-| ~+workspace/display~              | [[kbd:SPC TAB TAB]]          | Display open workspaces in the mode-line                   |
-| ~+workspace/load~                 | [[kbd:SPC TAB l]]            | Load a saved workspace into the current session            |
-| ~+workspace/restore-last-session~ | [[kbd:SPC TAB R]]            | Restore last session                                       |
-| ~+workspace/rename~               | [[kbd:SPC TAB r]]            | Rename the current workspace                               |
-| ~+workspace/save~                 | [[kbd:SPC TAB s]]            | Save the current workspace to a file                       |
-| ~+workspace/switch-to~            | [[kbd:SPC TAB .]]            | Switch to an open workspace                                |
-| ~+workspace/other~                | [[kbd:SPC TAB `]]            | Switch to last workspace                                   |
-| ~+workspace/switch-left~          | [[kbd:SPC TAB \[]] / [[kbd:\[ w]] / [[kbd:gT]] | Switch to previous workspace                               |
-| ~+workspace/switch-right~         | [[kbd:SPC TAB ]]] / [[kbd:\] w]] / [[kbd:gt]] | Switch to next workspace                                   |
-| ~+workspace/kill~                 | [[kbd:SPC TAB d]]            | Delete the current workspace                               |
-| ~+workspace/kill-session~         | [[kbd:SPC TAB x]] / [[kbd::sclear]]  | Clears the current session (kills all windows and buffers) |
+| command                             | key / ex command       | description                                                |
+|-------------------------------------+------------------------+------------------------------------------------------------|
+| [[cmd:+workspace/new]]                  | [[kbd:SPC TAB n]]              | Create a new, blank workspace                              |
+| [[cmd:+workspace/display]]              | [[kbd:SPC TAB TAB]]            | Display open workspaces in the mode-line                   |
+| [[cmd:+workspace/load]]                 | [[kbd:SPC TAB l]]              | Load a saved workspace into the current session            |
+| [[fns:+workspace/restore-last-session]] | [[kbd:SPC TAB R]]              | Restore last session                                       |
+| [[cmd:+workspace/rename]]               | [[kbd:SPC TAB r]]              | Rename the current workspace                               |
+| [[cmd:+workspace/save]]                 | [[kbd:SPC TAB s]]              | Save the current workspace to a file                       |
+| [[cmd:+workspace/switch-to]]            | [[kbd:SPC TAB .]]              | Switch to an open workspace                                |
+| [[cmd:+workspace/other]]                | [[kbd:SPC TAB `]]              | Switch to last workspace                                   |
+| [[cmd:+workspace/switch-left]]          | [[kbd:SPC TAB \[]] / [[kbd:\[ w]] / [[kbd:gT]] | Switch to previous workspace                               |
+| [[cmd:+workspace/switch-right]]         | [[kbd:SPC TAB ]]] / [[kbd:\] w]] / [[kbd:gt]]  | Switch to next workspace                                   |
+| [[cmd:+workspace/kill]]                 | [[kbd:SPC TAB d]]              | Delete the current workspace                               |
+| [[cmd:+workspace/kill-session]]         | [[kbd:SPC TAB x]] / [[kbd::sclear]]    | Clears the current session (kills all windows and buffers) |
 
 * TODO Configuration
 #+begin_quote wip

@@ -34,7 +34,7 @@ now... Cheers Dad, hope this helps. --[[github:fosskers]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~fortran-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[major:fortran-mode]]. Requires [[module::tools lsp]] and a langserver
   (fortls).
 - +intel ::
   Use the =ifort= compiler by default.
@@ -96,7 +96,7 @@ Good luck and happy computing!
 
 ** Auto-formatting
 When [[module::editor format]] is enabled and [[https://github.com/fortran-lang/fprettify][fprettify]] is installed, buffers can be
-formatted with [[fn:apheleia-format-buffer]].
+formatted with [[fns:apheleia-format-buffer]].
 
 Enable [[module::editor format +onsave]] to format the buffer on save. See below for advanced configuration.
 

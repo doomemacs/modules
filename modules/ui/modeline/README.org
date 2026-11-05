@@ -37,7 +37,7 @@ powered by the [[pkg:doom-modeline]] package (where you can find screenshots).
 #+end_quote
 
 ** Hiding the modeline
-- You can use ~M-x mode-line-invisible-mode RET~ to hide modeline for the current
+- You can use [[M-x:mode-line-invisible-mode]] to hide modeline for the current
   buffer.
 
 ** TODO Switching the modeline and header line
@@ -61,15 +61,15 @@ powered by the [[pkg:doom-modeline]] package (where you can find screenshots).
 [[doom-report:][Report an issue?]]
 
 ** Where are my minor modes?
-I rarely need to know what minor modes are active, so I removed them. ~M-x
-doom/describe-active-minor-mode~ was written to substitute for it.
+I rarely need to know what minor modes are active, so I removed them.
+[[M-x:doom/describe-active-minor-mode]] was written to substitute for it.
 
 ** Icons in my modeline look strange
-1. Check whether ~nerd-icons~ are installed. Run ~M-x nerd-icons-install-fonts~ 
-   to install the resource fonts. Note that
-   ~nerd-icons~ only support GUI. See [[https://github.com/rainstormstudio/nerd-icons.el][nerd-icons]] for details.
+1. Check whether [[pkg:nerd-icons]] are installed. Run [[M-x:nerd-icons-install-fonts]] to
+   install the resource fonts. Note that [[pkg:nerd-icons]] only support GUI. See
+   [[pkg:nerd-icons]] for details.
 
-2. ~cnfonts~ will conflict with ~nerd-icons~. You can refer the following
+2. [[pkg:cnfonts]] will conflict with [[pkg:nerd-icons]]. You can refer the following
    workaround:
     #+begin_src emacs-lisp
     ;; See https://github.com/seagle0128/doom-modeline/issues/278#issuecomment-569510336
@@ -100,7 +100,7 @@ Some possible solutions:
 
 (Mentioned in [[github:doomemacs/core/issues/1680][#1680]], [[github:doomemacs/core/issues/278][#278]] and [[https://github.com/seagle0128/doom-modeline/issues/334][seagle0128/doom-modeline#334]])
 
-4. Change the width of icon characters in ~char-width-table~:
+4. Change the width of icon characters in [[var:char-width-table]]:
     #+begin_src emacs-lisp
     (add-hook! 'doom-modeline-mode-hook
       (let ((char-table char-width-table))

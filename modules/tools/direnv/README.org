@@ -31,9 +31,9 @@ direnv and then made available to the current shell.
 - [[package:envrc]]
 
 ** Hacks
-- ~envrc-global-mode~ has been modified to activate envrc-mode sooner in the
-  major mode activation process, so that any env state performed in mode hooks
-  aren't overwritten by direnv.
+- [[minor:envrc-global-mode]] has been modified to activate envrc-mode sooner in the major
+  mode activation process, so that any env state performed in mode hooks aren't
+  overwritten by direnv.
 - Added direnv support for Org src blocks.
 
 * Installation
@@ -57,7 +57,7 @@ yay -S direnv
 environment.systemPackages = [ pkgs.direnv ];
 #+end_src
 
-Or ~$ nix-env -i direnv~
+Or [[sh:nix-env -i direnv]]
 
 * TODO Usage
 #+begin_quote wip

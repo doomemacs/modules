@@ -32,8 +32,8 @@ versions of Emacs (at least 30.1 is recommended).
 - Turns on tramp-direct-async-process globally (for improved performance), but
   disables it for lsp-mode/eglot connections to LSP servers.
 - In remote buffers, several functions are memoized to reduce I/O over TRAMP and
-  improve performance. Currently, these functions are ~magit-toplevel~,
-  ~project-current~, and ~vc-git-root~.
+  improve performance. Currently, these functions are [[fns:magit-toplevel]],
+  [[fns:project-current]], and [[fns:vc-git-root]].
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -54,7 +54,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 [[doom-report:][Report an issue?]]
 
 ** Known compatibility issues
-- gdb-mi (via ~M-x gdb~) ::
+- gdb-mi (via [[M-x:gdb]]) ::
   Doesn't work with direct-async enabled. To get around this, add ~set debuginfod
   enabled~ to =~/.gdbinit= (reported in [[github:doomemacs/core/issues/8510][doomemacs/core#8510]]).
 

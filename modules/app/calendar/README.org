@@ -20,7 +20,7 @@ support.
 - [[package:calfw-cal]]
 - [[package:calfw-ical]]
 - [[package:org-gcal]]
-  
+
 ** Hacks
 /No hacks documented for this module./
 
@@ -59,11 +59,11 @@ calendar data from:
    )))
 #+end_src
 
-The [[https://github.com/kiwanami/emacs-calfw][kiwanami/emacs-calfw]] project readme contains more examples.
+The [[github:kiwanami/emacs-calfw]] project readme contains more examples.
 
 ** Synchronizing Org and Google Calendar
-The [[https://github.com/kidd/org-gcal.el][kidd/org-gcal.el]] project README contains more detailed instructions on how
-to link your calendar with Google calendars.
+The [[github:kidd/org-gcal.el]] project README contains more detailed instructions
+on how to link your calendar with Google calendars.
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

@@ -17,8 +17,8 @@ This module adds support for the [[https://odin-lang.org/][Odin]] programming la
 ** Module flags
 # Flags should be in alphanumerical order.
 - +lsp ::
-  Enable LSP support for ~odin-mode~ and ~odin-ts-mode~. Requires [[module::tools
-  lsp]] and an LSP server (e.g. =ols=).
+  Enable LSP support for [[pkg:odin-mode]] and [[pkg:odin-ts-mode]]. Requires [[module::tools lsp]] and an
+  LSP server (e.g. =ols=).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]]. Emacs 30 or newer is
@@ -46,10 +46,10 @@ that, benefits from having the following executables in your ~$PATH~:
 #+end_quote
 
 ** Keybinds
-| Binding         | Description |
-|-----------------+-------------|
-| [[kbd:<localleader> b]] | ~odin-build~  |
-| [[kbd:<localleader> t]] | ~odin-test~   |
+| Binding         | Description    |
+|-----------------+----------------|
+| [[kbd:<localleader> b]] | [[cmd:odin-build]] |
+| [[kbd:<localleader> t]] | [[cmd:odin-test]]  |
 
 * TODO Configuration
 #+begin_quote wip

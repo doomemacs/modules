@@ -12,7 +12,7 @@ This module adds [[https://elm-lang.org/][Elm]] support to Doom Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~elm-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:elm-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/elm-tooling/elm-language-server][elm-language-server]]).
 
 ** Packages

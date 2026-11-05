@@ -9,8 +9,8 @@
 is fast and optimized for UI, famous for the [[https://flutter.io/][Flutter]] framework, also made by
 Google. Both Flutter and Dart are free and open-source.
 
-This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-server-protocol/][LSP]] features like code completion for
-=.dart= files, syntax highlighting, debugging, closing labels, etc.
+This module wraps [[pkg:dart-mode]], with [[https://microsoft.github.io/language-server-protocol/][LSP]] features like code completion for =.dart=
+files, syntax highlighting, debugging, closing labels, etc.
 
 ** Maintainers
 - [[github:ericdallo]]
@@ -19,10 +19,10 @@ This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-serve
 
 ** Module flags
 - +flutter ::
-  Enable ~flutter~ integration and some sane defaults for Flutter development
-  along with ~hover~ for desktop development.
+  Enable [[pkg:flutter]] integration and some sane defaults for Flutter development
+  along with [[pkg:hover]] for desktop development.
 - +lsp ::
-  Enable LSP support for ~dart-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:dart-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports flutter).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -103,9 +103,9 @@ flutter doctor # for Dependency check and further instructions
 
 ** Dart & Flutter
 On Linux, the installers for Dart and Flutter use the ~/opt~ directory, and this
-module assumes that. However, you may set ~lsp-dart-sdk-dir~ to your Dart
-install directory and ~flutter-sdk-path~ to you flutter SDK folder, to make sure
-LSP can find the language server included with the Dart SDK.
+module assumes that. However, you may set [[var:lsp-dart-sdk-dir]] to your Dart
+install directory and [[var:flutter-sdk-path]] to you flutter SDK folder, to make
+sure LSP can find the language server included with the Dart SDK.
 
 Alternatively, these variables shouldn't be necessary if you just include Dart
 and Flutter on your ~PATH~ variable.

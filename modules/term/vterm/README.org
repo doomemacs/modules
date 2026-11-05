@@ -39,21 +39,21 @@ Prerequisites:
   such as =gcc=.
 
 ** Dynamic Module support
-To check if your build of Emacs has dynamic module support, run ~$ doom info~ in
-the shell and look for ~MODULES~ next to "features". If it isn't, you'll need to
-find another source to install Emacs from or recompile it with the appropriate
-build options.
+To check if your build of Emacs has dynamic module support, run [[sh:doom info]] in the
+shell and look for ~MODULES~ next to "features". If it isn't, you'll need to find
+another source to install Emacs from or recompile it with the appropriate build
+options.
 
-Alternatively, look for ~--with-modules~ in ~system-configuration-options~ ([[kbd:SPC h v
-system-configuration-options]]).
+Alternatively, look for ~--with-modules~ in [[var:system-configuration-options]] ([[kbd:SPC
+h v system-configuration-options]]).
 
 Follow [[id:9570ba6a-50cc-4c46-a832-fb90192288af][our installation guide]] to ensure your build of Emacs includes dynamic
 module support.
 
 ** libvterm
-- Ubuntu or Debian users: ~$ apt-get install libvterm-dev~
-- ArchLinux or Manjaro: ~$ pacman -S libvterm~
-- MacOS: ~$ brew install libvterm~
+- Ubuntu or Debian users: [[sh:apt-get install libvterm-dev]]
+- ArchLinux or Manjaro: [[sh:pacman -S libvterm]]
+- MacOS: [[sh:brew install libvterm]]
 - NixOS:
   #+begin_src nix
   systemPackages = with pkgs; [
@@ -77,9 +77,9 @@ module support.
 
   Note: The =nixpkgs=-version used must be compatible with the packages Doom
   installs, so it might be necessary to pull in =emacs= and/or =emacsPackagesFor=
-  from =unstable= or another channel. Otherwise arbitrary functionality of =vterm=
+  from =unstable= or another channel. Otherwise arbitrary functionality of [[pkg:vterm]]
   might not work.
-- Guix: ~$ guix install emacs-vterm~
+- Guix: [[sh:guix install emacs-vterm]]
 
   [[https://packages.guix.gnu.org/packages/emacs-vterm/][emacs-vterm]] provides a pre-built =vterm-module.so=, so you don't have to
   compile it yourself. It can also be installed through system or home packages.
@@ -95,11 +95,11 @@ For this to succeed, you need the following:
 
 There are several ways to manually install the module:
 
-1. You can use ~M-x vterm-module-compile~ to let emacs automatically compile and
+1. You can use [[M-x:vterm-module-compile]] to let emacs automatically compile and
    install the module.
 
-   Modify ~vterm-module-cmake-args~ to pass arguments to the cmake build script.
-   e.g. To use a local build of libvterm instead of the included one:
+   Modify [[var:vterm-module-cmake-args]] to pass arguments to the cmake build
+   script. e.g. To use a local build of libvterm instead of the included one:
    #+begin_src emacs-lisp
    (setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=yes")
    #+end_src
@@ -131,9 +131,9 @@ There are several ways to manually install the module:
 
 The following commands are available to open it:
 
-- ~+vterm/toggle~ ([[kbd:<leader> o t]]) -- Toggle vterm pop up window in the current
+- [[cmd:+vterm/toggle]] ([[kbd:<leader> o t]]) -- Toggle vterm pop up window in the current
   project.
-- ~+vterm/here~ ([[kbd:<leader> o T]]) -- Opens vterm in the current window.
+- [[cmd:+vterm/here]] ([[kbd:<leader> o T]]) -- Opens vterm in the current window.
 
 * TODO Configuration
 #+begin_quote wip
@@ -146,7 +146,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 ** Permission errors when compiling vterm on OpenSUSE Tumbleweed
 Emacs on Tumbleweed comes with =emacs-vterm=, which is deployed to a read-only
 directory, but the vterm installation script depends on that directory being
-writeable in order to compile. Uninstall =emacs-vterm= via zypper, then ~doom sync~
+writeable in order to compile. Uninstall =emacs-vterm= via zypper, then [[sh:doom sync]]
 again and you should end up with a proper build of vterm.
 
 * Frequently asked questions

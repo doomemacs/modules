@@ -7,16 +7,15 @@
 * Description :unfold:
 This module turns Emacs into a [[https://en.wikipedia.org/wiki/Representational_state_transfer][REST]] client.
 
-- Code-completion (~company-restclient~)
+- Code-completion ([[pkg:company-restclient]])
 - Code evaluation
-- Imenu support for ~restclient-mode~
-- org-mode: babel support (~ob-restclient~)
+- Imenu support for [[major:restclient-mode]]
+- org-mode: babel support ([[pkg:ob-restclient]])
 
 #+begin_quote aside
-~restclient-mode~ is tremendously useful for automated or quick testing REST
-APIs. My workflow is to open an ~org-mode~ buffer, create a restclient source
-block and hack away. ~restclient-mode~ and ~company-restclient~ power this arcane
-wizardry.
+[[major:restclient-mode]] is tremendously useful for automated or quick testing REST APIs.
+My workflow is to open an [[major:org-mode]] buffer, create a restclient source block and
+hack away. [[major:restclient-mode]] and [[pkg:company-restclient]] power this arcane wizardry.
 #+end_quote
 
 ** Maintainers
@@ -37,7 +36,7 @@ wizardry.
   - [[package:jq-mode]]
 
 ** Hacks
-- Adds imenu support to ~restclient-mode~.
+- Adds imenu support to [[major:restclient-mode]].
 - [[package:restclient]] has been modified not to silently reject self-signed or invalid
   certificates.
 

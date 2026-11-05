@@ -27,7 +27,7 @@ Through the power of [[https://scalameta.org/metals/docs/editors/overview.html][
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~scala-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:scala-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports metals).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -113,7 +113,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 - Projects are required to have scala version =2.11.12=, =2.12.8=, =2.13.0= or
   greater.
 - Latest version of sbt is recommended.
-- Running ~M-x lsp-metals-doctor-run~ helps diagnose problems.
+- Running [[M-x:lsp-metals-doctor-run]] helps diagnose problems.
 - Full reference here: https://scalameta.org/metals/docs/editors/emacs.html
 
 * Frequently asked questions

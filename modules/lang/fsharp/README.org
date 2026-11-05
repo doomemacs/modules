@@ -17,7 +17,7 @@ This module adds [[https://fsharp.org/][F#]] support to Doom Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~fsharp-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:fsharp-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/emacs-lsp/lsp-mode/blob/master/clients/lsp-fsharp.el][lsp-fsharp]].).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text

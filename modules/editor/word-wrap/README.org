@@ -5,12 +5,12 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module adds a minor-mode [[fn:+word-wrap-mode]], which intelligently wraps long
-lines in the buffer without modifying the buffer content.
+This module adds a minor-mode [[fns:+word-wrap-mode]], which intelligently wraps
+long lines in the buffer without modifying the buffer content.
 
 ** Maintainers
 - [[github:flatwhatson]]
-  
+
 [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
@@ -41,8 +41,8 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 ** Activation
 Word wrapping is not enabled by default.
 
-Wrapping can be toggled in the current buffer with ~M-x +word-wrap-mode~. The
-default doom bindings bind this to [[kbd:SPC t w]] for ~evil~ users.
+Wrapping can be toggled in the current buffer with [[M-x:+word-wrap-mode]]. The
+default doom bindings bind this to [[kbd:SPC t w]] for [[pkg:evil]] users.
 
 To enable wrapping in a specific mode, add it to the appropriate hook in
 ~$DOOMDIR/config.el~:
@@ -75,10 +75,10 @@ To disable global word-wrapping in a specific mode:
 ** Settings
 Wrapped lines will be indented to match the preceding line. In code buffers,
 lines which are not inside a string or comment will have extra indentation as
-determined by ~+word-wrap-extra-indent~. The default is to increase the indent
+determined by [[var:+word-wrap-extra-indent]]. The default is to increase the indent
 by twice the major-mode indent.
 
-The ~+word-wrap-extra-indent~ variable supports the following values:
+The [[var:+word-wrap-extra-indent]] variable supports the following values:
 - ~double~: indent by twice the major-mode indentation
 - ~single~: indent by the major-mode indentation
 - a positive integer: indent by this fixed amount
@@ -86,24 +86,25 @@ The ~+word-wrap-extra-indent~ variable supports the following values:
 - ~nil~: no extra indent
 
 Long lines are wrapped at the window margin by default, however soft-wrapping at
-~fill-column~ is supported by setting ~+word-wrap-fill-style~. When set to
-~auto~, if ~auto-fill-mode~ is enabled in the buffer, its behavior will not be
+[[var:fill-column]] is supported by setting [[var:+word-wrap-fill-style]]. When set to
+~auto~, if [[minor:auto-fill-mode]] is enabled in the buffer, its behavior will not be
 affected. This allows hard and soft wrapping methods to co-exist, with
 hard-wrapping for new lines and soft-wrapping for existing lines. To disable
-hard-wrapping entirely, set ~+word-wrap-fill-style~ to ~soft~.
+hard-wrapping entirely, set [[var:+word-wrap-fill-style]] to ~soft~.
 
-This module also includes a global minor-mode ~+global-word-wrap-mode~ to
+This module also includes a global minor-mode [[minor:+global-word-wrap-mode]] to
 automatically enable wrapping in most buffers. Wrapping will not be enabled in
 buffers whose major mode is marked "special", or are listed in
-~+word-wrap-disabled-modes~.
+[[var:+word-wrap-disabled-modes]].
 
-The ~+word-wrap-text-modes~ variable lists modes which shouldn't have any extra
-indentation, regardless of the ~+word-wrap-extra-indent~ setting. This is useful
-for modes which are primarily text, such as ~text-mode~ and ~markdown-mode~.
+The [[var:+word-wrap-text-modes]] variable lists modes which shouldn't have any
+extra indentation, regardless of the [[var:+word-wrap-extra-indent]] setting. This
+is useful for modes which are primarily text, such as [[major:text-mode]] and
+[[major:markdown-mode]].
 
-The ~+word-wrap-visual-modes~ variable lists modes which should only enable
-~visual-line-mode~ and not provide any prefix indentation. This is useful for
-modes like ~org-mode~ which handle prefix indentation themselves.
+The [[var:+word-wrap-visual-modes]] variable lists modes which should only enable
+[[minor:visual-line-mode]] and not provide any prefix indentation. This is useful for
+modes like [[major:org-mode]] which handle prefix indentation themselves.
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

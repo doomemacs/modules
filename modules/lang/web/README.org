@@ -16,7 +16,7 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Django, and more.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~web-mode~ and ~css-mode~. Requires [[module::tools lsp]] and a
+  Enable LSP support for [[major:web-mode]] and [[major:css-mode]]. Requires [[module::tools lsp]] and a
   langserver.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text

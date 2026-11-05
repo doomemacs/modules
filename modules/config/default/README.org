@@ -33,7 +33,7 @@ This module provides a set of reasonable defaults, including:
 - [[package:expand-region]] unless [[module::editor evil]]
 
 ** Hacks
-- ~epa-pinentry-mode~ is set to ~'loopback~, forcing gpg-agent to use the Emacs
+- [[var:epa-pinentry-mode]] is set to ~'loopback~, forcing gpg-agent to use the Emacs
   minibuffer when prompting for your passphrase. *Only works with GPG 2.1+!*
 
 * Installation

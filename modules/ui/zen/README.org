@@ -11,20 +11,20 @@ modes from other editors — or [[pkg:olivetti]], [[pkg:sublimity]], and
 [[pkg:tabula-rasa]] (Emacs plugins) — will feel right at home.
 
 These modes are:
-- ~mixed-pitch-mode~ ::
+- [[minor:mixed-pitch-mode]] ::
   Which renders (most) text in a variable pitch font (see
-  ~doom-variable-pitch-font~). Unlike ~variable-pitch-mode~, this will not affect
-  segments of text that are intended to remain in a fixed pitch font, such as
-  code blocks or ASCII tables.
-- ~writeroom-mode~ ::
+  [[var:doom-variable-pitch-font]]). Unlike [[minor:variable-pitch-mode]], this will not
+  affect segments of text that are intended to remain in a fixed pitch font,
+  such as code blocks or ASCII tables.
+- [[pkg:writeroom-mode]] ::
   Our all-in-one "zen" mode that will:
   1. Center the current buffer.
   2. Remove superfluous UI elements (like the modeline).
-  3. Activate ~mixed-pitch-mode~.
-  4. Scale up the buffer's text slightly (see ~+zen-text-scale~).
+  3. Activate [[minor:mixed-pitch-mode]].
+  4. Scale up the buffer's text slightly (see [[var:+zen-text-scale]]).
   5. And make the window's borders slightly thicker (see
-     ~+zen-window-divider-size~).
-     
+     [[var:+zen-window-divider-size]]).
+
 ** Maintainers
 - [[github:hlissner]]
 
@@ -45,11 +45,11 @@ These modes are:
 
 ** Hacks
 + Doom has disabled all of writeroom-mode's "global" effects
-  (~writeroom-global-effects~ and ~writeroom-maximize-window~ are set to ~nil~), and
-  encapsulated them into the ~+zen/toggle-fullscreen~ command, whereas ~+zen/toggle~
-  will only operate on the current buffer. This way, the user may choose how
-  far-reaching they want its effect to be.
-+ ~text-scale~ has been advised to adjust ~visual-fill-column~'s margins, so its
+  ([[var:writeroom-global-effects]] and [[var:writeroom-maximize-window]] are set to
+  ~nil~), and encapsulated them into the [[cmd:+zen/toggle-fullscreen]] command,
+  whereas [[fns:+zen/toggle]] will only operate on the current buffer. This way, the
+  user may choose how far-reaching they want its effect to be.
++ ~text-scale~ has been advised to adjust [[pkg:visual-fill-column]]'s margins, so its
   text won't "squeeze" as you scale it up (or "spill" when scaled down).
 
 * Installation
@@ -60,10 +60,10 @@ These modes are:
 * Usage
 This module provides two entry points:
 
-- ~M-x +zen/toggle~ (on [[kbd:<leader> t z]]): toggles ~writeroom-mode~ (restricted to
-  the current buffer).
-- ~M-x +zen/toggle-fullscreen~ (on [[kbd:<leader> t Z]]): toggles zen mode in
-  full-screen mode (deletes other windows and full screens the Emacs frame).
+- [[M-x:+zen/toggle]] (on [[kbd:<leader> t z]]): toggles [[pkg:writeroom-mode]] (restricted to the
+  current buffer).
+- [[M-x:+zen/toggle-fullscreen]] (on [[kbd:<leader> t Z]]): toggles zen mode in full-screen
+  mode (deletes other windows and full screens the Emacs frame).
 
 Invoke either command again to undo the change.
 

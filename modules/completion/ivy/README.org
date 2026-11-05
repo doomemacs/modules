@@ -49,8 +49,8 @@ lighter, simpler and faster in many cases.
 
 ** Hacks
 - Functions with ivy/counsel equivalents have been globally remapped (like
-  ~find-file~ => ~counsel-find-file~). So a keybinding to ~find-file~ will
-  invoke ~counsel-find-file~ instead.
+  [[cmd:find-file]] => [[cmd:counsel-find-file]]). So a keybinding to [[cmd:find-file]] will
+  invoke [[cmd:counsel-find-file]] instead.
 - ~counsel-[arp]g~'s 3-character limit was reduced to 1 (mainly for the ex
   command)
 
@@ -99,7 +99,7 @@ This module provides interactive text search and replace using ripgrep.
 
 [[asset:https://assets.doomemacs.org/completion/ivy/search.png]]
 
-Prefixing these keys with the universal argument (=SPC u= for evil users; =C-u=
+Prefixing these keys with the universal argument ([[kbd:SPC u]] for evil users; [[kbd:C-u]]
 otherwise) changes the behavior of these commands, instructing the underlying
 search engine to include ignored files.
 
@@ -131,9 +131,9 @@ Changes to the resulting wgrep buffer (opened by [[kbd:C-c C-e]]) can be committ
 The [[pkg:swiper]] package provides an interactive buffer search powered by ivy. It
 can be invoked with:
 
-- [[kbd:SPC s s]] (~swiper-isearch~)
-- [[kbd:SPC s S]] (~swiper-isearch-thing-at-point~)
-- [[kbd:SPC s b]] (~swiper~)
+- [[kbd:SPC s s]] ([[cmd:swiper-isearch]])
+- [[kbd:SPC s S]] ([[cmd:swiper-isearch-thing-at-point]])
+- [[kbd:SPC s b]] ([[pkg:swiper]])
 - ~:sw[iper] [QUERY]~
 
 [[assets:https://assets.doomemacs.org/completion/ivy/swiper.png]]
@@ -180,8 +180,8 @@ A wgrep buffer can be opened from swiper with [[kbd:C-c C-e]].
 
 * TODO Troubleshooting
 ** Sorting is not applied at all sometimes
-If the number of candidates is greater than ~ivy-sort-max-size~, sorting will be
-disabled completely. Doom lowers the default value to prevent performance
+If the number of candidates is greater than [[var:ivy-sort-max-size]], sorting will
+be disabled completely. Doom lowers the default value to prevent performance
 issues, so increasing the value may fix your issue:
 #+begin_src elisp
 ;;; add to $DOOMDIR/config.el

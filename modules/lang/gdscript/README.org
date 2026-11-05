@@ -6,14 +6,14 @@
 
 * Description :unfold:
 This module adds support for GDScript, the scripting language of the [[http://godotengine.org/][Godot]] game
-engine, to Doom Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mode][gdscript-mode]] and [[https://github.com/bbbscarter/gdshader-mode][gdshader-mode]].
+engine, to Doom Emacs, powered by [[pkg:gdscript-mode]] and [[pkg:gdshader-mode]].
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~gdscript-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[major:gdscript-mode]]. Requires [[module::tools lsp]] and a langserver
   (Godot ~3.2.1~ or newer).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text

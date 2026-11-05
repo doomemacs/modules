@@ -9,11 +9,11 @@ This module enhances the Emacs search and completion experience, and also
 provides a united interface for project search and replace, powered by [[https://github.com/BurntSushi/ripgrep/][ripgrep]].
 
 It does this with several modular packages focused on enhancing the built-in
-~completing-read~ interface, rather than replacing it with a parallel ecosystem
-like [[pkg:ivy]] and [[pkg:helm]] do. The primary packages are:
+[[fns:completing-read]] interface, rather than replacing it with a parallel
+ecosystem like [[pkg:ivy]] and [[pkg:helm]] do. The primary packages are:
 
 - Vertico, which provides the vertical completion user interface
-- Consult, which provides a suite of useful commands using ~completing-read~
+- Consult, which provides a suite of useful commands using [[fns:completing-read]]
 - Embark, which provides a set of minibuffer actions
 - Marginalia, which provides annotations to completion candidates
 - Orderless, which provides better filtering methods
@@ -49,8 +49,8 @@ like [[pkg:ivy]] and [[pkg:helm]] do. The primary packages are:
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]] (built with [[https://www.pcre.org/][PCRE]] support; run ~$
-doom doctor~ to determine if your build meets this requirement), which is a hard
+This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]] (built with [[https://www.pcre.org/][PCRE]] support; run [[sh:doom
+doctor]] to determine if your build meets this requirement), which is a hard
 dependency of Doom itself, so you should already have it installed.
 
 Otherwise, Consult (a plugin this module installs) provides many commands to
@@ -63,7 +63,7 @@ intend to use their associated Helm command or plugin.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-The packages in this module modify and use the built-in ~completing-read~
+The packages in this module modify and use the built-in [[fns:completing-read]]
 function, which is used by any function that requires completion. Due to this
 the full scope of these packages is too large to cover here and you are
 encouraged to go and read their excellent documentation. We will detail
@@ -73,18 +73,18 @@ Doom-specific additions:
 When in an active Vertico completion session, the following doom added
 keybindings are available:
 
-| Keybind                               | Description                                                  |
-|---------------------------------------+--------------------------------------------------------------|
-| [[kbd:C-k]]                         | (evil) Go to previous candidate                              |
-| [[kbd:C-j]]                         | (evil) Go to next candidate                                  |
-| [[kbd:C-M-k]]                       | (evil) Go to previous group                                  |
-| [[kbd:C-M-j]]                       | (evil) Go to next group                                      |
-| [[kbd:C-;]] or [[kbd:<leader> a]] | Open an ~embark-act~ menu to chose a useful action             |
-| [[kbd:C-c C-;]]                     | export the current candidate list to a buffer                |
-| [[kbd:C-c C-l]]                     | ~embark-collect~ the current candidate list (collect verbatim) |
-| [[kbd:C-SPC]]                       | Preview the current candidate                                |
+| Keybind           | Description                                                      |
+|-------------------+------------------------------------------------------------------|
+| [[kbd:C-k]]               | (evil) Go to previous candidate                                  |
+| [[kbd:C-j]]               | (evil) Go to next candidate                                      |
+| [[kbd:C-M-k]]             | (evil) Go to previous group                                      |
+| [[kbd:C-M-j]]             | (evil) Go to next group                                          |
+| [[kbd:C-;]] or [[kbd:<leader> a]] | Open an [[cmd:embark-act]] menu to chose a useful action             |
+| [[kbd:C-c C-;]]           | export the current candidate list to a buffer                    |
+| [[kbd:C-c C-l]]           | [[cmd:embark-collect]] the current candidate list (collect verbatim) |
+| [[kbd:C-SPC]]             | Preview the current candidate                                    |
 
-~embark-act~ will prompt you with a =which-key= menu with useful commands on the
+[[cmd:embark-act]] will prompt you with a [[pkg:which-key]] menu with useful commands on the
 selected candidate or candidate list, depending on the completion category. Note
 that you can press [[kbd:C-h]] instead of choosing a command to filter through the
 options with a Vertico buffer, that also has slightly more detailed descriptions
@@ -133,7 +133,7 @@ On top of the usual Vertico keybindings, search commands also offer support for
 exporting the current candidate list to an editable buffer [[kbd:C-c C-e]]. After
 editing the changes can be committed with [[kbd:C-c C-c]] and aborted with [[kbd:C-c C-k]]
 (alternatively [[kbd:ZZ]] and [[kbd:ZQ]], for evil users). It uses [[pkg:wgrep]] for grep searches,
-[[pkg:wdired]] for file searches, and =occur= for buffer searches.
+[[pkg:wdired]] for file searches, and [[cmd:occur]] for buffer searches.
 
 [[asset:https://assets.doomemacs.org/completion/vertico/search-replace.png]]
 
@@ -141,12 +141,12 @@ editing the changes can be committed with [[kbd:C-c C-c]] and aborted with [[kbd
 This module provides some in buffer searching bindings:
 
 - [[kbd:SPC s s]] (~isearch~)
-- [[kbd:SPC s S]] (~+vertico/search-symbol-at-point~ via ~consult-line~)
-- [[kbd:SPC s b]] (~consult-line~)
+- [[kbd:SPC s S]] ([[cmd:+vertico/search-symbol-at-point]] via [[cmd:consult-line]])
+- [[kbd:SPC s b]] ([[cmd:consult-line]])
 
 [[asset:https://assets.doomemacs.org/completion/vertico/buffer-search.png]]
 
-An ~occur-edit~ buffer can be opened from ~consult-line~ with [[kbd:C-c C-e]].
+An ~occur-edit~ buffer can be opened from [[cmd:consult-line]] with [[kbd:C-c C-e]].
 
 ** Vertico integration for various completing commands
 *** General
@@ -187,28 +187,27 @@ the last workspace by typing [[kbd:0 SPC]].
 
 *** File Path Completion
 Note that Emacs allows you to switch directories with shadow paths, for example
-starting at =/foo/bar/baz=, typing =/foo/bar/baz/~/= will switch the searched
-path to the home directory. For more information see ~substitute-in-file-name~
-and ~file-name-shadow-mode~. This module will erase the "shadowed" portion of
-the path from the minibuffer, so in the previous example the path will be reset
-to =~/=.
+starting at =/foo/bar/baz=, typing =/foo/bar/baz/~/= will switch the searched path
+to the home directory. For more information see [[fns:substitute-in-file-name]] and
+[[minor:file-name-shadow-mode]]. This module will erase the "shadowed" portion of the path
+from the minibuffer, so in the previous example the path will be reset to =~/=.
 
 ** Consult
 *** Multiple candidate search
 This module modifies the default keybindings used in
-~consult-completing-read-multiple~:
-| Keybind       | Description                                                 |
-|---------------+-------------------------------------------------------------|
-| [[kbd:TAB]] | Select or deselect current candidate                        |
-| [[kbd:RET]] | Enters selected candidates (also toggles current candidate) |
+[[fns:consult-completing-read-multiple]]:
+| Keybind | Description                                                 |
+|---------+-------------------------------------------------------------|
+| [[kbd:TAB]]     | Select or deselect current candidate                        |
+| [[kbd:RET]]     | Enters selected candidates (also toggles current candidate) |
 
 *** Async search commands
 :PROPERTIES:
 :ID:       4ab16bf0-f9e8-4798-8632-ee7b13d2291e
 :END:
-Consult async commands (e.g. ~consult-ripgrep~) will have a preceding separator
-character (usually ~#~) before the search input. This is known as the =perl=
-splitting style. Input typed after the separator will be fed to the async
+Consult async commands (e.g. [[cmd:consult-ripgrep]]) will have a preceding
+separator character (usually ~#~) before the search input. This is known as the
+=perl= splitting style. Input typed after the separator will be fed to the async
 command until you type a second separator, afterwhich the candidate list will be
 filtered with Emacs instead (and can be filtered using [[pkg:orderless]], for example).
 The specific separator character can be changed by editing it, and might be
@@ -229,7 +228,7 @@ For more information [[https://github.com/minad/consult#asynchronous-search][see
 
 Marginalia annotations for symbols (e.g. [[kbd:SPC h f]] and [[kbd:SPC h v]]) come with extra
 information the nature of the symbol. For the meaning of the annotations see
-~marginalia--symbol-class~.
+[[fns:marginalia--symbol-class]].
 
 ** Orderless filtering
 When using orderless to filter through candidates, the default behaviour is for
@@ -247,13 +246,13 @@ pressing space and entering another input. In essence, when trying to match
 
 Doom has some builtin [[https://github.com/oantolin/orderless#style-dispatchers][style dispatchers]] for more fine-grained filtering, which
 you can use to further specify each space separated input in the following ways:
-| Input        | Description                              |
-|--------------+------------------------------------------|
-| ~!foo~         | match without literal input =foo=          |
-| ~%foo~ or ~foo%~ | perform ~char-fold-to-regexp~ on input =foo= |
-| ~`foo~ or ~foo`~ | match input =foo= as an initialism         |
-| ~=foo~ or ~foo=~ | match only with literal input =foo=        |
-| ~~foo~ or ~foo~~ | match input =foo= with fuzzy/flex matching |
+| Input        | Description                                  |
+|--------------+----------------------------------------------|
+| ~!foo~         | match without literal input =foo=              |
+| ~%foo~ or ~foo%~ | perform [[fns:char-fold-to-regexp]] on input =foo= |
+| ~`foo~ or ~foo`~ | match input =foo= as an initialism             |
+| ~=foo~ or ~foo=~ | match only with literal input =foo=            |
+| ~~foo~ or ~foo~~ | match input =foo= with fuzzy/flex matching     |
 
 * TODO Configuration
 #+begin_quote wip
@@ -268,7 +267,7 @@ start:
 
 ** Consult
 Much of the behaviour of Consult commands can be changed with
-~consult-customize~. The =vertico= module already does this, if you want to
+[[fns:consult-customize]]. The [[pkg:vertico]] module already does this, if you want to
 override the module's modifications, do:
 #+begin_src emacs-lisp
 (setq consult--customize-alist nil)
@@ -276,12 +275,12 @@ override the module's modifications, do:
 #+end_src
 
 If you are changing the preview key (set to [[kbd:C-SPC]]), remember to change the
-binding on ~vertico-map~ as well, as the binding there gets previews to work to
-an extent on non-consult commands as well.
+binding on [[var:vertico-map]] as well, as the binding there gets previews to work
+to an extent on non-consult commands as well.
 
 ** Marginalia
 You can add more Marginalia annotation levels and change the existing ones by
-editing ~marginalia-annotator-registry~
+editing [[var:marginalia-annotator-registry]]
 
 ** Embark
 You can change the available commands in Embark for category ~$cat~ by editing

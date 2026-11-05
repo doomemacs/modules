@@ -48,48 +48,49 @@ Another networking solution must be used, such as a VPN. For more options, see [
  hosting][this Troubleshooting entry]].
 
 * Usage
-- Start a collaborative editing session in one of your buffers with =M-x
-  crdt-share-buffer= and following the prompts.
-- If you're using =+tunnel=, get the sharable URL of your session using =M-x
-  crdt-copy-url=. If not using =+tunnel=, then instead of a URL, others can connect
-  using your public IP address and chosen TCP port number (default port is 6530)
-- Others can connect to your session using =M-x crdt-connect= and following the
+- Start a collaborative editing session in one of your buffers with
+  [[M-x:crdt-share-buffer]] and following the prompts.
+- If you're using =+tunnel=, get the sharable URL of your session using
+  [[M-x:crdt-copy-url]] . If not using =+tunnel=, then instead of a URL, others can
+  connect using your public IP address and chosen TCP port number (default port
+  is 6530)
+- Others can connect to your session using [[M-x:crdt-connect]] and following the
   prompts to pass in your tunnel URL or IP address and port
 - Once connected, some commands you can use are:
-  - =crdt-list-buffers= to list shared buffers. Use this after =crdt-connect= to
-    open shared buffers for editing!
-  - =crdt-share-buffer= Start a new collaboration session, or add more buffers
+  - [[cmd:crdt-list-buffers]] to list shared buffers. Use this after
+    [[cmd:crdt-connect]] to open shared buffers for editing!
+  - [[cmd:crdt-share-buffer]] Start a new collaboration session, or add more buffers
     to an existing session. Once a session has started, both the host and
     clients can use this function to share buffers!
-  - =crdt-goto-user= to jump to another collaborator
-  - =crdt-follow-user= / =crdt-stop-follow= to toggle following another
+  - [[cmd:crdt-goto-user]] to jump to another collaborator
+  - [[cmd:crdt-follow-user]] / [[cmd:crdt-stop-follow]] to toggle following another
     collaborator
-  - =crdt-visualize-author-mode= to add colors to regions of the buffer,
+  - [[minor:crdt-visualize-author-mode]] to add colors to regions of the buffer,
     visualizing who most recently edited each part of the buffer
-  - =crdt-stop-session= (host) / =crdt-disconnect= (client) to exit the collab
-    session
+  - [[cmd:crdt-stop-session]] (host) / [[cmd:crdt-disconnect]] (client) to exit the
+    collab session
 
 ** Keybindings
 When this module is enabled, the `SPC l` leader keymap becomes available, making most of the above functions and more available under that prefix:
 
 | Binding | Description                                             |
 |---------+---------------------------------------------------------|
-| =SPC l b= | Switch to a shared buffer                               |
-| =SPC l c= | Connect to a session                                    |
-| =SPC l d= | Disconnect from session                                 |
-| =SPC l f= | Toggle following another user's cursor                  |
-| =SPC l F= | Stop following user if any                              |
-| =SPC l g= | Goto another user's cursor                              |
-| =SPC l i= | List shared buffers                                     |
-| =SPC l k= | Kick a user (host only)                                 |
-| =SPC l l= | List sessions                                           |
-| =SPC l s= | Share current buffer, optionally starting a new session |
-| =SPC l S= | Stop sharing current buffer                             |
-| =SPC l u= | List connected users                                    |
-| =SPC l x= | Stop a session (host only)                              |
-| =SPC l y= | Copy URL of current session                             |
-| =SPC l ]= | Goto next user's cursor                                 |
-| =SPC l [= | Goto previous user's cursor                             |
+| [[kbd:SPC l b]] | Switch to a shared buffer                               |
+| [[kbd:SPC l c]] | Connect to a session                                    |
+| [[kbd:SPC l d]] | Disconnect from session                                 |
+| [[kbd:SPC l f]] | Toggle following another user's cursor                  |
+| [[kbd:SPC l F]] | Stop following user if any                              |
+| [[kbd:SPC l g]] | Goto another user's cursor                              |
+| [[kbd:SPC l i]] | List shared buffers                                     |
+| [[kbd:SPC l k]] | Kick a user (host only)                                 |
+| [[kbd:SPC l l]] | List sessions                                           |
+| [[kbd:SPC l s]] | Share current buffer, optionally starting a new session |
+| [[kbd:SPC l S]] | Stop sharing current buffer                             |
+| [[kbd:SPC l u]] | List connected users                                    |
+| [[kbd:SPC l x]] | Stop a session (host only)                              |
+| [[kbd:SPC l y]] | Copy URL of current session                             |
+| [[kbd:SPC l \]]] | Goto next user's cursor                                 |
+| [[kbd:SPC l \[]] | Goto previous user's cursor                             |
 
 * Configuration
 #+begin_quote wip
@@ -99,12 +100,12 @@ When this module is enabled, the `SPC l` leader keymap becomes available, making
 This list is not exhaustive; for the full list of config options, type =SPC h V
 crdt-= after loading the module.
 
-| Custom variable             | Default                  | Function                                                                                  |
-|-----------------------------+--------------------------+-------------------------------------------------------------------------------------------|
-| crdt-ask-for-name           | t                        | Set to nil to always use =crdt-default-name= as your name without asking                  |
-| crdt-default-name           | ~(user-full-name)~       | Your display name in collaboration sessions                                               |
-| crdt-tuntox-executable      | "tuntox"                 | Path to the tuntox binary                                                                 |
-| crdt-tuntox-password-in-url | t if =+tunnel=, else nil | Set to t to put your session password (in plaintext) into the URL made by =crdt-copy-url= |
+| Custom variable             | Default                | Function                                                                                    |
+|-----------------------------+------------------------+---------------------------------------------------------------------------------------------|
+| crdt-ask-for-name           | t                      | Set to nil to always use [[var:crdt-default-name]] as your name without asking                  |
+| crdt-default-name           | ~(user-full-name)~       | Your display name in collaboration sessions                                                 |
+| crdt-tuntox-executable      | "tuntox"               | Path to the tuntox binary                                                                   |
+| crdt-tuntox-password-in-url | t if =+tunnel=, else nil | Set to t to put your session password (in plaintext) into the URL made by [[cmd:crdt-copy-url]] |
 
 * Troubleshooting
 [[doom-report:][Report an issue?]]
@@ -127,7 +128,7 @@ but some of the most common are:
 All collaborators must be using the same version of the crdt package in order to
 guarantee stability & support for all features. These types of errors should not
 occur if everyone is up to date, so ensure that all collaborators have upgraded
-Doom Emacs to the latest version and have not pinned =crdt=.
+Doom Emacs to the latest version and have not pinned [[pkg:crdt]].
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

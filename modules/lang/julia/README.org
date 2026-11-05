@@ -16,8 +16,8 @@ This module adds support for [[https://julialang.org/][the Julia language]] to D
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~julia-mode~. Requires [[module::tools lsp]] and a
-  langserver (supports LanguageServer.jl).
+  Enable LSP support for [[pkg:julia-mode]]. Requires [[module::tools lsp]] and a langserver
+  (supports LanguageServer.jl).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]].
@@ -64,7 +64,7 @@ Pkg.add("SymbolServer")
 Then configure [[pkg:lsp-julia]] or [[pkg:eglot-jl]] depending on whether you have enabled [[module::tools
 lsp]] or [[module::tools lsp +eglot]], respectively:
 
-*** =lsp-julia=
+*** [[pkg:lsp-julia]]
 To instruct [[pkg:lsp-julia]] not to use the built-in package:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
@@ -80,7 +80,7 @@ the current LTS:
   (setq lsp-julia-default-environment "~/.julia/environments/v1.6"))
 #+end_src
 
-*** =eglot-jl=
+*** [[pkg:eglot-jl]]
 To find your installation of ~LanguageServer.jl~, [[pkg:eglot-jl]] must know the
 environment in which it is installed. This is set to v1.6 by default as it is
 the current LTS:
@@ -90,7 +90,7 @@ the current LTS:
 #+end_src
 
 But to let [[pkg:eglot-jl]] use the environment bundled with it, set it to
-~eglot-jl-base~ instead:
+[[var:eglot-jl-base]] instead:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (with-eval-after-load 'eglot-jl
@@ -109,16 +109,16 @@ described above.
 
 ** Snail
 
-| Keybind           | Command                         |
-|-------------------+---------------------------------|
-| [[kbd:<localleader> ']]   | ~julia-snail~                     |
-| [[kbd:<localleader> a]]   | ~julia-snail-package-activate~    |
-| [[kbd:<localleader> r]]   | ~julia-snail-update-module-cache~ |
-| [[kbd:<localleader> d]]   | ~julia-snail-doc-lookup~          |
-| [[kbd:<localleader> e b]] | ~julia-snail-send-buffer-file~    |
-| [[kbd:<localleader> e l]] | ~julia-snail-send-line~           |
-| [[kbd:<localleader> e r]] | ~julia-snail-send-region~         |
-| [[kbd:<localleader> e e]] | ~julia-snail-send-dwim~           |
+| Keybind           | Command                             |
+|-------------------+-------------------------------------|
+| [[kbd:<localleader> ']]   | [[pkg:julia-snail]]                         |
+| [[kbd:<localleader> a]]   | [[cmd:julia-snail-package-activate]]    |
+| [[kbd:<localleader> r]]   | [[cmd:julia-snail-update-module-cache]] |
+| [[kbd:<localleader> d]]   | [[cmd:julia-snail-doc-lookup]]          |
+| [[kbd:<localleader> e b]] | [[cmd:julia-snail-send-buffer-file]]    |
+| [[kbd:<localleader> e l]] | [[cmd:julia-snail-send-line]]           |
+| [[kbd:<localleader> e r]] | [[cmd:julia-snail-send-region]]         |
+| [[kbd:<localleader> e e]] | [[cmd:julia-snail-send-dwim]]           |
 
 * TODO Configuration
 #+begin_quote wip

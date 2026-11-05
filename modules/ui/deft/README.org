@@ -44,7 +44,7 @@ stored:
 #+end_src
 
 The default note format is org-mode. You can change this by setting the value of
-the variable ~deft-default-extension~. Replacing the value with ~"md"~, for
+the variable [[var:deft-default-extension]]. Replacing the value with ~"md"~, for
 example, will change the default note format to markdown:
 #+begin_src emacs-lisp
 (with-eval-after-load 'deft
@@ -52,8 +52,8 @@ example, will change the default note format to markdown:
 #+end_src
 
 You may also want to alter the way titles and file names are automatically
-created by editing ~deft-use-filename-as-title~ and/or
-~deft-use-filter-string-for-filename~.
+created by editing [[var:deft-use-filename-as-title]] and/or
+[[var:deft-use-filter-string-for-filename]].
 
 Further customization options can be found here:
 https://github.com/jrblevin/deft#other-customizations

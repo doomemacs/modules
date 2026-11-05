@@ -60,18 +60,18 @@ The default key themes that are set are as follows:
   additional-insert)
 #+end_src
 
-To change the key themes set ~lispyville-key-theme~. Think of
-~lispyville-key-theme~ as the equivalent of ~parinfer-extensions~. See
+To change the key themes set [[var:lispyville-key-theme]]. Think of
+[[var:lispyville-key-theme]] as the equivalent of [[var:parinfer-extensions]]. See
 lispyville's [[https://github.com/noctuid/lispyville/blob/master/README.org][README]] for more info on the specific keybindings of each key theme
 (starting [[https://github.com/noctuid/lispyville#operators-key-theme][here]]).
 
 ** Working with Brackets
 
-By default, =[= and =]= are [[https://github.com/noctuid/lispyville/tree/master#additional-movement-key-theme][bound]] to =lispyville-previous-opening= and
-=lispyville-next-closing= respectively. If you use a language which makes frequent
-use of brackets (e.g. Clojure, Racket, Scheme), you can insert a bracket pair =[]=
-by typing ={=. If you prefer to use the bracket keys for input, you can rebind
-them like below:
+By default, =[= and =]= are [[https://github.com/noctuid/lispyville/tree/master#additional-movement-key-theme][bound]] to [[cmd:lispyville-previous-opening]] and
+[[cmd:lispyville-next-closing]] respectively. If you use a language which makes
+frequent use of brackets (e.g. Clojure, Racket, Scheme), you can insert a
+bracket pair =[]= by typing ={=. If you prefer to use the bracket keys for input,
+you can rebind them like below:
 
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
@@ -90,9 +90,9 @@ them like below:
 [[doom-report:][Report an issue?]]
 
 ** Mouse wheel and =wrap=/=additional-wrap= key themes in TTY Emacs ([[https://github.com/doomemacs/core/issues/2573][#2573]])
-lispyville binds [[kbd:M-[]] to ~lispyville-wrap-brackets~ when the =wrap= or
-=additional-wrap= key themes are enabled. In terminal Emacs, this is the key
-Emacs receives when you scroll with your mouse wheel.
+lispyville binds [[kbd:M-[]] to [[cmd:lispyville-wrap-brackets]] when the =wrap= or
+=additional-wrap= key themes are enabled. In terminal Emacs, this is the key Emacs
+receives when you scroll with your mouse wheel.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

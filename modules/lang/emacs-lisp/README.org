@@ -33,12 +33,12 @@ This module extends support for Emacs Lisp in Doom Emacs.
 
 ** Hacks
 - Symbols that are defined in the current session are highlighted with
-  ~font-lock-variable-face~.
+  [[face:font-lock-variable-name-face]].
 - Eldoc will display the values of variables next to its documentation.
-- ~elisp-demos~ was modified to display API demos for Doom's standard library
-  (in [[file:../../../docs/api.org][docs/api.org]]).
-- This module extends imenu support for Doom's API (e.g. ~package!~,
-  ~use-package~, ~after!~)
+- [[pkg:elisp-demos]] was modified to display API demos for Doom's standard library (in
+  [[file:../../../docs/api.org][docs/api.org]]).
+- This module extends imenu support for Doom's API (e.g. [[fns:package!]],
+  [[fns:use-package]], [[fns:after!]])
 - Flycheck has been configured to tone down the false positives when you are
   editing your Emacs or Doom config.
 

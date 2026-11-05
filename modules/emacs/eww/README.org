@@ -33,7 +33,7 @@ some reasonable defaults and helper commands.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-Type ~M-x eww~ and enter an URL.
+Type [[M-x:eww]] and enter an URL.
 
 * TODO Configuration
 #+begin_quote wip

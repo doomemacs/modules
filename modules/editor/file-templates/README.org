@@ -32,7 +32,7 @@ This module adds file templates for blank files, powered by [[pkg:yasnippet]].
 #+end_quote
 
 File templates are automatically expanded when opening empty files who match one
-of the rules in the ~+file-templates-alist~ variable.
+of the rules in the [[var:+file-templates-alist]] variable.
 
 These templates are simply yasnippet snippets, which can also be expanded by
 typing their trigger and pressing [[kbd:TAB]]. By convention, the triggers for file
@@ -40,8 +40,8 @@ templates are prefixed with two underscores ~__~ (the trigger for the default
 file template of a major mode is almost always ~__~).
 
 ** Inserting OSS licenses
-A special command is available for inserting software licenses: ~M-x
-+file-templates/insert-license~.
+A special command is available for inserting software licenses:
+[[M-x:+file-templates/insert-license]].
 
 #+begin_quote tip
 Licenses with a ~-bp~ suffix are boilerplate templates; i.e. shorter versions
@@ -57,19 +57,19 @@ intended for comment headers in code files.
 New file templates can be added to
 =$DOOMDIR/snippets/{major-mode}/{snippet-name}=. The yasnippet documentation
 covers [[https://joaotavora.github.io/yasnippet/snippet-development.html][how to write a snippet]]. You can map a snippet to a file path, major mode,
-or another arbitrary predicate using [[fn:set-file-template!]].
+or another arbitrary predicate using [[fns:set-file-template!]].
 
 Look into its documentation with [[kbd:<help> f set-file-template\!]].
 
 ** Adding new OSS licenses
-Add snippet files to =$DOOMDIR/snippets/text-mode/= with the =__licenses-=
-prefix and [[fn:+file-templates/insert-license]] will recognize them. E.g.
+Add snippet files to =$DOOMDIR/snippets/text-mode/= with the =__licenses-= prefix
+and [[fns:+file-templates/insert-license]] will recognize them. E.g.
 =$DOOMDIR/snippets/text-mode/__license-mit=.
 
 * Troubleshooting
-- If a file template isn't expanding where you expect it to, run ~M-x
-  +file-templates/debug~. This will report to you what file template rule would
-  apply for the correct file.
+- If a file template isn't expanding where you expect it to, run
+  [[M-x:+file-templates/debug]] . This will report to you what file template rule
+  would apply for the correct file.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-[[pkg:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
+[[pkg:treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
 but largely inspired by the Project Explorer in Eclipse. It shows the file
 system outlines of your projects in a simple tree layout allowing quick
 navigation and exploration, while also possessing basic file management
@@ -22,7 +22,7 @@ utilities. It includes:
 
 ** Module flags
 - +lsp ::
-  Enable ~lsp-treemacs~ integration and add shortcuts for common commands.
+  Enable [[pkg:lsp-treemacs]] integration and add shortcuts for common commands.
 
 ** Packages
 - [[package:lsp-treemacs]] if [[module:+lsp]]
@@ -59,8 +59,8 @@ The project bar can be opened using [[kbd:SPC o p]].
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-The variable ~+treemacs-git-mode~ sets the type of git integration that treemacs
-has.
+The variable [[var:+treemacs-git-mode]] sets the type of git integration that
+treemacs has.
 
 There are 3 possible values:
 1. ~'simple~ (the default), which highlights only files based on their git
@@ -70,7 +70,7 @@ There are 3 possible values:
 3. ~'deferred~, same as extended, but highlights asynchronously.
 
 #+begin_quote warning
-~+treemacs-git-mode~ must be set before treemacs is loaded.
+[[var:+treemacs-git-mode]] must be set before treemacs is loaded.
 #+end_quote
 
 * Troubleshooting

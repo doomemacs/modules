@@ -7,8 +7,8 @@
 * Description :unfold:
 This modules provides spellchecking powered by =aspell=, =hunspell= or =enchant=.
 
-Spellcheck is automatically loaded in many ~text-mode~ derivatives, which includes
-~org-mode~, ~markdown-mode~, the Git Commit buffer (from magit), ~mu4e-compose-mode~,
+Spellcheck is automatically loaded in many [[major:text-mode]] derivatives, which includes
+[[major:org-mode]], [[major:markdown-mode]], the Git Commit buffer (from magit), [[major:mu4e-compose-mode]],
 and others.
 
 - Spell checking and correction using =aspell=, =hunspell= or =enchant=.
@@ -60,9 +60,9 @@ installed whether or not you have [[module:+hunspell]] or [[module:+enchant]] en
 #+end_quote
 
 ** Aspell
-- Ubuntu: ~$ apt-get install aspell aspell-en~
-- macOS: ~$ brew install aspell~
-- Arch Linux: ~$ pacman -S aspell aspell-en~
+- Ubuntu: [[sh:apt-get install aspell aspell-en]]
+- macOS: [[sh:brew install aspell]]
+- Arch Linux: [[sh:pacman -S aspell aspell-en]]
 - NixOS:
   #+begin_src nix
   {
@@ -73,9 +73,9 @@ installed whether or not you have [[module:+hunspell]] or [[module:+enchant]] en
   #+end_src
 
 ** Hunspell
-- Ubuntu: ~$ apt-get install hunspell~
-- macOS: ~$ brew install hunspell~
-- Arch Linux: ~$ pacman -S hunspell~
+- Ubuntu: [[sh:apt-get install hunspell]]
+- macOS: [[sh:brew install hunspell]]
+- Arch Linux: [[sh:pacman -S hunspell]]
 - NixOS:
   #+begin_src nix
   {
@@ -86,9 +86,9 @@ installed whether or not you have [[module:+hunspell]] or [[module:+enchant]] en
   #+end_src
 
 ** Enchant
-- Ubuntu: ~$ apt-get install enchant-2~
-- macOS: ~$ brew install enchant~
-- Arch Linux: ~$ pacman -S enchant~
+- Ubuntu: [[sh:apt-get install enchant-2]]
+- macOS: [[sh:brew install enchant]]
+- Arch Linux: [[sh:pacman -S enchant]]
 - NixOS:
   #+begin_src nix
   {
@@ -120,8 +120,8 @@ Dictionary is set by [[var:ispell-dictionary]], which can be changed locally wit
 
 ** Changing how quickly spelling is checked after changes
 *** Spell-fu users
-Adjust ~spell-fu-idle-delay~ to change how long Emacs waits to spellcheck after
-recent changes:
+Adjust [[var:spell-fu-idle-delay]] to change how long Emacs waits to spellcheck
+after recent changes:
 #+begin_src emacs-lisp
 (with-eval-after-load 'spell-fu
   (setq spell-fu-idle-delay 0.5))  ; default is 0.25

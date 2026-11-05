@@ -15,17 +15,17 @@ you [[https://plaintextaccounting.org/][manage your money in plain text]].
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~beancount-mode~. Requires [[module::tools lsp]] and a
-  langserver (supports [[https://github.com/polarmutex/beancount-language-server][beancount-language-server]]).
+  Enable LSP support for [[major:beancount-mode]]. Requires [[module::tools lsp]] and a langserver
+  (supports [[https://github.com/polarmutex/beancount-language-server][beancount-language-server]]).
 
 ** Packages
 - [[package:beancount]]
 
 ** Hacks
 - Adds rudimentary syntax highlighting to ~custom~ directives, because
-  ~beancount-mode~ doesn't out of the box.
-- Fixes a bug in ~beancount-fava~ where the browser doesn't open after starting
-  Fava because of ANSI codes in Fava's output.
+  [[major:beancount-mode]] doesn't out of the box.
+- Fixes a bug in [[cmd:beancount-fava]] where the browser doesn't open after
+  starting Fava because of ANSI codes in Fava's output.
 - Fixes syntax checker only operating on visible region in narrowed buffers
 - Fixes file path resolution errors from syntax checker due to relative paths
   (e.g. for ~include~ and ~document~ attributes/directives).
@@ -53,7 +53,7 @@ This module requires:
 - bean-format, if [[module::editor format]]
 
 * Usage
-This module provides ~beancount-mode~ for beancount ledger files. Opening any
+This module provides [[major:beancount-mode]] for beancount ledger files. Opening any
 ~*.beancount~ or ~*.bean~ will activate it.
 
 ** Keybinds
@@ -73,7 +73,7 @@ This module provides ~beancount-mode~ for beancount ledger files. Opening any
 | [[kbd:<localleader> s b]] | Sort transactions in buffer                      |
 
 * Configuration
-Look up customizable variables for ~beancount-mode~ via [[kbd:C-h V]] and typing
+Look up customizable variables for [[major:beancount-mode]] via [[kbd:C-h V]] and typing
 ~^beancount-~.
 
 On top of those, this module exposes the following variable:

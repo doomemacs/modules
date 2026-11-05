@@ -12,8 +12,8 @@ This module provides support for [[https://elixir-lang.org/][Elixir programming 
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~elixir-mode~. Requires [[module::tools lsp]] and a
-  langserver (supports [[https://github.com/elixir-lsp/elixir-ls/][elixir-ls]]).
+  Enable LSP support for [[pkg:elixir-mode]]. Requires [[module::tools lsp]] and a langserver
+  (supports [[https://github.com/elixir-lsp/elixir-ls/][elixir-ls]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires Emacs 30.1+ and [[module::tools tree-sitter]].
@@ -75,14 +75,14 @@ zypper install elixir
 
 ** exunit-mode
 The exunit-mode prefix is [[kbd:<localleader> t]]. Here is some examples:
-| command                                  | key / ex command  | description                                            |
-|------------------------------------------+-------------------+--------------------------------------------------------|
-| ~exunit-verify-all~                        | [[kbd:<localleader> t a]] | Runs exunit on all files                               |
-| ~exunit-rerun~                             | [[kbd:<localleader> t r]] | Re-runs last exunit command                            |
-| ~exunit-verify~                            | [[kbd:<localleader> t v]] | Runs exunit on current file                            |
-| ~exunit-verify-single~                     | [[kbd:<localleader> t s]] | Runs exunit for the item on cursor                     |
-| ~exunit-toggle-file-and-test~              | [[kbd:<localleader> t t]] | Switch between implementation and test                 |
-| ~exunit-toggle-file-and-test-other-window~ | [[kbd:<localleader> t T]] | Switch between implementation and test in other window |
+| command                                      | key / ex command  | description                                            |
+|----------------------------------------------+-------------------+--------------------------------------------------------|
+| [[cmd:exunit-verify-all]]                        | [[kbd:<localleader> t a]] | Runs exunit on all files                               |
+| [[cmd:exunit-rerun]]                             | [[kbd:<localleader> t r]] | Re-runs last exunit command                            |
+| [[cmd:exunit-verify]]                            | [[kbd:<localleader> t v]] | Runs exunit on current file                            |
+| [[cmd:exunit-verify-single]]                     | [[kbd:<localleader> t s]] | Runs exunit for the item on cursor                     |
+| [[cmd:exunit-toggle-file-and-test]]              | [[kbd:<localleader> t t]] | Switch between implementation and test                 |
+| [[cmd:exunit-toggle-file-and-test-other-window]] | [[kbd:<localleader> t T]] | Switch between implementation and test in other window |
 
 * TODO Configuration
 #+begin_quote wip

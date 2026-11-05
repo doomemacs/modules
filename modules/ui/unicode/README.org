@@ -9,7 +9,7 @@ This module extends Doom's ability to display non-English unicode. It is
 primarily useful for non-English Emacs users, for whom Doom's built-in unicode
 support in insufficient.
 
-This module relies on the [[github:rolandwalker/unicode-fonts][unicode-fonts]] package. It tries to setup the default
+This module relies on the [[pkg:unicode-fonts]] package. It tries to setup the default
 emacs fontset to cover as many unicode glyphs as possible by scanning all
 available glyphs from all available fonts.
 
@@ -51,13 +51,13 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 The first font that will be analyzed to see if it contains the glyphs of
-non-latin characters will be ~doom-symbol-font~:
+non-latin characters will be [[var:doom-symbol-font]]:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq doom-symbol-font (font-spec :family "JuliaMono"))
 #+end_src
 
-If your ~doom-font~ provides good unicode coverage use:
+If your [[var:doom-font]] provides good unicode coverage use:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq doom-symbol-font doom-font)
@@ -71,12 +71,12 @@ A list of fonts with good unicode coverage can be found on the page of the
 [[https://github.com/rolandwalker/unicode-fonts#minimum-useful-fonts][unicode-fonts]] package.
 
 ** Advanced configuration
-Consult the [[https://github.com/rolandwalker/unicode-fonts][unicode-fonts]] package documentation for a description of more
+Consult the [[pkg:unicode-fonts]] package documentation for a description of more
 advanced configuration. The configuration should be placed, as usual, in
 =$DOOMDIR/config.el= wrapped in an ~(with-eval-after-load 'unicode-fonts)~ block.
-The variable ~unicode-fonts-blocks~ contains a list of all unicode block names and
-their character ranges. The default fonts to search for glyphs are in the
-variable ~unicode-fonts-block-font-mapping~.
+The variable [[var:unicode-fonts-blocks]] contains a list of all unicode block names
+and their character ranges. The default fonts to search for glyphs are in the
+variable [[var:unicode-fonts-block-font-mapping]].
 
 If you want to use the font =Symbola= for =Miscellaneous Symbols= by default
 use:
@@ -99,7 +99,7 @@ If you want to redefine several blocks an efficient way would be:
       (push "DejaVu Math TeX Gyre" (cadr (assoc unicode-block unicode-fonts-block-font-mapping)))))
 #+end_src
 
-You can find a list of fonts available to emacs using ~M-x counsel-fonts~.
+You can find a list of fonts available to emacs using [[M-x:counsel-fonts]].
 
 * Troubleshooting
 [[doom-report:][Report an issue?]]

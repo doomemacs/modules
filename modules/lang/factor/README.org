@@ -36,7 +36,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 This module requires the installation of factor to be available at
-~fuel-factor-root-dir~. E.g.
+[[var:fuel-factor-root-dir]]. E.g.
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq fuel-factor-root-dir "/Applications/factor")

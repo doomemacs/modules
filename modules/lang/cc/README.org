@@ -23,8 +23,8 @@ Through LSP, this module offers:
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~c-mode~, ~c++-mode~, and ~objc-mode~. Requires [[module::tools lsp]]
-  and a langserver (supports clangd, ccls, and cquery).
+  Enable LSP support for [[major:c-mode]], [[major:c++-mode]], and [[major:objc-mode]]. Requires [[module::tools lsp]] and
+  a langserver (supports clangd, ccls, and cquery).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]].
@@ -51,23 +51,23 @@ This module's requirements change depending on how you use it.
 
 - If [[module:+lsp]] is enabled, you need one of *clangd v9+* or *ccls*.
 - Other features in this module depend on:
-  - (optional) glslangValidator, for GLSL completion in ~glsl-mode~
-  - (optional) cmake, for code completion in ~cmake-mode~
+  - (optional) glslangValidator, for GLSL completion in [[major:glsl-mode]]
+  - (optional) cmake, for code completion in [[major:cmake-mode]]
 - You will need a C/C++ compiler, like =gcc= or =clang=.
 
 ** LSP servers
-=lsp-mode= and =eglot= support a few LSP servers, but =clangd= is recommend:
+[[pkg:lsp-mode]] and [[pkg:eglot]] support a few LSP servers, but =clangd= is recommend:
 
 + clangd (must be v9 or newer) :: clangd is included with =llvm= which should be
   available through your OS' package manager.
   - Linux:
-    - Debian & Ubuntu: ~$ apt-get install clangd~
-    - Fedora & CentOS/RHEL 8+: ~$ dnf install clang-tools-extra~
-    - openSUSE: ~$ zypper install clang~
-    - Arch: ~$ pacman -S clang~
+    - Debian & Ubuntu: [[sh:apt-get install clangd]]
+    - Fedora & CentOS/RHEL 8+: [[sh:dnf install clang-tools-extra]]
+    - openSUSE: [[sh:zypper install clang]]
+    - Arch: [[sh:pacman -S clang]]
   - BSDs:
-    - NetBSD & OpenBSD: ~$ pkg_add clang-tools-extra~
-  - macOS: ~$ brew install llvm~ // 1GB+ installation! May take a while!
+    - NetBSD & OpenBSD: [[sh:pkg_add clang-tools-extra]]
+  - macOS: [[sh:brew install llvm]] // 1GB+ installation! May take a while!
   - Windows: use the win64 installer from [[https://releases.llvm.org/download.html][LLVM's GitHub release page]].
 + ccls :: Available in many OS' package managers as =ccls=. Otherwise, there are
   alternative install methods listed [[https://github.com/MaskRay/ccls/wiki/Install][in the project's wiki]].
@@ -88,7 +88,7 @@ For more info, see [[module::editor format]].
    (e.g. ~:lang (python +lsp)~ or ~:lang (rust +lsp)~),
 3. Install the prerequisite LSP servers through your package manager or other
    means. You can find a list of supported servers on [[https://github.com/emacs-lsp/lsp-mode#supported-languages][the lsp-mode project page]].
-4. Run ~$ doom sync~ on the command line and restart Emacs.
+4. Run [[sh:doom sync]] on the command line and restart Emacs.
 
 ** Eglot-specific bindings
 When using [[module:+lsp]] and [[module::tools lsp +eglot]], [[pkg:lsp-mode]] is replaced with [[pkg:eglot]], and an
@@ -191,7 +191,7 @@ and =:json-null= for ~null~).
 
 *** Eglot with clangd
 =clangd= will work with Eglot out of the box, but to customize its startup
-command, use [[fn:set-eglot-client!]]:
+command, use [[fns:set-eglot-client!]]:
 #+begin_src emacs-lisp
 ;;; add to $DOOMDIR/config.el
 (with-eval-after-load 'cc-mode
@@ -200,7 +200,7 @@ command, use [[fn:set-eglot-client!]]:
 
 *** Eglot with ccls
 =ccls= will work with Eglot out of the box, but to customize its startup command,
-use [[fn:set-eglot-client!]]:
+use [[fns:set-eglot-client!]]:
 #+begin_src emacs-lisp
 ;;; add to $DOOMDIR/config.el
 (with-eval-after-load 'cc-mode

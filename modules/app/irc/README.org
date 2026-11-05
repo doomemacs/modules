@@ -55,15 +55,15 @@ environment.systemPackages = [ pkgs.gnutls ];
 To connect to IRC use M-x:=irc.
 
 When in a circe buffer these keybindings will be available:
-| command                   | key             | description                                  |
-|---------------------------+-----------------+----------------------------------------------|
-| ~+irc/tracking-next-buffer~ | [[kbd:<localleader> a]] | Switch to the next active buffer             |
-| ~circe-command-JOIN~        | [[kbd:<localleader> j]] | Join a channel                               |
-| ~+irc/send-message~         | [[kbd:<localleader> m]] | Send a private message                       |
-| ~circe-command-NAMES~       | [[kbd:<localleader> n]] | List the names of the current channel        |
-| ~circe-command-PART~        | [[kbd:<localleader> p]] | Part the current channel                     |
-| ~+irc/quit~                 | [[kbd:<localleader> Q]] | Kill the current circe session and workgroup |
-| ~circe-reconnect~           | [[kbd:<localleader> R]] | Reconnect the current server                 |
+| command                       | key             | description                                  |
+|-------------------------------+-----------------+----------------------------------------------|
+| [[cmd:+irc/tracking-next-buffer]] | [[kbd:<localleader> a]] | Switch to the next active buffer             |
+| [[cmd:circe-command-JOIN]]        | [[kbd:<localleader> j]] | Join a channel                               |
+| [[cmd:+irc/send-message]]         | [[kbd:<localleader> m]] | Send a private message                       |
+| [[cmd:circe-command-NAMES]]       | [[kbd:<localleader> n]] | List the names of the current channel        |
+| [[cmd:circe-command-PART]]        | [[kbd:<localleader> p]] | Part the current channel                     |
+| [[cmd:+irc/quit]]                 | [[kbd:<localleader> Q]] | Kill the current circe session and workgroup |
+| [[cmd:circe-reconnect]]           | [[kbd:<localleader> R]] | Reconnect the current server                 |
 
 * TODO Configuration
 #+begin_quote wip
@@ -71,7 +71,7 @@ When in a circe buffer these keybindings will be available:
 #+end_quote
 
 Use ~set-irc-server! SERVER PLIST~ to configure IRC servers. Its second argument
-(a plist) takes the same arguments as ~circe-network-options~:
+(a plist) takes the same arguments as [[var:circe-network-options]]:
 #+begin_src emacs-lisp
 ;; if you omit =:host=, ~SERVER~ will be used instead.
 (with-eval-after-load 'circe
@@ -85,7 +85,7 @@ Use ~set-irc-server! SERVER PLIST~ to configure IRC servers. Its second argument
 #+end_src
 
 However, *it is a obviously a bad idea to store your password in plaintext,* so
-[[https://github.com/emacs-circe/circe/wiki/Configuration#safer-password-management][it's recommend]] that you use ~auth-source~ (built into Emacs) to safely pull
+[[https://github.com/emacs-circe/circe/wiki/Configuration#safer-password-management][it's recommend]] that you use [[pkg:auth-source]] (built into Emacs) to safely pull
 passwords from a password manager or OS keychain (remember to enable the :os
 macos or :tools pass modules if you want integration into the MacOS keychain or
 [[https://www.passwordstore.org/][Pass]]):
@@ -111,15 +111,15 @@ macos or :tools pass modules if you want integration into the MacOS keychain or
       :channels ("#emacs"))))
 #+end_src
 
-If Doom's [[module::tools pass]] module is enabled, ~auth-source~ can integrate
-with [[https://www.passwordstore.org/][Pass]].
+If Doom's [[module::tools pass]] module is enabled, [[pkg:auth-source]] can integrate with [[https://www.passwordstore.org/][Pass]].
 
 #+begin_quote warning
 A common mistake is to interpolate the return value of your secrets retrieval
-function into the plist you pass to ~set-irc-server!~. This means that not only
-will your secrets will be stored, in plaintext, somewhere in Emacs state, but
-your password manager (or GnuPG) will likely prompt you for your GPG key
-passphrase when the ~set-irc-server!~ call is made! For example, don't do this!
+function into the plist you pass to [[fns:set-irc-server!]]. This means that not
+only will your secrets will be stored, in plaintext, somewhere in Emacs state,
+but your password manager (or GnuPG) will likely prompt you for your GPG key
+passphrase when the [[fns:set-irc-server!]] call is made! For example, don't do
+this!
 
   (set-irc-server! "irc.libera.chat"
     `(:tls t

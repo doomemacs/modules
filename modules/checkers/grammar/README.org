@@ -28,13 +28,13 @@ This module requires [[https://languagetool.org/][LanguageTool]] (which requires
 
 It is available from either https://languagetool.org/ or your OS's package
 manager. E.g.
-- macOS: ~$ brew install languagetool~
-- Arch Linux: ~$ pacman -S languagetool~
+- macOS: [[sh:brew install languagetool]]
+- Arch Linux: [[sh:pacman -S languagetool]]
 - NixOS: [[https://search.nixos.org/packages?show=languagetool&from=0&size=50&sort=relevance&type=packages&query=languagetool][nixpkgs.languagetool]]
 
-This module tries to guess the location of =languagetool-commandline.jar=. If
-you get a warning that Doom ~couldn't find languagetool-commandline.jar~, you
-will need to set ~langtool-language-tool-jar~ to its location.
+This module tries to guess the location of =languagetool-commandline.jar=. If you
+get a warning that Doom ~couldn't find languagetool-commandline.jar~, you will
+need to set [[var:langtool-language-tool-jar]] to its location.
 
 * TODO Usage
 #+begin_quote wip
@@ -50,8 +50,8 @@ This requires Java 1.8+
 #+end_quote
 
 *** Commands
-- ~M-x langtool-check~
-- ~M-x langtool-correct-buffer~
+- [[M-x:langtool-check]]
+- [[M-x:langtool-correct-buffer]]
 
 ** writegood-mode
 This minor mode highlights weasel words, duplication and passive voice.

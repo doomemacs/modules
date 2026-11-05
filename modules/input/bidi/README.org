@@ -29,8 +29,8 @@ to your needs.
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
 This module requires the [[https://dejavu-fonts.github.io/][DejaVu Sans]] font be installed and present on your
-system (unless you've changed ~+bidi-hebrew-font~ and ~+bidi-arabic-font~ to a
-different font).
+system (unless you've changed [[var:+bidi-hebrew-font]] and [[var:+bidi-arabic-font]] to
+a different font).
 
 * Usage
 This module provides [[minor:+bidi-mode]], a minor mode that improves the display of RTL
@@ -57,11 +57,11 @@ var:+bidi-arabic-font-scale instead, or add an entry to
 #+end_src
 
 * Configuration
-** Using ~+bidi-mode~
-~+bidi-mode~ is a local minor mode, meaning it has to be turned on a per-buffer
+** Using [[minor:+bidi-mode]]
+[[minor:+bidi-mode]] is a local minor mode, meaning it has to be turned on a per-buffer
 basis.
 
-If you want to have it on for all buffers, use ~+bidi-global-mode~:
+If you want to have it on for all buffers, use [[minor:+bidi-global-mode]]:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (+bidi-global-mode 1)
@@ -73,19 +73,19 @@ probably want to enable it through a hook:
 (add-hook 'TeX-mode-hook #'+bidi-mode)
 #+end_src
 
-This is also useful for adding specific functionality for when ~+bidi-mode~ is on.
+This is also useful for adding specific functionality for when [[minor:+bidi-mode]] is on.
 
 ** Force RTL text alignment
-By default, ~+bidi-mode~ will align paragraphs by the first character with
-strong directionality. If you want to force all paragraphs to be aligned
-right-to-left when ~+bidi-mode~ is on, add the following to your config:
+By default, [[minor:+bidi-mode]] will align paragraphs by the first character with strong
+directionality. If you want to force all paragraphs to be aligned right-to-left
+when [[minor:+bidi-mode]] is on, add the following to your config:
 #+begin_src emacs-lisp
 (setq +bidi-paragraph-direction 'right-to-left)
 #+end_src
 
 #+begin_quote warning
-Do not do this if you are using ~+bidi-global-mode~, it will mess up all of the
-buffers in Emacs that use English, including things like the =M-x= buffer.
+Do not do this if you are using [[minor:+bidi-global-mode]], it will mess up all of the
+buffers in Emacs that use English, including things like the [[kbd:M-x]] buffer.
 #+end_quote
 
 ** Input Methods

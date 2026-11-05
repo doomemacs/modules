@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module adds [[https://fstar-lang.org/][F*]] support, powered by [[https://github.com/FStarLang/fstar-mode.el][fstar-mode.el]].
+This module adds [[https://fstar-lang.org/][F*]] support, powered by [[pkg:fstar-mode]].
 
 - Syntax highlighting
 - Interactively process F* files one definition at a time
@@ -31,7 +31,7 @@ This module adds [[https://fstar-lang.org/][F*]] support, powered by [[https://g
 
 This module requires [[https://github.com/FStarLang/FStar/blob/master/INSTALL.md][F*]].
 
-While ~fstar-mode~ supports the latest release of F*, you may have a better
+While [[pkg:fstar-mode]] supports the latest release of F*, you may have a better
 experience installing a more recent version from source.
 
 ** macOS
@@ -59,7 +59,7 @@ This module has no configuration documentation yet. [[doom-contrib-module:][Writ
 [[doom-report:][Report an issue?]]
 
 - If you're having trouble getting F* to start correctly, you may need to
-  configure a few variables in ~fstar-mode~; see its [[https://github.com/FStarLang/fstar-mode.el][README]] for more details.
+  configure a few variables in [[pkg:fstar-mode]]; see its [[github:FStarLang/fstar-mode.el][README]] for more details.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

@@ -13,10 +13,10 @@ SAS, Julia and Stata.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~ess-r-mode~. Requires [[module::tools lsp]] and the
-  [[https://github.com/REditorSupport/languageserver][languageserver]] R package.
+  Enable LSP support for [[major:ess-r-mode]]. Requires [[module::tools lsp]] and the [[https://github.com/REditorSupport/languageserver][languageserver]]
+  R package.
 - +stan ::
-  Enable support for ~stan-mode~, including code completion and syntax checking.
+  Enable support for [[pkg:stan-mode]], including code completion and syntax checking.
 
 ** Packages
 - [[package:ess]]

@@ -14,7 +14,7 @@ This holy module brings the Vim editing model to Emacs.
 
 ** Module flags
 - +everywhere ::
-  Enable evilified keybinds everywhere possible. Uses the [[https://github.com/emacs-evil/evil-collection][evil-collection]] plugin
+  Enable evilified keybinds everywhere possible. Uses the [[pkg:evil-collection]] plugin
   as a foundation.
 
 ** Packages
@@ -39,7 +39,7 @@ This holy module brings the Vim editing model to Emacs.
 
 ** Hacks
 - The o/O keys will respect and continue commented lines (can be disabled by
-  setting ~+evil-want-o/O-to-continue-comments~ to ~nil~).
+  setting [[var:+evil-want-o/O-to-continue-comments]] to ~nil~).
 - In visual mode, [[kbd:*]] and [[kbd:#]] will search for the current selection instead of the
   word-at-point.
 - The ~:g[lobal]~ ex command has been modified to highlight matches.
@@ -93,18 +93,18 @@ For posterity, here are the built-in ones:
 - [[kbd:o]] symbols
 
 And these are text objects added by this module:
-- [[kbd:a]] C-style function arguments (provided by ~evil-args~)
+- [[kbd:a]] C-style function arguments (provided by [[pkg:evil-args]])
 - [[kbd:B]] any block delimited by braces, parentheses or brackets (provided by
-  ~evil-textobj-anyblock~)
+  [[pkg:evil-textobj-anyblock]])
 - [[kbd:c]] Comments
 - [[kbd:f]] For functions (but relies on the major mode to have sane definitions for
-  ~beginning-of-defun-function~ and ~end-of-defun-function~)
+  [[var:beginning-of-defun-function]] and [[var:end-of-defun-function]])
 - [[kbd:g]] The entire buffer
 - [[kbd:i j k]] by indentation ([[kbd:k]] includes one line above; [[kbd:j]] includes one line above and
-  below) (provided by ~evil-indent-plus~)
+  below) (provided by [[pkg:evil-indent-plus]])
 - [[kbd:q]] For quotes (any kind)
 - [[kbd:u]] For URLs
-- [[kbd:x]] XML attributes (provided by ~exato~)
+- [[kbd:x]] XML attributes (provided by [[pkg:exato]])
 
 ** Custom Ex Commands
 | Ex Command             | Description                                                                        |
@@ -112,8 +112,8 @@ And these are text objects added by this module:
 | ~:@~                     | Apply macro on selected lines                                                      |
 | ~:a~                     | Open sibling file (e.g. .cpp -> .hpp, .scss -> .css, etc)                          |
 | ~:al[ign][!]/REGEXP~     | Align text to the first match of REGEXP. If BANG, align all matches on each line   |
-| ~:cap[ture]~             | Invoke ~org-capture~                                                                 |
-| ~:cd DIRECTORY~          | Change ~default-directory~ to =DIRECTORY=                                              |
+| ~:cap[ture]~             | Invoke [[cmd:org-capture]]                                                             |
+| ~:cd DIRECTORY~          | Change [[var:default-directory]] to =DIRECTORY=                                          |
 | ~:cp[!] NEWPATH~         | Copy the current file to NEWPATH                                                   |
 | ~:dash QUERY~            | Look up QUERY (or the symbol at point) in dash docsets                             |
 | ~:dehtml [INPUT]~        | HTML decode selected text / inserts result if INPUT is given                       |
@@ -133,27 +133,27 @@ And these are text objects added by this module:
 | ~:na[rrow]~              | Narrow the buffer to the selection                                                 |
 | ~:pad~                   | Open a scratch pad for running code quickly                                        |
 | ~:pop[up]~               | Convert the selected window to a popup window                                      |
-| ~:pwd~                   | Display the current ~default-directory~ in echo area                                 |
+| ~:pwd~                   | Display the current [[var:default-directory]] in echo area                             |
 | ~:ral[ign][!]/REGEXP~    | Right-Align text that matches REGEXP. If BANG, align all matches on each line      |
 | ~:repl~                  | Open a REPL and/or copy the current selection to it                                |
 | ~:retab~                 | Convert indentation to the default within the selection                            |
 | ~:rev[erse]~             | Reverse the selected lines                                                         |
 | ~:rm[!] [PATH]~          | Delete the current buffer's file and buffer                                        |
 | ~:sh[ell] CMD~           | Execute a command in the last opened eshell buffer (or make one)                   |
-| ~:sclear~                | ([[module::ui workspaces]]) Kill all workspaces                                   |
-| ~:sl[oad]~               | ([[module::ui workspaces]]) Load the last saved session                           |
-| ~:ss[ave]~               | ([[module::ui workspaces]]) Save the current session                              |
-| ~:tabc[lose]~            | ([[module::ui workspaces]]) Close the current workspace                           |
-| ~:tabclear~              | ([[module::ui workspaces]]) Kill all buffers in current workspace                 |
-| ~:tabf[irst]~            | ([[module::ui workspaces]]) Switch to the first workspace                         |
-| ~:tabl[ast]~             | ([[module::ui workspaces]]) Switch to the last workspace                          |
-| ~:tabload [NAME]~        | ([[module::ui workspaces]]) Load a workspace from file                            |
-| ~:tabn[ew][!]~ [NAME]    | ([[module::ui workspaces]]) Create a new workspace                                |
-| ~:tabnext~               | ([[module::ui workspaces]]) Switch to next workspace                              |
-| ~:tabprev~               | ([[module::ui workspaces]]) Switch to previous workspace                          |
-| ~:tabr[ename]~ NAME      | ([[module::ui workspaces]]) Rename the current workspace to NAME                  |
-| ~:tabs~                  | ([[module::ui workspaces]]) Display all workspaces in the echo area               |
-| ~:tabsave [NAME]~        | ([[module::ui workspaces]]) Save the selected workspace to file                   |
+| ~:sclear~                | ([[module::ui workspaces]]) Kill all workspaces                                               |
+| ~:sl[oad]~               | ([[module::ui workspaces]]) Load the last saved session                                       |
+| ~:ss[ave]~               | ([[module::ui workspaces]]) Save the current session                                          |
+| ~:tabc[lose]~            | ([[module::ui workspaces]]) Close the current workspace                                       |
+| ~:tabclear~              | ([[module::ui workspaces]]) Kill all buffers in current workspace                             |
+| ~:tabf[irst]~            | ([[module::ui workspaces]]) Switch to the first workspace                                     |
+| ~:tabl[ast]~             | ([[module::ui workspaces]]) Switch to the last workspace                                      |
+| ~:tabload [NAME]~        | ([[module::ui workspaces]]) Load a workspace from file                                        |
+| ~:tabn[ew][!]~ [NAME]    | ([[module::ui workspaces]]) Create a new workspace                                            |
+| ~:tabnext~               | ([[module::ui workspaces]]) Switch to next workspace                                          |
+| ~:tabprev~               | ([[module::ui workspaces]]) Switch to previous workspace                                      |
+| ~:tabr[ename]~ NAME      | ([[module::ui workspaces]]) Rename the current workspace to NAME                              |
+| ~:tabs~                  | ([[module::ui workspaces]]) Display all workspaces in the echo area                           |
+| ~:tabsave [NAME]~        | ([[module::ui workspaces]]) Save the selected workspace to file                               |
 
 * TODO Configuration
 #+begin_quote wip
@@ -180,7 +180,7 @@ Doom replaces the [[kbd:s]] and [[kbd:S]] keys with the [[pkg:evil-snipe]] packa
 vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
-1. Disable ~evil-snipe-mode~ by adding ~(remove-hook 'doom-first-input-hook
+1. Disable [[minor:evil-snipe-mode]] by adding ~(remove-hook 'doom-first-input-hook
    #'evil-snipe-mode)~ to =$DOOMDIR/config.el=,
 2. Or disable [[pkg:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
    added to =$DOOMDIR/packages.el=, but this will also disable incremental
@@ -206,17 +206,17 @@ If you prefer the old behavior, it can be reversed with:
 :ID:       f3925da6-5f0b-4d11-aa08-7bb58bea1982
 :END:
 1. [[id:01cffea4-3329-45e2-a892-95a384ab2338][Disable this module]].
-2. Run ~$ doom sync~ to clean up lingering dependencies and regenerate your
+2. Run [[sh:doom sync]] to clean up lingering dependencies and regenerate your
    autoloads files.
-3. [OPTIONAL] Change ~doom-leader-alt-key~ and ~doom-localleader-alt-key~. These
-   are bound to [[kbd:C-c]] and [[kbd:C-c l]] by default.
+3. [OPTIONAL] Change [[var:doom-leader-alt-key]] and [[var:doom-localleader-alt-key]].
+   These are bound to [[kbd:C-c]] and [[kbd:C-c l]] by default.
 
 #+begin_quote warning
-Ignore ~doom-leader-key~ and ~doom-localleader-key~, they don't apply to non-evil
-sessions.
+Ignore [[var:doom-leader-key]] and [[var:doom-localleader-key]], they don't apply to
+non-evil sessions.
 #+end_quote
 
-Evil-specific configuration and keybindings (defined with ~map!~) will be
+Evil-specific configuration and keybindings (defined with [[fns:map!]]) will be
 ignored without [[module::editor evil]] present (and omitted when byte-compiling).
 
 ** Include underscores in evil word motions?

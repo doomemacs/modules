@@ -41,15 +41,15 @@ clean up after itself and kill off buffers I mark as transient.
 - Interactive calls to ~windmove-*~ commands (used by ~evil-window-*~ commands)
   will ignore the ~no-other-window~ window parameter, allowing you to switch to
   popup windows as if they're ordinary windows.
-- ~balance-windows~ has been advised to close popups while it does its business,
-  then restore them afterwards.
-- [[package:neotree]] advises ~balance-windows~, which causes major slow-downs when paired
-  with our ~balance-window~ advice, so we removes neotree's advice.
+- [[cmd:balance-windows]] has been advised to close popups while it does its
+  business, then restore them afterwards.
+- [[package:neotree]] advises [[cmd:balance-windows]], which causes major slow-downs when paired
+  with our [[cmd:balance-windows]] advice, so we removes neotree's advice.
 - [[package:org-mode]] is an ongoing (and huge) effort. It has a scorched-earth window
   management system I'm not fond of. ie. it kills all windows and monopolizes
-  the frame. On top of that, it /really/ likes to use ~switch-to-buffer~ for
+  the frame. On top of that, it /really/ likes to use [[cmd:switch-to-buffer]] for
   most of its buffer management, which completely bypasses
-  ~display-buffer-alist~. Some work has gone into reversing this.
+  [[var:display-buffer-alist]]. Some work has gone into reversing this.
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -66,16 +66,16 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** ~set-popup-rule!~ and ~set-popup-rules!~
+** [[fns:set-popup-rule!]] and [[fns:set-popup-rules!]]
 This module has two functions for defining your own rules for popups:
 #+begin_src emacs-lisp
 (set-popup-rule! PREDICATE &key IGNORE ACTIONS SIDE SIZE WIDTH HEIGHT SLOT VSLOT TTL QUIT SELECT MODELINE AUTOSAVE PARAMETERS)
 (set-popup-rules! &rest RULESETS)
 #+end_src
 
-~PREDICATE~ is a predicate function or regexp string to match against the
-buffer's name. You'll find comprehensive documentation on the other keywords in
-~set-popup-rule!~'s docstring ([[kbd:SPC h f set-popup-rule!]]).
+~PREDICATE~ is a predicate function or regexp string to match against the buffer's
+name. You'll find comprehensive documentation on the other keywords in
+[[fns:set-popup-rule!]]'s docstring ([[kbd:SPC h f set-popup-rule!]]).
 
 #+begin_quote tip
 Popup rules end up in var:display-buffer-alist, which instructs

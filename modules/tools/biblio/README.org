@@ -73,14 +73,14 @@ To override any defaults set by this module, do so in an ~(with-eval-after-load
 [[pkg:org-cite]] provides rich features and flexible configuration options via its
 "processor" capabilities.
 
-1. /insert/ provides =org-cite-insert= integration for inserting and editing
+1. /insert/ provides [[cmd:org-cite-insert]] integration for inserting and editing
    citations.
 2. /activate/ provides fontification, previews, etc.
-3. /follow/ integrates contextual citation actions with =org-open-at-point=.
+3. /follow/ integrates contextual citation actions with [[cmd:org-open-at-point]].
 4. /export/ for different output targets.
 
 This module makes the following processors available:
-1. The core =oc-basic=, =oc-natbib=, =oc-biblatex=, and =oc-csl=.
+1. The core [[pkg:oc-basic]], [[pkg:oc-natbib]], [[pkg:oc-biblatex]], and [[pkg:oc-csl]].
 2. [[pkg:citar]] for integration with [[pkg:vertico]] completion.
 
 The module configures these processors as follows for the different completion
@@ -92,7 +92,7 @@ modules:
 | Follow   | citar   | oc-basic | oc-basic |
 
 *** Other configuration options
-If you like, you can also set the =oc-csl= processor to look in a specific
+If you like, you can also set the [[pkg:oc-csl]] processor to look in a specific
 directory for your CSL styles:
 #+begin_src emacs-lisp
 (setq org-cite-csl-styles-dir "~/Zotero/styles")

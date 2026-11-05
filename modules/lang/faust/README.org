@@ -31,8 +31,8 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
 - [[package:faustine]]
 
 ** Hacks
-- Both ~faust-mode~ and ~faustine-mode~ are hardcoded to use [[pkg:auto-complete]],
-  which Doom does not use. Its obnoxious 'You really should install and use
+- Both [[pkg:faust-mode]] and [[major:faustine-mode]] are hardcoded to use [[pkg:auto-complete]], which
+  Doom does not use. Its obnoxious 'You really should install and use
   auto-complete' warnings have been silenced.
 
 * TODO Usage

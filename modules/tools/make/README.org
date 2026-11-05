@@ -29,9 +29,9 @@ This module requires ~make~.
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-To invoke a make command: ~M-x +make/run~
+To invoke a make command: [[M-x:+make/run]]
 
-To rerun the last make command: ~M-x +make/run-last~
+To rerun the last make command: [[M-x:+make/run-last]]
 
 * TODO Configuration
 #+begin_quote wip

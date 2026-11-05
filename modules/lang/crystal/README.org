@@ -7,8 +7,8 @@
 * Description :unfold:
 This modules adds [[https://crystal-lang.org/][crystal]] support.
 
-- Syntax-checking (~flycheck~)
-- REPL (~inf-crystal~)
+- Syntax-checking ([[pkg:flycheck]])
+- REPL ([[pkg:inf-crystal]])
 
 ** Maintainers
 This module has no dedicated maintainers.
@@ -34,8 +34,8 @@ This module requires:
 - [[https://github.com/crystal-community/icr][ICR]], for the REPL
 
 ** Crystal
-- MacOS: ~$ brew install crystal~
-- Arch Linux: ~$ pacman -S crystal shards~
+- MacOS: [[sh:brew install crystal]]
+- Arch Linux: [[sh:pacman -S crystal shards]]
 
 ** ICR (REPL)
 [[https://github.com/crystal-community/icr#installation][Installation instructions]].

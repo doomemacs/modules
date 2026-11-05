@@ -21,15 +21,15 @@ with or without the native editorconfig binary.
 - [[package:editorconfig-emacs]]
  
 ** Hacks
-- *Special integration for =ws-butler=:* this module will use [[pkg:ws-butler]] to
-  enforce ~trim_trailing_whitespace~.
+- *Special integration for [[pkg:ws-butler]]:* this module will use [[pkg:ws-butler]] to enforce
+  ~trim_trailing_whitespace~.
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-This module has one optional dependency: the native ~editorconfig~ binary.
-Without it, a built-in elisp implementation will be used, which is claimed to be
-faster and more secure.
+This module has one optional dependency: the native [[pkg:editorconfig]] binary. Without
+it, a built-in elisp implementation will be used, which is claimed to be faster
+and more secure.
 
 If you choose to install the binary, [[https://github.com/editorconfig#contributing][many implementations]] are available, usually
 through your OS package manager (if not built from source yourself).
@@ -47,13 +47,13 @@ below. Documentation on editorconfig's properties can be found [[https://editorc
 ** Adding support for more major modes
 Out the box, the editorconfig plugin supports many Emacs major modes, but it's
 possible you'll find one it doesn't support. Adding support is easy so long as
-you know that mode's indentation variables. For example, ~coffee-mode~ has a
-~coffee-tab-width~ variable that controls indentation width in CoffeeScript
+you know that mode's indentation variables. For example, [[pkg:coffee-mode]] has a
+[[var:coffee-tab-width]] variable that controls indentation width in CoffeeScript
 files. Editorconfig already supports this language, but let's pretend it
 doesn't:
 
-The ~editorconfig-indentation-alist~ variable contains a list of major modes and
-their indentation variables. To add coffee-mode to it:
+The [[var:editorconfig-indentation-alist]] variable contains a list of major modes
+and their indentation variables. To add coffee-mode to it:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (with-eval-after-load 'editorconfig
@@ -63,8 +63,8 @@ their indentation variables. To add coffee-mode to it:
 But what if you don't know the correct indentation variable(s). Use [[kbd:SPC h v]] ([[kbd:C-h
 v]] for non-evil users) to peruse all the available variables in your current
 session of Emacs. Look for variables that have the words =indent=, =offset= or
-=tab-width= in them. They will be prefixed with the plugin they belong to (e.g.
-~rustic-indent-offset~).
+[[var:tab-width]] in them. They will be prefixed with the plugin they belong to
+(e.g. [[var:rustic-indent-offset]]).
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

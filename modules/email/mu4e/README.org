@@ -22,8 +22,8 @@ I want to live in Emacs, but as we all know, living is incomplete without email.
 So I prayed to the text editor gods and they (I) answered. Emacs+evil's editing
 combined with org-mode for writing emails? /Yes please./
 
-It uses ~mu4e~ to read my email, but depends on ~offlineimap~ (to sync my email via
-IMAP) and ~mu~ (to index my mail into a format ~mu4e~ can understand).
+It uses [[pkg:mu4e]] to read my email, but depends on ~offlineimap~ (to sync my email via
+IMAP) and ~mu~ (to index my mail into a format [[pkg:mu4e]] can understand).
 #+end_quote
 
 ** Maintainers
@@ -62,13 +62,13 @@ This module requires:
   (recommended, default) or [[http://www.offlineimap.org/][offlineimap]] but you can sync mail in other ways too.
 
 #+name: Install Matrix
-| Platform      | Install command          | Base packages       |
-|---------------+--------------------------+---------------------|
-| MacOS         | ~$ brew install <pkgs>~    | =mu=                  |
-| Arch          | ~$ pacman -S <pkgs>~       | (AUR, ~$ yay -S~) =mu=  |
-| openSUSE      | ~$ zypper install <pkgs>~  | =maildir-utils=, =mu4e= |
-| Fedora        | ~$ dnf install <pkgs>~     | =maildir-utils=       |
-| Debian/Ubuntu | ~$ apt-get install <pkgs>~ | =maildir-utils=, =mu4e= |
+| Platform      | Install command        | Base packages       |
+|---------------+------------------------+---------------------|
+| MacOS         | [[sh:brew install <pkgs>]]    | =mu=                  |
+| Arch          | [[sh:pacman -S <pkgs>]]       | (AUR, [[sh:yay -S]]) =mu=    |
+| openSUSE      | [[sh:zypper install <pkgs>]]  | =maildir-utils=, =mu4e= |
+| Fedora        | [[sh:dnf install <pkgs>]]     | =maildir-utils=       |
+| Debian/Ubuntu | [[sh:apt-get install <pkgs>]] | =maildir-utils=, =mu4e= |
 
 Then install either the =isync= (=mbsync=) or =offlineimap= package.
 
@@ -125,8 +125,8 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 Enable this module with the =+offlineimap= flag, then [[https://www.offlineimap.org/doc/quick_start.html][write a configuration file]]
 for =offlineimap= ([[https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf][a sample config file can be found in offlineimap's repo]]).
 
-Next, download your email with ~$ offlineimap -o~. This may take a while,
-depending on how many emails need downloading.
+Next, download your email with [[sh:offlineimap -o]]. This may take a while, depending
+on how many emails need downloading.
 
 Then proceed to the "mu and mu4e" section below.
 
@@ -142,8 +142,8 @@ Start with writing a =~/.mbsyncrc=. Here are some examples:
 
 The [[http://isync.sourceforge.net/mbsync.html][manual page]] contains all needed information to set up your own.
 
-Next, download your email with ~$ mbsync --all~. This may take a while, but
-should be quicker than =offlineimap= ;).
+Next, download your email with [[sh:mbsync --all]]. This may take a while, but should
+be quicker than =offlineimap= ;).
 
 Then proceed to the "mu and mu4e" section below.
 
@@ -164,16 +164,16 @@ use it, set [[var:mu4e-get-mail-command]]:
 
 If your command prompts you for a passphrase, you might want to change the value
 of the ~mu4e~get-mail-password-regexp~ variable
-(~mu4e--get-mail-password-regexp~ if =mu= *>=1.8*) such that [[pkg:mu4e]] will recognize
+([[var:mu4e--get-mail-password-regexp]] if =mu= *>=1.8*) such that [[pkg:mu4e]] will recognize
 the prompt and let you provide the passphrase from within Emacs.
 
 ** mu and mu4e
 You should have your email downloaded already. If you have not, you need to set
 =offlineimap= or =mbsync= up before you proceed.
 
-Before you can use =mu4e= or the CLI program =mu=, you need to index your email
+Before you can use [[pkg:mu4e]] or the CLI program =mu=, you need to index your email
 initially. How to do that differs a little depending on the version of =mu= you
-use. You can check your version with ~$ mu --version~.
+use. You can check your version with [[sh:mu --version]].
 
 For =mu= *>=1.4* you need to run two commands:
 #+begin_src sh
@@ -202,28 +202,28 @@ Then configure Emacs to use your email address:
   t)
 #+end_src
 
-If you use multiple email accounts, defining them with ~set-email-account!~ will
-automatically set the appropriate account context when replying to emails in
-that account's maildir. ~mu4e-context-policy~ and ~mu4e-compose-context-policy~
-can be modified to change context behavior when opening mu4e and composing
-email:
+If you use multiple email accounts, defining them with [[fns:set-email-account!]]
+will automatically set the appropriate account context when replying to emails
+in that account's maildir. [[var:mu4e-context-policy]] and
+[[var:mu4e-compose-context-policy]] can be modified to change context behavior when
+opening mu4e and composing email:
 #+begin_src emacs-lisp
 (setq mu4e-context-policy 'ask-if-none
       mu4e-compose-context-policy 'always-ask)
 #+end_src
 
 If you send mail from various email aliases for different services,
-~+mu4e-personal-addresses~ can be set per-context with ~set-email-account!~. If
-you are not replying to an email to or from one of the specified aliases, you
+[[var:+mu4e-personal-addresses]] can be set per-context with [[fns:set-email-account!]].
+If you are not replying to an email to or from one of the specified aliases, you
 will be prompted for an alias to send from.
 
 *** Gmail
 With the [[module:+gmail]] flag, integrations are applied which account for the different
 behaviour of Gmail.
 
-The integrations are applied to addresses with /both/ "@gmail.com" in the
-account address and "gmail" in the account maildir, as well as accounts listed
-in ~+mu4e-gmail-accounts~. Any domain can be specified, so G Suite accounts can
+The integrations are applied to addresses with /both/ "@gmail.com" in the account
+address and "gmail" in the account maildir, as well as accounts listed in
+[[var:+mu4e-gmail-accounts]]. Any domain can be specified, so G Suite accounts can
 benefit from the integrations:
 #+begin_src emacs-lisp
 ;; if "gmail" is missing from the address or maildir, the account must be listed here
@@ -247,9 +247,9 @@ as deleted: Auto-Expunge off - Wait for the client to update the server." and
 folder: Move the message to the trash" for the integrations to work as expected.
 
 ** Sending mail (SMTP)
-Once you're able to fetch your mail, the next step is to configure =mu4e= to
-send mail via SMTP. All of the following snippets are meant to be part of your
-~set-email-account!~ block:
+Once you're able to fetch your mail, the next step is to configure [[pkg:mu4e]] to send
+mail via SMTP. All of the following snippets are meant to be part of your
+[[fns:set-email-account!]] block:
 
 *** SMTP server configuration
 #+begin_src emacs-lisp
@@ -264,17 +264,17 @@ before sending mail. Emacs will prompt you for this password when you attempt to
 send mail. You can store this password as described in [[elisp:(info "(emacs) Authentication")][the relevant info node]].
 
 Alternately, if you're already using =pass= to store your passwords, you can use
-the [[module::tools pass +auth]] module as an auth source. The corresponding
-entry in your password store should have the same name as your SMTP server (for
-example, it might be called =smtp.bar.com=). You may also need to run the function
-~auth-source-pass-enable~ at some point.
+the [[module::tools pass +auth]] module as an auth source. The corresponding entry in your
+password store should have the same name as your SMTP server (for example, it
+might be called =smtp.bar.com=). You may also need to run the function
+[[fns:auth-source-pass-enable]] at some point.
 
 Emacs will first attempt to send mail without supplying credentials, and expects
 the server to communicate that needs credentials. Some servers (eg. Gmail) will
 instead abort with an error if they don't recieve credentials on the first
 attempt. To get around this, you can set
-~smtpmail-servers-requiring-authorization~ to a regex matching the name of your
-server:
+[[var:smtpmail-servers-requiring-authorization]] to a regex matching the name of
+your server:
 #+begin_src emacs-lisp
 ;; In `set-email-account!'
 (smtpmail-servers-requiring-authorization . "smtp\\.bar\\.com")
@@ -304,10 +304,10 @@ the defaults:
 #+end_src
 
 *** Sending mail asynchronously
-Normally, =mu4e= will block Emacs while sending mail, which can be annoying when
+Normally, [[pkg:mu4e]] will block Emacs while sending mail, which can be annoying when
 you're on a slow connection and the mail takes a long time to send. There is a
-workaround [[elisp:(info "(mu4e) Writing messages")][in mu4e's manual]] that uses the [[pkg:async]] library. To use it,
-you need to include it in your ~set-email-account!~ block:
+workaround [[elisp:(info "(mu4e) Writing messages")][in mu4e's manual]] that uses the [[pkg:async]] library. To use it, you need to
+include it in your [[fns:set-email-account!]] block:
 #+begin_src emacs-lisp
 ;; In `set-email-account!'
 (send-mail-function . async-smtpmail-send-it)
@@ -323,8 +323,8 @@ Emacs process can access your password-store:
 #+end_src
 
 ** OrgMsg
-With the [[module:+org]] flag, [[pkg:org-msg]] is installed, and ~org-msg-mode~ is enabled before
-composing the first message. To disable ~org-msg-mode~ by default:
+With the [[module:+org]] flag, [[pkg:org-msg]] is installed, and [[minor:org-msg-mode]] is enabled before
+composing the first message. To disable [[minor:org-msg-mode]] by default:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
 (setq +mu4e-compose-org-msg-toggle-next nil)
@@ -334,7 +334,7 @@ To toggle org-msg for a single message, just apply the universal argument to the
 compose or reply command ([[kbd:SPC u]] with [[pkg:evil]], [[kbd:C-u]] otherwise).
 
 The accent color that Doom uses can be customised by setting
-~+org-msg-accent-color~ to a CSS color string.
+[[var:+org-msg-accent-color]] to a CSS color string.
 
 ** Notifications
 New-mail notifications are provided by mu4e itself (since mu4e 1.10), and this
@@ -348,8 +348,8 @@ If you don't like this use:
 #+end_src
 
 ** Enabling automatic email fetching
-By default, periodic email update is *disabled*. To enable periodic
-mail retrieval/indexing, change the value of ~mu4e-update-interval~:
+By default, periodic email update is *disabled*. To enable periodic mail
+retrieval/indexing, change the value of [[var:mu4e-update-interval]]:
 
 #+begin_src emacs-lisp
 (setq mu4e-update-interval 60)
@@ -359,12 +359,12 @@ mail retrieval/indexing, change the value of ~mu4e-update-interval~:
 [[doom-report:][Report an issue?]]
 
 ** =No such file or directory, mu4e=
-You will get =No such file or directory, mu4e= errors if you don't run ~$ doom
-sync~ after installing =mu= through your package manager.
+You will get =No such file or directory, mu4e= errors if you don't run [[sh:doom sync]]
+after installing =mu= through your package manager.
 
-Sometimes the ~mu~ package does not include ~mu4e~ (*cough Ubuntu*). If that's
-the case you will need to [[https://github.com/djcb/mu][install]] it and add it to your ~load-path~. You can
-do that by:
+Sometimes the ~mu~ package does not include ~mu4e~ (*cough Ubuntu*). If that's the
+case you will need to [[https://github.com/djcb/mu][install]] it and add it to your [[var:load-path]]. You can do
+that by:
 #+begin_src emacs-lisp
 (add-to-list 'load-path "your/path/to/mu4e")
 ;; if you installed it using your package manager

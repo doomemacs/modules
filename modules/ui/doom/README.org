@@ -5,7 +5,7 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module gives Doom its signature look: powered by the [[pkg:doom-themes][doom-one]] theme
+This module gives Doom its signature look: powered by the [[github:doomemacs/themes][doom-one]] theme
 (loosely inspired by [[https://github.com/atom/one-dark-syntax][Atom's One Dark theme]]) and [[pkg:solaire-mode]]. Includes:
 
 - A custom folded-region indicator for [[pkg:hideshow]].
@@ -42,7 +42,7 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 #+end_quote
 
 ** Changing theme
-Although this module uses the =doom-one= theme by default, [[github:doomemacs/themes][doom-themes]] offers a
+Although this module uses the =doom-one= theme by default, [[pkg:doom-themes]] offers a
 number of alternatives:
 
 - *doom-one:* doom-themes' flagship theme, inspired by [[https://atom.io/][Atom's]] One Dark themes
@@ -91,8 +91,8 @@ than the rest of the Emacs' frame (to visually differentiate temporary windows
 or sidebars from editing windows). This looks great in GUI Emacs, but can look
 questionable in the terminal.
 
-It disables itself if you start tty Emacs with ~$ emacs -nw~, but if you create
-a tty frame from a daemon (which solaire-mode cannot anticipate), you'll get an
+It disables itself if you start tty Emacs with [[sh:emacs -nw]], but if you create a
+tty frame from a daemon (which solaire-mode cannot anticipate), you'll get an
 ugly background instead.
 
 If you only use Emacs in the terminal, your best bet is to disable the

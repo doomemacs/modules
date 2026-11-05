@@ -14,7 +14,7 @@ run Terraform commands directly from Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~terraform-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:terraform-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports terraform-ls or terraform-lsp).
 
 ** Packages
@@ -32,7 +32,7 @@ This module requires the ~terraform~ executable to be installed and in your
 
 * Usage
 ** Syntax highlighting
-Syntax highlighting is provided from ~terraform-mode~ and ~hcl-mode~.
+Syntax highlighting is provided from [[pkg:terraform-mode]] and [[pkg:hcl-mode]].
 
 ** Code formatting
 [[module::tools terraform]] does not provide code formatting directly, but [[module::editor format]]
@@ -55,11 +55,11 @@ functionality, thanks to [[pkg:company-terraform]].
 ** Executing Terraform commands
 [[module::tools terraform]] provides commands under [[kbd:<localleader>]] to run the most common
 Terraform operations:
-| key             | description            |
-|-----------------+------------------------|
-| [[kbd:<localleader> i]] | Runs ~$ terraform init~  |
-| [[kbd:<localleader> p]] | Runs ~$ terraform plan~  |
-| [[kbd:<localleader> a]] | Runs ~$ terraform apply~ |
+| key             | description          |
+|-----------------+----------------------|
+| [[kbd:<localleader> i]] | Runs [[sh:terraform init]]  |
+| [[kbd:<localleader> p]] | Runs [[sh:terraform plan]]  |
+| [[kbd:<localleader> a]] | Runs [[sh:terraform apply]] |
 
 * TODO Configuration
 #+begin_quote wip

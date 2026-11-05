@@ -5,7 +5,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module marries [[pkg:hideshow]], [[pkg:vimish-fold]], and ~outline-minor-mode~ to bring you
+This module marries [[pkg:hideshow]], [[pkg:vimish-fold]], and [[minor:outline-minor-mode]] to bring you
 marker, indent and syntax-based code folding for as many languages as possible.
 
 ** Maintainers

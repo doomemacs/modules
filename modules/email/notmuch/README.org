@@ -70,10 +70,10 @@ environment.systemPackages = with pkgs; [
 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-| Keymap          | Command          | Description                                   |
-|-----------------+------------------+-----------------------------------------------|
-| [[kbd:<localleader> u]] | ~+notmuch/update~  | Download, sync, and index emails with notmuch |
-| [[kbd:<localleader> c]] | ~+notmuch/compose~ | Compose new email                             |
+| Keymap          | Command              | Description                                   |
+|-----------------+----------------------+-----------------------------------------------|
+| [[kbd:<localleader> u]] | [[cmd:+notmuch/update]]  | Download, sync, and index emails with notmuch |
+| [[kbd:<localleader> c]] | [[cmd:+notmuch/compose]] | Compose new email                             |
 
 * TODO Configuration
 #+begin_quote wip
@@ -97,7 +97,7 @@ notmuch new
 install lieer, see the [[https://github.com/gauteh/lieer#installation][installation docs]].
 
 *** offlineimap
-To use [[https://www.offlineimap.org/][offlineimap]], change ~+notmuch-sync-backend~:
+To use [[https://www.offlineimap.org/][offlineimap]], change [[var:+notmuch-sync-backend]]:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
 (setq +notmuch-sync-backend 'offlineimap)
@@ -110,11 +110,11 @@ As a real world example, [[https://github.com/hlissner/dotfiles/blob/5f146b6c395
 download mail to =$HOME/.mail=. I used [[https://www.passwordstore.org/][unix pass]] to securely store my login
 credentials.
 
-Finally, download your email with ~$ offlineimap -o~. This may take a while,
+Finally, download your email with [[sh:offlineimap -o]]. This may take a while,
 especially if you have thousands of emails.
 
 *** mbsync
-To use [[https://isync.sourceforge.io/][mbsync]], change ~+notmuch-sync-backend~:
+To use [[https://isync.sourceforge.io/][mbsync]], change [[var:+notmuch-sync-backend]]:
 #+begin_src emacs-lisp
 (setq +notmuch-sync-backend 'mbsync)
 
@@ -130,8 +130,8 @@ for GMAIL can be found on the [[https://wiki.archlinux.org/index.php/isync#Confi
 integration with notmuch for auto synchronization. A non-GMAIL example is
 available as a gist [[https://gist.github.com/agraul/60977cc497c3aec44e10591f94f49ef0][here]].
 
-Finally, download your email with ~$ mbsync --all~. This may take a while, but
-will be quicker than =offlineimap=.
+Finally, download your email with [[sh:mbsync --all]]. This may take a while, but will
+be quicker than =offlineimap=.
 
 *** Custom method
 If you have a unique method for synchronizing your email, you can define your
@@ -159,11 +159,11 @@ It is possible to change the =*notmuch-hello*= buffer if you want to.
 #+end_src
 
 ** Changing the =notmuch= landing page
-You may want to forego the =*notmuch-hello*= buffer by having ~M-x =notmuch~ or
+You may want to forego the =*notmuch-hello*= buffer by having [[M-x:notmuch]] or
 [[kbd:<leader> o m]] take you straight to a search page.
 
-When using [[kbd:<leader> o m]] the ~+notmuch-home-function~ is called. By default it
-uses the ~notmuch~ function and so has the same familiar behavior of running a
+When using [[kbd:<leader> o m]] the [[var:+notmuch-home-function]] is called. By default it
+uses the [[cmd:notmuch]] function and so has the same familiar behavior of running a
 vanilla install of notmuch-emacs. But, by overwriting this function you can run
 a custom search as your landing page.
 #+begin_src emacs-lisp
@@ -171,17 +171,17 @@ a custom search as your landing page.
 #+end_src
 
 ** Writing HTML Emails
-The [[https://github.com/org-mime/org-mime][org-mime]] package provides functionality for composing emails in org-mode and
+The [[pkg:org-mime]] package provides functionality for composing emails in org-mode and
 transforming them to HTML. This feature is enabled using the =+org= flag.
 
 Example use cases:
-- To convert an email to an HTML email use ~M-x org-mime-htmlize~.
-- To compose email using an org-mode editor buffer, use ~M-x
-  org-mime-edit-mail-in-org-mode~.
+- To convert an email to an HTML email use [[M-x:org-mime-htmlize]].
+- To compose email using an org-mode editor buffer, use
+  [[M-x:org-mime-edit-mail-in-org-mode]].
 
-If you'd like to make configuration changes to =org-mime=, you may do so
-normally. By default the output of =org-mime-htmlize= includes section numbers,
-a byline, and a table of contents. That's probably more formal than the emails
+If you'd like to make configuration changes to [[pkg:org-mime]], you may do so normally.
+By default the output of [[cmd:org-mime-htmlize]] includes section numbers, a
+byline, and a table of contents. That's probably more formal than the emails
 you're used to sending, so here's some example configuration that turns those
 features off:
 #+begin_src emacs-lisp

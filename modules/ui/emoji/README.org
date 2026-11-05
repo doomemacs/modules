@@ -27,7 +27,7 @@ font configuration.
 
 ** Packages
 - [[package:emojify]]
- 
+
 ** Hacks
 /No hacks documented for this module./
 
@@ -36,12 +36,12 @@ font configuration.
 
 From the [[https://github.com/iqbalansari/emacs-emojify/blob/master/README.org#requirements][emojify requirements]] docs:
 #+begin_quote excerpt
-The [[https://github.com/iqbalansari/emacs-emojify][emojify]] package requires Emacs *v24.3* and above. Emacs should be compiled
-with support for *PNG* images to display emojis as images. It is *recommended*
-that Emacs is compiled with *ImageMagick* support. ~emojify~ will use it to
-resize emojis if needed, additionally imagemagick is used to set background
-color for emojis to workaround the bug described in [[https://github.com/iqbalansari/emacs-emojify/issues/7][issue 7]]. However these are
-*completely optional*.
+The [[pkg:emojify]] package requires Emacs *v24.3* and above. Emacs should be compiled
+with support for *PNG* images to display emojis as images. It is *recommended* that
+Emacs is compiled with *ImageMagick* support. [[pkg:emojify]] will use it to resize emojis
+if needed, additionally imagemagick is used to set background color for emojis
+to workaround the bug described in [[https://github.com/iqbalansari/emacs-emojify/issues/7][issue 7]]. However these are *completely
+optional*.
 
 PNG support might require some additional steps to on Windows, you might find
 [[http://stackoverflow.com/questions/2650041/emacs-under-windows-and-png-files][this]] stackoverflow answer helpful.

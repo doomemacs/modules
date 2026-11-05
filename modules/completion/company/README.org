@@ -11,8 +11,8 @@ to the Corfu module instead.
 #+end_quote
 
 * Description :unfold:
-This module provides code completion, powered by [[https://github.com/company-mode/company-mode][company-mode]]. Many of Doom's
-[[module::lang]] modules require it for "intellisense" functionality.
+This module provides code completion, powered by [[pkg:company]]. Many of Doom's [[module::lang]]
+modules require it for "intellisense" functionality.
 
 ** Maintainers
 - [[github:hlissner]]
@@ -40,8 +40,8 @@ This module provides code completion, powered by [[https://github.com/company-mo
 
 This module has no direct requirements, but some languages may have their own
 requirements to fulfill before you get code completion in them (and some
-languages may lack code completion support altogether). Run ~$ doom doctor~ to
-find out if you're missing any dependencies.
+languages may lack code completion support altogether). Run [[sh:doom doctor]] to find
+out if you're missing any dependencies.
 
 * TODO Usage
 #+begin_quote wip
@@ -83,8 +83,9 @@ available to evil users to access specific company backends:
 | [[kbd:C-x s]]   | Complete spelling suggestions     |
 
 ** Searching with multiple keywords
-If the =vertico= module is enabled, users can perform code completion with multiple search keywords with an ampersand =&=.
-More information can be found [[https://github.com/oantolin/orderless#company][here]].
+If the [[module::completion vertico]] module is enabled, users can perform code completion
+with multiple search keywords with an ampersand =&=. More information can be found
+[[https://github.com/oantolin/orderless#company][here]].
 
 * TODO Configuration
 #+begin_quote wip
@@ -92,9 +93,9 @@ More information can be found [[https://github.com/oantolin/orderless#company][h
 #+end_quote
 
 ** Enable company backend(s) in certain modes
-The ~set-company-backend!~ function exists for setting ~company-backends~
+The [[fns:set-company-backend!]] function exists for setting [[var:company-backends]]
 buffer-locally in MODES, which is either a major-mode symbol, a minor-mode
-symbol, or a list of either. BACKENDS are prepended to ~company-backends~ for
+symbol, or a list of either. BACKENDS are prepended to [[var:company-backends]] for
 those modes.
 
 #+begin_src emacs-lisp
@@ -122,21 +123,21 @@ To unset the backends for a particular mode, pass ~nil~ to it:
 ** X-mode doesn't have code completion support or requires extra setup
 There is no guarantee your language mode will have completion support.
 
-Some, like ~lua-mode~, don't have completion support in Emacs at all. Others may
-requires additional setup to get code completion working. For instance,
-~go-mode~ requires ~guru~ to be installed on your system, and ~ruby-mode~
-requires that you have a Robe server running (~M-x robe-start~).
+Some, like [[major:lua-mode]], don't have completion support in Emacs at all. Others may
+requires additional setup to get code completion working. For instance, [[pkg:go-mode]]
+requires ~guru~ to be installed on your system, and [[major:ruby-mode]] requires that you
+have a Robe server running ([[M-x:robe-start]]).
 
 Check the relevant module's documentation for this kind of information.
 
 ** No backends (or the incorrect ones) have been registered for X-mode
-Doom expects every mode to have an explicit list of ~company-backends~ (and as
+Doom expects every mode to have an explicit list of [[var:company-backends]] (and as
 short a list as possible). This may mean you aren't getting all the completion
 you want or any at all.
 
-Check the value of ~company-backends~ ([[kbd:SPC h v company-backends]]) from that mode
-to see what backends are available. Check the [[*Assigning company backend(s) to modes][Configuration section]] for details
-on changing what backends are available for that mode.
+Check the value of [[var:company-backends]] ([[kbd:SPC h v company-backends]]) from that
+mode to see what backends are available. Check the [[*Assigning company backend(s) to modes][Configuration section]] for
+details on changing what backends are available for that mode.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

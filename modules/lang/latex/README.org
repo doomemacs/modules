@@ -56,7 +56,7 @@ This module requires ghostscript and a latex compiler. These are provided by the
 
 #+begin_quote warning
 Ghostscript <= 9.27 is [[/auctex/manual/preview-latex/No-images-are-displayed-with-gs-9_002e27-and-earlier.html][reportedly buggy]] and doesn't work with auctex's math
-previews. (You can check you ghostscript version with ~$ gs --version~.) Most
+previews. (You can check you ghostscript version with [[sh:gs --version]].) Most
 package managers already have newer versions, but if not you might have to build
 gs from source.
 #+end_quote
@@ -115,7 +115,7 @@ This module provides integration for four supported pdf viewers. They are
 + Okular
 + pdf-tools (requires [[module::tools pdf]] module)
 
-They are searched for in this order. See ~+latex-viewers~ to change the order,
+They are searched for in this order. See [[var:+latex-viewers]] to change the order,
 or remove tools from the search altogether. If you want to exclusively use one
 tool, for instance:
 #+begin_src emacs-lisp

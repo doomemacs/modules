@@ -8,14 +8,14 @@
 Provides a REPL for your shell.
 
 #+begin_quote aside
-=shell= is more REPL than terminal emulator. You can edit your command line like
-you would any ordinary text in Emacs -- something you can't do in [[pkg:term]] (without
-~term-line-mode~, which can be unstable) or [[pkg:vterm]].
+[[cmd:shell]] is more REPL than terminal emulator. You can edit your command line
+like you would any ordinary text in Emacs -- something you can't do in [[pkg:term]]
+(without [[cmd:term-line-mode]], which can be unstable) or [[pkg:vterm]].
 
-Due to =shell='s simplicity, you're less likely to encounter edge cases (e.g.
+Due to [[cmd:shell]]'s simplicity, you're less likely to encounter edge cases (e.g.
 against your shell config), but it's also the least capable. TUI programs like
-=htop= or =vim= won't work in shell directly, but will be launched in a =term= buffer
--- which handles them reasonably well.
+=htop= or =vim= won't work in shell directly, but will be launched in a [[cmd:term]]
+buffer -- which handles them reasonably well.
 #+end_quote
 
 ** Maintainers

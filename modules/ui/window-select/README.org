@@ -8,7 +8,7 @@
 This module provides several methods for selecting windows without the use of
 the mouse or spatial navigation (e.g. [[kbd:C-w {h,j,k,l}]]).
 
-The command ~other-window~ is remapped to either [[pkg:switch-window]] or [[pkg:ace-window]],
+The command [[cmd:other-window]] is remapped to either [[pkg:switch-window]] or [[pkg:ace-window]],
 depending on which backend you've enabled. It is bound to [[kbd:C-x o]] (and [[kbd:C-w C-w]] for
 evil users).
 
@@ -58,7 +58,7 @@ character.
 - *Pros:* the content of the buffers are always visible.
 - *Cons:* The display characters are small and difficult to see (see below for a
   way to enlarge them).
- 
+
 *** Custom font-face example
 This changes the ace-window display to show a white letter with a red
 background. The box attribute adds some padding:
@@ -67,7 +67,7 @@ background. The box attribute adds some padding:
   '(aw-leading-char-face
     :foreground "white" :background "red"
     :weight bold :height 2.5 :box (:line-width 10 :color "red")))
-#+end_src 
+#+end_src
 
 ** switch-window
 Replaces the entire buffer with large letters.

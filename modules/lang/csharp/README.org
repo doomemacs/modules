@@ -15,9 +15,8 @@ This module adds C# support to Emacs, together with LSP support (via
 - +dotnet ::
   Enable Dotnet transient interface with Sharper
 - +lsp ::
-  Enable LSP support for ~csharp-mode~ and ~csharp-ts-mode~. Requires
-  [[module::tools lsp]] and a langserver (e.g. [[https://github.com/dotnet/roslyn/tree/main/src/LanguageServer/Microsoft.CodeAnalysis.LanguageServer][roslyn-language-server]] or
-  [[https://github.com/OmniSharp/omnisharp-roslyn][omnisharp-roslyn]]).
+  Enable LSP support for [[major:csharp-mode]] and [[major:csharp-ts-mode]]. Requires [[module::tools lsp]] and
+  a langserver (e.g. [[https://github.com/dotnet/roslyn/tree/main/src/LanguageServer/Microsoft.CodeAnalysis.LanguageServer][roslyn-language-server]] or [[https://github.com/OmniSharp/omnisharp-roslyn][omnisharp-roslyn]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires Emacs 29.1+ and [[module::tools tree-sitter]].
@@ -31,7 +30,7 @@ This module adds C# support to Emacs, together with LSP support (via
 - [[package:shader-mode]] if [[module:+unity]]
 - [[package:sharper]] if [[module:+dotnet]]
 - [[package:sln-mode]]
-  
+
 ** Hacks
 /No hacks documented for this module./
 

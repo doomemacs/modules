@@ -40,7 +40,7 @@ actually “quitting” Emacs).
 
 * Configurations
 The messages presented by this module can be customized by changing the
-~+doom-quit-messages~ variable:
+[[var:+doom-quit-messages]] variable:
 #+begin_src emacs-lisp
 (setq +doom-quit-messages
       '(;;from doom 2

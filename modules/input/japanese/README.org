@@ -20,8 +20,9 @@ This module adds support for Japanese script.
 - [[package:pangu-spacing]]
 
 ** Hacks
-- ~org-html-paragraph~ has been modified to join consecutive Chinese lines into
-  a single long line without wanted spaced (when exporting org-mode to html).
+- [[fns:org-html-paragraph]] has been modified to join consecutive Chinese lines
+  into a single long line without wanted spaced (when exporting org-mode to
+  html).
 
 * TODO Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]

@@ -22,7 +22,8 @@ the purpose of the module and the features/technology(ies) it provides.
 ** Module flags
 - +guess ::
   Use heuristics to automatically detect and set indent style and width settings
-  for non-project files (or all files if ~+whitespace-guess-in-projects~ is set).
+  for non-project files (or all files if [[var:+whitespace-guess-in-projects]] is
+  set).
 - +trim ::
   Automatically strips trailing whitespace at EOL or EOF, but only in regions of
   the file that have been touched in the current session (as to not too

@@ -18,8 +18,8 @@ client (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[http
 - +chruby ::
   Enable chruby integration.
 - +lsp ::
-  Enable LSP support for ~ruby-mode~. Requires [[module::tools lsp]] and a
-  langserver (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[https://github.com/castwide/solargraph][solargraph]]).
+  Enable LSP support for [[major:ruby-mode]]. Requires [[module::tools lsp]] and a langserver
+  (recommended: [[https://github.com/Shopify/ruby-lsp][ruby-lsp]] or [[https://github.com/castwide/solargraph][solargraph]]).
 - +rails ::
   Enable rails navigational commands, plus server+console integration.
 - +rbenv ::
@@ -69,26 +69,26 @@ Formatting is handled using the [[module::editor format]] module via [[https://p
 ** Commands
 *** projectile-rails
 The projectile-rails prefix is [[kbd:<localleader> r]]:
-| command                     | key / ex command  | description                                       |
-|-----------------------------+-------------------+---------------------------------------------------|
-| ~projectile-rails-console~    | [[kbd:<localleader> r r]] | Open Rails console                                |
-| ~projectile-rails-server~     | [[kbd:<localleader> r R]] | Open Rails server                                 |
-| ~projectile-rails-find-model~ | [[kbd:<localleader> r m]] | Find any model of the project                     |
-| ~projectile-rails-find-model~ | [[kbd:<localleader> r M]] | Find the model related of currently open resource |
+| command                         | key / ex command  | description                                       |
+|---------------------------------+-------------------+---------------------------------------------------|
+| [[cmd:projectile-rails-console]]    | [[kbd:<localleader> r r]] | Open Rails console                                |
+| [[cmd:projectile-rails-server]]     | [[kbd:<localleader> r R]] | Open Rails server                                 |
+| [[cmd:projectile-rails-find-model]] | [[kbd:<localleader> r m]] | Find any model of the project                     |
+| [[cmd:projectile-rails-find-model]] | [[kbd:<localleader> r M]] | Find the model related of currently open resource |
 
 *** bundler
 The bundler prefix is [[kbd:<localleader> b]]:
-| command        | key / ex command  | description         |
-|----------------+-------------------+---------------------|
-| ~bundle-install~ | [[kbd:<localleader> b i]] | Runs bundle install |
-| ~bundle-update~  | [[kbd:<localleader> b u]] | Runs bundle update  |
+| command            | key / ex command  | description         |
+|--------------------+-------------------+---------------------|
+| [[cmd:bundle-install]] | [[kbd:<localleader> b i]] | Runs bundle install |
+| [[cmd:bundle-update]]  | [[kbd:<localleader> b u]] | Runs bundle update  |
 
 *** rspec-mode
 The rspec-mode prefix is [[kbd:<localleader> t]]:
-| command             | key / ex command | description                       |
-|---------------------+------------------+-----------------------------------|
-| ~rspec-verify~        | =SPC m t v=        | Runs rspec on current file        |
-| ~rspec-verify-method~ | =SPC m t s=        | Runs rspec for the item on cursor |
+| command                 | key / ex command | description                       |
+|-------------------------+------------------+-----------------------------------|
+| [[cmd:rspec-verify]]        | [[kbd:SPC m t v]]        | Runs rspec on current file        |
+| [[cmd:rspec-verify-method]] | [[kbd:SPC m t s]]        | Runs rspec for the item on cursor |
 
 * TODO Configuration
 #+begin_quote wip

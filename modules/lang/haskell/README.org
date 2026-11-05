@@ -14,7 +14,7 @@ This module adds Haskell support to Doom Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~haskell-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:haskell-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/haskell/haskell-language-server][haskell-language-server]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -47,8 +47,8 @@ ghcup install hls
 Installing [[https://www.haskell.org/cabal/][cabal]] or [[https://docs.haskellstack.org/en/stable/README/][stack]] as well is recommended, and can be done through
 =ghcup=.
 
-=haskell-mode= provides support for [[https://github.com/ndmitchell/hoogle][hoogle]], which can be installed through
-system package manager, cabal, or stack.
+[[pkg:haskell-mode]] provides support for [[https://github.com/ndmitchell/hoogle][hoogle]], which can be installed through system
+package manager, cabal, or stack.
 
 =haskell-language-server= provides support for [[https://github.com/ndmitchell/hlint/][hlint]], and haskell code
 formatters such as [[https://github.com/lspitzner/brittany][brittany]], [[https://github.com/ennocramer/floskell][floskell]], [[https://github.com/tweag/ormolu][ormolu]], [[https://github.com/fourmolu/fourmolu][fourmolu]], and [[https://github.com/haskell/stylish-haskell][stylish-haskell]],
@@ -81,7 +81,7 @@ keybindings:
 #+end_quote
 
 After installing your preferred formatter, make sure to set
-=lsp-haskell-formatting-provider= to it.
+[[var:lsp-haskell-formatting-provider]] to it.
 
 Make sure to configure the lsp to use your perfered formatter, e.g.:
 #+begin_src emacs-lisp

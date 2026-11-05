@@ -20,8 +20,8 @@ Fish script) to Doom Emacs.
 - +fish ::
   Add syntax highlighting for fish script files.
 - +lsp ::
-  Enable LSP support for ~sh-mode~. Requires [[module::tools lsp]] and a langserver
-  (supports bash-language-server).
+  Enable LSP support for [[major:sh-mode]]. Requires [[module::tools lsp]] and a langserver (supports
+  bash-language-server).
 - +powershell ::
   Add syntax highlighting for Powershell script files (=.ps1= and =.psm1=).
 

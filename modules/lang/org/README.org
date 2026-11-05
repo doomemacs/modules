@@ -69,7 +69,7 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
   highlighting for latex. Keep in mind: this can be expensive. If org becomes
   too slow, it'd be wise to disable this flag.
 - +roam ::
-  Enable integration with [[https://github.com/org-roam/org-roam][org-roam v2]].
+  Enable integration with [[pkg:org-roam]] v2.
 
 ** Packages
 - [[package:htmlize]]
@@ -151,19 +151,19 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
     (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))
   #+end_src
 - (Evil users) Nearby tables are formatted when exiting insert or replace mode
-  (see [[fn:+org-enable-auto-reformat-tables-h]]).
+  (see [[fns:+org-enable-auto-reformat-tables-h]]).
 - Statistics cookies are updated when saving the buffer of exiting insert mode
-  (see [[fn:+org-enable-auto-update-cookies-h]]).
-- Org-protocol has been lazy loaded (see [[fn:+org-init-protocol-lazy-loader-h]]);
+  (see [[fns:+org-enable-auto-update-cookies-h]]).
+- Org-protocol has been lazy loaded (see [[fns:+org-init-protocol-lazy-loader-h]]);
   loaded when the server receives a request for an =org-protocol://= url.
 - Babel and babel plugins are now lazy loaded (see
-  [[fn:+org-init-babel-lazy-loader-h]]); loaded when a src block is executed. No need
-  to use [[var:org-babel-do-load-languages]] in your config, just install your babel
-  packages to extend language support (and ensure its ~org-babel-execute:*~
+  [[fns:+org-init-babel-lazy-loader-h]]); loaded when a src block is executed. No
+  need to use [[var:org-babel-do-load-languages]] in your config, just install your
+  babel packages to extend language support (and ensure its ~org-babel-execute:*~
   function is autoloaded).
 - If a variable is used as a file path in [[var:org-capture-template]], it will be
   resolved relative to [[var:org-directory]], instead of [[var:default-directory]] (see
-  [[fn:+org--capture-expand-variable-file-a]]).
+  [[fns:+org--capture-expand-variable-file-a]]).
 
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
@@ -222,14 +222,14 @@ The simplest way to use the org-capture frame is through the ~bin/org-capture~
 script. I'd recommend binding a shortcut key to it. If Emacs isn't running, it
 will spawn a temporary daemon for you.
 
-Alternatively, you can call ~+org-capture/open-frame~ directly, e.g.
+Alternatively, you can call [[cmd:+org-capture/open-frame]] directly, e.g.
 #+begin_src sh
 emacsclient --eval '(+org-capture/open-frame INITIAL-INPUT KEY)'
 #+end_src
 
 ** Built-in custom link types
-This module defines a number of custom link types in ~+org-init-custom-links-h~.
-They are (with examples):
+This module defines a number of custom link types in
+[[fns:+org-init-custom-links-h]]. They are (with examples):
 
 - ~doom-docs:index.org~ -> =~/.emacs.d/docs/%s=
 - ~doom-modules:editor/evil/README.org~ -> =~/.emacs.d/modules/%s=
@@ -247,21 +247,21 @@ They are (with examples):
 - ~youtube:P196hEuA_Xc~ (link only)
 
 ** evil-mode keybindings
-For =evil-mode= users, an overview of org-mode keybindings is provided [[https://github.com/Somelauw/evil-org-mode/blob/master/README.org#keybindings][here]].
+For [[minor:evil-mode]] users, an overview of org-mode keybindings is provided [[https://github.com/Somelauw/evil-org-mode/blob/master/README.org#keybindings][here]].
 
 * TODO Configuration
 #+begin_quote wip
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** Changing ~org-directory~
-~org-directory~ must be set /before/ [[pkg:org]] has loaded:
+** Changing [[var:org-directory]]
+[[var:org-directory]] must be set /before/ [[pkg:org]] has loaded:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq org-directory "~/new/org/location/")
 #+end_src
 
-** Changing ~org-noter-notes-search-path~
+** Changing [[var:org-noter-notes-search-path]]
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq org-noter-notes-search-path '("~/notes/path/"))

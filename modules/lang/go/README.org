@@ -10,23 +10,23 @@ This module adds [[https://golang.org][Go]] support, with optional (but recommen
 
 - Code completion (~gocode~)
 - Documentation lookup (~godoc~)
-- Eldoc support (~go-eldoc~)
+- Eldoc support ([[pkg:go-eldoc]])
 - REPL (~gore~)
-- Syntax-checking (~flycheck~)
+- Syntax-checking ([[pkg:flycheck]])
 - Auto-formatting on save (~gofmt~) (requires [[module::editor format +onsave]])
 - [[../../editor/file-templates/templates/go-mode][File templates]]
 - [[https://github.com/hlissner/doom-snippets/tree/master/go-mode][Snippets]]
-- Generate testing code (~go-gen-test~)
-- Code checking (~flycheck-golangci-lint~)
+- Generate testing code ([[pkg:go-gen-test]])
+- Code checking ([[pkg:flycheck-golangci-lint]])
 
 ** Maintainers
 *This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~go-mode~. Requires [[module::tools lsp]] and a langserver
-  (supports gopls). Highly recommended, as the non-LSP experience is deprecated
-  (and poor).
+  Enable LSP support for [[pkg:go-mode]]. Requires [[module::tools lsp]] and a langserver (supports
+  gopls). Highly recommended, as the non-LSP experience is deprecated (and
+  poor).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]].
@@ -50,9 +50,9 @@ This module requires Go, a valid =$GOPATH=, and a number of go packages, listed
 below.
 
 ** Go
-- macOS: ~$ brew install go~
-- Arch Linux: ~$ pacman -S go~
-- openSUSE: ~$ zypper install go~
+- macOS: [[sh:brew install go]]
+- Arch Linux: [[sh:pacman -S go]]
+- openSUSE: [[sh:zypper install go]]
 
 ** Dependencies
 - ~gocode~ (for code completion & eldoc support)
@@ -76,8 +76,7 @@ go install github.com/fatih/gomodifytags@latest
 #+end_src
 
 - ~golangci-lint~ (optional: for flycheck to integrate golangci-lint results) it
-  is recommended to *not* use ~$ go get~ to install this one, check the
-  [[https://github.com/golangci/golangci-lint#binary-release][documentation]].
+  is recommended to *not* use [[sh:go get]] to install this one, check the [[https://github.com/golangci/golangci-lint#binary-release][documentation]].
 
 * TODO Usage
 #+begin_quote wip
@@ -91,9 +90,9 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 | [[kbd:<localleader> d]]     | Remove field tags from a struct                       |
 | [[kbd:<localleader> e]]     | Evaluate buffer or selection in the Go playground     |
 | [[kbd:<localleader> i]]     | Go to imports                                         |
-| [[kbd:<localleader> b c]]   | run ~$ go clean~                                        |
-| [[kbd:<localleader> b b]]   | run ~$ go build~                                        |
-| [[kbd:<localleader> b r]]   | run ~$ go run .~                                        |
+| [[kbd:<localleader> b c]]   | run [[sh:go clean]]                                          |
+| [[kbd:<localleader> b b]]   | run [[sh:go build]]                                          |
+| [[kbd:<localleader> b r]]   | run [[sh:go run .]]                                          |
 | [[kbd:<localleader> h .]]   | lookup symbol at point in godoc                       |
 | [[kbd:<localleader> t t]]   | rerun last test                                       |
 | [[kbd:<localleader> t a]]   | run all tests in project                              |

@@ -33,7 +33,7 @@ persist across Emacs sessions.
     "silenced". i.e. It's visible in \*Messages\*, but won't appear in your
     minibuffer.
 - undo-fu only
-  - Doom defines ~undo-fu-mode~ to make it easier to add hooks/mode-local
+  - Doom defines [[minor:undo-fu-mode]] to make it easier to add hooks/mode-local
     keybinds.
 
 * Installation
@@ -69,8 +69,8 @@ This module has no usage documentation yet. [[doom-contrib-module:][Write some?]
 ** undo-tree
 - Has been known to truncate undo history unpredictably, due to Emacs' undo
   cleanup imposing linear undo limits on non-linear undo tree data. Doom already
-  sets ~undo-limit~, ~undo-strong-limit~, and ~undo-outer-limit~ absurdly high
-  to mitigate this somewhat.
+  sets [[var:undo-limit]], [[var:undo-strong-limit]], and [[var:undo-outer-limit]] absurdly
+  high to mitigate this somewhat.
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]

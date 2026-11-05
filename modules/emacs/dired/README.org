@@ -6,7 +6,7 @@
 
 * Description :unfold:
 This module provides reasonable defaults and augmentations for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][Dired]] (the
-built-in file manager for Emacs), powered by [[pkg:dirvish][Dirvish]].
+built-in file manager for Emacs), powered by [[pkg:dirvish]].
 
 ** Maintainers
 - [[github:hlissner]]
@@ -15,7 +15,7 @@ built-in file manager for Emacs), powered by [[pkg:dirvish][Dirvish]].
 
 ** Module flags
 - +dirvish ::
-  Enables full [[https://github.com/alexluigit/dirvish][dirvish]] integration, providing a more modern interface for Dired
+  Enables full [[pkg:dirvish]] integration, providing a more modern interface for Dired
   that is reminiscent of [[https://github.com/ranger/ranger][Ranger]].
 
   Without this flag, Dirvish is still installed and used, but only for its minor
@@ -111,15 +111,15 @@ These commands are available but not bound to any keys.
 This is only a very small sample of dired keybindings, just for you to get a
 sense of Dired. Other basic keybindings can be found on the official [[https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf][Dired
 reference card]]. If you have enabled ~(evil +everywhere)~, you would get a
-different set of bindings ([[kbd][j/k]] for move down/up a line), consult
-=evil-collection= for the actual bindings.
+different set of bindings ([[kbd][j/k]] for move down/up a line), consult [[pkg:evil-collection]]
+for the actual bindings.
 
 *** Extras
 You don't have to memorize all of Dired bindings because this module provided a
-lot of easy-to-read menus such as ~dirvish-mark-menu~ (powered by
-=transient.el=) for you to find the suitable command in a specific context. All
-of these (sub-)menus are included in ~dirvish-dispatch (?)~, the main help menu.
-Some extremely useful ones are bound to a separate keys as well.
+lot of easy-to-read menus such as [[cmd:dirvish-mark-menu]] (powered by
+=transient.el=) for you to find the suitable command in a specific context. All of
+these (sub-)menus are included in ~dirvish-dispatch (?)~, the main help menu. Some
+extremely useful ones are bound to a separate keys as well.
 
 | Keybind | Description                              |
 |---------+------------------------------------------|
@@ -144,7 +144,7 @@ Other bindings in this module:
 * Configuration
 ** Quick access entries
 Use the following syntax to configure the entries displayed in
-~dirvish-quick-access~ command.
+[[cmd:dirvish-quick-access]] command.
 
 #+begin_src emacs-lisp
 ;;; add to $DOOMDIR/config.el
@@ -165,4 +165,4 @@ Use the following syntax to configure the entries displayed in
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]
 
 ** How to kill all session buffers on quit?
-Set ~dirvish-reuse-session~ to nil.
+Set [[var:dirvish-reuse-session]] to nil.

@@ -28,7 +28,7 @@ for its =+lsp= flag).
   Eglot, at the moment, and requires [[https://github.com/blahgeek/emacs-lsp-booster][emacs-lsp-booster]] (also needed on remote
   systems if editing over TRAMP).
 - +eglot ::
-  Use [[https://elpa.gnu.org/packages/eglot.html][Eglot]] instead of [[https://github.com/emacs-lsp/lsp-mode][LSP-mode]] to implement the LSP client in Emacs.
+  Use [[pkg:eglot]] instead of [[pkg:lsp-mode]] to implement the LSP client in Emacs.
 - +peek ::
   Use ~lsp-ui-peek~ when looking up definitions and references with functionality
   from the [[module::tools lookup]] module.
@@ -128,7 +128,7 @@ the correct ~PATH~"
 
 ** LSP/Eglot is not started automatically in my buffer
 Make sure that you have enabled the [[module:+lsp]] flag on the appropriate module(s) (in
-your ~doom!~ block in =$DOOMDIR/init.el=):
+your [[fns:doom!]] block in =$DOOMDIR/init.el=):
 #+begin_src diff
 :lang
 -python

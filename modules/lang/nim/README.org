@@ -44,9 +44,9 @@ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 #+end_src
 
 Alternatively, nim is usually available through your OS's package manager:
-- MacOS: ~$ brew install nim~
-- Arch Linux: ~$ pacman --needed --noconfirm -S nim nimble~
-- openSUSE: ~$ zypper install nim~
+- MacOS: [[sh:brew install nim]]
+- Arch Linux: [[sh:pacman --needed --noconfirm -S nim nimble]]
+- openSUSE: [[sh:zypper install nim]]
 
 ** Formatter
 Formatting is handled using the [[module::editor format]] module via nimpretty

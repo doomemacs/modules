@@ -6,7 +6,7 @@
 
 * Description :unfold:
 This module integrates LLMs into Emacs for analyzing or generating code and
-text, powered by the [[https://github.com/karthink/gptel][gptel]] package. Out of the box, ChatGPT is the default
+text, powered by the [[pkg:gptel]] package. Out of the box, ChatGPT is the default
 backend, but it can talk to other LLMs given [[*Configuration][some configuration]].
 
 ** Maintainers
@@ -65,10 +65,10 @@ buffer.
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-To use this module with only ChatGPT, you only need to set ~gptel-api-key~ to your
-OpenAI key. For other LLMs you'll need to call one of the ~gptel-make-*~ functions
-in an ~(with-eval-after-load 'gptel ...)~ block. Examples of these calls can be
-found [[https://github.com/karthink/gptel?tab=readme-ov-file#other-llm-backends][in gptel's readme]].
+To use this module with only ChatGPT, you only need to set [[var:gptel-api-key]] to
+your OpenAI key. For other LLMs you'll need to call one of the ~gptel-make-*~
+functions in an ~(with-eval-after-load 'gptel ...)~ block. Examples of these calls
+can be found [[https://github.com/karthink/gptel?tab=readme-ov-file#other-llm-backends][in gptel's readme]].
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]

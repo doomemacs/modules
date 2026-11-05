@@ -25,9 +25,9 @@ This module adds [[https://www.javascript.com/][JavaScript]] and [[https://www.t
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~js-mode~, ~js-ts-mode~, ~typesript-mode~, and
-  ~typescript-ts-mode. Requires [[module::tools lsp]] and a langserver
-  (supports ts-ls and deno-ls).
+  Enable LSP support for [[major:js-mode]], [[major:js-ts-mode]], [[major:typescript-mode]], and
+  ~typescript-ts-mode. Requires [[module::tools lsp]] and a langserver (supports ts-ls and
+  deno-ls).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
   editing. Requires [[module::tools tree-sitter]]. Requires Emacs 29.1+.
@@ -47,9 +47,9 @@ This module's hacks haven't been documented yet. [[doom-contrib-module:][Documen
 
 This module requires [[https://nodejs.org/en/][NodeJS]] and one of [[https://www.npmjs.com/][NPM]] or [[https://yarnpkg.com/][Yarn]] in your =$PATH=.
 
-- MacOS: ~$ brew install node~
-- Arch Linux: ~$ pacman --needed --noconfirm -S nodejs npm~
-- openSUSE: ~$ zypper install nodejs npm~
+- MacOS: [[sh:brew install node]]
+- Arch Linux: [[sh:pacman --needed --noconfirm -S nodejs npm]]
+- openSUSE: [[sh:zypper install nodejs npm]]
 
 ** Formatter
 Formatting is handled using the [[module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].

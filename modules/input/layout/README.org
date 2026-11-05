@@ -56,7 +56,7 @@ Support for the bépo layout includes:
 If you use [[pkg:evil-easymotion]], then all the bindings that were on [[kbd:gs]] have been
 moved to [[kbd:gé]].
 
-In short: [[kbd:g s j]] -> [[kbd:g é t]] (~evilem-motion-next-line~). And so on.
+In short: [[kbd:g s j]] -> [[kbd:g é t]] ([[cmd:evilem-motion-next-line]]). And so on.
 
 *** Leaving mnemonics alone when possible
 Exchanging [[kbd:h]]/[[kbd:j]]/[[kbd:k]]/[[kbd:l]] to [[kbd:c]]/[[kbd:t]]/[[kbd:s]]/[[kbd:r]] has the effect of destroying a few mnemonics: the
@@ -89,14 +89,14 @@ key in the bépo layout. Finding a way to use [[kbd:é]] or even [[kbd:è]] more
 a welcome change
 
 *** Org-mode
-[[pkg:evil-org]] allows to define ~evil-org-movement-bindings~ to automatically map
+[[pkg:evil-org]] allows to define [[var:evil-org-movement-bindings]] to automatically map
 movement bindings on non-hjkl keys. It maps automatically keys to [[kbd:C-c]] and [[kbd:C-r]] in
 normal and insert states though, and it's not really user friendly in Emacs to
 remap those.
 
-Therefore, in ~org-mode~:
-- ~org-shiftright~ is bound to [[kbd:C-»]]
-- ~org-shiftleft~ is bound to [[kbd:C-«]]
+Therefore, in [[major:org-mode]]:
+- [[cmd:org-shiftright]] is bound to [[kbd:C-»]]
+- [[cmd:org-shiftleft]] is bound to [[kbd:C-«]]
 
 * TODO Configuration
 #+begin_quote wip
@@ -104,12 +104,12 @@ Therefore, in ~org-mode~:
 #+end_quote
 
 ** Bépo
-=+layout-bepo-cr-rotation-style= controls whether:
+[[var:+layout-bepo-cr-rotation-style]] controls whether:
 - =qwerty-c= functions are mapped on =bépo-l= key, and =qwerty-r= functions on
   =bépo-h= key (~'ergodis~), or
 - =qwerty-c= functions are mapped on =bépo-h= key, and =qwerty-r= functions on
   =bépo-l= key (~'strict~)
- 
+
 ~'strict~ would be the logical choice but the [[kbd:c]] functions are used more often
 than the [[kbd:r]] ones so [[https://bepo.fr/wiki/Vim#Principe][Ergodis]] advises to actually put all the [[kbd:c]] functions on the
 key that does not need a curl.
@@ -119,16 +119,15 @@ key that does not need a curl.
 
 ** Outstanding issues (contributions welcome)
 *** Bépo
-- In [[pkg:eshell]], the key [[kbd:c]] is still bound to ~evil-collection-eshell-evil-change~ in
-  normal mode.
-  
+- In [[pkg:eshell]], the key [[kbd:c]] is still bound to [[cmd:evil-collection-eshell-evil-change]]
+  in normal mode.
+
 ** How to investigate an issue ?
-If a key is misbehaving, use ~M-x describe-key~ ([[kbd:C-h k]] or [[kbd:SPC h k]] or [[kbd:F1 k]]) to
-see the command bound to the key, and more importantly in which keymap it is
-bound.
+If a key is misbehaving, use [[M-x:describe-key]] ([[kbd:C-h k]] or [[kbd:SPC h k]] or [[kbd:F1 k]]) to see
+the command bound to the key, and more importantly in which keymap it is bound.
 
 You should ignore all ~evil-collection-*-backup-map~ keymaps, as they are
-artifacts from ~evil-collection-translate-key~ and those maps are actually not
+artifacts from [[fns:evil-collection-translate-key]] and those maps are actually not
 active.
 
 Most likely the solution is to call one of the "key rotation" functions on the
@@ -136,8 +135,8 @@ relevant keymaps.
 
 ** How to deactivate the new bindings and go back to the old ones ?
 If you are learning a new layout you might want to go back to tho old one to
-"get work done". Sadly the only way is to comment out the module, run ~$ doom
-sync~ and restart emacs.
+"get work done". Sadly the only way is to comment out the module, run [[sh:doom sync]]
+and restart emacs.
 
 Restoring the session [[kbd:SPC q l]] by default helps to lower the impact of the
 restart.

@@ -21,7 +21,7 @@ This module adds Lua support to Doom Emacs.
 - +fennel ::
   Enable support for the Fennel language.
 - +lsp ::
-  Enable LSP support for ~lua-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[major:lua-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports EmmyLua, lua-language-server, and lua-lsp).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
@@ -56,12 +56,12 @@ installed ([[pkg:eglot]] or [[pkg:lsp-mode]]).
 Three servers are supported, ordered from highest to lowest priority:
 - [[https://github.com/EmmyLua/EmmyLua-LanguageServer][EmmyLua-LanguageServer]] :: Must be in
   =$EMACSDIR/.local/etc/lsp/EmmyLua-LS-all.jar=. See
-  ~lsp-clients-emmy-lua-jar-path~ variable to change this.
+  [[var:lsp-clients-emmy-lua-jar-path]] variable to change this.
 - [[https://github.com/sumneko/lua-language-server][Sumneko language server]] (lua-language-server) :: Must be in
   =$EMACSDIR/.local/etc/lsp/lua-language-server/=. See
-  ~lsp-clients-lua-language-server-bin~ variable to change this.
+  [[var:lsp-clients-lua-language-server-bin]] variable to change this.
 - [[https://github.com/Alloyed/lua-lsp][lua-lsp]] :: Must be available in =~/.luarocks/bin/lua-lsp=. See
-  ~lsp-clients-lua-lsp-server-install-dir~ variable to change this.
+  [[var:lsp-clients-lua-lsp-server-install-dir]] variable to change this.
 
 [[https://emacs-lsp.github.io/lsp-mode/page/lsp-emmy-lua/][LSP-mode documentation]] has more information about setting up the server and the
 configuration variables correctly.
@@ -69,7 +69,7 @@ configuration variables correctly.
 *** Eglot
 Eglot currently only supports one of the above servers out of the box:
 + [[https://github.com/sumneko/lua-language-server][Sumneko language server]] (lua-language-server) :: Must be in
-  =$EMACSDIR/.local/etc/lsp/lua-language-server/=. See ~+lua-lsp-dir~ variable
+  =$EMACSDIR/.local/etc/lsp/lua-language-server/=. See [[var:+lua-lsp-dir]] variable
   to change this.
 
 ** Formatter

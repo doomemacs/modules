@@ -5,7 +5,7 @@
 #+since:    2.0.0
 
 * Description :unfold:
-Uses ~ssh-deploy~ to map a local folder to a remote one.
+Uses [[pkg:ssh-deploy]] to map a local folder to a remote one.
 
 #+begin_quote excerpt
 The ssh-deploy plug-in for Emacs makes it possible to effortlessly deploy local
@@ -14,7 +14,7 @@ SSH, SFTP, FTP). It tries to provide functions that can be easily used by custom
 scripts.
 
 The idea for this plug-in was to mimic the behavior of PhpStorm deployment
-functionality. —[[https://github.com/emacsmirror/ssh-deploy][ssh-deploy README]]
+functionality. —[[github:emacsmirror/ssh-deploy][ssh-deploy README]]
 #+end_quote
 
 ** Maintainers
@@ -61,12 +61,12 @@ There are three ways to map a local directory to a remote one:
    ;; End:
    #+end_src
 
-3. Manually, on a per-buffer basis, with the ~M-x +upload/register-remote~
-   command. Use ~M-x +upload/unregister-all-remotes~ to undo all manual remotes.
+3. Manually, on a per-buffer basis, with the [[M-x:+upload/register-remote]]
+   command. Use [[M-x:+upload/unregister-all-remotes]] to undo all manual remotes.
 
 #+begin_quote tip
-~ssh-deploy-root-local~ is optional, and will resort to ~doom-project-root~ if
-unspecified.
+[[var:ssh-deploy-root-local]] is optional, and will resort to [[fns:doom-project-root]]
+if unspecified.
 #+end_quote
 
 * TODO Configuration

@@ -48,12 +48,12 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
 #+end_quote
 
 ** Keybinds
-| Binding         | Description       |
-|-----------------+-------------------|
-| [[kbd:<localleader> b]] | ~zig-compile~       |
-| [[kbd:<localleader> f]] | ~zig-format-buffer~ |
-| [[kbd:<localleader> r]] | ~zig-run~           |
-| [[kbd:<localleader> t]] | ~zig-test-buffer~   |
+| Binding         | Description           |
+|-----------------+-----------------------|
+| [[kbd:<localleader> b]] | [[cmd:zig-compile]]       |
+| [[kbd:<localleader> f]] | [[cmd:zig-format-buffer]] |
+| [[kbd:<localleader> r]] | [[cmd:zig-run]]           |
+| [[kbd:<localleader> t]] | [[cmd:zig-test-buffer]]   |
 
 * TODO Configuration
 #+begin_quote wip
@@ -61,7 +61,7 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
 #+end_quote
 
 ** Customize zls path
-To customize the path of the =zls= executable, modify ~lsp-zig-zls-executable~:
+To customize the path of the =zls= executable, modify [[var:lsp-zig-zls-executable]]:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq lsp-zig-zls-executable "~/path/to/zls")

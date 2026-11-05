@@ -53,9 +53,9 @@ Doom itself, so you should already have it installed.
 By enabling this module, it will enable helm-mode and remap many commands to
 their helm equivalents, such as:
 
-- [[cmd:][find-file]] ([[kbd:C-c C-f]] or [[kbd:<leader> f f]]) -> [[cmd:][helm-find-files]]
-- [[cmd:][execute-extended-command]] ([[kbd:M-x]]) -> [[cmd:][helm-M-x]]
-- [[cmd:][switch-to-buffer]] ([[kbd:C-x b]] or [[kbd:<leader> b b]]) -> [[cmd:][helm-buffers-list]]
+- [[cmd:find-file]] ([[kbd:C-c C-f]] or [[kbd:<leader> f f]]) -> [[cmd:helm-find-files]]
+- [[cmd:execute-extended-command]] ([[kbd:M-x]]) -> [[cmd:helm-M-x]]
+- [[cmd:switch-to-buffer]] ([[kbd:C-x b]] or [[kbd:<leader> b b]]) -> [[cmd:helm-buffers-list]]
 - ...among others
 
 No setup is required on your part. Helm provides many commands to interface with
@@ -71,22 +71,22 @@ its highlights will be covered here.
 ** Jump-to navigation
 Similar to Ivy, this module provides an interface to navigate within a project
 using [[pkg:projectile]]:
-| Keybind          | Description                                           |
-|------------------+-------------------------------------------------------|
-| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Jump to file in project (~+helm/projectile-find-file~)  |
-| [[kbd:SPC f f]], [[kbd:SPC .]]   | Jump to file from current directory (~helm-find-files~) |
-| [[kbd:SPC s i]]          | Jump to symbol in file (~helm-semantic-or-imenu~)       |
+| Keybind          | Description                                               |
+|------------------+-----------------------------------------------------------|
+| [[kbd:SPC p f]], [[kbd:SPC SPC]] | Jump to file in project ([[cmd:+helm/projectile-find-file]])  |
+| [[kbd:SPC f f]], [[kbd:SPC .]]   | Jump to file from current directory ([[cmd:helm-find-files]]) |
+| [[kbd:SPC s i]]          | Jump to symbol in file ([[cmd:helm-semantic-or-imenu]])       |
 
 ** Project search & replace
 This module also provides interactive text search and replace using [[https://github.com/BurntSushi/ripgrep][Ripgrep]].
 
 *** Search
-| Keybind | Description                                             |
-|---------+---------------------------------------------------------|
-| [[kbd:SPC s p]] | Search project (~+default/search-project~)                |
-| [[kbd:SPC s P]] | Search another project  (~+default/search-other-project~) |
-| [[kbd:SPC s d]] | Search this directory (~+default/search-cwd~)             |
-| [[kbd:SPC s D]] | Search another directory (~+default/search-other-cwd~)    |
+| Keybind | Description                                                 |
+|---------+-------------------------------------------------------------|
+| [[kbd:SPC s p]] | Search project ([[cmd:+default/search-project]])                |
+| [[kbd:SPC s P]] | Search another project  ([[cmd:+default/search-other-project]]) |
+| [[kbd:SPC s d]] | Search this directory ([[cmd:+default/search-cwd]])             |
+| [[kbd:SPC s D]] | Search another directory ([[cmd:+default/search-other-cwd]])    |
 
 Prefixing these keys with the universal argument ([[kbd:SPC u]] for evil users; [[kbd:C-u]]
 otherwise) changes the behavior of these commands, instructing the underlying
@@ -117,9 +117,9 @@ evil users).
 ** In-buffer searching
 The [[pkg:swiper]] package provides an interactive buffer search powered by helm. It can
 be invoked with:
-- [[kbd:SPC s s]] ([[cmd:][swiper-isearch]])
-- [[kbd:SPC s S]] ([[cmd:][swiper-isearch-thing-at-point]])
-- [[kbd:SPC s b]] ([[cmd:][swiper]])
+- [[kbd:SPC s s]] ([[cmd:swiper-isearch]])
+- [[kbd:SPC s S]] ([[cmd:swiper-isearch-thing-at-point]])
+- [[kbd:SPC s b]] ([[cmd:swiper]])
 - ~:sw[iper] [QUERY]~
 
 A [[pkg:wgrep]] buffer can be opened from swiper with [[kbd:C-c C-e]].
@@ -134,28 +134,28 @@ Helm also has a number of overrides for built-in functionality:
 | [[kbd:SPC ']]      | Resume last ivy session   |
 
 *** Jump to files, buffers or projects
-| Keybind | Description                                                        |
-|---------+--------------------------------------------------------------------|
-| [[kbd:SPC p t]] | List all TODO/FIXMEs in project                                    |
-| [[kbd:SPC s b]] | Search the current buffer (~+default/search-buffer~)                 |
-| [[kbd:SPC s d]] | Search this directory (~+default/search-cwd~)                        |
-| [[kbd:SPC s D]] | Search another directory (~+default/search-other-cwd~)               |
-| [[kbd:SPC s i]] | Search for symbol in current buffer                                |
-| [[kbd:SPC s p]] | Search project (~+default/search-project~)                           |
-| [[kbd:SPC s P]] | Search another project (~+default/search-other-project~)             |
-| [[kbd:SPC s s]] | Search the current buffer (incrementally) (~+default/search-buffer~) |
+| Keybind | Description                                                            |
+|---------+------------------------------------------------------------------------|
+| [[kbd:SPC p t]] | List all TODO/FIXMEs in project                                        |
+| [[kbd:SPC s b]] | Search the current buffer ([[cmd:+default/search-buffer]])                 |
+| [[kbd:SPC s d]] | Search this directory ([[cmd:+default/search-cwd]])                        |
+| [[kbd:SPC s D]] | Search another directory ([[cmd:+default/search-other-cwd]])               |
+| [[kbd:SPC s i]] | Search for symbol in current buffer                                    |
+| [[kbd:SPC s p]] | Search project ([[cmd:+default/search-project]])                           |
+| [[kbd:SPC s P]] | Search another project ([[cmd:+default/search-other-project]])             |
+| [[kbd:SPC s s]] | Search the current buffer (incrementally) ([[cmd:+default/search-buffer]]) |
 
 *** Search
-| Keybind | Description                                                        |
-|---------+--------------------------------------------------------------------|
-| [[kbd:SPC p t]] | List all TODO/FIXMEs in project                                    |
-| [[kbd:SPC s b]] | Search the current buffer (~+default/search-buffer~)                 |
-| [[kbd:SPC s d]] | Search this directory (~+default/search-cwd~)                        |
-| [[kbd:SPC s D]] | Search another directory (~+default/search-other-cwd~)               |
-| [[kbd:SPC s i]] | Search for symbol in current buffer                                |
-| [[kbd:SPC s p]] | Search project (~+default/search-project~)                           |
-| [[kbd:SPC s P]] | Search another project (~+default/search-other-project~)             |
-| [[kbd:SPC s s]] | Search the current buffer (incrementally) (~+default/search-buffer~) |
+| Keybind | Description                                                            |
+|---------+------------------------------------------------------------------------|
+| [[kbd:SPC p t]] | List all TODO/FIXMEs in project                                        |
+| [[kbd:SPC s b]] | Search the current buffer ([[cmd:+default/search-buffer]])                 |
+| [[kbd:SPC s d]] | Search this directory ([[cmd:+default/search-cwd]])                        |
+| [[kbd:SPC s D]] | Search another directory ([[cmd:+default/search-other-cwd]])               |
+| [[kbd:SPC s i]] | Search for symbol in current buffer                                    |
+| [[kbd:SPC s p]] | Search project ([[cmd:+default/search-project]])                           |
+| [[kbd:SPC s P]] | Search another project ([[cmd:+default/search-other-project]])             |
+| [[kbd:SPC s s]] | Search the current buffer (incrementally) ([[cmd:+default/search-buffer]]) |
 
 * TODO Configuration
 #+begin_quote wip
@@ -164,9 +164,9 @@ Helm also has a number of overrides for built-in functionality:
 
 ** helm-mode
 This module enables helm-mode by default, which will force any functions that
-call ~completing-read~, ~read-file-name~, ~completion-in-region~ and friends to
-use Helm's completion interface instead. Any function listed in the
-[[var:][helm-completing-read-handlers-alist]] variable will be exempt from this.
+call fns:completing-read, fns:read-file-name, fns:completion-in-region and
+friends to use Helm's completion interface instead. Any function listed in
+var:helm-completing-read-handlers-alist will be exempt from this.
 
 For example, an emacs command ~foo~ in package ~bar~ that uses a completion
 framework other than helm, say company, may break if handed off to Helm, so it
@@ -178,10 +178,9 @@ makes sense to exempt ~foo~ with the following:
 #+end_src
 
 ** Icons
-There are two icon "themes" available for this module:
-[[pkg:nerd-icons]] and [[pkg:treemacs]]. By default, and to
-maintain consistency with other icons across Doom's modules,
-[[pkg:nerd-icons]] is used. To change this:
+There are two icon "themes" available for this module: [[pkg:nerd-icons]] and [[pkg:treemacs]].
+By default, and to maintain consistency with other icons across Doom's modules,
+nerd-icons is used. To change this:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
 (with-eval-after-load 'helm

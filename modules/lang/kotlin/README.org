@@ -12,7 +12,7 @@ This module adds [[https://kotlinlang.org/][Kotlin]] support to Doom Emacs.
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~kotlin-mode~. Requires [[module::tools lsp]] and a langserver
+  Enable LSP support for [[pkg:kotlin-mode]]. Requires [[module::tools lsp]] and a langserver
   (supports [[https://github.com/emacs-lsp/lsp-mode][kotlin-language-server]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text

@@ -18,8 +18,7 @@ Besides eye candy, the dashboard serves two other purposes:
    back to where I was. Not with the Dashboard.
 
    Since the dashboard cannot be killed, and it remembers the working directory
-   of the last open buffer, ~M-x find-file~ will work from the directory I
-   expect.
+   of the last open buffer, [[M-x:find-file]] will work from the directory I expect.
 
 ** Maintainers
 - [[github:hlissner]]
@@ -38,15 +37,15 @@ Besides eye candy, the dashboard serves two other purposes:
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-This module only requires that ~nerd-icons~'s icon fonts are installed, which
-should've been installed when you ran ~$ doom install~. Otherwise, use ~M-x
-nerd-icons-install-fonts~ to install them.
+This module only requires that [[pkg:nerd-icons]]'s icon fonts are installed, which
+should've been installed when you ran [[sh:doom install]]. Otherwise, use
+[[M-x:nerd-icons-install-fonts]] to install them.
 
 * Usage
 Once this module is enabled, the dashboard will present itself after opening a
 fresh instance of Emacs, or after killing all real buffers.
 
-You can forcibly open the dashboard with ~M-x +dashboard/open~.
+You can forcibly open the dashboard with [[M-x:+dashboard/open]].
 
 * TODO Configuration
 #+begin_quote wip
@@ -78,8 +77,8 @@ will negate most of Doom's startup benefits.
 ** Customizing Faces
 Doom's dashboard defaults to inheriting faces set by the current theme. If you
 wish to customize it independently of the theme (or just inherit a different
-color from the theme) you can make use of ~custom-set-faces!~ or
-~custom-theme-set-faces!~:
+color from the theme) you can make use of [[fns:custom-set-faces!]] or
+[[fns:custom-theme-set-faces!]]:
 #+begin_src emacs-lisp
 (custom-set-faces!
   '(+dashboard-banner :foreground "red" :background "#000000" :weight bold)

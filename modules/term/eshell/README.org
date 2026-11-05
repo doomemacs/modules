@@ -30,8 +30,8 @@ Emacs Lisp. It is an alternative to traditional shells such as =bash=, =zsh=,
   - [[package:bash-completion]]
 
 ** Hacks
-- Even with ~fish-completion-fallback-on-bash-p~ non-nil, fish must be installed
-  for bash completion to work. This has been circumvented.
+- Even with [[var:fish-completion-fallback-on-bash-p]] non-nil, fish must be
+  installed for bash completion to work. This has been circumvented.
 - [[package:eshell-did-you-mean]] does not work on first invocation, so we manually invoke
   it once.
 
@@ -56,9 +56,9 @@ This module requires either [[https://fishshell.com/][Fish shell]] or [[https://
 #+end_quote
 
 ** TERM name
-By default, [[pkg:eshell]] sets the =$TERM= variable to ~"xterm-256color"~, which helps
-with rendering various colours. As eshell is /not/ a terminal emulator, these
-will not always work 100%. Modifying ~eshell-term-name~ to your liking may help.
+By default, [[pkg:eshell]] sets the =$TERM= variable to ~"xterm-256color"~, which helps with
+rendering various colours. As eshell is /not/ a terminal emulator, these will not
+always work 100%. Modifying [[var:eshell-term-name]] to your liking may help.
 
 * Troubleshooting
 /There are no known problems with this module./ [[doom-report:][Report one?]]
