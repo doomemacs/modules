@@ -21,7 +21,7 @@ backend, but it can talk to other LLMs given [[*Configuration][some configuratio
 - [[package:gptel]]
 - [[package:gptel-magit]] if [[module::tools magit]]
 - [[package:gptel-quick]]
-- [[package:ob-gptel]]
+- [[package:ob-gptel]] if [[module::lang org]]
 
 ** Hacks
 #+begin_quote wip

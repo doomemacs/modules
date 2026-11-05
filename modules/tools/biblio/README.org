@@ -21,10 +21,11 @@ selected so it should be possible to use without modifications.
 
 ** Packages
 - [[package:bibtex-completion]] if [[module::completion ivy]] or [[module::completion helm]]
-- [[package:parsebib]] if [[module::completion ivy]] or [[module::completion helm]] or [[module::completion vertico]]
+- [[package:citeproc]]
+- [[package:parsebib]]
 - [[package:citar]] if [[module::completion vertico]]
 - [[package:citar-embark]] if [[module::completion vertico]]
-- [[package:citar-org-roam]] if [[module::completion vertico]] and [[module::lang org +roam]]
+- [[package:citar-org-roam]] if [[module::completion vertico]] and [[module::lang org +roam]] or [[module::lang org +roam2]]
 - [[package:helm-bibtex]] if [[module::completion helm]]
 - [[package:ivy-bibtex]] if [[module::completion ivy]]
 

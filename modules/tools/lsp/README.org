@@ -37,6 +37,7 @@ for its =+lsp= flag).
 - if [[module:+eglot][+eglot]]
   - [[package:eglot]]
   - [[package:jsonrpc]]
+  - [[package:xref]]
   - [[package:refactor]]
   - [[package:consult-eglot]] if [[module::completion vertico][:completion vertico]]
   - [[package:eglot-booster]] if [[module:+booster]] and Emacs<30

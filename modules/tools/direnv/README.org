@@ -31,7 +31,6 @@ direnv and then made available to the current shell.
 - [[package:envrc]]
 
 ** Hacks
-- ~envrc-mode~ has been modified to fail gracefully if ~direnv~ isn't available.
 - ~envrc-global-mode~ has been modified to activate envrc-mode sooner in the
   major mode activation process, so that any env state performed in mode hooks
   aren't overwritten by direnv.

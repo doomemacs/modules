@@ -11,8 +11,6 @@ Emacs.
 Provides a major ~dockerfile-mode~ to edit =Dockerfiles=. Additional convenience
 functions allow images to be built easily.
 
-[[pkg:docker-tramp]] offers [[https://www.gnu.org/software/tramp/][TRAMP]] support for Docker containers.
-
 ** Maintainers
 /This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
 
@@ -25,7 +23,6 @@ functions allow images to be built easily.
 
 ** Packages
 - [[package:docker]]
-- [[package:docker-tramp]]
 - [[package:dockerfile-mode]]
 
 ** Hacks
@@ -34,8 +31,8 @@ functions allow images to be built easily.
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
 
-This module assumes =docker=, =docker-compose= and =docker-machine= binaries are
-installed and accessible from your PATH.
+This module assumes the =docker= and =docker-compose= binaries are installed and
+accessible from your PATH.
 
 Optionally, this module also uses the following programs:
 - =docker-langserver= (for LSP users): ~$ npm install -g
@@ -71,14 +68,14 @@ following keybindings (for more marking possibilities, check out
 - ~docker image~: ~inspect~, ~pull~, ~push~, ~rm~, ~run~, ~tag~
 - ~docker network~: ~rm~
 - ~docker volume~: ~rm~
-- ~docker-machine~: ~create~, ~env~, ~restart~, ~rm~, ~start~, ~stop~
 - ~docker-compose~: ~build~, ~config~, ~create~, ~down~, ~exec~, ~logs~, ~pull~,
   ~push~, ~remove~, ~restart~, ~run~, ~start~, ~stop~, ~up~
 
   You can also enter =dired= or open a file inside a container or volume.
 
 ** TRAMP
-Offers the [[https://www.gnu.org/software/tramp/][TRAMP]] method =docker= to access running containers:
+[[https://www.gnu.org/software/tramp/][TRAMP]] (built into Emacs 29.1+) offers the =docker= method to access running
+containers:
 #+begin_example
 C-x C-f /docker:$USER@$CONTAINER:/path/to/file
 #+end_example
@@ -91,12 +88,12 @@ C-x C-f /docker:$USER@$CONTAINER:/path/to/file
 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
 #+end_quote
 
-** Popups
-Thanks to [[https://github.com/magit/magit-popup][magit-popup]], all the popups default arguments can be customized. For
-example, here is how to customize the arguments for =docker-image-run-popup=:
+** Transient menus
+The default arguments of docker's [[pkg:transient]] menus can be customized. For
+example, here is how to change the default arguments for =docker run=:
 #+begin_src emacs-lisp
 (with-eval-after-load 'docker
-  (setq docker-image-run-arguments '("-i" "-t" "--rm")))
+  (setq docker-image-run-default-args '("-i" "-t" "--rm")))
 #+end_src
 
 *** Other useful variables
@@ -106,33 +103,12 @@ example, here is how to customize the arguments for =docker-image-run-popup=:
 | ~docker-container-default-sort-key~ | Sort key for docker containers        | ~("Image")~      |
 | ~docker-container-shell-file-name~  | Shell to use when entering containers | ~/bin/bash~      |
 | ~docker-image-default-sort-key~     | Sort key for docker images            | ~("Repository")~ |
-| ~docker-machine-default-sort-key~   | Sort key for docker machines          | ~("Name")~       |
 | ~docker-network-default-sort-key~   | Sort key for docker networks          | ~("Name")~       |
 | ~docker-run-as-root~                | Run docker as root                    | ~nil~            |
 | ~docker-volume-default-sort-key~    | Sort key for docker volumes           | ~("Driver")~     |
 
-** Completion in Dockerfiles
-By default, the keyword completion function detects the =docker-compose= version
-of the current buffer and suggests the appropriate keywords.
-
-You can change the candidates offered by the backend by customizing
-=docker-compose-keywords=.
-
 * Troubleshooting
-[[doom-report:][Report an issue?]]
-
-** Tramp hangs on Alpine container
-Busyboxes built with the =ENABLE_FEATURE_EDITING_ASK_TERMINAL= config option
-also send escape sequences, which =tramp-wait-for-output= doesn't ignore
-correctly. This was [[http://git.savannah.gnu.org/cgit/tramp.git/commit/?id=98a511248a9405848ed44de48a565b0b725af82c][fixed in TRAMP upstream]] and is available since TRAMP 2.3.
-
-For older versions of TRAMP you can dump [[https://github.com/emacs-pe/docker-tramp.el/blob/master/docker-tramp-compat.el][docker-tramp-compat.el]] in your
-~load-path~ somewhere and add the following to =$DOOMDIR/config.el= to overwrite
-~tramp-wait-for-output~ with the patch applied:
-#+begin_src emacs-lisp
-(with-eval-after-load 'tramp
-  (require 'docker-tramp-compat))
-#+end_src
+/There are no known problems with this module./ [[doom-report:][Report one?]]
 
 * Frequently asked questions
 /This module has no FAQs yet./ [[doom-contrib-faq:][Ask one?]]
