@@ -152,7 +152,14 @@
   (defadvice! +syntax--only-check-elisp-buffers-in-projects-a (&rest _)
     "Prevent the elisp checker in non-project buffers (for CVE-2024-53920)."
     :before-while #'elisp-flymake-byte-compile
-    (doom-project-p)))
+    (doom-project-p))
+
+  ;; HACK: Since flymake 1.4.8 (and Emacs 32's built-in copy), flymake refuses
+  ;;   to run backends in untrusted buffers (see `trusted-content-p') unless
+  ;;   they carry the `flymake-always-safe' property. Diagnostics from a
+  ;;   language server don't evaluate buffer contents, so it is safe to exempt
+  ;;   them, as upstream eglot already does for `eglot-flymake-backend'.
+  (function-put 'lsp-diagnostics--flymake-backend 'flymake-always-safe t))
 
 
 (use-package! flymake-popon
