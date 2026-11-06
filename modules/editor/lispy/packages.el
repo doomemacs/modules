@@ -3,6 +3,6 @@
 
 (package! lispy
   :recipe (:host github :repo "enzuru/lispy")
-  :pin "c42d3737c57de86a5aa321d7efa29390aeedcf6f")
+  :pin "2b211508f18dee10d10f9291e6572634b001e6f8")
 (when (modulep! :editor evil)
   (package! lispyville :pin "14ee8711d58b649aeac03581d22b10ab077f06bd"))

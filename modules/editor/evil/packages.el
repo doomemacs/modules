@@ -24,7 +24,7 @@
            :branch "fix-inner-block")
   :pin "29280cd71a05429364cdceef2ff595ae8afade4d")
 (package! evil-traces :pin "82e8a7b4213aed140f6eb5f2cc33a09bb5587166")
-(package! evil-visualstar :pin "06c053d8f7381f91c53311b1234872ca96ced752")
+(package! evil-visualstar :pin "2b804e317700896116e88ae751df4a36ac8c3934")
 (package! exato :pin "aee7af7b7a0e7551478f453d1de7d5b9cb2e06c4")
 (package! evil-quick-diff
   :recipe (:host github :repo "rgrinberg/evil-quick-diff")
@@ -38,4 +38,4 @@
     (package! neotree)
     (autoload 'neotree-make-executor "neotree" nil nil 'macro))
 
-  (package! evil-collection :pin "fa8da0ebba4bbf2a84a78183420d8303179ef427"))
+  (package! evil-collection :pin "3948a7890960d389dffa637203a6760df68b1c1c"))

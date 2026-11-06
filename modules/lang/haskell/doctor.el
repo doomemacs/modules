@@ -22,8 +22,8 @@
 
 (when (and (modulep! :editor format)
            (modulep! -lsp)
-           (not (executable-find "brittany")))
-  (warn! "Couldn't find brittany. Code formatting will not work.
+           (not (executable-find "fourmolu")))
+  (warn! "Couldn't find fourmolu. Code formatting will not work.
   Install it or enable +lsp."))
 
 (when (and (modulep! +lsp)
