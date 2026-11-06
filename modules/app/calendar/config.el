@@ -90,5 +90,4 @@
 (use-package! org-gcal
   :defer t
   :init
-  (defvar org-gcal-dir (doom-profile-cache-dir t "org-gcal/"))
-  (defvar org-gcal-token-file (file-name-concat org-gcal-dir "token.gpg")))
+  (defvar oauth2-auto-plstore (doom-profile-cache-dir t "oauth2-auto.plist")))
