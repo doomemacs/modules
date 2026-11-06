@@ -1,8 +1,8 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/ess/packages.el
 
-(package! ess :pin "c3960e09f37550d300437c46ca03fb28975378a1")
-(package! ess-view-data :pin "831be384d0045ae9ff1f4b8ae2b5090377938475")
+(package! ess :pin "bb8f50f08798928c71fce20c7ea92fa16dbece0a")
+(package! ess-view-data :pin "9d12c80097b532a5af4561a8c65f1862cb414c7a")
 (package! poly-R :pin "fee0b6e99943fa49ca5ba8ae1a97cbed5ed51946")
 (package! quarto-mode :pin "a7b974f7d22ef939eaed8b9919434bcf20b1438f")
 

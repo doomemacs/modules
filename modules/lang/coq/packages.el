@@ -2,7 +2,7 @@
 ;;; lang/coq/packages.el
 
 (package! proof-general
-  :pin "38e3f59d4b650fbfb9649c84f24adbc9056ffa30"
+  :pin "80af5c9829168f2229262b63f42cdd12b6797506"
   ;; REVIEW: Remove when ProofGeneral/PG#771 is fixed. Also see
   ;;   doomemacs/core#8169.
   :recipe (:build (:not autoloads)))

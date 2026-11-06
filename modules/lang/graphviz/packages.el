@@ -1,4 +1,4 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/graphviz/packages.el
 
-(package! graphviz-dot-mode :pin "516c151b845a3eb2da73eb4ee648ad99172087ac")
+(package! graphviz-dot-mode :pin "0a4509e9f63c8eae8d050acc62eac642fd77ae59")

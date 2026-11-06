@@ -20,4 +20,4 @@
   (package! package-lint-flymake :pin "1865be780a16098f972fef50a52b21ca6ee04df9"))
 
 ;; Libraries
-(package! buttercup :pin "39c8e762408a166a5afa03b8e79dd8d1a0de5caa")
+(package! buttercup :pin "3bcf6cf0e164d558072a484f467169a0e77bd791")

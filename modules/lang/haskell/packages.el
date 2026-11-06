@@ -1,9 +1,9 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/haskell/packages.el
 
-(package! haskell-mode :pin "781e4669a0e0917fa8c532371cbfb1eb5b03b645")
+(package! haskell-mode :pin "f957090cfb2fb8757a06750c6438561b21419f86")
 (when (and (modulep! +tree-sitter) (treesit-available-p))
-  (package! haskell-ts-mode :pin "bf143ee8382f09e0a68d775d80445065f32929c3"))
+  (package! haskell-ts-mode :pin "673c27eb86ced050c6b3f46920d081fcb257fee4"))
 
 (when (and (modulep! +lsp)
            (modulep! :tools lsp -eglot))

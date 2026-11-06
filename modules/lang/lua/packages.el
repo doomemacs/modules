@@ -4,7 +4,7 @@
 (package! lua-mode :pin "2f6b8d7a6317e42c953c5119b0119ddb337e0a5f")
 
 (when (modulep! +moonscript)
-  (package! moonscript :pin "56f90471e2ced2b0a177aed4d8c2f854797e9cc7")
+  (package! moonscript :pin "8c27a902b9319022126e14b5c328599fe46574ff")
   (when (modulep! :checkers syntax -flymake)
     (package! flycheck-moonscript
       :recipe (:host github :repo "hlissner/emacs-flycheck-moonscript")

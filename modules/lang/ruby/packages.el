@@ -33,5 +33,5 @@
 (when (modulep! +rails)
   (package! rails-routes :pin "eab995a9297ca5bd9bd4f4c2737f2fecfc36def0")
   (package! rails-i18n :pin "8e87e4e48e31902b8259ded28a208c2e7efea6e9")
-  (package! projectile-rails :pin "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
+  (package! projectile-rails :pin "3b00118bec7e3578e1152e057f324903e7bd7c90")
   (package! inflections :pin "55caa66a7cc6e0b1a76143fd40eff38416928941"))

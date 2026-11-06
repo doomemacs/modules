@@ -14,7 +14,7 @@
       :recipe (:host github :repo "Ergus/cuda-ts-mode")
       :pin "807f15150deb3a3060bc36a0e135a27876d7e239")))
 
-(when (package! glsl-mode :pin "515a2ba4dab3ec89c83a962902a123ddf81e3cfe")
+(when (package! glsl-mode :pin "854e6e5c9a971634c9d40501b4ef3ca71881739b")
   (when (modulep! :completion company)
     (package! company-glsl
       :recipe (:host github :repo "Kaali/company-glsl")

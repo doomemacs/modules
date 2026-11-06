@@ -1,14 +1,14 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/scheme/packages.el
 
-(when (package! geiser :pin "efcf1939fd839e9ea22d68ff0ebbd8ca2e1b71e1")
+(when (package! geiser :pin "0365a23e2fd090188aad02540b862db372085911")
   (package! macrostep-geiser :pin "f6a2d5bb96ade4f23df557649af87ebd0cc45125")
   (when (modulep! +chez)
     (package! geiser-chez :pin "395201236b5a09bca0c1a9ceefec236ee92c692e"))
   (when (modulep! +chibi)
     (package! geiser-chibi :pin "52bf07aee6fa2d6e9864c5a4a1f72f15e830d55c"))
   (when (modulep! +chicken)
-    (package! geiser-chicken :pin "80a2aeded0face0822c477d085e62695ab57f639"))
+    (package! geiser-chicken :pin "74610c900b671dd40c1bd7114c991781e0621102"))
   (when (modulep! +gambit)
     (package! geiser-gambit :pin "51a5465fe8ff76babb6453bbcc80e494b4b02c35"))
   (when (modulep! +gauche)

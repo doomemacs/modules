@@ -3,5 +3,7 @@
 
 (package! zig-mode :pin "62bfbaced0222e2bfbc086fa8556adf6b3298476")
 
-(when (and (modulep! +tree-sitter) (treesit-available-p))
-  (package! zig-ts-mode :pin "bb1e8287800868ee338e986bda5b5a1f5abf7445"))
+(when (and (modulep! +tree-sitter)
+           (treesit-available-p)
+           (version<= "30.1" emacs-version))
+  (package! zig-ts-mode :pin "4c03d52bd1e7f1b5601c638bff109b6e763b1cab"))

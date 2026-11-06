@@ -6,7 +6,7 @@
 (when (and (modulep! +tree-sitter)
            (treesit-available-p)
            (> emacs-major-version 29))  ; upstream constraint
-  (package! kotlin-ts-mode :pin "39e30e4cf803910c2f6716efd7a5cd408a9d996b"))
+  (package! kotlin-ts-mode :pin "292c9a05ff2243c39a48201b277840b1d25e1ea0"))
 
 (when (modulep! :checkers syntax -flymake)
   (package! flycheck-kotlin :pin "a2a6abb9a7f85c6fb15ce327459ec3c8ff780188"))

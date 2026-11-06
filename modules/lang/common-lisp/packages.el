@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; lang/common-lisp/packages.el
 
-(when (package! sly :pin "3ffa216d0818972f7a7fea38a566a6b570349f3b")
+(when (package! sly :pin "70350623eecd1f41837c9e57cbb6d5c06678a60d")
   (package! sly-asdf :pin "c1fa52dadb2f453243dc522203b7a883adef63fb")
   (package! sly-quicklisp :pin "34c73d43dd9066262387c626c17a9b486db07b2d")
   (package! sly-stepper :recipe (:host github :repo "joaotavora/sly-stepper"
@@ -13,4 +13,4 @@
 (when (and (modulep! +tree-sitter)
            (treesit-available-p)
            (version<= "30.2" emacs-version))
-  (package! lisp-ts-mode :pin "a6868638e7e46ca8e9a1e1825b7bbdc38c241fa8"))
+  (package! lisp-ts-mode :pin "0a318b9ef97cc22d7827ad94d788104ad04e447b"))
