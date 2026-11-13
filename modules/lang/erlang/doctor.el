@@ -11,5 +11,5 @@
 
 (when (modulep! :editor format)
   (unless (and (executable-find "rebar3")
-               (zerop (car (doom-call-process "rebar3" "format"))))
+               (zerop (car (doom-call-process "rebar3" "fmt"))))
     (warn! "Couldn't find rebar3 with format plugin installed. Formatting will be disabled.")))
