@@ -586,6 +586,17 @@ mutating hooks on exported output, like formatters."
   (add-to-list 'org-file-apps '(directory . emacs))
   (add-to-list 'org-file-apps '(remote . emacs))
 
+  ;; HACK: `org-do-latex-and-related' reads (match-beginning 0)/(match-end 0)
+  ;;   *after* calling `org-src-font-lock-fontify-block' (when `native' is in
+  ;;   `org-highlight-latex-and-related', e.g. with +pretty), but the latter
+  ;;   initializes and fontifies a latex-mode buffer, which clobbers the match
+  ;;   data, causing "Args out of range" errors (see doomemacs/core#7731).
+  ;;   Not fixed upstream as of Org 9.8.12.
+  ;; REVIEW: PR this upstream!
+  (defadvice! +org--preserve-match-data-a (fn &rest args)
+    :around #'org-src-font-lock-fontify-block
+    (save-match-data (apply fn args)))
+
   ;; REVIEW: PR this upstream!
   (defadvice! +org--strip-properties-from-eldoc-breadcrumbs-a (fn &rest args)
     "Fix variable height faces in eldoc breadcrumbs."
