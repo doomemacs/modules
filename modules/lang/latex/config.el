@@ -96,6 +96,15 @@ sumatrapdf, zathura, okular and pdf-tools."
                       ("^\\*TeX \\(?:Help\\|errors\\)"
                        :size 0.3 :select t :ttl nil)))
   (after! smartparens-latex
+    ;; HACK: Smartparens treats `TeX-insert-dollar' as a command that inserts
+    ;;   without `self-insert-command', so it runs its insertion handler a
+    ;;   second time on `post-command-hook'. But AUCTeX 14+ does delegate to
+    ;;   `self-insert-command' (unless `TeX-electric-math' is set), so typing
+    ;;   the closing $ skips over it, then inserts a new pair ($x$|$).
+    ;; REVIEW: Remove when addressed upstream (see Fuco1/smartparens#1064).
+    (setq sp--special-self-insert-commands
+          (delq 'TeX-insert-dollar sp--special-self-insert-commands))
+    (add-to-list 'sp--self-insert-commands 'TeX-insert-dollar)
     ;; We have to use lower case modes here, because `smartparens-mode' uses
     ;; the same during configuration.
     (let ((modes '(tex-mode plain-tex-mode latex-mode LaTeX-mode)))
