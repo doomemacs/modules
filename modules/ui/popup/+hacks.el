@@ -363,3 +363,17 @@ Ugh, such an ugly hack."
             (pcase dir (`up 'above) (`down 'below) (_ dir))
             window (bound-and-true-p +popup-mode) arg windmove-wrap-around t))
     (apply fn args)))
+
+
+;;;###package zoom
+(defadvice! +popup--zoom-dont-save-popups-a (fn &rest args)
+  "Don't close and reopen all popups each time `zoom-mode' balances windows."
+  :around #'zoom--update
+  ;; HACK: `zoom-mode' calls `balance-windows' from `pre-redisplay-function'
+  ;;   whenever the frame's window list changes. Our `+popup-save-a' advice on
+  ;;   `balance-windows' deletes and recreates every popup window, which changes
+  ;;   the window list again, so popups are deleted on every redisplay
+  ;;   (prompting to save modified popup buffers each time, see
+  ;;   doomemacs/core#8148).
+  (letf! ((#'+popup-save-a #'funcall))
+    (apply fn args)))
