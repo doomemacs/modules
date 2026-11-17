@@ -86,10 +86,10 @@ overrides `completion-styles' during company completion sessions.")
      +vertico-basic-remote-all-completions
      "Use basic completion on remote files only"))
   (setq completion-styles '(orderless basic)
-        completion-category-defaults nil
-        ;; note that despite override in the name orderless can still be used in
-        ;; find-file etc.
-        completion-category-overrides '((file (styles orderless partial-completion))))
+        completion-category-defaults nil)
+  (add-to-list 'completion-category-overrides
+               '(file (styles orderless partial-completion))
+               t)
   ;; ...otherwise find-file gets different highlighting than other commands
   (set-face-attribute 'completions-first-difference nil :inherit nil)
 
