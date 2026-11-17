@@ -140,7 +140,14 @@ ARG is set, prompt for a known project to search from."
 (defun +default/org-notes-headlines ()
   "Jump to an Org headline in `org-agenda-files'."
   (interactive)
-  (doom-completing-read-org-headings
-   "Jump to org headline: " org-agenda-files
-   :depth 3
-   :include-files t))
+  (require 'org-refile)
+  (dlet ((org-refile-targets '((org-agenda-files :maxlevel . 3)))
+         (org-refile-use-outline-path 'file)
+         (org-outline-path-complete-in-steps nil)
+         (org-refile-history nil))
+    (pcase-let ((`(,_ ,file ,_ ,pos)
+                 (org-refile-get-location "Jump to org headline")))
+      (find-file file)
+      (when pos
+        (goto-char pos)
+        (org-fold-show-context)))))
