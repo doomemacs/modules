@@ -31,6 +31,19 @@
   (defvar mouse-wheel-down-event nil)
   (defvar mouse-wheel-up-event nil)
 
+  ;; HACK: `doom-modeline-vcs-name' only expects - or : between the backend's
+  ;;   name and the branch in `vc-mode', but `vc-mode-line-state' also uses @
+  ;;   (added), ! (conflict, removed, ignored), and ? (missing), for which the
+  ;;   branch name would be omitted altogether.
+  ;; REVIEW: PR this upstream!
+  (defadvice! +modeline--fix-vcs-name-a (&rest _)
+    :override #'doom-modeline-vcs-name
+    (when vc-mode
+      (let ((str (string-trim vc-mode)))
+        (if (string-match "\\`[[:alnum:]]+[-:@!?]+" str)
+            (substring str (match-end 0))
+          str))))
+
   (add-hook 'after-setting-font-hook #'+modeline-resize-for-font-h)
   (add-hook 'doom-load-theme-hook #'doom-modeline-refresh-bars)
 
