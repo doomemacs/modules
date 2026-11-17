@@ -93,6 +93,14 @@
     :override #'rustic-install-lsp-client-p
     (message "No LSP server running"))
 
+  ;; HACK: `rustic-beginning-of-defun' (used by `rustic-cargo-current-test')
+  ;;   calls `rust-in-str-or-cmnt', which is only defined in `rust-prog-mode'.
+  ;;   That library isn't (and mustn't be) loaded when `rust-mode' derives
+  ;;   from `rust-ts-mode', so the function has to be backported.
+  (when (modulep! +tree-sitter)
+    (unless (fboundp 'rust-in-str-or-cmnt)
+      (defun rust-in-str-or-cmnt () (nth 8 (syntax-ppss)))))
+
   (map! :map rustic-mode-map
         :localleader
         (:prefix ("b" . "build")
