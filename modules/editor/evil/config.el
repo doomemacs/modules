@@ -304,6 +304,19 @@ don't offer any/enough real value to users.")
                 evil-collection-key-blacklist
                 '("gz" "<escape>")))
 
+  ;; HACK: Doom distinguishes C-i from TAB (where the display allows it) and
+  ;;   binds `evil-jump-forward' to [C-i], which shadows the C-i keybinds
+  ;;   evil-collection sets up in some modes (e.g. info, help, pdf, sly).
+  (defadvice! +evil-collection-mirror-C-i-a (state map-sym &rest bindings)
+    :after #'evil-collection-define-key
+    (let (back forward)
+      (cl-loop for (key def) on bindings by #'cddr
+               do (pcase (key-description key)
+                    ("C-o" (setq back def))
+                    ("TAB" (setq forward def))))
+      (when (and back forward)
+        (evil-collection-define-key state map-sym [C-i] forward))))
+
   (defadvice! +evil-collection-disable-blacklist-a (fn)
     :around #'evil-collection-vterm-toggle-send-escape  ; allow binding to ESC
     (dlet (evil-collection-key-blacklist)
