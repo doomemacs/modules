@@ -97,7 +97,7 @@ Advanced examples:
               (error "set-formatter!: unknown formatter (%s) cannot be assigned" name))
           (setf (alist-get name apheleia-formatters)
                 (if (stringp args)
-                    (ensure-list args)
+                    (split-string-and-unquote args)
                   args)))
         (dolist (mode (ensure-list modes))
           (setf (alist-get mode apheleia-mode-alist) name))))))
