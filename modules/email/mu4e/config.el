@@ -42,7 +42,9 @@
   (load! "+compat")
 
   (cond ((or (modulep! +mbsync)
-             (eq +mu4e-backend 'mbsync))
+             (and (not (modulep! +offlineimap))
+                  ;; REVIEW: Remove when `+mu4e-backend' is dropped
+                  (eq +mu4e-backend 'mbsync)))
          (setq mu4e-get-mail-command
                (concat "mbsync --all"
                        ;; XDG support was added to isync 1.5, but this lets
@@ -51,6 +53,7 @@
                          (format " --config %S" file)))
                mu4e-change-filenames-when-moving t))
         ((or (modulep! +offlineimap)
+             ;; REVIEW: Remove when `+mu4e-backend' is dropped
              (eq +mu4e-backend 'offlineimap))
          (setq mu4e-get-mail-command "offlineimap -o -q")))
 
