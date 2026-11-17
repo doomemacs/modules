@@ -7,4 +7,4 @@
   :recipe (:host github
            :repo "doomemacs/snippets"
            :files (:defaults "*"))
-  :pin "fd4edaaf0c8476a26994db17d084b36733c635e2")
+  :pin "03915f942cfdc3001b7f5cc38355e2a0ebcdeec0")
