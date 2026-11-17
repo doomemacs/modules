@@ -37,6 +37,42 @@
               (remq '+notmuch-show-expand-only-unread-h notmuch-show-hook)))
         (notmuch-show-filter-thread "tag:unread")))))
 
+;;;###autoload
+(defun +notmuch-address-backend (command &optional arg &rest _)
+  "A company-less port of `notmuch-company', for `cape-company-to-capf'."
+  ;; HACK: `notmuch-company' can't be given to `cape-company-to-capf' directly
+  ;;   because it hard-requires company (for `company-grab'), and notmuch
+  ;;   offers no native capf, so its address completion logic is reproduced
+  ;;   here for users of :completion corfu.
+  (let ((case-fold-search t)
+        (completion-ignore-case t))
+    (pcase command
+      (`prefix
+       (and (eq notmuch-address-command 'internal)
+            (looking-back (concat notmuch-address-completion-headers-regexp ".*")
+                          (line-beginning-position))
+            (looking-back "[:,][ \t]*\\(.*\\)" (line-beginning-position))
+            (match-string-no-properties 1)))
+      (`candidates
+       (if (notmuch-address--harvest-ready)
+           (progn
+             ;; Update harvested addresses from time to time
+             (notmuch-address-harvest-trigger)
+             (notmuch-address-matching arg))
+         (cons :async
+               (lambda (callback)
+                 ;; A quick harvest based on what's been entered so far,
+                 ;; followed by the (potentially slow) full harvest.
+                 (notmuch-address-harvest
+                  arg nil
+                  (lambda (_proc _event)
+                    (funcall callback (notmuch-address-matching arg))
+                    (notmuch-address-harvest-trigger)))))))
+      (`post-completion
+       (run-hook-with-args 'notmuch-address-post-completion-functions arg))
+      (`ignore-case t)
+      (`no-cache t))))
+
 (defun +notmuch-get-sync-command ()
   "Return a shell command string to synchronize your notmuch mail with."
   (let* ((afew-cmd "afew -n -t")
