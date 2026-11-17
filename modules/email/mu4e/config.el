@@ -398,6 +398,7 @@ This should already be the case yet it does not always seem to be."
     :before #'+mu4e/attach-files
     :before #'mu4e-compose-new
     :before #'mu4e-compose-reply
+    :before #'mu4e-compose-wide-reply  ; mu4e 1.12+
     :before #'mu4e-compose-forward
     :before #'mu4e-compose-resend
     (when (xor (/= 1 (prefix-numeric-value current-prefix-arg))
