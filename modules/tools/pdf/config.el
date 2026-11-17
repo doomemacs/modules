@@ -112,8 +112,15 @@
       "Produces a link handler for org-pdftools that suppresses missing-epdfinfo
 errors whenever storing or exporting links."
       (lambda (&rest args)
-        (and (ignore-errors (require 'org-pdftools nil t))
+        ;; HACK: `org-pdftools' can't be loaded without epdfinfo (`pdf-annot'
+        ;;   queries it at load time), so it never gets `provide'd and each
+        ;;   `require' would reload it from scratch. Since this runs on every
+        ;;   `org-store-link' (e.g. once per src block when tangling), check
+        ;;   for epdfinfo *before* trying to load it. `pdf-info' is safe (and
+        ;;   cheap) to load without epdfinfo.
+        (and (require 'pdf-info nil t)
              (file-executable-p pdf-info-epdfinfo-program)
+             (ignore-errors (require 'org-pdftools nil t))
              (apply fn args))))
     (org-link-set-parameters (or (bound-and-true-p org-pdftools-link-prefix) "pdf")
                              :follow   (+pdf--org-link-handler #'org-pdftools-open)
