@@ -140,7 +140,7 @@
 
   (plist-put (cdr (assoc :flags mu4e-header-info)) :shortname " Flags") ; default=Flgs
   (add-to-list 'mu4e-bookmarks
-               '("flag:flagged" "Flagged messages" ?f) t)
+               '(:name "Flagged messages" :query "flag:flagged" :key ?f) t)
 
   ;; TODO: avoid assuming that nerd-icons is present
   (defvar +mu4e-header-colorized-faces
