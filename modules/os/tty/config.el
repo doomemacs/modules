@@ -46,19 +46,30 @@
   :hook (tty-setup . evil-terminal-cursor-changer-activate))
 
 ;; Add support for the Kitty keyboard protocol.
-(use-package! kkp
-  :hook (tty-setup . global-kkp-mode)
-  :config
-  ;; HACK: Allow C-i to function independently of TAB in KKP-supported
-  ;;   terminals. Requires the `input-decode-map' entry in
-  ;;   lisp/doom-keybinds.el.
-  (define-key! key-translation-map
-    [?\C-i] (cmd! (if-let* (((kkp--this-terminal-has-active-kkp-p))
-                            (keys (this-single-command-raw-keys))
-                            ((> (length keys) 2))
-                            ((equal (cl-subseq keys -3) [27 91 49])))
-                      [C-i] [?\C-i])))
+(if (>= emacs-major-version 32)
+    ;; HACK: Add support for Doom's [C-i]/[C-m] translations (see
+    ;;   lisp/doom-emacs.el) in GUI frames.
+    (dolist (key '([?\C-i] [?\C-m]))
+      (let ((fn (lookup-key key-translation-map key)))
+        (when (functionp fn)
+          (define-key key-translation-map key
+            (lambda (prompt)
+              (if (terminal-parameter nil 'tty-kitty-kbd-proto)
+                  (letf! ((#'display-graphic-p #'always))
+                    (funcall fn prompt))
+                (funcall fn prompt)))))))
 
-  ;; HACK: Allow C-g to abort envrc.
-  ;; See https://github.com/benotn/kkp#c-g-and-blocking-subprocesses
-  (advice-add #'envrc--export :around #'kkp-restore-legacy-keys))
+  (use-package! kkp
+    :hook (tty-setup . global-kkp-mode)
+    :config
+    ;; HACK: Respect Doom's C-i translation (in lisp/doom-emacs.el).
+    (define-key! key-translation-map
+      [?\C-i] (cmd! (if-let* (((kkp--this-terminal-has-active-kkp-p))
+                              (keys (this-single-command-raw-keys))
+                              ((> (length keys) 2))
+                              ((equal (cl-subseq keys -3) [27 91 49])))
+                        [C-i] [?\C-i])))
+
+    ;; HACK: Allow C-g to abort envrc.
+    ;; See https://github.com/benotn/kkp#c-g-and-blocking-subprocesses
+    (advice-add #'envrc--export :around #'kkp-restore-legacy-keys)))

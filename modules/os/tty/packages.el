@@ -12,4 +12,6 @@
 ;; evil (anymore).
 (package! evil-terminal-cursor-changer :pin "5557d7e5c011962a06663924a26ca36af1ad5f84")
 
-(package! kkp :pin "f6e9f8166995591a3ac1f62c79deebe93865ac49")
+;; Emacs 32+ has native support for the Kitty Keyboard Protocol.
+(when (>= emacs-major-version 32)
+  (package! kkp :pin "f6e9f8166995591a3ac1f62c79deebe93865ac49"))
