@@ -8,7 +8,7 @@
 (package! transient :pin "08d85042ced662a73da813a143785f135f66a769") ; 0.13.9
 (package! cond-let :pin "09292a77001434f59ab55c775dec2b98cb18d028")  ; 1.1.5
 
-(package! magit :pin "659f89955cf60fe3d4326d881c412df06c69680d")     ; 4.7.1
+(package! magit :pin "602760478f6d4a67e7064f5bcd2e294aa3f38f8e")     ; 4.7.2
 (when (modulep! +forge)
   (package! closql :pin "d87a2718c2fe45ff98258a2c7f3821b3f7b24f29")  ; 2.5.0
   (package! forge :pin "7dc4855437315cb932cbc1d6a903f7d2de03ec5f")   ; 0.6.9
