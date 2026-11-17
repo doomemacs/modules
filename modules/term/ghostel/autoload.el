@@ -31,8 +31,8 @@ Returns the ghostel buffer."
            confirm-kill-processes
            current-prefix-arg)
       (when arg
-        (let ((buffer (get-buffer buffer-name))
-              (window (get-buffer-window buffer-name)))
+        (let ((buffer (get-buffer ghostel-buffer-name))
+              (window (get-buffer-window ghostel-buffer-name)))
           (when (buffer-live-p buffer)
             (kill-buffer buffer))
           (when (window-live-p window)
