@@ -521,6 +521,30 @@ prevent the popup(s) from messing up the UI (or vice versa)."
       (delete-other-windows window)
       window)))
 
+(defun +popup--side-window-next-to (side vslot)
+  "Return the window to split to make a new SIDE popup at VSLOT."
+  (let (outer outer-vslot)
+    ;; Find the popup on SIDE with the highest vslot below VSLOT
+    (dolist (window (window-list nil 'nomini))
+      (when (eq (window-parameter window 'window-side) side)
+        (let ((v (window-parameter window 'window-vslot)))
+          (when (and (numberp v) (< v vslot)
+                     (or (null outer-vslot) (> v outer-vslot)))
+            (setq outer window
+                  outer-vslot v)))))
+    (or (when outer
+          ;; If OUTER shares its vslot with a sibling (i.e. multiple slots), the
+          ;; major side window is their parent.
+          (when (cl-loop for w in (list (window-prev-sibling outer)
+                                        (window-next-sibling outer))
+                         thereis (and w (eql (window-parameter w 'window-vslot)
+                                             outer-vslot)))
+            (setq outer (window-parent outer)))
+          (if (memq side '(left top))
+              (window-next-sibling outer)
+            (window-prev-sibling outer)))
+        (frame-root-window))))
+
 ;;;###autoload
 (defun +popup-display-buffer-stacked-side-window-fn (buffer alist)
   "A `display-buffer' action that serves as an alternative to
@@ -590,7 +614,7 @@ Accepts the same arguments as `display-buffer-in-side-window'. You must set
              nil)
             ((not windows)
              (cl-letf (((symbol-function 'window--make-major-side-window-next-to)
-                        (lambda (_side) (frame-root-window (selected-frame)))))
+                        (lambda (_side) (+popup--side-window-next-to side vslot))))
                (when-let* ((window (window--make-major-side-window buffer side slot alist)))
                  (set-window-parameter window 'window-vslot vslot)
                  (add-to-list 'window-persistent-parameters '(window-vslot . writable))
