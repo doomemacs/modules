@@ -621,9 +621,22 @@ mutating hooks on exported output, like formatters."
   (defun +org--restart-mode-h ()
     "Restart `org-mode', but only once."
     (remove-hook 'doom-switch-buffer-hook #'+org--restart-mode-h 'local)
-    (quiet! (org-mode-restart))
-    (cl-callf2 delq (current-buffer) org-agenda-new-buffers)
-    (run-hooks 'find-file-hook))
+    ;; HACK: This runs on redisplay, i.e. *after* whatever displayed this
+    ;;   buffer is done with it (e.g. `org-agenda-switch-to' or org-drill,
+    ;;   which move point, then unfold or narrow to an entry). Org's startup
+    ;;   visibility and `save-place' (in `find-file-hook') would clobber that
+    ;;   state, so only let them loose on untouched buffers (see
+    ;;   doomemacs/core#7979).
+    (if (and (bobp) (not (buffer-narrowed-p)))
+        (progn
+          (quiet! (org-mode-restart))
+          (cl-callf2 delq (current-buffer) org-agenda-new-buffers)
+          (run-hooks 'find-file-hook))
+      (save-excursion
+        (dlet ((org-inhibit-startup-visibility-stuff t))
+          (quiet! (org-mode-restart)))
+        (cl-callf2 delq (current-buffer) org-agenda-new-buffers)
+        (run-hooks 'find-file-hook))))
 
   (add-hook! 'org-agenda-finalize-hook
     (defun +org-exclude-agenda-buffers-from-workspace-h ()
