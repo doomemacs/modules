@@ -597,6 +597,17 @@ mutating hooks on exported output, like formatters."
     :around #'org-src-font-lock-fontify-block
     (save-match-data (apply fn args)))
 
+  ;; HACK: In Org 9.8 a broken fold is no longer revealed on the spot but on the
+  ;;   next `post-command-hook'. `org-move-subtree-down' cuts and reinserts the
+  ;;   subtree, which trips those checks mid-command, then restores the
+  ;;   subtree's fold state itself, only for the deferred reveal to unfold it
+  ;;   again afterwards (see #8908).
+  ;; REVIEW: Present in Org 9.8.12. PR this upstream!
+  (defadvice! +org--keep-moved-subtree-folded-a (fn &rest args)
+    :around #'org-move-subtree-down
+    (dlet ((org-fold-core--ignore-fragility-checks t))
+      (apply fn args)))
+
   ;; REVIEW: PR this upstream!
   (defadvice! +org--strip-properties-from-eldoc-breadcrumbs-a (fn &rest args)
     "Fix variable height faces in eldoc breadcrumbs."
