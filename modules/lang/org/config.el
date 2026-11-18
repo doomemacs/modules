@@ -541,8 +541,7 @@ mutating hooks on exported output, like formatters."
     (dlet (write-file-functions) (apply fn args)))
 
   (defadvice! +org--fix-async-export-a (fn &rest args)
-    :around #'org-export-to-file
-    :around #'org-export-as
+    :around #'org-export-async-start
     (let ((old-async-init-file org-export-async-init-file)
           (org-export-async-init-file (make-temp-file "doom-org-async-export")))
       (doom-file-write
