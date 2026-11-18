@@ -13,11 +13,15 @@
         org-cite-export-processors '((latex biblatex) (t csl))
         org-support-shift-select t)
 
-  (require 'oc-biblatex))
-
-;; oc-csl requires citeproc, which requires the top-level org, so loading oc-csl
-;; after oc interferes with incremental loading of Org
-(after! org (require 'oc-csl))
+  ;; HACK: Org lazy loads citation processors when exporting, following,
+  ;;   inserting, or fontifying citations, but not when listing the styles they
+  ;;   support (e.g. when completing a style for `org-cite-insert'), so
+  ;;   oc-biblatex and oc-csl (and citeproc, which is expensive to load) used to
+  ;;   be loaded eagerly with org. Load them on lazily.
+  (defadvice! +biblio--load-export-processors-a (&optional processors)
+    :before #'org-cite-supported-styles
+    (mapc #'org-cite-try-load-processor
+          (delq nil (or processors (mapcar #'cadr org-cite-export-processors))))))
 
 
 (use-package! citar
