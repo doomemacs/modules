@@ -60,7 +60,7 @@ headings as titles, and you have more freedom to place them wherever you like.")
                    (progn
                      (when (org-before-first-heading-p)
                        (org-next-visible-heading 1))
-                     (ignore-errors (org-up-heading-all 99))
+                     (org-back-to-heading t)
                      (when +org-present-hide-first-heading
                        (forward-line 1))
                      (point))
