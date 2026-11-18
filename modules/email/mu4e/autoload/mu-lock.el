@@ -12,6 +12,10 @@
 (defvar +mu4e-lock-relaxed t
   "Whether if someone else wants the lock (signaled via `+mu4e-lock-request-file'), we should stop Mu4e and let go of it")
 
+(defvar +mu4e-lock--file-watcher nil)
+(defvar +mu4e-lock--file-just-deleted nil)
+(defvar +mu4e-lock--request-watcher nil)
+
 (defun +mu4e-lock-pid-info ()
   "Get info on the PID refered to in `+mu4e-lock-file' in the form (pid . process-attributes)
  If the file or process do not exist, the lock file is deleted an nil returned."
@@ -39,7 +43,8 @@ If STRICT only accept an unset lock file."
   "Check `+mu4e-lock-file', and delete it if this process is responsible for it."
   (when (and (+mu4e-lock-available) (not bury))
     (delete-file +mu4e-lock-file)
-    (file-notify-rm-watch +mu4e-lock--request-watcher)))
+    (file-notify-rm-watch +mu4e-lock--request-watcher)
+    (setq +mu4e-lock--request-watcher nil)))
 
 ;;;###autoload
 (defun +mu4e-lock-start (orig-fun &optional callback)
@@ -52,19 +57,16 @@ Else, write to this process' PID to the lock file"
     (delete-file +mu4e-lock-request-file))
   (if (not (+mu4e-lock-available))
       (user-error "Unfortunately another Emacs is already doing stuff with Mu4e, and you can only have one at a time")
+    (file-notify-rm-watch +mu4e-lock--request-watcher)
     (write-region (number-to-string (emacs-pid)) nil +mu4e-lock-file)
+    ;; The request file must not exist, or other processes' requests won't emit
+    ;; the `created' event that `+mu4e-lock--request' listens for.
     (delete-file +mu4e-lock-request-file)
-    (call-process "touch" nil nil nil +mu4e-lock-request-file)
     (funcall orig-fun callback)
-    (when +mu4e-lock--request-watcher
-      (file-notify-rm-watch +mu4e-lock--request-watcher))
-    (file-notify-add-watch +mu4e-lock-request-file
-                           '(change)
-                           #'+mu4e-lock--request)))
-
-(defvar +mu4e-lock--file-watcher nil)
-(defvar +mu4e-lock--file-just-deleted nil)
-(defvar +mu4e-lock--request-watcher nil)
+    (setq +mu4e-lock--request-watcher
+          (file-notify-add-watch +mu4e-lock-request-file
+                                 '(change)
+                                 #'+mu4e-lock--request))))
 
 (defun +mu4e-lock-add-watcher ()
   (setq +mu4e-lock--file-just-deleted nil)
@@ -78,9 +80,11 @@ Else, write to this process' PID to the lock file"
   "Handle another process requesting the Mu4e lock."
   (when (eq (nth 1 event) 'created)
     (when +mu4e-lock-relaxed
-      (mu4e--stop)
+      (when (mu4e-running-p)
+        (mu4e--stop))
       (file-notify-rm-watch +mu4e-lock--file-watcher)
       (file-notify-rm-watch +mu4e-lock--request-watcher)
+      (setq +mu4e-lock--request-watcher nil)
       (message "Someone else wants to use Mu4e, releasing lock")
       (delete-file +mu4e-lock-file)
       (run-at-time 0.2 nil #'+mu4e-lock-add-watcher))
