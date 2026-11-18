@@ -103,9 +103,12 @@ retrieve perspectives that were explicitly saved with `+workspace-save'.
 Returns t if successful, nil otherwise."
   (when (+workspace-exists-p name)
     (user-error "A workspace named '%s' already exists." name))
-  (persp-load-from-file-by-names
+  ;; HACK: `persp-load-from-file-by-names' turns NAME into an unanchored regexp
+  ;;   (with `regexp-opt'), so it would also load any saved workspace whose
+  ;;   name merely contains NAME (e.g. "test" => "test1", "test2", ...).
+  (persp-load-state-from-file
    (expand-file-name +workspaces-data-file persp-save-dir)
-   *persp-hash* (list name))
+   *persp-hash* (concat "\\`" (regexp-quote name) "\\'") t)
   (+workspace-exists-p name))
 
 ;;;###autoload
