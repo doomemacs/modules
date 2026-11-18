@@ -130,15 +130,16 @@ Return t if WORKSPACE was successfully deleted. Throws error if WORKSPACE is not
 found or wasn't saved with `+workspace-save'."
   (let* ((fname (expand-file-name +workspaces-data-file persp-save-dir))
          (workspace-name (if (stringp workspace) workspace (persp-name workspace)))
-         (workspace-names (persp-list-persp-names-in-file fname))
-         (workspace-idx (cl-position workspace-name workspace-names :test #'equal)))
-    (unless workspace-idx
+         (savelist (persp-savelist-from-savefile fname)))
+    (unless (cl-find workspace-name savelist :key #'cadr :test #'equal)
       (error "Couldn't find saved workspace '%s'" workspace-name))
-    (doom-file-write
-     fname (list (cl-remove-if (lambda (ws) (equal workspace-name (nth 1 ws)))
-                               (doom-file-read fname :by 'read)
-                               :count 1)))
-    (not (member name (persp-list-persp-names-in-file fname)))))
+    (let ((remaining (cl-remove-if (lambda (ws) (equal workspace-name (cadr ws)))
+                                   savelist :count 1)))
+      (with-temp-buffer
+        (insert ";; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-\n")
+        (insert (let (print-length print-level) (pp-to-string remaining)))
+        (persp-save-with-backups fname)))
+    (not (member workspace-name (persp-list-persp-names-in-file fname)))))
 
 ;;;###autoload
 (defun +workspace-new (name)
