@@ -51,7 +51,8 @@ stored in `persp-save-dir'.")
         persp-kill-foreign-buffer-behaviour 'kill
         persp-remove-buffers-from-nil-persp-behaviour nil
         persp-auto-resume-time -1 ; Don't auto-load on startup
-        persp-auto-save-opt (if noninteractive 0 1)) ; auto-save on kill
+        persp-auto-save-opt (if noninteractive 0 1) ; auto-save on kill
+        persp-window-state-put-function #'+workspaces-window-state-put)
 
   ;; The default perspective persp-mode creates is special and doesn't represent
   ;; a real persp object, so buffers can't really be assigned to it, among other

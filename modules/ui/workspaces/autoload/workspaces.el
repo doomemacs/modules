@@ -96,6 +96,21 @@ PERSP can be a string (name of a workspace) or a workspace (satisfies
 
 ;;; Actions
 ;;;###autoload
+(defun +workspaces-window-state-put (state &optional frame root)
+  "Restore STATE in FRAME, adapting graphical pixel dimensions to a TTY.
+The pixel dimensions in a saved graphical state describe the old font and
+frame, not the minimum dimensions of a terminal window.  Keep character sizes
+and normalized proportions so `window-state-put' can reflow the splits."
+  (let ((window (or root (frame-root-window (or frame (selected-frame))))))
+    (window-state-put
+     (if (display-graphic-p (window-frame window))
+         state
+       (cl-remove-if (lambda (item)
+                       (memq (car-safe item) '(pixel-width pixel-height)))
+                     state))
+     window t)))
+
+;;;###autoload
 (defun +workspace-load (name)
   "Loads a single workspace (named NAME) into the current session. Can only
 retrieve perspectives that were explicitly saved with `+workspace-save'.
@@ -103,9 +118,13 @@ retrieve perspectives that were explicitly saved with `+workspace-save'.
 Returns t if successful, nil otherwise."
   (when (+workspace-exists-p name)
     (user-error "A workspace named '%s' already exists." name))
-  (persp-load-from-file-by-names
+  ;; A saved workspace is an explicit snapshot, not an autosave target. Loading
+  ;; it with `persp-load-from-file-by-names' sets its `persp-file' parameter,
+  ;; which makes later session autosaves overwrite this file (possibly from a
+  ;; smaller TTY frame that cannot display the original window layout).
+  (persp-load-state-from-file
    (expand-file-name +workspaces-data-file persp-save-dir)
-   *persp-hash* (list name))
+   *persp-hash* (regexp-opt (list name)))
   (+workspace-exists-p name))
 
 ;;;###autoload
@@ -118,6 +137,9 @@ Returns t on success, nil otherwise."
   (unless (+workspace-exists-p name)
     (error "'%s' is an invalid workspace" name))
   (let ((fname (expand-file-name +workspaces-data-file persp-save-dir)))
+    ;; `persp-save-to-file-by-names' serializes the cached window state; refresh
+    ;; it first so repeated saves include the current splits and their sizes.
+    (persp-save-state (+workspace-get name))
     (persp-save-to-file-by-names fname *persp-hash* (list name) t)
     (and (member name (persp-list-persp-names-in-file fname))
          t)))
