@@ -2,6 +2,28 @@
 ;;;###if (modulep! +jupyter)
 ;; TODO: Move to :tools jupyter
 
+(use-package! jupyter-client
+  :defer t
+  :config
+  ;; HACK: Jupyter's capf advertises a `:company-doc-buffer' function that calls
+  ;;   `company-doc-buffer' unconditionally, so anything else that consumes it
+  ;;   (e.g. `corfu-popupinfo') throws void-function errors if company isn't
+  ;;   installed. Give it a stand-in in that case.
+  ;; REVIEW: Upstream this (not fixed as of emacs-jupyter/jupyter@05ea8406).
+  (defadvice! +org-jupyter--fix-doc-buffer-without-company-a (fn &rest args)
+    :around #'jupyter-completion--company-doc-buffer
+    (if (fboundp 'company-doc-buffer)
+        (apply fn args)
+      (cl-letf (((symbol-function 'company-doc-buffer)
+                 (lambda (&rest _)
+                   (with-current-buffer (get-buffer-create " *jupyter-doc*")
+                     (let ((inhibit-read-only t))
+                       (erase-buffer))
+                     (fundamental-mode)
+                     (current-buffer)))))
+        (apply fn args)))))
+
+
 (use-package! jupyter-repl
   :defer t
   :config
