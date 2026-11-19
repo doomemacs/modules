@@ -120,8 +120,19 @@ perspective hash table.
 Returns t on success, nil otherwise."
   (unless (+workspace-exists-p name)
     (error "'%s' is an invalid workspace" name))
-  (let ((fname (expand-file-name +workspaces-data-file persp-save-dir)))
-    (persp-save-to-file-by-names fname *persp-hash* (list name) t)
+  (let ((fname (expand-file-name +workspaces-data-file persp-save-dir))
+        (regexp (concat "\\`" (regexp-quote name) "\\'")))
+    ;; HACK: `persp-save-to-file-by-names' turns NAME into an unanchored regexp
+    ;;   (with `regexp-opt'), so it would also save any open workspace whose
+    ;;   name merely contains NAME, and discard any such workspace from the
+    ;;   file if it isn't open (e.g. "test" => "test1", "test2", ...).
+    (when-let* ((savelist (persps-to-savelist *persp-hash* regexp)))
+      (persp-savelist-to-file
+       (append savelist
+               (persp-savelist-filter-by-names-regexp
+                (persp-savelist-from-savefile fname)
+                (cons :not regexp)))
+       fname))
     (and (member name (persp-list-persp-names-in-file fname))
          t)))
 
