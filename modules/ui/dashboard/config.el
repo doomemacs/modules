@@ -363,14 +363,14 @@ whose dimensions may not be fully initialized by the time this is run."
 This and `+dashboard--persp-record-project-h' provides `persp-mode'
 integration with the Doom dashboard. It ensures that the dashboard is always in
 the correct project (which may be different across perspective)."
-  (when (bound-and-true-p persp-mode)
+  (when (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
     (when-let* ((pwd (persp-parameter 'last-project-root)))
       (+dashboard-update-pwd-h pwd))))
 
 (defun +dashboard--persp-record-project-h (&optional persp &rest _)
   "Record the last `doom-project-root' for the current persp.
 See `+dashboard--persp-detect-project-h' for more information."
-  (when (bound-and-true-p persp-mode)
+  (when (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
     (set-persp-parameter
      'last-project-root (doom-project-root)
      (if (persp-p persp)
