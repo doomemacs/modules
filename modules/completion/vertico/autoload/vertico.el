@@ -226,13 +226,25 @@ See minad/consult#770."
   ;; REVIEW: This condition was adapted from a similar one in
   ;;   lisp/doom-projects.el, to be replaced with a more robust check post v3
   (if (when-let*
-          ((bin (if (ignore-errors (file-remote-p default-directory nil t))
-                    (cl-find-if (doom-rpartial #'executable-find t)
-                                (list "fdfind" "fd"))
-                  doom-fd-executable))
-           (version (with-memoization (get 'doom-fd-executable 'version)
-                      (cadr (split-string (cdr (doom-call-process bin "--version"))
-                                          " " t))))
+          ((remote (or (ignore-errors (file-remote-p default-directory nil t))
+                       'local))
+           (bin (if (eq remote 'local)
+                    doom-fd-executable
+                  (cl-find-if (doom-rpartial #'executable-find t)
+                              (list "fdfind" "fd"))))
+           ;; The remote's fd may differ from the local one (and from other
+           ;; remotes'), so query and cache its version per host.
+           (version
+            (with-memoization (alist-get remote (get 'doom-fd-executable 'version)
+                                         nil nil #'equal)
+              (with-temp-buffer
+                (let ((default-directory
+                       (if (eq remote 'local)
+                           temporary-file-directory
+                         default-directory)))
+                  (when (eq 0 (ignore-errors
+                                (process-file bin nil t nil "--version")))
+                    (cadr (split-string (buffer-string) "[ \n]+" t)))))))
            ((ignore-errors (version-to-list version))))
         ;; REVIEW: Remove once fd 8.6.0 is widespread enough.
         (version< "8.6.0" version))
