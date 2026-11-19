@@ -30,8 +30,13 @@ If set to `nil', disable all the above behaviors.")
     "CSS" "HTML" "Bourbon" "Compass"
     ["Sass" (memq major-mode '(scss-mode sass-mode))]))
 
-(add-hook! '(css-mode-hook sass-mode-hook stylus-mode-hook)
-           #'rainbow-mode)
+(use-package! colorful-mode
+  :hook ((css-mode sass-mode stylus-mode) . colorful-mode)
+  :init
+  ;; `colorful-mode' previews colors with overlays, which (unlike css-mode's
+  ;; own text-property-based color previews) aren't obscured by `hl-line-mode'
+  ;; on the current line.
+  (setq css-fontify-colors nil))
 
 ;; built-in. Contains both css-mode & scss-mode
 (after! css-mode

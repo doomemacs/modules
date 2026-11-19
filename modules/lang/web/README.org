@@ -23,6 +23,7 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Django, and more.
   editing. Requires [[module::tools tree-sitter]].
 
 ** Packages
+- [[package:colorful-mode]]
 - [[package:company-web]] if [[module::completion company]]
 - [[package:counsel-css]] if [[module::completion ivy]]
 - [[package:emmet-mode]]
@@ -30,7 +31,6 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Django, and more.
 - [[package:helm-css-scss]] if [[module::completion helm]]
 - [[package:less-css-mode]]
 - [[package:pug-mode]]
-- [[package:rainbow-mode]]
 - [[package:sass-mode]]
 - [[package:slim-mode]]
 - [[package:stylus-mode]]

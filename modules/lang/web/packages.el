@@ -17,7 +17,9 @@
 (package! sass-mode :pin "247a0d4b509f10b28e4687cd8763492bca03599b")
 (package! stylus-mode :pin "1ad7c51f3c6a6ae64550d9510c5e4e8470014375")
 (package! sws-mode :pin "1ad7c51f3c6a6ae64550d9510c5e4e8470014375")
-(package! rainbow-mode :pin "8af64da0a3d6d27ae7265e3d74b212a19763a406")
+(package! colorful-mode
+  :recipe (:host github :repo "DevelopmentCool2449/colorful-mode")
+  :pin "e834189f13c7b8add86fd419b3c243dd9afa90e9")
 (when (modulep! :completion ivy)
   (package! counsel-css :pin "8e9c0515fc952452eee786d8ebb43d48ea86c9f8"))
 (when (modulep! :completion helm)
