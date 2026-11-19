@@ -260,6 +260,10 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                         "--eval" ,(prin1-to-string
                                    `(dlet ((gc-cons-threshold most-positive-fixnum)
                                            (gc-cons-percentage 1.0))
+                                      ;; `doom-emacs-dir' is inferred from
+                                      ;; this, which -Q would otherwise
+                                      ;; leave at Emacs' default.
+                                      (setq user-emacs-directory ,doom-emacs-dir)
                                       (require 'doom)
                                       (doom-initialize ,(doom-profile->id doom-profile))
                                       (setq byte-compile-warnings ',+emacs-lisp-linter-warnings)
@@ -318,6 +322,9 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                     (condition-case e
                         (dlet ((gc-cons-threshold most-positive-fixnum)
                                (gc-cons-percentage 1.0))
+                          ;; `doom-emacs-dir' is inferred from this, which
+                          ;; -Q would otherwise leave at Emacs' default.
+                          (setq user-emacs-directory ,doom-emacs-dir)
                           (require 'doom)
                           (doom-initialize ,(doom-profile->id doom-profile))
                           (setq byte-compile-warnings ',+emacs-lisp-linter-warnings)
