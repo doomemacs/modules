@@ -18,7 +18,7 @@ If prefix ARG, recreate the term buffer."
   (dlet ((multi-term-dedicated-select-after-open-p t)
          (multi-term-dedicated-buffer-name
           (format "doom:term-popup:%s"
-                  (if (bound-and-true-p persp-mode)
+                  (if (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
                       (safe-persp-name (get-current-persp))
                     "main"))))
     (let* ((buffer (multi-term-get-buffer nil t))

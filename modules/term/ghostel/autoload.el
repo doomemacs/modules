@@ -12,7 +12,7 @@
                        (file-name-nondirectory
                         (directory-file-name default-directory))))
             "")
-          (if (bound-and-true-p persp-mode)
+          (if (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
               (safe-persp-name (get-current-persp))
             "main")))
 

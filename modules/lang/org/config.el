@@ -641,7 +641,7 @@ mutating hooks on exported output, like formatters."
     (defun +org-exclude-agenda-buffers-from-workspace-h ()
       "Don't associate temporary agenda buffers with current workspace."
       (when (and org-agenda-new-buffers
-                 (bound-and-true-p persp-mode)
+                 (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
                  (not org-agenda-sticky))
         (dlet (persp-autokill-buffer-on-remove)
           (persp-remove-buffer org-agenda-new-buffers

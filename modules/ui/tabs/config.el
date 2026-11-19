@@ -28,7 +28,7 @@
                   (when (buffer-live-p b)
                     (or (eq (current-buffer) b)
                         (not (doom-temp-buffer-p b)))))
-                (if (bound-and-true-p persp-mode)
+                (if (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
                     (persp-buffer-list)
                   (buffer-list))))
   (setq centaur-tabs-buffer-list-function #'+tabs-buffer-list)

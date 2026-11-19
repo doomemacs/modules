@@ -53,5 +53,5 @@
         (doom-modeline-set-modeline 'emacs-everywhere))))
   (add-hook! 'emacs-everywhere-init-hooks
     (defun +everywhere-clear-persp-info-h ()
-      (when (bound-and-true-p persp-mode)
+      (when (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
         (setq persp-emacsclient-init-frame-behaviour-override nil)))))

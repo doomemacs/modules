@@ -64,7 +64,7 @@ If popup is focused, kill it."
   (let ((buffer
          (get-buffer-create
           (format "*doom:shell-popup:%s*"
-                  (if (bound-and-true-p persp-mode)
+                  (if (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
                       (safe-persp-name (get-current-persp))
                     "main"))))
         (dir default-directory))
