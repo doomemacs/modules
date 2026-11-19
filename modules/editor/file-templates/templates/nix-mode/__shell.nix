@@ -4,6 +4,6 @@ with pkgs;
 
 mkShell {
   buildInputs = [
-    ${0:`%`}
+    ${0:`yas-selected-text`}
   ];
 }

@@ -3,6 +3,6 @@
 ;;; Code:
 (require 'doom) ; be silent, byte-compiler
 
-$0`%`
+$0`yas-selected-text`
 
 ;;; .doomrc ends here

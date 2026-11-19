@@ -7,6 +7,6 @@
 
 module `pkg-module`
 `(when pkgs-p "  VERSION='0.0.1'\n\n")``(concat "  class " (if pkgs-p "<< self" (capitalize (car (last pkgs)))))`
-    `%`${0:# Code here}
+    `yas-selected-text`${0:# Code here}
   end
 end
