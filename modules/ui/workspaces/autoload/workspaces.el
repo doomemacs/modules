@@ -534,7 +534,11 @@ the next."
   "Delete workspace associated with current frame.
 A workspace gets associated with a frame when a new frame is interactively
 created."
-  (when (and persp-mode (not (bound-and-true-p with-editor-mode)))
+  (when (and persp-mode
+             ;; `with-editor-finish' runs `server-done-hook' in frames that
+             ;; weren't created for the commit (see #5195), but if FRAME is
+             ;; non-nil, the frame itself is being deleted (see #7209).
+             (or frame (not (bound-and-true-p with-editor-mode))))
     (unless frame
       (setq frame (selected-frame)))
     (let ((frame-persp (frame-parameter frame 'workspace)))
