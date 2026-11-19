@@ -92,7 +92,6 @@
           :v "R" #'merlin-iedit-occurrences))
 
   (use-package! merlin-imenu
-    :when (modulep! :emacs imenu)
     :hook (merlin-mode . merlin-use-merlin-imenu)))
 
 
