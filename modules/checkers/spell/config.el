@@ -41,6 +41,20 @@
        (setq ispell-personal-dictionary
              (expand-file-name (concat "ispell/" ispell-dictionary ".pws")
                                doom-data-dir)))
+     ;; HACK: Neither aspell nor spell-fu will create the directory of the
+     ;;   personal dictionary, and spell-fu ignores the dictionary altogether
+     ;;   if the file does not exist by the time `spell-fu-mode' is enabled.
+     ;;   Asking aspell to save it (rather than writing it ourselves) ensures
+     ;;   its header has a language aspell recognizes.
+     (let ((pdict (expand-file-name ispell-personal-dictionary)))
+       (when (and (not (file-exists-p pdict))
+                  (executable-find ispell-program-name))
+         (make-directory (file-name-directory pdict) t)
+         (with-temp-buffer
+           (insert "#\n")
+           (apply #'call-process-region nil nil ispell-program-name nil nil nil
+                  "-a" "-p" pdict
+                  (if ispell-dictionary (list "-d" ispell-dictionary))))))
 
      (add-hook! 'text-mode-hook
        (defun +spell-remove-run-together-switch-for-aspell-h ()
