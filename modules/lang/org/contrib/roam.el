@@ -76,17 +76,15 @@ inserting the link."
   (add-to-list 'org-roam-node-template-prefixes '("doom-type" . "@"))
 
   ;; REVIEW: Remove when addressed upstream. See org-roam/org-roam#2066.
-  (defadvice! +org--roam-fix-completion-width-for-vertico-a (fn &rest args)
-    "Fixes completion candidate width for vertico users."
+  (defadvice! +org--roam-fix-completion-width-a (fn &rest args)
+    "Fixes completion candidate width."
     :around #'org-roam-node-read--to-candidate
     (letf! (defadvice org-roam-node--format-entry
-               (:around (fn template node &optional width))
+               (:around (fn template node &optional _width))
              (funcall fn template node
-                      (if (bound-and-true-p vertico-mode)
-                          (if (minibufferp)
-                              (window-width)
-                            (1- (frame-width)))
-                        width)))
+                      (if (minibufferp)
+                          (window-width)
+                        (1- (frame-width)))))
       (apply fn args)))
 
   (setq-hook! 'org-roam-find-file-hook
