@@ -26,8 +26,11 @@
              (lang (or (org-eldoc-get-src-lang)
                        (user-error "No lang specified for this src block"))))
         (cond ((and (string-prefix-p "jupyter-" lang)
-                    (require 'jupyter nil t))
-               (jupyter-eval-region beg end))
+                    (require 'ob-jupyter nil t))
+               (or (jupyter-org-with-src-block-client
+                    (jupyter-eval-region nil beg end)
+                    t)
+                   (user-error "No Jupyter client for this src block's session")))
               ((+eval-with-mode-handler-fn beg end nil (org-src-get-lang-mode lang))))))))
 
 ;;;###autoload
