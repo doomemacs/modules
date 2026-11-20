@@ -29,12 +29,13 @@
 (when (modulep! +dictionary)
   (if (featurep :system 'macos)
       (package! osx-dictionary :pin "5974032809692eb1166d57b55dd6390ffe3acd7f")
-    (package! define-word :pin "31a8c67405afa99d0e25e7c86a4ee7ef84a808fe")
-    ;; REVIEW: This fork fixes SavchenkoValeriy/emacs-powerthesaurus#40.
-    (package! powerthesaurus
-      :recipe (:host github
-               :repo "doomelpa/powerthesaurus")
-      :pin "d9ebb866f6fce469102665f187266f0a041cfc4b")
-    (when (modulep! +offline)
-      (package! wordnut :pin "dffc75a455d0d4458b7555f4c051c51d71c8e18a")
-      (package! synosaurus :pin "690755ce88a50e65ab0441ce9aabe6341aae3964"))))
+    (package! define-word :pin "31a8c67405afa99d0e25e7c86a4ee7ef84a808fe"))
+  ;; REVIEW: This fork fixes SavchenkoValeriy/emacs-powerthesaurus#40.
+  (package! powerthesaurus
+    :recipe (:host github
+             :repo "doomelpa/powerthesaurus")
+    :pin "d9ebb866f6fce469102665f187266f0a041cfc4b")
+  (when (modulep! +offline)
+    (unless (featurep :system 'macos)
+      (package! wordnut :pin "dffc75a455d0d4458b7555f4c051c51d71c8e18a"))
+    (package! synosaurus :pin "690755ce88a50e65ab0441ce9aabe6341aae3964")))
