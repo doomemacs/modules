@@ -48,6 +48,14 @@
         "h" #'haskell-hide-toggle
         "H" #'haskell-hide-toggle-all))
 
+;; HACK: `haskell-compilation-filter-hook' calls `delete-matching-lines', which
+;;   leaves point at the start of the line the new output began on. Hooks that
+;;   run after it (like `ansi-color-compilation-filter') assume point is still
+;;   at the end of that output, and throw "Invalid search bound" errors.
+(defadvice! +haskell--preserve-point-in-compilation-filter-a (fn &rest args)
+  :around #'haskell-compilation-filter-hook
+  (save-excursion (apply fn args)))
+
 
 (use-package! haskell-ts-mode
   :when (modulep! +tree-sitter)
