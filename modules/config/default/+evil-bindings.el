@@ -74,7 +74,11 @@
                                       (list ?\( ?\[ ?\{ ?\} ?\] ?\))))))
                   #'yas-insert-snippet)))
            ,@(when (modulep! :editor fold)
-               '(((save-excursion (end-of-line) (invisible-p (point)))
+               ;; `+fold/toggle' can't open org's non-heading folds (drawers,
+               ;; blocks, list items), so leave org-mode to `org-cycle' (and
+               ;; `+org-cycle-only-current-subtree-h').
+               '(((and (not (derived-mode-p 'org-mode))
+                       (save-excursion (end-of-line) (invisible-p (point))))
                   #'+fold/toggle)))
            ;; Fixes doomemacs/core#4548: without this, this tab keybind
            ;; overrides mode-local ones for modes that don't have an evil
