@@ -1,8 +1,15 @@
 ;;; editor/snippets/autoload/snippets.el -*- lexical-binding: t; -*-
 
+(defun +snippets--builtin-p (x)
+  (file-in-directory-p (yas--template-get-file x) doom-emacs-dir))
+
 (defun +snippets--remove-p (x y)
   (and (equal (yas--template-key x) (yas--template-key y))
-       (file-in-directory-p (yas--template-get-file x) doom-emacs-dir)))
+       (+snippets--builtin-p x)))
+
+(defun +snippets--shadowed-p (x y)
+  (and (+snippets--remove-p x y)
+       (not (+snippets--builtin-p y))))
 
 ;;;###autoload
 (defun +snippets-prompt-private (prompt choices &optional display-fn)
@@ -21,7 +28,13 @@ ignored. This makes it easy to override built-in snippets with private ones."
   (when (eq this-command 'yas-expand)
     (with-delayed-gc!
       (let ((choices (condition-case _
-                         (cl-remove-duplicates choices :test #'+snippets--remove-p)
+                         (cl-remove-duplicates
+                          ;; `cl-remove-duplicates' only compares a choice to
+                          ;; those after it, so built-in snippets listed after
+                          ;; a private one must be culled first.
+                          (cl-remove-if (lambda (x) (cl-find x choices :test #'+snippets--shadowed-p))
+                                        choices)
+                          :test #'+snippets--remove-p)
                        (wrong-type-argument choices))))
         (if (cdr choices)
             (cl-loop for fn in (cdr (memq '+snippets-prompt-private yas-prompt-functions))
