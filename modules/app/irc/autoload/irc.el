@@ -101,10 +101,11 @@ argument) is non-nil only show channels in current server."
   (when (and (bound-and-true-p persp-mode)
              (+workspace-exists-p +irc--workspace-name))
     (let ((persp (get-current-persp))
+          (irc-persp (persp-get-by-name +irc--workspace-name))
           (buf (current-buffer)))
-      ;; Add a new circe buffer to irc workspace when we're in another workspace
-      (unless (eq (safe-persp-name persp) +irc--workspace-name)
-        ;; Add new circe buffers to the persp containing circe buffers
-        (persp-add-buffer buf (persp-get-by-name +irc--workspace-name))
-        ;; Remove new buffer from accidental workspace
+      ;; Add new circe buffers to the irc workspace, even if it is the current
+      ;; one (persp-mode won't register buffers that are never selected).
+      (persp-add-buffer buf irc-persp nil nil)
+      ;; Remove new buffer from accidental workspace
+      (unless (eq persp irc-persp)
         (persp-remove-buffer buf persp)))))
