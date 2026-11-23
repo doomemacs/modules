@@ -322,11 +322,16 @@ When otherwise called, open a dired buffer and enable `dired-mu4e-attach-ctrl-c-
                     (switch-to-buffer mail-target-buffer))
            (kill-buffer-and-window)
            (mu4e-compose 'new)))
-       (mapcar
-        (pcase major-mode
-          ('mu4e-compose-mode #'mail-add-attachment)
-          ('org-msg-edit-mode #'org-msg-attach-attach))
-        files-to-attach)))
+       (pcase major-mode
+         ('mu4e-compose-mode
+          (save-excursion
+            (goto-char (point-max))
+            (unless (bolp)
+              (insert "\n\n"))
+            (mapc #'mail-add-attachment files-to-attach)))
+         ('org-msg-edit-mode
+          (mapc #'org-msg-attach-attach files-to-attach))
+         (_ (user-error "Not in a mail composition buffer")))))
     (_
      (split-window-sensibly)
      (with-current-buffer (call-interactively #'find-file)
