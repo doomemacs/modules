@@ -98,7 +98,7 @@ argument) is non-nil only show channels in current server."
 
 ;;;###autoload
 (defun +irc--add-circe-buffer-to-persp-h ()
-  (when (and (bound-and-true-p persp-mode)
+  (when (and (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
              (+workspace-exists-p +irc--workspace-name))
     (let ((persp (get-current-persp))
           (buf (current-buffer)))

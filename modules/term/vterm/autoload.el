@@ -15,7 +15,7 @@ Returns the vterm buffer."
    (lambda ()
      (let ((buffer-name
             (format "*doom:vterm-popup:%s*"
-                    (if (bound-and-true-p persp-mode)
+                    (if (and (bound-and-true-p persp-mode) (boundp 'persp-nil-persp))
                         (safe-persp-name (get-current-persp))
                       "main")))
            confirm-kill-processes
