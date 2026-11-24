@@ -2,9 +2,13 @@
 (autoload 'file-notify-rm-watch "filenotify")
 (autoload 'file-notify-add-watch "filenotify")
 
-(defvar +mu4e-lock-file (expand-file-name "mu4e_lock" temporary-file-directory)
+(defvar +mu4e-lock-file
+  (expand-file-name (format "mu4e_lock.%d" (user-uid))
+                    temporary-file-directory)
   "Location of the lock file which stores the PID of the process currenty running mu4e")
-(defvar +mu4e-lock-request-file (expand-file-name "mu4e_lock_request" temporary-file-directory)
+(defvar +mu4e-lock-request-file
+  (expand-file-name (format "mu4e_lock_request.%d" (user-uid))
+                    temporary-file-directory)
   "Location of the lock file for which creating indicated that another process wants the lock to be released")
 
 (defvar +mu4e-lock-greedy nil
