@@ -241,12 +241,21 @@ This is ignored by ccls.")
                                               "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
                                               "-isystem/usr/local/include"]
                                   :resourceDir (cdr (doom-call-process "clang" "-print-resource-dir")))))))
+  ;; HACK: lsp-mode loads every client package it can find (including ccls),
+  ;;   even if another server (e.g. clangd) ends up managing the buffer, so
+  ;;   these keys must only be active where ccls is, or they will shadow
+  ;;   C-h/C-j/C-k/C-l with commands that only throw "method not found".
+  (defun +cc--ccls-active-p ()
+    (and (bound-and-true-p lsp-mode)
+         (cl-loop for ws in (lsp-workspaces)
+                  if (eq (lsp--workspace-server-id ws) 'ccls)
+                  return t)))
   (map! :after cc-mode
         :map (c-mode-map c++-mode-map)
-        :n "C-h" (cmd! (ccls-navigate "U"))
-        :n "C-j" (cmd! (ccls-navigate "R"))
-        :n "C-k" (cmd! (ccls-navigate "L"))
-        :n "C-l" (cmd! (ccls-navigate "D"))
+        :n "C-h" (cmds! (+cc--ccls-active-p) (cmd! (ccls-navigate "U")))
+        :n "C-j" (cmds! (+cc--ccls-active-p) (cmd! (ccls-navigate "R")))
+        :n "C-k" (cmds! (+cc--ccls-active-p) (cmd! (ccls-navigate "L")))
+        :n "C-l" (cmds! (+cc--ccls-active-p) (cmd! (ccls-navigate "D")))
         (:localleader
          :desc "Preprocess file"        "lp" #'ccls-preprocess-file
          :desc "Reload cache & CCLS"    "lf" #'ccls-reload)
