@@ -546,8 +546,18 @@ mutating hooks on exported output, like formatters."
           (org-export-async-init-file (make-temp-file "doom-org-async-export")))
       (doom-file-write
        org-export-async-init-file
-       `((setq org-export-async-debug ,(or org-export-async-debug debug-on-error)
+       `(";; -*- lexical-binding: t -*-"
+         (setq org-export-async-debug ,(or org-export-async-debug debug-on-error)
                load-path ',load-path)
+         ;; The child process loads neither the user's config nor Doom's
+         ;; modules, so any export backend beyond org's defaults (e.g.
+         ;; ox-beamer) must be loaded there too, or the export will fail
+         ;; with an "Unknown backend" error.
+         (with-eval-after-load 'ox
+           (dolist (lib ',(cl-loop for feature in features
+                                   if (string-prefix-p "ox-" (symbol-name feature))
+                                   collect feature))
+             (require lib nil t)))
          (unwind-protect
              (let ((init-file ,old-async-init-file))
                (if init-file
