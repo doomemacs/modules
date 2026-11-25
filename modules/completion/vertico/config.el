@@ -137,6 +137,10 @@ orderless."
           "--hidden --exclude .git"
           (if (featurep :system 'windows) "--path-separator=/")))
 
+  ;; Integrate with `better-jumper'
+  (when (fboundp 'doom-set-jump-maybe-a)
+    (advice-add #'consult--read :around #'doom-set-jump-maybe-a))
+
   (consult-customize
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file
