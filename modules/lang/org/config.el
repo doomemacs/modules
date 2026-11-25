@@ -951,12 +951,17 @@ between the two."
   (defadvice! +org-inhibit-scrolling-a (fn &rest args)
     "Prevent the jarring scrolling that occurs when the-ToC is regenerated."
     :around #'toc-org-insert-toc
-    (let ((p (set-marker (make-marker) (point)))
-          (s (window-start)))
-      (prog1 (apply fn args)
-        (goto-char p)
-        (set-window-start nil s t)
-        (set-marker p nil)))))
+    ;; Dry runs don't modify the buffer, and the selected window may be
+    ;; showing another buffer (e.g. `org-list-to-subtree' runs `org-mode-hook'
+    ;; in a temp buffer).
+    (if (or (car args) (not (eq (window-buffer) (current-buffer))))
+        (apply fn args)
+      (let ((p (set-marker (make-marker) (point)))
+            (s (window-start)))
+        (prog1 (apply fn args)
+          (goto-char p)
+          (set-window-start nil s t)
+          (set-marker p nil))))))
 
 
 (use-package! org-crypt ; built-in
