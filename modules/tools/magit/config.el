@@ -280,6 +280,11 @@ FUNCTION
     (dolist (key '(("M-k" . "gk") ("M-j" . "gj")))
       (when-let* ((desc (assoc (car key) evil-collection-magit-rebase-commands-w-descriptions)))
         (setcar desc (cdr key))))
+    ;; HACK: evil-collection-magit makes `git-rebase-mode-map' an overriding
+    ;;   map, so the "g" (`revert-buffer') it inherits from `special-mode-map'
+    ;;   shadows evil's g prefix (gg, gt, etc), leaving only gj/gk below.
+    ;;   Reverting the todo list is pointless anyway.
+    (define-key git-rebase-mode-map "g" nil)
     (evil-define-key* evil-collection-magit-state git-rebase-mode-map
       "gj" #'git-rebase-move-line-down
       "gk" #'git-rebase-move-line-up))
