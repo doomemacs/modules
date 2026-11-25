@@ -104,7 +104,9 @@
                 ;; :lang ess
                 (ess-smart-comma . evil-mc-execute-call)
                 ;; :lang org
-                (evil-org-delete . evil-mc-execute-default-evil-delete)))
+                (evil-org-delete . evil-mc-execute-default-evil-delete)
+                (+org/return . evil-mc-execute-default-call)
+                (+org/shift-return)))
     (setf (alist-get (car fn) evil-mc-custom-known-commands)
           (if (and (cdr fn) (listp (cdr fn)))
               (cdr fn)
