@@ -63,7 +63,11 @@ the buffer is visible, then set another timer and try again later."
         (delete-window window)))
     (unless (window-live-p window)
       (with-current-buffer buffer
-        (set-buffer-modified-p nil)
+        ;; Indirect buffers (e.g. org-capture's) share their modified flag
+        ;; with their base buffer; clearing it here would mark the base
+        ;; buffer's unsaved changes as saved.
+        (unless (buffer-base-buffer)
+          (set-buffer-modified-p nil))
         (+popup-buffer-mode -1)
         (unless +popup--inhibit-transient
           (let ((ttl (+popup-parameter 'ttl window)))
