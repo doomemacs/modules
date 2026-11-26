@@ -1,8 +1,9 @@
 ;;; tools/docker/config.el -*- lexical-binding: t; -*-
 
+(set-formatter! 'dockerfmt :modes '(dockerfile-mode dockerfile-ts-mode))
+
 (after! dockerfile-mode
   (set-docsets! 'dockerfile-mode "Docker")
-  (set-formatter! 'dockerfmt :modes '(dockerfile-mode))
 
   (when (modulep! +lsp)
     (add-hook 'dockerfile-mode-local-vars-hook #'lsp! 'append)))
