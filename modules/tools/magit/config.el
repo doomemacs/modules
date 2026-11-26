@@ -211,18 +211,19 @@ FUNCTION
   :when (modulep! +forge)
   :defer t
   :init
-  ;; HACK: See jwiegley/use-package#829
-  (after! magit (require 'code-review))
   (setq code-review-db-database-file (doom-profile-data-dir t "code-review" "code-review-db-file.sqlite")
         code-review-log-file (doom-profile-data-dir t "code-review" "code-review-error.log")
         code-review-download-dir (doom-profile-data-dir t "code-review/"))
-  :config
-  (set-evil-initial-state! 'code-review-mode 'normal)
-  (transient-append-suffix 'magit-merge "d"
-    '("y" "Review pull request" +magit/start-code-review))
-  (after! forge
+  ;; `+magit/start-code-review' is autoloaded, so these don't need code-review
+  ;; (which pulls in forge and its dependencies) to be loaded with magit.
+  (after! magit-merge
+    (transient-append-suffix 'magit-merge "d"
+      '("y" "Review pull request" +magit/start-code-review)))
+  (after! forge-commands
     (transient-append-suffix 'forge-dispatch "c u"
-      '("c r" "Review pull request" +magit/start-code-review))))
+      '("c r" "Review pull request" +magit/start-code-review)))
+  :config
+  (set-evil-initial-state! 'code-review-mode 'normal))
 
 
 (use-package! evil-collection-magit
