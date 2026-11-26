@@ -9,5 +9,5 @@
          "Can't find `dockerfile-ts-mode'; Emacs 29.1+ is required")
 
 (when (modulep! :editor format)
-  (unless (executable-find "dockfmt")
-    (warn! "Couldn't find dockfmt. Formatting will be disabled.")))
+  (unless (executable-find "dockerfmt")
+    (warn! "Couldn't find dockerfmt. Formatting will be disabled.")))
