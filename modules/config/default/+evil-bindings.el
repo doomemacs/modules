@@ -763,6 +763,7 @@
        :desc "Find file in other project"   "F" #'doom/find-file-in-other-project
        :desc "Configure project"            "g" #'projectile-configure-project
        :desc "Invalidate project cache"     "i" #'projectile-invalidate-cache
+       :desc "Discover projects in search path" "I" #'projectile-discover-projects-in-search-path
        :desc "Kill project buffers"         "k" #'projectile-kill-buffers
        :desc "Find sibling file"            "o" #'find-sibling-file
        :desc "Switch project"               "p" #'projectile-switch-project
