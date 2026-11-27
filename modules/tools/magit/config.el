@@ -176,6 +176,30 @@ FUNCTION
         (require 'reveal)
         (reveal-post-command))))
 
+  ;; HACK: `better-jumper' only records jumps in file-visiting buffers, so
+  ;;   after visiting a file from a magit buffer there's no jump point to
+  ;;   return to (e.g. with C-o). This teaches it about magit buffers.
+  (after! better-jumper
+    (defvar +magit--jump-target-re "\\`\\*?magit[^:\n]*: ")
+    (setq better-jumper--buffer-targets
+          (concat +magit--jump-target-re "\\|" better-jumper--buffer-targets))
+    (advice-add #'magit-diff-visit-file--internal :around #'doom-set-jump-a)
+
+    (defadvice! +magit--forget-dead-jumps-a (&rest _)
+      "Forget jumps to killed magit buffers, so they aren't revived as empty buffers."
+      :before '(better-jumper-jump-backward better-jumper-jump-forward)
+      (let* ((struct (better-jumper--get-struct))
+             (ring (better-jumper--get-struct-jump-list struct))
+             (i 0))
+        (while (< i (ring-length ring))
+          (let ((name (car (ring-ref ring i))))
+            (if (or (get-buffer name)
+                    (not (string-match-p +magit--jump-target-re name)))
+                (cl-incf i)
+              (ring-remove ring i)
+              (when (< i (better-jumper-jump-list-struct-idx struct))
+                (cl-decf (better-jumper-jump-list-struct-idx struct)))))))))
+
   ;; HACK: See magit/magit#5320: large/long status buffers can change the
   ;;   behavior of motions and TAB in obscure ways.
   ;; REVIEW: REmove when magit/magit#5320 is addressed.
